@@ -1,0 +1,29 @@
+{
+  "slug": "histogram-stretch",
+  "name": "Histogram Stretch",
+  "categories": [
+    "digitalimageprocessing",
+    "histogramequalization"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "digital_image_processing\\histogram_equalization\\histogram_stretch.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/digital_image_processing\\histogram_equalization\\histogram_stretch.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nCreated on Fri Sep 28 15:22:29 2018\r\n\r\n@author: Binish125\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">import</span> copy\r\n<span class=\"hljs-keyword\">import</span> os\r\n\r\n<span class=\"hljs-keyword\">import</span> cv2\r\n<span class=\"hljs-keyword\">import</span> numpy <span class=\"hljs-keyword\">as</span> np\r\n<span class=\"hljs-keyword\">from</span> matplotlib <span class=\"hljs-keyword\">import</span> pyplot <span class=\"hljs-keyword\">as</span> plt\r\n\r\n\r\n<span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">contrastStretch</span>:\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">__init__</span>(<span class=\"hljs-params\">self</span>):\r\n        self.img = <span class=\"hljs-string\">&quot;&quot;</span>\r\n        self.original_image = <span class=\"hljs-string\">&quot;&quot;</span>\r\n        self.last_list = []\r\n        self.rem = <span class=\"hljs-number\">0</span>\r\n        self.L = <span class=\"hljs-number\">256</span>\r\n        self.sk = <span class=\"hljs-number\">0</span>\r\n        self.k = <span class=\"hljs-number\">0</span>\r\n        self.number_of_rows = <span class=\"hljs-number\">0</span>\r\n        self.number_of_cols = <span class=\"hljs-number\">0</span>\r\n\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">stretch</span>(<span class=\"hljs-params\">self, input_image</span>):\r\n        self.img = cv2.imread(input_image, <span class=\"hljs-number\">0</span>)\r\n        self.original_image = copy.deepcopy(self.img)\r\n        x, _, _ = plt.hist(self.img.ravel(), <span class=\"hljs-number\">256</span>, [<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">256</span>], label=<span class=\"hljs-string\">&quot;x&quot;</span>)\r\n        self.k = np.<span class=\"hljs-built_in\">sum</span>(x)\r\n        <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-built_in\">len</span>(x)):\r\n            prk = x[i] / self.k\r\n            self.sk += prk\r\n            last = (self.L - <span class=\"hljs-number\">1</span>) * self.sk\r\n            <span class=\"hljs-keyword\">if</span> self.rem != <span class=\"hljs-number\">0</span>:\r\n                self.rem = <span class=\"hljs-built_in\">int</span>(last % last)\r\n            last = <span class=\"hljs-built_in\">int</span>(last + <span class=\"hljs-number\">1</span> <span class=\"hljs-keyword\">if</span> self.rem &gt;= <span class=\"hljs-number\">0.5</span> <span class=\"hljs-keyword\">else</span> last)\r\n            self.last_list.append(last)\r\n            self.number_of_rows = <span class=\"hljs-built_in\">int</span>(np.ma.count(self.img) / self.img[<span class=\"hljs-number\">1</span>].size)\r\n            self.number_of_cols = self.img[<span class=\"hljs-number\">1</span>].size\r\n        <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(self.number_of_cols):\r\n            <span class=\"hljs-keyword\">for</span> j <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(self.number_of_rows):\r\n                num = self.img[j][i]\r\n                <span class=\"hljs-keyword\">if</span> num != self.last_list[num]:\r\n                    self.img[j][i] = self.last_list[num]\r\n        cv2.imwrite(<span class=\"hljs-string\">&quot;output_data/output.jpg&quot;</span>, self.img)\r\n\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">plotHistogram</span>(<span class=\"hljs-params\">self</span>):\r\n        plt.hist(self.img.ravel(), <span class=\"hljs-number\">256</span>, [<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">256</span>])\r\n\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">showImage</span>(<span class=\"hljs-params\">self</span>):\r\n        cv2.imshow(<span class=\"hljs-string\">&quot;Output-Image&quot;</span>, self.img)\r\n        cv2.imshow(<span class=\"hljs-string\">&quot;Input-Image&quot;</span>, self.original_image)\r\n        cv2.waitKey(<span class=\"hljs-number\">5000</span>)\r\n        cv2.destroyAllWindows()\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    file_path = os.path.join(os.path.basename(__file__), <span class=\"hljs-string\">&quot;image_data/input.jpg&quot;</span>)\r\n    stretcher = contrastStretch()\r\n    stretcher.stretch(file_path)\r\n    stretcher.plotHistogram()\r\n    stretcher.showImage()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Binish Manandhar",
+      "email": "37204996+binish784@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

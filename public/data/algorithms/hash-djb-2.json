@@ -1,0 +1,17 @@
+{
+  "slug": "hash-djb-2",
+  "name": "Hash Djb 2",
+  "categories": [
+    "hashing"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "hash\\hash_djb2.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/hash\\hash_djb2.c",
+      "code": "<span class=\"hljs-comment\">/**\r\n * @addtogroup hash Hash algorithms\r\n * @{\r\n * @file hash_djb2.c\r\n * @author [Christian Bender](https://github.com/christianbender)\r\n * @brief [DJB2 hash algorithm](http://www.cse.yorku.ca/~oz/hash.html)\r\n */</span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;assert.h&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;inttypes.h&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;stdio.h&gt;</span></span>\r\n\r\n<span class=\"hljs-comment\">/**\r\n * @brief DJB2 algorithm implementation\r\n *\r\n * @param s NULL terminated string to hash\r\n * @return 64-bit hash result\r\n */</span>\r\n<span class=\"hljs-type\">uint64_t</span> <span class=\"hljs-title function_\">djb2</span><span class=\"hljs-params\">(<span class=\"hljs-type\">const</span> <span class=\"hljs-type\">char</span>* s)</span>\r\n{\r\n    <span class=\"hljs-type\">uint64_t</span> hash = <span class=\"hljs-number\">5381</span>; <span class=\"hljs-comment\">/* init value */</span>\r\n    <span class=\"hljs-type\">size_t</span> i = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-keyword\">while</span> (s[i] != <span class=\"hljs-string\">&#x27;\\0&#x27;</span>)\r\n    {\r\n        hash = ((hash &lt;&lt; <span class=\"hljs-number\">5</span>) + hash) + s[i];\r\n        i++;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> hash;\r\n}\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Test function for ::djb2\r\n * \\returns none\r\n */</span>\r\n<span class=\"hljs-type\">void</span> <span class=\"hljs-title function_\">test_djb2</span><span class=\"hljs-params\">(<span class=\"hljs-type\">void</span>)</span>\r\n{\r\n    assert(djb2(<span class=\"hljs-string\">&quot;Hello World&quot;</span>) == <span class=\"hljs-number\">13827776004929097857</span>);\r\n    assert(djb2(<span class=\"hljs-string\">&quot;Hello World!&quot;</span>) == <span class=\"hljs-number\">13594750393630990530</span>);\r\n    assert(djb2(<span class=\"hljs-string\">&quot;Hello world&quot;</span>) == <span class=\"hljs-number\">13827776004967047329</span>);\r\n    assert(djb2(<span class=\"hljs-string\">&quot;Hello world!&quot;</span>) == <span class=\"hljs-number\">13594750394883323106</span>);\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;Tests passed\\n&quot;</span>);\r\n}\r\n\r\n<span class=\"hljs-comment\">/** @} */</span>\r\n\r\n<span class=\"hljs-comment\">/** Main function */</span>\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">()</span>\r\n{\r\n    test_djb2();\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [],
+  "explanationUrl": {}
+}

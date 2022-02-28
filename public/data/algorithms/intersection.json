@@ -1,0 +1,68 @@
+{
+  "slug": "intersection",
+  "name": "Intersection",
+  "categories": [
+    "numericalanalysis"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "arithmetic_analysis\\intersection.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/arithmetic_analysis\\intersection.py",
+      "code": "<span class=\"hljs-keyword\">import</span> math\r\n<span class=\"hljs-keyword\">from</span> typing <span class=\"hljs-keyword\">import</span> <span class=\"hljs-type\">Callable</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">intersection</span>(<span class=\"hljs-params\">function: <span class=\"hljs-type\">Callable</span>[[<span class=\"hljs-built_in\">float</span>], <span class=\"hljs-built_in\">float</span>], x0: <span class=\"hljs-built_in\">float</span>, x1: <span class=\"hljs-built_in\">float</span></span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    function is the f we want to find its root\r\n    x0 and x1 are two random starting points\r\n    &gt;&gt;&gt; intersection(lambda x: x ** 3 - 1, -5, 5)\r\n    0.9999999999954654\r\n    &gt;&gt;&gt; intersection(lambda x: x ** 3 - 1, 5, 5)\r\n    Traceback (most recent call last):\r\n    ...\r\n    ZeroDivisionError: float division by zero, could not find root\r\n    &gt;&gt;&gt; intersection(lambda x: x ** 3 - 1, 100, 200)\r\n    1.0000000000003888\r\n    &gt;&gt;&gt; intersection(lambda x: x ** 2 - 4 * x + 3, 0, 2)\r\n    0.9999999998088019\r\n    &gt;&gt;&gt; intersection(lambda x: x ** 2 - 4 * x + 3, 2, 4)\r\n    2.9999999998088023\r\n    &gt;&gt;&gt; intersection(lambda x: x ** 2 - 4 * x + 3, 4, 1000)\r\n    3.0000000001786042\r\n    &gt;&gt;&gt; intersection(math.sin, -math.pi, math.pi)\r\n    0.0\r\n    &gt;&gt;&gt; intersection(math.cos, -math.pi, math.pi)\r\n    Traceback (most recent call last):\r\n    ...\r\n    ZeroDivisionError: float division by zero, could not find root\r\n    &quot;&quot;&quot;</span>\r\n    x_n: <span class=\"hljs-built_in\">float</span> = x0\r\n    x_n1: <span class=\"hljs-built_in\">float</span> = x1\r\n    <span class=\"hljs-keyword\">while</span> <span class=\"hljs-literal\">True</span>:\r\n        <span class=\"hljs-keyword\">if</span> x_n == x_n1 <span class=\"hljs-keyword\">or</span> function(x_n1) == function(x_n):\r\n            <span class=\"hljs-keyword\">raise</span> ZeroDivisionError(<span class=\"hljs-string\">&quot;float division by zero, could not find root&quot;</span>)\r\n        x_n2: <span class=\"hljs-built_in\">float</span> = x_n1 - (\r\n            function(x_n1) / ((function(x_n1) - function(x_n)) / (x_n1 - x_n))\r\n        )\r\n        <span class=\"hljs-keyword\">if</span> <span class=\"hljs-built_in\">abs</span>(x_n2 - x_n1) &lt; <span class=\"hljs-number\">10</span>**-<span class=\"hljs-number\">5</span>:\r\n            <span class=\"hljs-keyword\">return</span> x_n2\r\n        x_n = x_n1\r\n        x_n1 = x_n2\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">f</span>(<span class=\"hljs-params\">x: <span class=\"hljs-built_in\">float</span></span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n    <span class=\"hljs-keyword\">return</span> math.<span class=\"hljs-built_in\">pow</span>(x, <span class=\"hljs-number\">3</span>) - (<span class=\"hljs-number\">2</span> * x) - <span class=\"hljs-number\">5</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-built_in\">print</span>(intersection(f, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">3.5</span>))\r\n"
+    },
+    "ruby": {
+      "dir": "data_structures\\arrays\\intersection.rb",
+      "url": "https://github.com/TheAlgorithms/ruby/tree/master/data_structures\\arrays\\intersection.rb",
+      "code": "<span class=\"hljs-comment\"># Challenge name: Intersection of two arrays ii</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Given two arrays, write a function to compute their intersection.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># <span class=\"hljs-doctag\">@param</span> {Integer[]} nums1</span>\r\n<span class=\"hljs-comment\"># <span class=\"hljs-doctag\">@param</span> {Integer[]} nums2</span>\r\n<span class=\"hljs-comment\"># <span class=\"hljs-doctag\">@return</span> {Integer[]}</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Approach 1: Brute Force</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Time Complexity: O(n^2)</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">intersect</span><span class=\"hljs-params\">(arr1, arr2)</span></span>\r\n  result = []\r\n\r\n  <span class=\"hljs-keyword\">if</span> arr1.length &lt; arr2.length\r\n    shorter = arr1\r\n    longer = arr2\r\n  <span class=\"hljs-keyword\">else</span>\r\n    shorter = arr2\r\n    longer = arr1\r\n  <span class=\"hljs-keyword\">end</span>\r\n\r\n  shorter.each <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|matcher|</span>\r\n    longer.each <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|number|</span>\r\n      <span class=\"hljs-keyword\">next</span> <span class=\"hljs-keyword\">if</span> number != matcher\r\n\r\n      result.push(number)\r\n      <span class=\"hljs-keyword\">break</span>\r\n    <span class=\"hljs-keyword\">end</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n\r\n  result\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\nnums1 = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">1</span>]\r\nnums2 = [<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">2</span>]\r\nputs intersect(nums1, nums2)\r\n<span class=\"hljs-comment\"># =&gt; [2,2]</span>\r\n\r\nnums1 = [<span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">9</span>, <span class=\"hljs-number\">5</span>]\r\nnums2 = [<span class=\"hljs-number\">9</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">9</span>, <span class=\"hljs-number\">8</span>, <span class=\"hljs-number\">4</span>]\r\nputs intersect(nums1, nums2)\r\n<span class=\"hljs-comment\"># =&gt; [4,9]</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Approach 2: Hash</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Complexity Analysis</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Time Complexity: O(n+m), where n and m are the lengths of the arrays.</span>\r\n<span class=\"hljs-comment\"># We iterate through the first, and then through the second array; insert</span>\r\n<span class=\"hljs-comment\"># and lookup operations in the hash map take a constant time.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Space Complexity: O(min(n,m)). We use hash map to store numbers (and their</span>\r\n<span class=\"hljs-comment\"># counts) from the smaller array.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">intersect</span><span class=\"hljs-params\">(arr1, arr2)</span></span>\r\n  result = []\r\n\r\n  hash = Hash.new(<span class=\"hljs-number\">0</span>)\r\n\r\n  arr2.each { <span class=\"hljs-params\">|num|</span> hash[num] += <span class=\"hljs-number\">1</span> }\r\n\r\n  arr1.each <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|num|</span>\r\n    <span class=\"hljs-keyword\">if</span> hash.has_key?(num)\r\n      result &lt;&lt; num <span class=\"hljs-keyword\">if</span> hash[num] &gt;= <span class=\"hljs-number\">1</span>\r\n      hash[num] -= <span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">end</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n\r\n  result\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\nnums1 = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">1</span>]\r\nnums2 = [<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">2</span>]\r\nputs intersect(nums1, nums2)\r\n<span class=\"hljs-comment\"># =&gt; [2,2]</span>\r\n\r\nnums1 = [<span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">9</span>, <span class=\"hljs-number\">5</span>]\r\nnums2 = [<span class=\"hljs-number\">9</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">9</span>, <span class=\"hljs-number\">8</span>, <span class=\"hljs-number\">4</span>]\r\nputs intersect(nums1, nums2)\r\n<span class=\"hljs-comment\"># =&gt; [4,9]</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Approach 3: Two Pointers</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Complexity analysis:</span>\r\n\r\n<span class=\"hljs-comment\"># Time Complexity: O(nlogn + mlogm), where n and m are the lengths of the arrays. We sort two arrays independently and then do a linear scan.</span>\r\n<span class=\"hljs-comment\"># Space Complexity: from O(logn+logm) to O(n+m), depending on the implementation of the sorting algorithm.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">intersect</span><span class=\"hljs-params\">(nums1, nums2)</span></span>\r\n  result = []\r\n  p1 = <span class=\"hljs-number\">0</span>\r\n  p2 = <span class=\"hljs-number\">0</span>\r\n  nums1 = nums1.sort\r\n  nums2 = nums2.sort\r\n  <span class=\"hljs-keyword\">while</span> p1 &lt; nums1.length &amp;&amp; p2 &lt; nums2.length\r\n    <span class=\"hljs-keyword\">if</span> nums1[p1] &lt; nums2[p2]\r\n      p1 += <span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">elsif</span> nums1[p1] &gt; nums2[p2]\r\n      p2 += <span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">elsif</span> nums1[p1] == nums2[p2]\r\n      result &lt;&lt; nums1[p1]\r\n      p1 += <span class=\"hljs-number\">1</span>\r\n      p2 += <span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">end</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n\r\n  result\r\n<span class=\"hljs-keyword\">end</span>\r\nnums1 = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">1</span>]\r\nnums2 = [<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">2</span>]\r\nintersect(nums1, nums2)\r\n\r\nnums1 = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">1</span>]\r\nnums2 = [<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">2</span>]\r\nputs intersect(nums1, nums2)\r\n<span class=\"hljs-comment\"># =&gt; [2,2]</span>\r\n\r\nnums1 = [<span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">9</span>, <span class=\"hljs-number\">5</span>]\r\nnums2 = [<span class=\"hljs-number\">9</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">9</span>, <span class=\"hljs-number\">8</span>, <span class=\"hljs-number\">4</span>]\r\nputs intersect(nums1, nums2)\r\n<span class=\"hljs-comment\"># =&gt; [4,9]</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "AlexDvorak",
+      "email": "opti.jawsome@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "spamegg",
+      "email": "4255997+spamegg1@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Rafael García Cuéllar",
+      "email": "r.gc@hotmail.es",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 2
+    },
+    {
+      "name": "Jessica Kwok",
+      "email": "60627484+jsca-kwok@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "Ritik2604",
+      "email": "49342895+Ritik2604@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "Jessica Kwok",
+      "email": "jessicatckwok@gmail.com",
+      "commits": 4
+    }
+  ],
+  "explanationUrl": {}
+}

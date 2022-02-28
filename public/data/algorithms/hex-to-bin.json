@@ -1,0 +1,23 @@
+{
+  "slug": "hex-to-bin",
+  "name": "Hex to Bin",
+  "categories": [
+    "conversions"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "conversions\\hex_to_bin.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/conversions\\hex_to_bin.py",
+      "code": "<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">hex_to_bin</span>(<span class=\"hljs-params\">hex_num: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-built_in\">int</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Convert a hexadecimal value to its binary equivalent\r\n    #https://stackoverflow.com/questions/1425493/convert-hex-to-binary\r\n    Here, we have used the bitwise right shift operator: &gt;&gt;\r\n    Shifts the bits of the number to the right and fills 0 on voids left as a result.\r\n    Similar effect as of dividing the number with some power of two.\r\n    Example:\r\n    a = 10\r\n    a &gt;&gt; 1 = 5\r\n\r\n    &gt;&gt;&gt; hex_to_bin(&quot;AC&quot;)\r\n    10101100\r\n    &gt;&gt;&gt; hex_to_bin(&quot;9A4&quot;)\r\n    100110100100\r\n    &gt;&gt;&gt; hex_to_bin(&quot;   12f   &quot;)\r\n    100101111\r\n    &gt;&gt;&gt; hex_to_bin(&quot;FfFf&quot;)\r\n    1111111111111111\r\n    &gt;&gt;&gt; hex_to_bin(&quot;-fFfF&quot;)\r\n    -1111111111111111\r\n    &gt;&gt;&gt; hex_to_bin(&quot;F-f&quot;)\r\n    Traceback (most recent call last):\r\n    ...\r\n    ValueError: Invalid value was passed to the function\r\n    &gt;&gt;&gt; hex_to_bin(&quot;&quot;)\r\n    Traceback (most recent call last):\r\n    ...\r\n    ValueError: No value was passed to the function\r\n    &quot;&quot;&quot;</span>\r\n\r\n    hex_num = hex_num.strip()\r\n    <span class=\"hljs-keyword\">if</span> <span class=\"hljs-keyword\">not</span> hex_num:\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;No value was passed to the function&quot;</span>)\r\n\r\n    is_negative = hex_num[<span class=\"hljs-number\">0</span>] == <span class=\"hljs-string\">&quot;-&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> is_negative:\r\n        hex_num = hex_num[<span class=\"hljs-number\">1</span>:]\r\n\r\n    <span class=\"hljs-keyword\">try</span>:\r\n        int_num = <span class=\"hljs-built_in\">int</span>(hex_num, <span class=\"hljs-number\">16</span>)\r\n    <span class=\"hljs-keyword\">except</span> ValueError:\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;Invalid value was passed to the function&quot;</span>)\r\n\r\n    bin_str = <span class=\"hljs-string\">&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">while</span> int_num &gt; <span class=\"hljs-number\">0</span>:\r\n        bin_str = <span class=\"hljs-built_in\">str</span>(int_num % <span class=\"hljs-number\">2</span>) + bin_str\r\n        int_num &gt;&gt;= <span class=\"hljs-number\">1</span>\r\n\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-built_in\">int</span>((<span class=\"hljs-string\">&quot;-&quot;</span> + bin_str) <span class=\"hljs-keyword\">if</span> is_negative <span class=\"hljs-keyword\">else</span> bin_str)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "TANMAY SRIVASTAVA",
+      "email": "77936821+ktsrivastava29@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

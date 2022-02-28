@@ -1,0 +1,34 @@
+{
+  "slug": "invert",
+  "name": "Invert",
+  "categories": [
+    "datastructures",
+    "binarytree"
+  ],
+  "body": {},
+  "implementations": {
+    "ruby": {
+      "dir": "data_structures\\binary_trees\\invert.rb",
+      "url": "https://github.com/TheAlgorithms/ruby/tree/master/data_structures\\binary_trees\\invert.rb",
+      "code": "<span class=\"hljs-comment\"># Definition for a binary tree node.</span>\r\n<span class=\"hljs-comment\"># class TreeNode</span>\r\n<span class=\"hljs-comment\">#   attr_accessor :val, :left, :right</span>\r\n<span class=\"hljs-comment\">#   def initialize(val)</span>\r\n<span class=\"hljs-comment\">#     <span class=\"hljs-doctag\">@val</span> = val</span>\r\n<span class=\"hljs-comment\">#     <span class=\"hljs-doctag\">@left</span>, <span class=\"hljs-doctag\">@right</span> = nil, nil</span>\r\n<span class=\"hljs-comment\">#   end</span>\r\n<span class=\"hljs-comment\"># end</span>\r\n\r\n<span class=\"hljs-comment\"># <span class=\"hljs-doctag\">@param</span> {TreeNode} root</span>\r\n<span class=\"hljs-comment\"># <span class=\"hljs-doctag\">@return</span> {TreeNode}</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">invert_tree</span><span class=\"hljs-params\">(root)</span></span>\r\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">nil</span> <span class=\"hljs-keyword\">if</span> root.<span class=\"hljs-literal\">nil</span>?\r\n\r\n  temp = root.left\r\n  root.left = invert_tree(root.right)\r\n  root.right = invert_tree(temp)\r\n  root\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Doppon",
+      "email": "zaxpkuraudo7777@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Spencer King",
+      "email": "spencerking@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

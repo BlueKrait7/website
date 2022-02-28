@@ -1,0 +1,23 @@
+{
+  "slug": "hex-to-binary",
+  "name": "Hex To Binary",
+  "categories": [
+    "conversions"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Conversions\\test\\HexToBinary.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Conversions\\test\\HexToBinary.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> hexToBinary <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../HexToBinary&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;hexToBinary&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return correct hexadecimal value&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">hexToBinary</span>(<span class=\"hljs-string\">&#x27;8&#x27;</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;1000&#x27;</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return correct binary value for more than one hex digit&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">hexToBinary</span>(<span class=\"hljs-string\">&#x27;EA&#x27;</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;11101010&#x27;</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to test its robustness as it should be case-insensitive&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">hexToBinary</span>(<span class=\"hljs-string\">&#x27;4d&#x27;</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;01001101&#x27;</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return correct hexadecimal value, matching (num).toString(2)&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">hexToBinary</span>(<span class=\"hljs-string\">&#x27;F&#x27;</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-built_in\">parseInt</span>(<span class=\"hljs-string\">&#x27;F&#x27;</span>, <span class=\"hljs-number\">16</span>).<span class=\"hljs-title function_\">toString</span>(<span class=\"hljs-number\">2</span>))\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Dhana D",
+      "email": "39583785+ddhira123@users.noreply.github.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

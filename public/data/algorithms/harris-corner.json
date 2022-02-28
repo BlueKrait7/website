@@ -1,0 +1,33 @@
+{
+  "slug": "harris-corner",
+  "name": "Harris Corner",
+  "categories": [
+    "computervision"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "computer_vision\\harris_corner.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/computer_vision\\harris_corner.py",
+      "code": "<span class=\"hljs-keyword\">import</span> cv2\r\n<span class=\"hljs-keyword\">import</span> numpy <span class=\"hljs-keyword\">as</span> np\r\n\r\n<span class=\"hljs-string\">&quot;&quot;&quot;\r\nHarris Corner Detector\r\nhttps://en.wikipedia.org/wiki/Harris_Corner_Detector\r\n&quot;&quot;&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Harris_Corner</span>:\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">__init__</span>(<span class=\"hljs-params\">self, k: <span class=\"hljs-built_in\">float</span>, window_size: <span class=\"hljs-built_in\">int</span></span>):\r\n\r\n        <span class=\"hljs-string\">&quot;&quot;&quot;\r\n        k : is an empirically determined constant in [0.04,0.06]\r\n        window_size : neighbourhoods considered\r\n        &quot;&quot;&quot;</span>\r\n\r\n        <span class=\"hljs-keyword\">if</span> k <span class=\"hljs-keyword\">in</span> (<span class=\"hljs-number\">0.04</span>, <span class=\"hljs-number\">0.06</span>):\r\n            self.k = k\r\n            self.window_size = window_size\r\n        <span class=\"hljs-keyword\">else</span>:\r\n            <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;invalid k value&quot;</span>)\r\n\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">__str__</span>(<span class=\"hljs-params\">self</span>) -&gt; <span class=\"hljs-built_in\">str</span>:\r\n\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">f&quot;Harris Corner  detection with k : <span class=\"hljs-subst\">{self.k}</span>&quot;</span>\r\n\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">detect</span>(<span class=\"hljs-params\">self, img_path: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-built_in\">tuple</span>[cv2.Mat, <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]]]:\r\n\r\n        <span class=\"hljs-string\">&quot;&quot;&quot;\r\n        Returns the image with corners identified\r\n        img_path  : path of the image\r\n        output : list of the corner positions, image\r\n        &quot;&quot;&quot;</span>\r\n\r\n        img = cv2.imread(img_path, <span class=\"hljs-number\">0</span>)\r\n        h, w = img.shape\r\n        corner_list: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]] = []\r\n        color_img = img.copy()\r\n        color_img = cv2.cvtColor(color_img, cv2.COLOR_GRAY2RGB)\r\n        dy, dx = np.gradient(img)\r\n        ixx = dx**<span class=\"hljs-number\">2</span>\r\n        iyy = dy**<span class=\"hljs-number\">2</span>\r\n        ixy = dx * dy\r\n        k = <span class=\"hljs-number\">0.04</span>\r\n        offset = self.window_size // <span class=\"hljs-number\">2</span>\r\n        <span class=\"hljs-keyword\">for</span> y <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(offset, h - offset):\r\n            <span class=\"hljs-keyword\">for</span> x <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(offset, w - offset):\r\n                wxx = ixx[\r\n                    y - offset : y + offset + <span class=\"hljs-number\">1</span>, x - offset : x + offset + <span class=\"hljs-number\">1</span>\r\n                ].<span class=\"hljs-built_in\">sum</span>()\r\n                wyy = iyy[\r\n                    y - offset : y + offset + <span class=\"hljs-number\">1</span>, x - offset : x + offset + <span class=\"hljs-number\">1</span>\r\n                ].<span class=\"hljs-built_in\">sum</span>()\r\n                wxy = ixy[\r\n                    y - offset : y + offset + <span class=\"hljs-number\">1</span>, x - offset : x + offset + <span class=\"hljs-number\">1</span>\r\n                ].<span class=\"hljs-built_in\">sum</span>()\r\n\r\n                det = (wxx * wyy) - (wxy**<span class=\"hljs-number\">2</span>)\r\n                trace = wxx + wyy\r\n                r = det - k * (trace**<span class=\"hljs-number\">2</span>)\r\n                <span class=\"hljs-comment\"># Can change the value</span>\r\n                <span class=\"hljs-keyword\">if</span> r &gt; <span class=\"hljs-number\">0.5</span>:\r\n                    corner_list.append([x, y, r])\r\n                    color_img.itemset((y, x, <span class=\"hljs-number\">0</span>), <span class=\"hljs-number\">0</span>)\r\n                    color_img.itemset((y, x, <span class=\"hljs-number\">1</span>), <span class=\"hljs-number\">0</span>)\r\n                    color_img.itemset((y, x, <span class=\"hljs-number\">2</span>), <span class=\"hljs-number\">255</span>)\r\n        <span class=\"hljs-keyword\">return</span> color_img, corner_list\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n\r\n    edge_detect = Harris_Corner(<span class=\"hljs-number\">0.04</span>, <span class=\"hljs-number\">3</span>)\r\n    color_img, _ = edge_detect.detect(<span class=\"hljs-string\">&quot;path_to_image&quot;</span>)\r\n    cv2.imwrite(<span class=\"hljs-string\">&quot;detect.png&quot;</span>, color_img)\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Erwin Junge",
+      "email": "erwin@junge.nl",
+      "commits": 1
+    },
+    {
+      "name": "Jeffin Francis",
+      "email": "francisjeffin07@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

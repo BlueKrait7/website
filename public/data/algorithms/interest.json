@@ -1,0 +1,28 @@
+{
+  "slug": "interest",
+  "name": "Interest",
+  "categories": [
+    "financial"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "financial\\interest.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/financial\\interest.py",
+      "code": "<span class=\"hljs-comment\"># https://www.investopedia.com</span>\r\n\r\n<span class=\"hljs-keyword\">from</span> __future__ <span class=\"hljs-keyword\">import</span> annotations\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">simple_interest</span>(<span class=\"hljs-params\">\r\n    principal: <span class=\"hljs-built_in\">float</span>, daily_interest_rate: <span class=\"hljs-built_in\">float</span>, days_between_payments: <span class=\"hljs-built_in\">int</span>\r\n</span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    &gt;&gt;&gt; simple_interest(18000.0, 0.06, 3)\r\n    3240.0\r\n    &gt;&gt;&gt; simple_interest(0.5, 0.06, 3)\r\n    0.09\r\n    &gt;&gt;&gt; simple_interest(18000.0, 0.01, 10)\r\n    1800.0\r\n    &gt;&gt;&gt; simple_interest(18000.0, 0.0, 3)\r\n    0.0\r\n    &gt;&gt;&gt; simple_interest(5500.0, 0.01, 100)\r\n    5500.0\r\n    &gt;&gt;&gt; simple_interest(10000.0, -0.06, 3)\r\n    Traceback (most recent call last):\r\n        ...\r\n    ValueError: daily_interest_rate must be &gt;= 0\r\n    &gt;&gt;&gt; simple_interest(-10000.0, 0.06, 3)\r\n    Traceback (most recent call last):\r\n        ...\r\n    ValueError: principal must be &gt; 0\r\n    &gt;&gt;&gt; simple_interest(5500.0, 0.01, -5)\r\n    Traceback (most recent call last):\r\n        ...\r\n    ValueError: days_between_payments must be &gt; 0\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> days_between_payments &lt;= <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;days_between_payments must be &gt; 0&quot;</span>)\r\n    <span class=\"hljs-keyword\">if</span> daily_interest_rate &lt; <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;daily_interest_rate must be &gt;= 0&quot;</span>)\r\n    <span class=\"hljs-keyword\">if</span> principal &lt;= <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;principal must be &gt; 0&quot;</span>)\r\n    <span class=\"hljs-keyword\">return</span> principal * daily_interest_rate * days_between_payments\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">compound_interest</span>(<span class=\"hljs-params\">\r\n    principal: <span class=\"hljs-built_in\">float</span>,\r\n    nominal_annual_interest_rate_percentage: <span class=\"hljs-built_in\">float</span>,\r\n    number_of_compounding_periods: <span class=\"hljs-built_in\">int</span>,\r\n</span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    &gt;&gt;&gt; compound_interest(10000.0, 0.05, 3)\r\n    1576.2500000000014\r\n    &gt;&gt;&gt; compound_interest(10000.0, 0.05, 1)\r\n    500.00000000000045\r\n    &gt;&gt;&gt; compound_interest(0.5, 0.05, 3)\r\n    0.07881250000000006\r\n    &gt;&gt;&gt; compound_interest(10000.0, 0.06, -4)\r\n    Traceback (most recent call last):\r\n        ...\r\n    ValueError: number_of_compounding_periods must be &gt; 0\r\n    &gt;&gt;&gt; compound_interest(10000.0, -3.5, 3.0)\r\n    Traceback (most recent call last):\r\n        ...\r\n    ValueError: nominal_annual_interest_rate_percentage must be &gt;= 0\r\n    &gt;&gt;&gt; compound_interest(-5500.0, 0.01, 5)\r\n    Traceback (most recent call last):\r\n        ...\r\n    ValueError: principal must be &gt; 0\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> number_of_compounding_periods &lt;= <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;number_of_compounding_periods must be &gt; 0&quot;</span>)\r\n    <span class=\"hljs-keyword\">if</span> nominal_annual_interest_rate_percentage &lt; <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;nominal_annual_interest_rate_percentage must be &gt;= 0&quot;</span>)\r\n    <span class=\"hljs-keyword\">if</span> principal &lt;= <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;principal must be &gt; 0&quot;</span>)\r\n\r\n    <span class=\"hljs-keyword\">return</span> principal * (\r\n        (<span class=\"hljs-number\">1</span> + nominal_annual_interest_rate_percentage) ** number_of_compounding_periods\r\n        - <span class=\"hljs-number\">1</span>\r\n    )\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "Tarcisio Bruni Rangel",
+      "email": "tarcisiobruni@hotmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

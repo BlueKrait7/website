@@ -1,0 +1,69 @@
+{
+  "slug": "infix-to-postfix-conversion",
+  "name": "Infix to Postfix Conversion",
+  "categories": [
+    "datastructures",
+    "stacks"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "data_structures\\stacks\\infix_to_postfix_conversion.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/data_structures\\stacks\\infix_to_postfix_conversion.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nhttps://en.wikipedia.org/wiki/Infix_notation\r\nhttps://en.wikipedia.org/wiki/Reverse_Polish_notation\r\nhttps://en.wikipedia.org/wiki/Shunting-yard_algorithm\r\n&quot;&quot;&quot;</span>\r\n\r\n<span class=\"hljs-keyword\">from</span> .balanced_parentheses <span class=\"hljs-keyword\">import</span> balanced_parentheses\r\n<span class=\"hljs-keyword\">from</span> .stack <span class=\"hljs-keyword\">import</span> Stack\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">precedence</span>(<span class=\"hljs-params\">char: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-built_in\">int</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Return integer value representing an operator&#x27;s precedence, or\r\n    order of operation.\r\n    https://en.wikipedia.org/wiki/Order_of_operations\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">return</span> {<span class=\"hljs-string\">&quot;+&quot;</span>: <span class=\"hljs-number\">1</span>, <span class=\"hljs-string\">&quot;-&quot;</span>: <span class=\"hljs-number\">1</span>, <span class=\"hljs-string\">&quot;*&quot;</span>: <span class=\"hljs-number\">2</span>, <span class=\"hljs-string\">&quot;/&quot;</span>: <span class=\"hljs-number\">2</span>, <span class=\"hljs-string\">&quot;^&quot;</span>: <span class=\"hljs-number\">3</span>}.get(char, -<span class=\"hljs-number\">1</span>)\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">infix_to_postfix</span>(<span class=\"hljs-params\">expression_str: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-built_in\">str</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    &gt;&gt;&gt; infix_to_postfix(&quot;(1*(2+3)+4))&quot;)\r\n    Traceback (most recent call last):\r\n    ...\r\n    ValueError: Mismatched parentheses\r\n    &gt;&gt;&gt; infix_to_postfix(&quot;&quot;)\r\n    &#x27;&#x27;\r\n    &gt;&gt;&gt; infix_to_postfix(&quot;3+2&quot;)\r\n    &#x27;3 2 +&#x27;\r\n    &gt;&gt;&gt; infix_to_postfix(&quot;(3+4)*5-6&quot;)\r\n    &#x27;3 4 + 5 * 6 -&#x27;\r\n    &gt;&gt;&gt; infix_to_postfix(&quot;(1+2)*3/4-5&quot;)\r\n    &#x27;1 2 + 3 * 4 / 5 -&#x27;\r\n    &gt;&gt;&gt; infix_to_postfix(&quot;a+b*c+(d*e+f)*g&quot;)\r\n    &#x27;a b c * + d e * f + g * +&#x27;\r\n    &gt;&gt;&gt; infix_to_postfix(&quot;x^y/(5*z)+2&quot;)\r\n    &#x27;x y ^ 5 z * / 2 +&#x27;\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> <span class=\"hljs-keyword\">not</span> balanced_parentheses(expression_str):\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;Mismatched parentheses&quot;</span>)\r\n    stack: Stack[<span class=\"hljs-built_in\">str</span>] = Stack()\r\n    postfix = []\r\n    <span class=\"hljs-keyword\">for</span> char <span class=\"hljs-keyword\">in</span> expression_str:\r\n        <span class=\"hljs-keyword\">if</span> char.isalpha() <span class=\"hljs-keyword\">or</span> char.isdigit():\r\n            postfix.append(char)\r\n        <span class=\"hljs-keyword\">elif</span> char == <span class=\"hljs-string\">&quot;(&quot;</span>:\r\n            stack.push(char)\r\n        <span class=\"hljs-keyword\">elif</span> char == <span class=\"hljs-string\">&quot;)&quot;</span>:\r\n            <span class=\"hljs-keyword\">while</span> <span class=\"hljs-keyword\">not</span> stack.is_empty() <span class=\"hljs-keyword\">and</span> stack.peek() != <span class=\"hljs-string\">&quot;(&quot;</span>:\r\n                postfix.append(stack.pop())\r\n            stack.pop()\r\n        <span class=\"hljs-keyword\">else</span>:\r\n            <span class=\"hljs-keyword\">while</span> <span class=\"hljs-keyword\">not</span> stack.is_empty() <span class=\"hljs-keyword\">and</span> precedence(char) &lt;= precedence(stack.peek()):\r\n                postfix.append(stack.pop())\r\n            stack.push(char)\r\n    <span class=\"hljs-keyword\">while</span> <span class=\"hljs-keyword\">not</span> stack.is_empty():\r\n        postfix.append(stack.pop())\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">&quot; &quot;</span>.join(postfix)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">from</span> doctest <span class=\"hljs-keyword\">import</span> testmod\r\n\r\n    testmod()\r\n    expression = <span class=\"hljs-string\">&quot;a+b*(c^d-e)^(f+g*h)-i&quot;</span>\r\n\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;Infix to Postfix Notation demonstration:\\n&quot;</span>)\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;Infix notation: &quot;</span> + expression)\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;Postfix notation: &quot;</span> + infix_to_postfix(expression))\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "AlexDvorak",
+      "email": "opti.jawsome@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Edward Nuno",
+      "email": "GOD11341258@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Bruno Simas Hadlich",
+      "email": "brunosimashadlich@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "cclauss",
+      "email": "cclauss@bluewin.ch",
+      "commits": 1
+    },
+    {
+      "name": "97arushisharma",
+      "email": "97arushisharma@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Chris McLennon",
+      "email": "mclennon@indeed.com",
+      "commits": 1
+    },
+    {
+      "name": "Omkar Pathak",
+      "email": "omkarpathak27@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 2
+    },
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

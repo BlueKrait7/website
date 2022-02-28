@@ -1,0 +1,23 @@
+{
+  "slug": "happy-numbers-seq",
+  "name": "Happy Numbers Seq",
+  "categories": [
+    "others"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\others\\HappyNumbersSeq.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\others\\HappyNumbersSeq.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.others;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.Arrays;\r\n<span class=\"hljs-keyword\">import</span> java.util.HashSet;\r\n<span class=\"hljs-keyword\">import</span> java.util.Scanner;\r\n<span class=\"hljs-keyword\">import</span> java.util.Set;\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">HappyNumbersSeq</span> {\r\n    <span class=\"hljs-keyword\">private</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">final</span> Set&lt;Integer&gt; CYCLE_NUMS = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">HashSet</span>&lt;&gt;(Arrays.asList(<span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">16</span>, <span class=\"hljs-number\">20</span>, <span class=\"hljs-number\">37</span>, <span class=\"hljs-number\">58</span>, <span class=\"hljs-number\">145</span>));\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-type\">Scanner</span> <span class=\"hljs-variable\">in</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Scanner</span>(System.in);\r\n        System.out.print(<span class=\"hljs-string\">&quot;Enter number: &quot;</span>);\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">n</span> <span class=\"hljs-operator\">=</span> in.nextInt();\r\n        <span class=\"hljs-keyword\">while</span> (n != <span class=\"hljs-number\">1</span> &amp;&amp; !isSad(n)) {\r\n            System.out.print(n + <span class=\"hljs-string\">&quot; &quot;</span>);\r\n            n = sumSquares(n);\r\n        }\r\n        <span class=\"hljs-type\">String</span> <span class=\"hljs-variable\">res</span> <span class=\"hljs-operator\">=</span> n == <span class=\"hljs-number\">1</span> ? <span class=\"hljs-string\">&quot;1 Happy number&quot;</span> : <span class=\"hljs-string\">&quot;Sad number&quot;</span>;\r\n        System.out.println(res);\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">private</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">sumSquares</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> n)</span> {\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">s</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>;\r\n        <span class=\"hljs-keyword\">for</span> (; n &gt; <span class=\"hljs-number\">0</span>; n /= <span class=\"hljs-number\">10</span>) {\r\n            <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">r</span> <span class=\"hljs-operator\">=</span> n % <span class=\"hljs-number\">10</span>;\r\n            s += r * r;\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> s;\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">private</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">boolean</span> <span class=\"hljs-title function_\">isSad</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> n)</span> {\r\n        <span class=\"hljs-keyword\">return</span> CYCLE_NUMS.contains(n);\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Louve Le bronec",
+      "email": "lebroneclo@cy-tech.fr",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

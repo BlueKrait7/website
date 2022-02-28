@@ -1,0 +1,28 @@
+{
+  "slug": "haversine",
+  "name": "Haversine",
+  "categories": [
+    "navigation"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Navigation\\test\\Haversine.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Navigation\\test\\Haversine.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { haversineDistance } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../Haversine&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;Testing the haversine distance calculator&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;Calculate distance&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> distance = <span class=\"hljs-title function_\">haversineDistance</span>(<span class=\"hljs-number\">64.1265</span>, -<span class=\"hljs-number\">21.8174</span>, <span class=\"hljs-number\">40.7128</span>, -<span class=\"hljs-number\">74.0060</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(distance).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">4208198.758424171</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;Test validation, expect throw&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> <span class=\"hljs-title function_\">haversineDistance</span>(<span class=\"hljs-number\">64.1265</span>, -<span class=\"hljs-number\">21.8174</span>, <span class=\"hljs-number\">40.7128</span>, <span class=\"hljs-string\">&#x27;74.0060&#x27;</span>)).<span class=\"hljs-title function_\">toThrow</span>()\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "YATIN KATHURIA",
+      "email": "47096348+Yatin-kathuria@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Carlos Carvalho",
+      "email": "jcarloss.carvalho@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

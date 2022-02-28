@@ -1,0 +1,23 @@
+{
+  "slug": "haversine-distance",
+  "name": "Haversine Distance",
+  "categories": [
+    "geodesy"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "geodesy\\haversine_distance.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/geodesy\\haversine_distance.py",
+      "code": "<span class=\"hljs-keyword\">from</span> math <span class=\"hljs-keyword\">import</span> asin, atan, cos, radians, sin, sqrt, tan\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">haversine_distance</span>(<span class=\"hljs-params\">lat1: <span class=\"hljs-built_in\">float</span>, lon1: <span class=\"hljs-built_in\">float</span>, lat2: <span class=\"hljs-built_in\">float</span>, lon2: <span class=\"hljs-built_in\">float</span></span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Calculate great circle distance between two points in a sphere,\r\n    given longitudes and latitudes https://en.wikipedia.org/wiki/Haversine_formula\r\n\r\n    We know that the globe is &quot;sort of&quot; spherical, so a path between two points\r\n    isn&#x27;t exactly a straight line. We need to account for the Earth&#x27;s curvature\r\n    when calculating distance from point A to B. This effect is negligible for\r\n    small distances but adds up as distance increases. The Haversine method treats\r\n    the earth as a sphere which allows us to &quot;project&quot; the two points A and B\r\n    onto the surface of that sphere and approximate the spherical distance between\r\n    them. Since the Earth is not a perfect sphere, other methods which model the\r\n    Earth&#x27;s ellipsoidal nature are more accurate but a quick and modifiable\r\n    computation like Haversine can be handy for shorter range distances.\r\n\r\n    Args:\r\n        lat1, lon1: latitude and longitude of coordinate 1\r\n        lat2, lon2: latitude and longitude of coordinate 2\r\n    Returns:\r\n        geographical distance between two points in metres\r\n    &gt;&gt;&gt; from collections import namedtuple\r\n    &gt;&gt;&gt; point_2d = namedtuple(&quot;point_2d&quot;, &quot;lat lon&quot;)\r\n    &gt;&gt;&gt; SAN_FRANCISCO = point_2d(37.774856, -122.424227)\r\n    &gt;&gt;&gt; YOSEMITE = point_2d(37.864742, -119.537521)\r\n    &gt;&gt;&gt; f&quot;{haversine_distance(*SAN_FRANCISCO, *YOSEMITE):0,.0f} meters&quot;\r\n    &#x27;254,352 meters&#x27;\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-comment\"># CONSTANTS per WGS84 https://en.wikipedia.org/wiki/World_Geodetic_System</span>\r\n    <span class=\"hljs-comment\"># Distance in metres(m)</span>\r\n    AXIS_A = <span class=\"hljs-number\">6378137.0</span>\r\n    AXIS_B = <span class=\"hljs-number\">6356752.314245</span>\r\n    RADIUS = <span class=\"hljs-number\">6378137</span>\r\n    <span class=\"hljs-comment\"># Equation parameters</span>\r\n    <span class=\"hljs-comment\"># Equation https://en.wikipedia.org/wiki/Haversine_formula#Formulation</span>\r\n    flattening = (AXIS_A - AXIS_B) / AXIS_A\r\n    phi_1 = atan((<span class=\"hljs-number\">1</span> - flattening) * tan(radians(lat1)))\r\n    phi_2 = atan((<span class=\"hljs-number\">1</span> - flattening) * tan(radians(lat2)))\r\n    lambda_1 = radians(lon1)\r\n    lambda_2 = radians(lon2)\r\n    <span class=\"hljs-comment\"># Equation</span>\r\n    sin_sq_phi = sin((phi_2 - phi_1) / <span class=\"hljs-number\">2</span>)\r\n    sin_sq_lambda = sin((lambda_2 - lambda_1) / <span class=\"hljs-number\">2</span>)\r\n    <span class=\"hljs-comment\"># Square both values</span>\r\n    sin_sq_phi *= sin_sq_phi\r\n    sin_sq_lambda *= sin_sq_lambda\r\n    h_value = sqrt(sin_sq_phi + (cos(phi_1) * cos(phi_2) * sin_sq_lambda))\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">2</span> * RADIUS * asin(h_value)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "eightysixth",
+      "email": "25541207+eightysixth@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

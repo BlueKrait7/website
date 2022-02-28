@@ -1,0 +1,38 @@
+{
+  "slug": "insert-delete-in-array",
+  "name": "Insert Delete In Array",
+  "categories": [
+    "others"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\others\\InsertDeleteInArray.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\others\\InsertDeleteInArray.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.others;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.*;\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">InsertDeleteInArray</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-type\">Scanner</span> <span class=\"hljs-variable\">s</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Scanner</span>(System.in); <span class=\"hljs-comment\">// Input statement</span>\r\n        System.out.println(<span class=\"hljs-string\">&quot;Enter the size of the array&quot;</span>);\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">size</span> <span class=\"hljs-operator\">=</span> s.nextInt();\r\n        <span class=\"hljs-type\">int</span> a[] = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">int</span>[size];\r\n        <span class=\"hljs-type\">int</span> i;\r\n\r\n        <span class=\"hljs-comment\">// To enter the initial elements</span>\r\n        <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; size; i++) {\r\n            System.out.println(<span class=\"hljs-string\">&quot;Enter the element&quot;</span>);\r\n            a[i] = s.nextInt();\r\n        }\r\n\r\n        <span class=\"hljs-comment\">// To insert a new element(we are creating a new array)</span>\r\n        System.out.println(<span class=\"hljs-string\">&quot;Enter the index at which the element should be inserted&quot;</span>);\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">insert_pos</span> <span class=\"hljs-operator\">=</span> s.nextInt();\r\n        System.out.println(<span class=\"hljs-string\">&quot;Enter the element to be inserted&quot;</span>);\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">ins</span> <span class=\"hljs-operator\">=</span> s.nextInt();\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">size2</span> <span class=\"hljs-operator\">=</span> size + <span class=\"hljs-number\">1</span>;\r\n        <span class=\"hljs-type\">int</span> b[] = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">int</span>[size2];\r\n        <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; size2; i++) {\r\n            <span class=\"hljs-keyword\">if</span> (i &lt;= insert_pos) {\r\n                b[i] = a[i];\r\n            } <span class=\"hljs-keyword\">else</span> {\r\n                b[i] = a[i - <span class=\"hljs-number\">1</span>];\r\n            }\r\n        }\r\n        b[insert_pos] = ins;\r\n        <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; size2; i++) {\r\n            System.out.println(b[i]);\r\n        }\r\n\r\n        <span class=\"hljs-comment\">// To delete an element given the index</span>\r\n        System.out.println(<span class=\"hljs-string\">&quot;Enter the index at which element is to be deleted&quot;</span>);\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">del_pos</span> <span class=\"hljs-operator\">=</span> s.nextInt();\r\n        <span class=\"hljs-keyword\">for</span> (i = del_pos; i &lt; size2 - <span class=\"hljs-number\">1</span>; i++) {\r\n            b[i] = b[i + <span class=\"hljs-number\">1</span>];\r\n        }\r\n        <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; size2 - <span class=\"hljs-number\">1</span>; i++) {\r\n            System.out.println(b[i]);\r\n        }\r\n        s.close();\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Hassan",
+      "email": "hassan.elseoudy@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "unknown",
+      "email": "cnddhks846@naver.com",
+      "commits": 1
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

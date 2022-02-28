@@ -1,0 +1,23 @@
+{
+  "slug": "interval-scheduling",
+  "name": "Interval Scheduling",
+  "categories": [
+    "others"
+  ],
+  "body": {},
+  "implementations": {
+    "lua": {
+      "dir": "src\\misc\\interval_scheduling.lua",
+      "url": "https://github.com/TheAlgorithms/lua/tree/master/src\\misc\\interval_scheduling.lua",
+      "code": "<span class=\"hljs-comment\">-- Earliest Deadline First (EDF) Interval Scheduling</span>\r\n<span class=\"hljs-keyword\">return</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span><span class=\"hljs-params\">(\r\n\tintervals <span class=\"hljs-comment\">-- list of intervals [from, to) as tables with `from` and `to` fields</span>\r\n)</span></span>\r\n\t<span class=\"hljs-keyword\">local</span> selected_intervals = {}\r\n\t<span class=\"hljs-comment\">-- Sort ascending by &quot;deadline&quot;</span>\r\n\t<span class=\"hljs-built_in\">table</span>.<span class=\"hljs-built_in\">sort</span>(intervals, <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span><span class=\"hljs-params\">(a, b)</span></span>\r\n\t\t<span class=\"hljs-keyword\">return</span> a.to &lt; b.to\r\n\t<span class=\"hljs-keyword\">end</span>)\r\n\t<span class=\"hljs-comment\">-- Greedily always pick the interval with the first deadline</span>\r\n\t<span class=\"hljs-built_in\">table</span>.<span class=\"hljs-built_in\">insert</span>(selected_intervals, intervals[<span class=\"hljs-number\">1</span>])\r\n\t<span class=\"hljs-keyword\">for</span> _, interval <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">ipairs</span>(intervals) <span class=\"hljs-keyword\">do</span>\r\n\t\t<span class=\"hljs-keyword\">if</span> interval.from &gt;= selected_intervals[#selected_intervals].to <span class=\"hljs-keyword\">then</span> <span class=\"hljs-comment\">-- does not collide with selected intervals</span>\r\n\t\t\t<span class=\"hljs-built_in\">table</span>.<span class=\"hljs-built_in\">insert</span>(selected_intervals, interval)\r\n\t\t<span class=\"hljs-keyword\">end</span>\r\n\t<span class=\"hljs-keyword\">end</span>\r\n\t<span class=\"hljs-comment\">-- set of disjoint intervals with maximum cardinality</span>\r\n\t<span class=\"hljs-keyword\">return</span> selected_intervals\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Lars Mueller",
+      "email": "appgurulars@gmx.de",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "indian-phone-validator",
+  "name": "Indian Phone Validator",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "strings\\indian_phone_validator.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/strings\\indian_phone_validator.py",
+      "code": "<span class=\"hljs-keyword\">import</span> re\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">indian_phone_validator</span>(<span class=\"hljs-params\">phone: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-built_in\">bool</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Determine whether the string is a valid phone number or not\r\n    :param phone:\r\n    :return: Boolean\r\n    &gt;&gt;&gt; indian_phone_validator(&quot;+91123456789&quot;)\r\n    False\r\n    &gt;&gt;&gt; indian_phone_validator(&quot;+919876543210&quot;)\r\n    True\r\n    &gt;&gt;&gt; indian_phone_validator(&quot;01234567896&quot;)\r\n    False\r\n    &gt;&gt;&gt; indian_phone_validator(&quot;919876543218&quot;)\r\n    True\r\n    &gt;&gt;&gt; indian_phone_validator(&quot;+91-1234567899&quot;)\r\n    False\r\n    &gt;&gt;&gt; indian_phone_validator(&quot;+91-9876543218&quot;)\r\n    True\r\n    &quot;&quot;&quot;</span>\r\n    pat = re.<span class=\"hljs-built_in\">compile</span>(<span class=\"hljs-string\">r&quot;^(\\+91[\\-\\s]?)?[0]?(91)?[789]\\d{9}$&quot;</span>)\r\n    match = re.search(pat, phone)\r\n    <span class=\"hljs-keyword\">if</span> match:\r\n        <span class=\"hljs-keyword\">return</span> match.string == phone\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">False</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-built_in\">print</span>(indian_phone_validator(<span class=\"hljs-string\">&quot;+918827897895&quot;</span>))\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "SURYAPRATAP SINGH SURYAVANSHI",
+      "email": "67123991+suryapratapsinghsuryavanshi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Rohan R Bharadwaj",
+      "email": "89947037+Rohanrbharadwaj@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

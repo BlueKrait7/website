@@ -1,0 +1,24 @@
+{
+  "slug": "hexagonal-numbers",
+  "name": "Hexagonal Numbers",
+  "categories": [
+    "math",
+    "series"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\series\\hexagonal_numbers.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\series\\hexagonal_numbers.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nA hexagonal number sequence is a sequence of figurate numbers\r\nwhere the nth hexagonal number hₙ is the number of distinct dots\r\nin a pattern of dots consisting of the outlines of regular\r\nhexagons with sides up to n dots, when the hexagons are overlaid\r\nso that they share one vertex.\r\n\r\n    Calculates the hexagonal numbers sequence with a formula\r\n        hₙ = n(2n-1)\r\n        where:\r\n        hₙ --&gt; is nth element of the sequence\r\n        n --&gt; is the number of element in the sequence\r\n        reference--&gt;&quot;Hexagonal number&quot; Wikipedia\r\n        &lt;https://en.wikipedia.org/wiki/Hexagonal_number&gt;\r\n&quot;&quot;&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">hexagonal_numbers</span>(<span class=\"hljs-params\">length: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    :param len: max number of elements\r\n    :type len: int\r\n    :return: Hexagonal numbers as a list\r\n\r\n    Tests:\r\n    &gt;&gt;&gt; hexagonal_numbers(10)\r\n    [0, 1, 6, 15, 28, 45, 66, 91, 120, 153]\r\n    &gt;&gt;&gt; hexagonal_numbers(5)\r\n    [0, 1, 6, 15, 28]\r\n    &gt;&gt;&gt; hexagonal_numbers(0)\r\n    Traceback (most recent call last):\r\n      ...\r\n    ValueError: Length must be a positive integer.\r\n    &quot;&quot;&quot;</span>\r\n\r\n    <span class=\"hljs-keyword\">if</span> length &lt;= <span class=\"hljs-number\">0</span> <span class=\"hljs-keyword\">or</span> <span class=\"hljs-keyword\">not</span> <span class=\"hljs-built_in\">isinstance</span>(length, <span class=\"hljs-built_in\">int</span>):\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;Length must be a positive integer.&quot;</span>)\r\n    <span class=\"hljs-keyword\">return</span> [n * (<span class=\"hljs-number\">2</span> * n - <span class=\"hljs-number\">1</span>) <span class=\"hljs-keyword\">for</span> n <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(length)]\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-built_in\">print</span>(hexagonal_numbers(length=<span class=\"hljs-number\">5</span>))\r\n    <span class=\"hljs-built_in\">print</span>(hexagonal_numbers(length=<span class=\"hljs-number\">10</span>))\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Shriyans Gandhi",
+      "email": "41372639+shri30yans@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,304 @@
+{
+  "slug": "init",
+  "name": "Init",
+  "categories": [
+    "numericalanalysis",
+    "imagedata"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "web_programming\\__init__.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/web_programming\\__init__.py",
+      "code": ""
+    }
+  },
+  "contributors": [
+    {
+      "name": "MaximSmolskiy",
+      "email": "mithridatus@mail.ru",
+      "commits": 1
+    },
+    {
+      "name": "utkarsh",
+      "email": "ucponia@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Ayoub Chegraoui",
+      "email": "ayoubch807@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "vinayak",
+      "email": "itssvinayak@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Utkarsh Chaudhary",
+      "email": "f2016303@pilani.bits-pilani.ac.in",
+      "commits": 1
+    },
+    {
+      "name": "ParthS007",
+      "email": "parth1989shandilya@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Martmists",
+      "email": "mail@martmists.com",
+      "commits": 1
+    },
+    {
+      "name": "Carl-Henrik Åkeson",
+      "email": "80765479+chakeson@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Venkatesh Tantravahi",
+      "email": "64308188+venkateshtantravahi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Simon",
+      "email": "simon.kiefhaber@outlook.de",
+      "commits": 1
+    },
+    {
+      "name": "Prakhar Gurunani",
+      "email": "prakhargurunani@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Tarcisio Bruni Rangel",
+      "email": "tarcisiobruni@hotmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Parth Satodiya",
+      "email": "parth.satodiya@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "arif599",
+      "email": "59244462+arif599@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Cory Metcalfe",
+      "email": "corymetcalfe@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Shikhar Rai",
+      "email": "34543293+kakashi215@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Fernando Benjamín PÉREZ MAURERA",
+      "email": "fperezmaurera@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Akash Kumar",
+      "email": "email.akashkumar@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "PetitNigaud",
+      "email": "44503597+PetitNigaud@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Nandiya",
+      "email": "ri_nandiya@yahoo.com",
+      "commits": 1
+    },
+    {
+      "name": "Tobias Schröder",
+      "email": "5970416+tbsschroeder@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Benjamin Smith",
+      "email": "bh2smith@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "sarthaka1310",
+      "email": "56290744+sarthaka1310@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Sandeep Gupta",
+      "email": "sandeepgupta007@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "kalpanajangra",
+      "email": "72243101+kalpanajangra@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Iqrar Agalosi Nureyza",
+      "email": "misteriqrar@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Sanders Lin",
+      "email": "45224617+SandersLin@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Mark Moretto",
+      "email": "otteromkram@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Lakshmikanth2001",
+      "email": "52835045+Lakshmikanth2001@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Alok Shukla",
+      "email": "20066073+shuklalok@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Charley",
+      "email": "56961474+pingings@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "b63",
+      "email": "52578583+b63@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Alok Shukla",
+      "email": "alok.linuxmail@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Stephen Gemin",
+      "email": "45926479+StephenGemin@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Shoujue Xu",
+      "email": "lightxusj@126.com",
+      "commits": 1
+    },
+    {
+      "name": "Gilberto Alexandre dos Santos",
+      "email": "gilberto.alexsantos@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Henocks",
+      "email": "hr4574@naver.com",
+      "commits": 1
+    },
+    {
+      "name": "James Mc Dermott",
+      "email": "james.mcdermott89@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "",
+      "email": "shyam.thiagarajan@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Srishtik Bhandarkar",
+      "email": "53395406+srishtik2310@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "sharmapulkit04",
+      "email": "39304055+sharmapulkit04@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "Michael D",
+      "email": "michael@drueing.de",
+      "commits": 2
+    },
+    {
+      "name": "Ravi Kandasamy Sundaram",
+      "email": "ksr1122@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "mateuszz0000",
+      "email": "mtszzwdzk@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "gabriel",
+      "email": "gabriel.goncalves@trilogo.com.br",
+      "commits": 2
+    },
+    {
+      "name": "Simon Landry",
+      "email": "landry_simon@pm.me",
+      "commits": 3
+    },
+    {
+      "name": "Matheus T. Guimarães",
+      "email": "matheusguimr@gmail.com",
+      "commits": 3
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 4
+    },
+    {
+      "name": "AlexDvorak",
+      "email": "opti.jawsome@gmail.com",
+      "commits": 4
+    },
+    {
+      "name": "Peter Yao",
+      "email": "peteryao7@gmail.com",
+      "commits": 4
+    },
+    {
+      "name": "97arushisharma",
+      "email": "97arushisharma@gmail.com",
+      "commits": 4
+    },
+    {
+      "name": "Kushagra Bansal",
+      "email": "kushagrabansalajmer@gmail.com",
+      "commits": 13
+    },
+    {
+      "name": "fpringle",
+      "email": "freddyjepringle@gmail.com",
+      "commits": 21
+    },
+    {
+      "name": "Bruno Simas Hadlich",
+      "email": "brunosimashadlich@gmail.com",
+      "commits": 34
+    },
+    {
+      "name": "Dhruv Manilawala",
+      "email": "dhruvmanila@gmail.com",
+      "commits": 62
+    }
+  ],
+  "explanationUrl": {}
+}

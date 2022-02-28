@@ -1,0 +1,28 @@
+{
+  "slug": "highest-common-factor",
+  "name": "Highest Common Factor",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "matlab-octave": {
+      "dir": "algorithms\\maths\\highest_common_factor.m",
+      "url": "https://github.com/TheAlgorithms/matlab-octave/tree/master/algorithms\\maths\\highest_common_factor.m",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">HCF</span> = <span class=\"hljs-title\">highest_common_factor</span> <span class=\"hljs-params\">(x, y)</span></span>\r\n<span class=\"hljs-comment\">%This function searches for highest common factor</span>\r\n<span class=\"hljs-comment\">%It first checks if any of the numbers equal to zero, if so the non zero number is the HCF</span>\r\n<span class=\"hljs-comment\">%If the numbers are different, you minus the bigger number by the smaller one and this is done by recursion. </span>\r\n  <span class=\"hljs-keyword\">if</span> x==<span class=\"hljs-number\">0</span>\r\n    HCF = y;\r\n  <span class=\"hljs-keyword\">elseif</span> y==<span class=\"hljs-number\">0</span>\r\n    HCF = x;\r\n  <span class=\"hljs-keyword\">elseif</span> (y == x)\r\n    HCF = x;\r\n  <span class=\"hljs-keyword\">elseif</span> (y&gt;x)\r\n    HCF = highest_common_factor(y-x,x);\r\n  <span class=\"hljs-keyword\">else</span> \r\n    HCF = highest_common_factor(x-y,y);\r\n  <span class=\"hljs-keyword\">end</span>\r\n\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "MaximSmolskiy",
+      "email": "mithridatus@mail.ru",
+      "commits": 1
+    },
+    {
+      "name": "Andrew",
+      "email": "andrewzhang2323@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

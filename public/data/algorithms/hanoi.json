@@ -1,0 +1,48 @@
+{
+  "slug": "hanoi",
+  "name": "Hanoi",
+  "categories": [
+    "general"
+  ],
+  "body": {},
+  "implementations": {
+    "rust": {
+      "dir": "src\\general\\hanoi.rs",
+      "url": "https://github.com/TheAlgorithms/rust/tree/master/src\\general\\hanoi.rs",
+      "code": "<span class=\"hljs-keyword\">pub</span> <span class=\"hljs-keyword\">fn</span> <span class=\"hljs-title function_\">hanoi</span>(n: <span class=\"hljs-type\">i32</span>, from: <span class=\"hljs-type\">i32</span>, to: <span class=\"hljs-type\">i32</span>, via: <span class=\"hljs-type\">i32</span>, moves: &amp;<span class=\"hljs-keyword\">mut</span> <span class=\"hljs-type\">Vec</span>&lt;(<span class=\"hljs-type\">i32</span>, <span class=\"hljs-type\">i32</span>)&gt;) {\r\n    <span class=\"hljs-keyword\">if</span> n &gt; <span class=\"hljs-number\">0</span> {\r\n        <span class=\"hljs-title function_ invoke__\">hanoi</span>(n - <span class=\"hljs-number\">1</span>, from, via, to, moves);\r\n        moves.<span class=\"hljs-title function_ invoke__\">push</span>((from, to));\r\n        <span class=\"hljs-title function_ invoke__\">hanoi</span>(n - <span class=\"hljs-number\">1</span>, via, to, from, moves);\r\n    }\r\n}\r\n\r\n<span class=\"hljs-meta\">#[cfg(test)]</span>\r\n<span class=\"hljs-keyword\">mod</span> tests {\r\n    <span class=\"hljs-keyword\">use</span> super::*;\r\n\r\n    <span class=\"hljs-meta\">#[test]</span>\r\n    <span class=\"hljs-keyword\">fn</span> <span class=\"hljs-title function_\">hanoi_simple</span>() {\r\n        <span class=\"hljs-keyword\">let</span> <span class=\"hljs-variable\">correct_solution</span>: <span class=\"hljs-type\">Vec</span>&lt;(<span class=\"hljs-type\">i32</span>, <span class=\"hljs-type\">i32</span>)&gt; =\r\n            <span class=\"hljs-built_in\">vec!</span>[(<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">3</span>), (<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>), (<span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">2</span>), (<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">3</span>), (<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">1</span>), (<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>), (<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">3</span>)];\r\n        <span class=\"hljs-keyword\">let</span> <span class=\"hljs-keyword\">mut </span><span class=\"hljs-variable\">our_solution</span>: <span class=\"hljs-type\">Vec</span>&lt;(<span class=\"hljs-type\">i32</span>, <span class=\"hljs-type\">i32</span>)&gt; = Vec::<span class=\"hljs-title function_ invoke__\">new</span>();\r\n        <span class=\"hljs-title function_ invoke__\">hanoi</span>(<span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">2</span>, &amp;<span class=\"hljs-keyword\">mut</span> our_solution);\r\n        <span class=\"hljs-built_in\">assert_eq!</span>(correct_solution, our_solution);\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Arnav Borborah",
+      "email": "arnavborborah11@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "lukabavdaz",
+      "email": "lukabavdaz@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "PatOnTheBack",
+      "email": "51241310+PatOnTheBack@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Vasu Tomar",
+      "email": "vasutomar26@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "WILFRIED NJANGUI",
+      "email": "wilfried.njangui@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

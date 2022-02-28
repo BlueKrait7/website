@@ -1,0 +1,24 @@
+{
+  "slug": "inverse",
+  "name": "Inverse",
+  "categories": [
+    "math",
+    "modular"
+  ],
+  "body": {},
+  "implementations": {
+    "go": {
+      "dir": "math\\modular\\inverse.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/math\\modular\\inverse.go",
+      "code": "<span class=\"hljs-comment\">// inverse.go</span>\r\n<span class=\"hljs-comment\">// description: Implementation of Modular Inverse Algorithm</span>\r\n<span class=\"hljs-comment\">// details:</span>\r\n<span class=\"hljs-comment\">// A simple implementation of Modular Inverse - [Modular Inverse wiki](https://en.wikipedia.org/wiki/Modular_multiplicative_inverse)</span>\r\n<span class=\"hljs-comment\">// author(s) [Taj](https://github.com/tjgurwara99)</span>\r\n<span class=\"hljs-comment\">// see inverse_test.go</span>\r\n\r\n<span class=\"hljs-keyword\">package</span> modular\r\n\r\n<span class=\"hljs-keyword\">import</span> (\r\n\t<span class=\"hljs-string\">&quot;errors&quot;</span>\r\n\r\n\t<span class=\"hljs-string\">&quot;github.com/TheAlgorithms/Go/math/gcd&quot;</span>\r\n)\r\n\r\n<span class=\"hljs-comment\">// ErrorIntOverflow For asserting that the values do not overflow in Int64</span>\r\n<span class=\"hljs-keyword\">var</span> ErrorInverse = errors.New(<span class=\"hljs-string\">&quot;no Modular Inverse exists&quot;</span>)\r\n\r\n<span class=\"hljs-comment\">// Inverse Modular function</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">Inverse</span><span class=\"hljs-params\">(a, b <span class=\"hljs-type\">int64</span>)</span></span> (<span class=\"hljs-type\">int64</span>, <span class=\"hljs-type\">error</span>) {\r\n\tgcd, x, _ := gcd.Extended(a, b)\r\n\t<span class=\"hljs-keyword\">if</span> gcd != <span class=\"hljs-number\">1</span> {\r\n\t\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>, ErrorInverse\r\n\t}\r\n\r\n\t<span class=\"hljs-keyword\">return</span> ((b + (x % b)) % b), <span class=\"hljs-literal\">nil</span> <span class=\"hljs-comment\">// this is necessary because of Go&#x27;s use of architecture specific instruction for the % operator.</span>\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Taj",
+      "email": "tjgurwara99@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}
