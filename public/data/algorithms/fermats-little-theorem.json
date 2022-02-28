@@ -1,0 +1,33 @@
+{
+  "slug": "fermats-little-theorem",
+  "name": "Fermats Little Theorem",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\fermat_little_theorem.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\fermat_little_theorem.py",
+      "code": "<span class=\"hljs-comment\"># Python program to show the usage of Fermat&#x27;s little theorem in a division</span>\r\n<span class=\"hljs-comment\"># According to Fermat&#x27;s little theorem, (a / b) mod p always equals</span>\r\n<span class=\"hljs-comment\"># a * (b ^ (p - 2)) mod p</span>\r\n<span class=\"hljs-comment\"># Here we assume that p is a prime number, b divides a, and p doesn&#x27;t divide b</span>\r\n<span class=\"hljs-comment\"># Wikipedia reference: https://en.wikipedia.org/wiki/Fermat%27s_little_theorem</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">binary_exponentiation</span>(<span class=\"hljs-params\">a, n, mod</span>):\r\n\r\n    <span class=\"hljs-keyword\">if</span> n == <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>\r\n\r\n    <span class=\"hljs-keyword\">elif</span> n % <span class=\"hljs-number\">2</span> == <span class=\"hljs-number\">1</span>:\r\n        <span class=\"hljs-keyword\">return</span> (binary_exponentiation(a, n - <span class=\"hljs-number\">1</span>, mod) * a) % mod\r\n\r\n    <span class=\"hljs-keyword\">else</span>:\r\n        b = binary_exponentiation(a, n / <span class=\"hljs-number\">2</span>, mod)\r\n        <span class=\"hljs-keyword\">return</span> (b * b) % mod\r\n\r\n\r\n<span class=\"hljs-comment\"># a prime number</span>\r\np = <span class=\"hljs-number\">701</span>\r\n\r\na = <span class=\"hljs-number\">1000000000</span>\r\nb = <span class=\"hljs-number\">10</span>\r\n\r\n<span class=\"hljs-comment\"># using binary exponentiation function, O(log(p)):</span>\r\n<span class=\"hljs-built_in\">print</span>((a / b) % p == (a * binary_exponentiation(b, p - <span class=\"hljs-number\">2</span>, p)) % p)\r\n\r\n<span class=\"hljs-comment\"># using Python operators:</span>\r\n<span class=\"hljs-built_in\">print</span>((a / b) % p == (a * b ** (p - <span class=\"hljs-number\">2</span>)) % p)\r\n"
+    },
+    "dart": {
+      "dir": "maths\\fermats_little_theorem.dart",
+      "url": "https://github.com/TheAlgorithms/dart/tree/master/maths\\fermats_little_theorem.dart",
+      "code": "<span class=\"hljs-meta\">@Skip</span>(<span class=\"hljs-string\">&#x27;currently failing (see issue #86)&#x27;</span>)\r\n\r\n<span class=\"hljs-keyword\">import</span> <span class=\"hljs-string\">&#x27;package:test/test.dart&#x27;</span>;\r\n\r\n<span class=\"hljs-comment\">/*\r\n Fermat&#x27;s little Theorem\r\n Translated from TheAlgorithms/Python\r\n*/</span>\r\nbinary_exponentiation(a, n, mod) {\r\n  <span class=\"hljs-keyword\">if</span> (n == <span class=\"hljs-number\">0</span>) {\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>;\r\n  } <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span> (n % <span class=\"hljs-number\">2</span> == <span class=\"hljs-number\">1</span>) {\r\n    <span class=\"hljs-keyword\">return</span> (binary_exponentiation(a, n - <span class=\"hljs-number\">1</span>, mod) * a) % mod;\r\n  }\r\n  <span class=\"hljs-built_in\">int</span> b = binary_exponentiation(a, n / <span class=\"hljs-number\">2</span>, mod);\r\n\r\n  <span class=\"hljs-keyword\">return</span> (b * b) % mod;\r\n}\r\n\r\n<span class=\"hljs-keyword\">void</span> main() {\r\n  <span class=\"hljs-comment\">// a prime number</span>\r\n  <span class=\"hljs-built_in\">int</span> p = <span class=\"hljs-number\">701</span>;\r\n\r\n  <span class=\"hljs-built_in\">double</span> a = <span class=\"hljs-number\">1000000000</span>;\r\n  <span class=\"hljs-built_in\">int</span> b = <span class=\"hljs-number\">10</span>;\r\n\r\n  <span class=\"hljs-comment\">// using binary exponentiation function, O(log(p)):</span>\r\n  <span class=\"hljs-built_in\">print</span>((a / b) % p == (a * binary_exponentiation(b, p - <span class=\"hljs-number\">2</span>, p)) % p);\r\n\r\n  <span class=\"hljs-comment\">// using Python operators:</span>\r\n  <span class=\"hljs-built_in\">print</span>((a / b) % p == (a * b ^ (p - <span class=\"hljs-number\">2</span>)) % p);\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Parowicz",
+      "email": "arturparowicz@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

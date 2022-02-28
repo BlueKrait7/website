@@ -1,0 +1,38 @@
+{
+  "slug": "fetch-github-info",
+  "name": "Fetch Github Info",
+  "categories": [
+    "webprogramming"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "web_programming\\fetch_github_info.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/web_programming\\fetch_github_info.py",
+      "code": "<span class=\"hljs-comment\">#!/usr/bin/env python3</span>\r\n<span class=\"hljs-string\">&quot;&quot;&quot;\r\nCreated by sarathkaul on 14/11/19\r\nUpdated by lawric1 on 24/11/20\r\n\r\nAuthentication will be made via access token.\r\nTo generate your personal access token visit https://github.com/settings/tokens.\r\n\r\nNOTE:\r\nNever hardcode any credential information in the code. Always use an environment\r\nfile to store the private information and use the `os` module to get the information\r\nduring runtime.\r\n\r\nCreate a &quot;.env&quot; file in the root directory and write these two lines in that file\r\nwith your token::\r\n\r\n#!/usr/bin/env bash\r\nexport USER_TOKEN=&quot;&quot;\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">from</span> __future__ <span class=\"hljs-keyword\">import</span> annotations\r\n\r\n<span class=\"hljs-keyword\">import</span> os\r\n<span class=\"hljs-keyword\">from</span> typing <span class=\"hljs-keyword\">import</span> <span class=\"hljs-type\">Any</span>\r\n\r\n<span class=\"hljs-keyword\">import</span> requests\r\n\r\nBASE_URL = <span class=\"hljs-string\">&quot;https://api.github.com&quot;</span>\r\n\r\n<span class=\"hljs-comment\"># https://docs.github.com/en/free-pro-team@latest/rest/reference/users#get-the-authenticated-user</span>\r\nAUTHENTICATED_USER_ENDPOINT = BASE_URL + <span class=\"hljs-string\">&quot;/user&quot;</span>\r\n\r\n<span class=\"hljs-comment\"># https://github.com/settings/tokens</span>\r\nUSER_TOKEN = os.environ.get(<span class=\"hljs-string\">&quot;USER_TOKEN&quot;</span>, <span class=\"hljs-string\">&quot;&quot;</span>)\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">fetch_github_info</span>(<span class=\"hljs-params\">auth_token: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-built_in\">dict</span>[<span class=\"hljs-type\">Any</span>, <span class=\"hljs-type\">Any</span>]:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Fetch GitHub info of a user using the requests module\r\n    &quot;&quot;&quot;</span>\r\n    headers = {\r\n        <span class=\"hljs-string\">&quot;Authorization&quot;</span>: <span class=\"hljs-string\">f&quot;token <span class=\"hljs-subst\">{auth_token}</span>&quot;</span>,\r\n        <span class=\"hljs-string\">&quot;Accept&quot;</span>: <span class=\"hljs-string\">&quot;application/vnd.github.v3+json&quot;</span>,\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> requests.get(AUTHENTICATED_USER_ENDPOINT, headers=headers).json()\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:  <span class=\"hljs-comment\"># pragma: no cover</span>\r\n    <span class=\"hljs-keyword\">if</span> USER_TOKEN:\r\n        <span class=\"hljs-keyword\">for</span> key, value <span class=\"hljs-keyword\">in</span> fetch_github_info(USER_TOKEN).items():\r\n            <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f&quot;<span class=\"hljs-subst\">{key}</span>: <span class=\"hljs-subst\">{value}</span>&quot;</span>)\r\n    <span class=\"hljs-keyword\">else</span>:\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;&#x27;USER_TOKEN&#x27; field cannot be empty.&quot;</span>)\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "lawric1",
+      "email": "67882089+lawric1@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "ocivo",
+      "email": "57896941+ocivo@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Sarath Kaul",
+      "email": "sarath.kaul@searce.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

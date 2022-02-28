@@ -1,0 +1,29 @@
+{
+  "slug": "fastexponent",
+  "name": "Fastexponent",
+  "categories": [
+    "math",
+    "power"
+  ],
+  "body": {},
+  "implementations": {
+    "go": {
+      "dir": "math\\power\\fastexponent.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/math\\power\\fastexponent.go",
+      "code": "<span class=\"hljs-keyword\">package</span> power\r\n\r\n<span class=\"hljs-comment\">// IterativePower is iterative O(logn) function for pow(x, y)</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">IterativePower</span><span class=\"hljs-params\">(n <span class=\"hljs-type\">uint</span>, power <span class=\"hljs-type\">uint</span>)</span></span> <span class=\"hljs-type\">uint</span> {\r\n\t<span class=\"hljs-keyword\">var</span> res <span class=\"hljs-type\">uint</span> = <span class=\"hljs-number\">1</span>\r\n\t<span class=\"hljs-keyword\">for</span> power &gt; <span class=\"hljs-number\">0</span> {\r\n\t\t<span class=\"hljs-keyword\">if</span> (power &amp; <span class=\"hljs-number\">1</span>) != <span class=\"hljs-number\">0</span> {\r\n\t\t\tres = res * n\r\n\t\t}\r\n\r\n\t\tpower = power &gt;&gt; <span class=\"hljs-number\">1</span>\r\n\t\tn *= n\r\n\t}\r\n\t<span class=\"hljs-keyword\">return</span> res\r\n}\r\n\r\n<span class=\"hljs-comment\">// RecursivePower is recursive O(logn) function for pow(x, y)</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">RecursivePower</span><span class=\"hljs-params\">(n <span class=\"hljs-type\">uint</span>, power <span class=\"hljs-type\">uint</span>)</span></span> <span class=\"hljs-type\">uint</span> {\r\n\t<span class=\"hljs-keyword\">if</span> power == <span class=\"hljs-number\">0</span> {\r\n\t\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>\r\n\t}\r\n\t<span class=\"hljs-keyword\">var</span> temp = RecursivePower(n, power/<span class=\"hljs-number\">2</span>)\r\n\t<span class=\"hljs-keyword\">if</span> power%<span class=\"hljs-number\">2</span> == <span class=\"hljs-number\">0</span> {\r\n\t\t<span class=\"hljs-keyword\">return</span> temp * temp\r\n\t}\r\n\t<span class=\"hljs-keyword\">return</span> n * temp * temp\r\n}\r\n\r\n<span class=\"hljs-comment\">// RecursivePower1 is recursive O(n) function for pow(x, y)</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">RecursivePower1</span><span class=\"hljs-params\">(n <span class=\"hljs-type\">uint</span>, power <span class=\"hljs-type\">uint</span>)</span></span> <span class=\"hljs-type\">uint</span> {\r\n\t<span class=\"hljs-keyword\">if</span> power == <span class=\"hljs-number\">0</span> {\r\n\t\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>\r\n\t} <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span> power%<span class=\"hljs-number\">2</span> == <span class=\"hljs-number\">0</span> {\r\n\t\t<span class=\"hljs-keyword\">return</span> RecursivePower1(n, power/<span class=\"hljs-number\">2</span>) * RecursivePower1(n, power/<span class=\"hljs-number\">2</span>)\r\n\t} <span class=\"hljs-keyword\">else</span> {\r\n\t\t<span class=\"hljs-keyword\">return</span> n * RecursivePower1(n, power/<span class=\"hljs-number\">2</span>) * RecursivePower1(n, power/<span class=\"hljs-number\">2</span>)\r\n\t}\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Mertcan Davulcu",
+      "email": "54983926+mertcandav@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Jobin John",
+      "email": "jobin1094@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

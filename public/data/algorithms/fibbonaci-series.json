@@ -1,0 +1,23 @@
+{
+  "slug": "fibbonaci-series",
+  "name": "Fibbonaci Series",
+  "categories": [
+    "others"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\others\\FibbonaciSeries.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\others\\FibbonaciSeries.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.others;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.Scanner;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Fibonacci sequence, and characterized by the fact that every number after the\r\n * first two is the sum of the two preceding ones.\r\n *\r\n * &lt;p&gt;\r\n * Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21,...\r\n *\r\n * &lt;p&gt;\r\n * Source for the explanation: https://en.wikipedia.org/wiki/Fibonacci_number\r\n *\r\n * Problem Statement: print all Fibonacci numbers that are smaller than your\r\n * given input N\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">FibbonaciSeries</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-comment\">// Get input from the user</span>\r\n        <span class=\"hljs-type\">Scanner</span> <span class=\"hljs-variable\">scan</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Scanner</span>(System.in);\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">n</span> <span class=\"hljs-operator\">=</span> scan.nextInt();\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">first</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>, second = <span class=\"hljs-number\">1</span>;\r\n        scan.close();\r\n        <span class=\"hljs-keyword\">while</span> (first &lt;= n) {\r\n            <span class=\"hljs-comment\">// print first fibo 0 then add second fibo into it while updating second as well</span>\r\n            System.out.println(first);\r\n            <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">next</span> <span class=\"hljs-operator\">=</span> first + second;\r\n            first = second;\r\n            second = next;\r\n        }\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

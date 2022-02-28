@@ -1,0 +1,33 @@
+{
+  "slug": "find-hcf",
+  "name": "Find Hcf",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\test\\FindHcf.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\FindHcf.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { findHCF } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../FindHcf&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;findHCF&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should throw a statement for values less than 1&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">findHCF</span>(<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;Please enter values greater than zero.&#x27;</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should throw a statement for one value less than 1&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">findHCF</span>(<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;Please enter values greater than zero.&#x27;</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">findHCF</span>(<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">0</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;Please enter values greater than zero.&#x27;</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return an error for values non-integer values&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">findHCF</span>(<span class=\"hljs-number\">2.24</span>, <span class=\"hljs-number\">4.35</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;Please enter whole numbers.&#x27;</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return the HCF of two given integers&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">findHCF</span>(<span class=\"hljs-number\">27</span>, <span class=\"hljs-number\">36</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">9</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Novojit Saha",
+      "email": "55886194+redfly1@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Shivam Arora",
+      "email": "shivam.arora@inficold.com",
+      "commits": 1
+    },
+    {
+      "name": "Ephraim Atta-Duncan",
+      "email": "55143799+dephraiim@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

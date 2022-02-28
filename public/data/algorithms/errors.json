@@ -1,0 +1,23 @@
+{
+  "slug": "errors",
+  "name": "Errors",
+  "categories": [
+    "searches"
+  ],
+  "body": {},
+  "implementations": {
+    "go": {
+      "dir": "search\\errors.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/search\\errors.go",
+      "code": "<span class=\"hljs-keyword\">package</span> search\r\n\r\n<span class=\"hljs-keyword\">import</span> <span class=\"hljs-string\">&quot;errors&quot;</span>\r\n\r\n<span class=\"hljs-comment\">// ErrNotFound is returned by search functions when target is not found</span>\r\n<span class=\"hljs-keyword\">var</span> ErrNotFound = errors.New(<span class=\"hljs-string\">&quot;target not found in array&quot;</span>)\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "FuXiang Shu",
+      "email": "6470547+Crazy3lf@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

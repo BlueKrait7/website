@@ -1,0 +1,48 @@
+{
+  "slug": "factorial-recursive",
+  "name": "Factorial Recursive",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\factorial_recursive.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\factorial_recursive.py",
+      "code": "<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">factorial</span>(<span class=\"hljs-params\">n: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">int</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Calculate the factorial of a positive integer\r\n    https://en.wikipedia.org/wiki/Factorial\r\n\r\n    &gt;&gt;&gt; import math\r\n    &gt;&gt;&gt; all(factorial(i) == math.factorial(i) for i in range(20))\r\n    True\r\n    &gt;&gt;&gt; factorial(0.1)\r\n    Traceback (most recent call last):\r\n        ...\r\n    ValueError: factorial() only accepts integral values\r\n    &gt;&gt;&gt; factorial(-1)\r\n    Traceback (most recent call last):\r\n        ...\r\n    ValueError: factorial() not defined for negative values\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> <span class=\"hljs-keyword\">not</span> <span class=\"hljs-built_in\">isinstance</span>(n, <span class=\"hljs-built_in\">int</span>):\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;factorial() only accepts integral values&quot;</span>)\r\n    <span class=\"hljs-keyword\">if</span> n &lt; <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;factorial() not defined for negative values&quot;</span>)\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span> <span class=\"hljs-keyword\">if</span> n == <span class=\"hljs-number\">0</span> <span class=\"hljs-keyword\">or</span> n == <span class=\"hljs-number\">1</span> <span class=\"hljs-keyword\">else</span> n * factorial(n - <span class=\"hljs-number\">1</span>)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "PatOnTheBack",
+      "email": "51241310+PatOnTheBack@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Pooja",
+      "email": "pooja016mca19@igdtuw.ac.in",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Vysor",
+      "email": "vysor@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

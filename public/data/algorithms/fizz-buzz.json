@@ -1,0 +1,38 @@
+{
+  "slug": "fizz-buzz",
+  "name": "Fizz Buzz",
+  "categories": [
+    "others"
+  ],
+  "body": {},
+  "implementations": {
+    "dart": {
+      "dir": "other\\FizzBuzz.dart",
+      "url": "https://github.com/TheAlgorithms/dart/tree/master/other\\FizzBuzz.dart",
+      "code": "<span class=\"hljs-comment\">//Title:FizzBuzz</span>\r\n<span class=\"hljs-comment\">// Author:ShivamVerma</span>\r\n<span class=\"hljs-comment\">// Email:shivamthegreat.sv@gmail.com</span>\r\n\r\n<span class=\"hljs-comment\">// Write a program that prints the numbers from 1 to 100. But for multiples of three print &quot;Fizz&quot; instead of the number and for the multiples of five print &quot;Buzz&quot;. For numbers which are multiples of both three and five print &quot;FizzBuzz&quot;.</span>\r\n\r\n<span class=\"hljs-keyword\">void</span> main() {\r\n  fizzBuzz();\r\n}\r\n\r\n<span class=\"hljs-keyword\">void</span> fizzBuzz() {\r\n  <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-built_in\">int</span> i = <span class=\"hljs-number\">1</span>; i &lt;= <span class=\"hljs-number\">100</span>; i++) {\r\n    <span class=\"hljs-keyword\">if</span> (i % <span class=\"hljs-number\">3</span> == <span class=\"hljs-number\">0</span> &amp;&amp; i % <span class=\"hljs-number\">5</span> == <span class=\"hljs-number\">0</span>) {\r\n      <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;FizzBuzz&quot;</span>);\r\n    } <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span> (i % <span class=\"hljs-number\">3</span> == <span class=\"hljs-number\">0</span>) {\r\n      <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;Fizz&quot;</span>);\r\n    } <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span> (i % <span class=\"hljs-number\">5</span> == <span class=\"hljs-number\">0</span>) {\r\n      <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;Buzz&quot;</span>);\r\n    } <span class=\"hljs-keyword\">else</span> {\r\n      <span class=\"hljs-built_in\">print</span>(i);\r\n    }\r\n  }\r\n}\r\n"
+    },
+    "ruby": {
+      "dir": "data_structures\\hash_table\\fizz_buzz.rb",
+      "url": "https://github.com/TheAlgorithms/ruby/tree/master/data_structures\\hash_table\\fizz_buzz.rb",
+      "code": "<span class=\"hljs-comment\"># Write a program that outputs the string representation of numbers</span>\r\n<span class=\"hljs-comment\"># from 1 to n. But for multiples of three it should output “Fizz”</span>\r\n<span class=\"hljs-comment\"># instead of the number and for the multiples of five output “Buzz”.</span>\r\n<span class=\"hljs-comment\"># For numbers which are multiples of both three and five output</span>\r\n<span class=\"hljs-comment\"># “FizzBuzz”.</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Approach 1: Hash it!</span>\r\n<span class=\"hljs-comment\">#</span>\r\n\r\n<span class=\"hljs-comment\"># Complexity Analysis</span>\r\n\r\n<span class=\"hljs-comment\"># Time Complexity: O(N)</span>\r\n<span class=\"hljs-comment\"># Space Complexity: O(1)</span>\r\n\r\n<span class=\"hljs-comment\"># <span class=\"hljs-doctag\">@param</span> {Integer} n</span>\r\n<span class=\"hljs-comment\"># <span class=\"hljs-doctag\">@return</span> {String[]}</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">fizz_buzz</span><span class=\"hljs-params\">(n, fizz_buzz = { <span class=\"hljs-number\">3</span> =&gt; <span class=\"hljs-string\">&#x27;Fizz&#x27;</span>, <span class=\"hljs-number\">5</span> =&gt; <span class=\"hljs-string\">&#x27;Buzz&#x27;</span> })</span></span>\r\n  n.times.map <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|i|</span>\r\n    i += <span class=\"hljs-number\">1</span>\r\n    num_str = <span class=\"hljs-string\">&#x27;&#x27;</span>\r\n\r\n    fizz_buzz.each <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|key, value|</span>\r\n      num_str += value <span class=\"hljs-keyword\">if</span> i % key == <span class=\"hljs-number\">0</span>\r\n    <span class=\"hljs-keyword\">end</span>\r\n\r\n    num_str.empty? ? i.to_s : num_str\r\n  <span class=\"hljs-keyword\">end</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\nn = <span class=\"hljs-number\">15</span>\r\nputs(fizz_buzz(n))\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "Shivam Verma",
+      "email": "50954641+sarcastic-verma@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 6
+    }
+  ],
+  "explanationUrl": {}
+}

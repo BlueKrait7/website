@@ -1,0 +1,34 @@
+{
+  "slug": "evaluate-postfix-notations",
+  "name": "Evaluate Postfix Notations",
+  "categories": [
+    "datastructures",
+    "stacks"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "data_structures\\stacks\\evaluate_postfix_notations.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/data_structures\\stacks\\evaluate_postfix_notations.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nThe Reverse Polish Nation also known as Polish postfix notation\r\nor simply postfix notation.\r\nhttps://en.wikipedia.org/wiki/Reverse_Polish_notation\r\nClassic examples of simple stack implementations\r\nValid operators are +, -, *, /.\r\nEach operand may be an integer or another expression.\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">from</span> __future__ <span class=\"hljs-keyword\">import</span> annotations\r\n\r\n<span class=\"hljs-keyword\">from</span> typing <span class=\"hljs-keyword\">import</span> <span class=\"hljs-type\">Any</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">evaluate_postfix</span>(<span class=\"hljs-params\">postfix_notation: <span class=\"hljs-built_in\">list</span></span>) -&gt; <span class=\"hljs-built_in\">int</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    &gt;&gt;&gt; evaluate_postfix([&quot;2&quot;, &quot;1&quot;, &quot;+&quot;, &quot;3&quot;, &quot;*&quot;])\r\n    9\r\n    &gt;&gt;&gt; evaluate_postfix([&quot;4&quot;, &quot;13&quot;, &quot;5&quot;, &quot;/&quot;, &quot;+&quot;])\r\n    6\r\n    &gt;&gt;&gt; evaluate_postfix([])\r\n    0\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> <span class=\"hljs-keyword\">not</span> postfix_notation:\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>\r\n\r\n    operations = {<span class=\"hljs-string\">&quot;+&quot;</span>, <span class=\"hljs-string\">&quot;-&quot;</span>, <span class=\"hljs-string\">&quot;*&quot;</span>, <span class=\"hljs-string\">&quot;/&quot;</span>}\r\n    stack: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-type\">Any</span>] = []\r\n\r\n    <span class=\"hljs-keyword\">for</span> token <span class=\"hljs-keyword\">in</span> postfix_notation:\r\n        <span class=\"hljs-keyword\">if</span> token <span class=\"hljs-keyword\">in</span> operations:\r\n            b, a = stack.pop(), stack.pop()\r\n            <span class=\"hljs-keyword\">if</span> token == <span class=\"hljs-string\">&quot;+&quot;</span>:\r\n                stack.append(a + b)\r\n            <span class=\"hljs-keyword\">elif</span> token == <span class=\"hljs-string\">&quot;-&quot;</span>:\r\n                stack.append(a - b)\r\n            <span class=\"hljs-keyword\">elif</span> token == <span class=\"hljs-string\">&quot;*&quot;</span>:\r\n                stack.append(a * b)\r\n            <span class=\"hljs-keyword\">else</span>:\r\n                <span class=\"hljs-keyword\">if</span> a * b &lt; <span class=\"hljs-number\">0</span> <span class=\"hljs-keyword\">and</span> a % b != <span class=\"hljs-number\">0</span>:\r\n                    stack.append(a // b + <span class=\"hljs-number\">1</span>)\r\n                <span class=\"hljs-keyword\">else</span>:\r\n                    stack.append(a // b)\r\n        <span class=\"hljs-keyword\">else</span>:\r\n            stack.append(<span class=\"hljs-built_in\">int</span>(token))\r\n\r\n    <span class=\"hljs-keyword\">return</span> stack.pop()\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "Akash G Krishnan",
+      "email": "krishnanag1996@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Ahmed Haj Abdel Khaleq",
+      "email": "31858489+AhmedHaj@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

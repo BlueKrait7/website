@@ -1,0 +1,23 @@
+{
+  "slug": "find-second-largest-element",
+  "name": "Find Second Largest Element",
+  "categories": [
+    "sorts"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Sorts\\FindSecondLargestElement.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Sorts\\FindSecondLargestElement.js",
+      "code": "<span class=\"hljs-comment\">/*\r\n* Find Second Largest is a real technical interview question.\r\n* Chances are you will be asked to find the second largest value\r\n* inside of an array of numbers. You must also be able to filter\r\n* out duplicate values.  It&#x27;s important to know how to do this with\r\n* clean code that is also easy to explain.\r\n*\r\n* Resources:\r\n* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set\r\n*/</span>\r\n\r\n<span class=\"hljs-keyword\">const</span> <span class=\"hljs-title function_\">secondLargestElement</span> = (<span class=\"hljs-params\">array</span>) =&gt; {\r\n  <span class=\"hljs-keyword\">const</span> largestElement = <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">max</span>(...array)\r\n  <span class=\"hljs-keyword\">let</span> element = <span class=\"hljs-number\">0</span>\r\n\r\n  <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> i = <span class=\"hljs-number\">0</span>; i &lt; array.<span class=\"hljs-property\">length</span>; i++) {\r\n    <span class=\"hljs-keyword\">if</span> (element &lt; array[i] &amp;&amp; array[i] !== largestElement) {\r\n      element = array[i]\r\n    }\r\n  }\r\n\r\n  <span class=\"hljs-keyword\">return</span> element\r\n}\r\n\r\n<span class=\"hljs-keyword\">export</span> { secondLargestElement }\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Matthew Palmer",
+      "email": "matthewpalmer9@outlook.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

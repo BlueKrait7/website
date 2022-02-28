@@ -1,0 +1,24 @@
+{
+  "slug": "extendedgcditerative",
+  "name": "Extendedgcditerative",
+  "categories": [
+    "math",
+    "gcd"
+  ],
+  "body": {},
+  "implementations": {
+    "go": {
+      "dir": "math\\gcd\\extendedgcditerative.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/math\\gcd\\extendedgcditerative.go",
+      "code": "<span class=\"hljs-keyword\">package</span> gcd\r\n\r\n<span class=\"hljs-comment\">// ExtendedIterative finds and returns gcd(a, b), x, y satisfying a*x + b*y = gcd(a, b).</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">ExtendedIterative</span><span class=\"hljs-params\">(a, b <span class=\"hljs-type\">int64</span>)</span></span> (<span class=\"hljs-type\">int64</span>, <span class=\"hljs-type\">int64</span>, <span class=\"hljs-type\">int64</span>) {\r\n\t<span class=\"hljs-keyword\">var</span> u, y, v, x <span class=\"hljs-type\">int64</span> = <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>\r\n\t<span class=\"hljs-keyword\">for</span> a &gt; <span class=\"hljs-number\">0</span> {\r\n\t\t<span class=\"hljs-keyword\">var</span> q <span class=\"hljs-type\">int64</span> = b / a\r\n\t\tx, u = u, x-q*u\r\n\t\ty, v = v, y-q*v\r\n\t\tb, a = a, b-q*a\r\n\t}\r\n\t<span class=\"hljs-keyword\">return</span> b, x, y\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Ryusei Nagai",
+      "email": "ryuuryuu908@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

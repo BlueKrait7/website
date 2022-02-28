@@ -1,0 +1,38 @@
+{
+  "slug": "fibonacci-number-recursive",
+  "name": "Fibonacci Number Recursive",
+  "categories": [
+    "recursive"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Recursive\\test\\FibonacciNumberRecursive.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Recursive\\test\\FibonacciNumberRecursive.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { fibonacci } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../FibonacciNumberRecursive&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;FibonacciNumberRecursive&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return 0&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">fibonacci</span>(<span class=\"hljs-number\">0</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">0</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return 1&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">fibonacci</span>(<span class=\"hljs-number\">1</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">1</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return 5&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">fibonacci</span>(<span class=\"hljs-number\">5</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">5</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return 9&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">fibonacci</span>(<span class=\"hljs-number\">9</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">34</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "vinayak",
+      "email": "itssvinayak@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "illegalcall",
+      "email": "44542765+illegalcall@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "YATIN KATHURIA",
+      "email": "47096348+Yatin-kathuria@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

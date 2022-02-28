@@ -1,0 +1,29 @@
+{
+  "slug": "find-all-duplicates-in-an-array",
+  "name": "Find All Duplicates in an Array",
+  "categories": [
+    "datastructures",
+    "array"
+  ],
+  "body": {},
+  "implementations": {
+    "ruby": {
+      "dir": "data_structures\\hash_table\\find_all_duplicates_in_an_array.rb",
+      "url": "https://github.com/TheAlgorithms/ruby/tree/master/data_structures\\hash_table\\find_all_duplicates_in_an_array.rb",
+      "code": "<span class=\"hljs-comment\"># Find All Duplicates in an Array</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array),</span>\r\n<span class=\"hljs-comment\"># some elements appear twice and others appear once.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Find all the elements that appear twice in this array.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Could you do it without extra space and in O(n) runtime?</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Example:</span>\r\n<span class=\"hljs-comment\"># Input:</span>\r\n<span class=\"hljs-comment\"># [4,3,2,7,8,2,3,1]</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Output:</span>\r\n<span class=\"hljs-comment\"># [2,3]</span>\r\n\r\n<span class=\"hljs-keyword\">require</span> <span class=\"hljs-string\">&#x27;benchmark&#x27;</span>\r\n\r\narray = [<span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">7</span>, <span class=\"hljs-number\">8</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">1</span>]\r\nlong_array = [<span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">7</span>, <span class=\"hljs-number\">8</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">1</span>] * <span class=\"hljs-number\">100</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Approach: Hash table</span>\r\n<span class=\"hljs-comment\">#</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Complexity Analysis</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Time complexity: O(n) average case.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">find_duplicates</span><span class=\"hljs-params\">(array)</span></span>\r\n  result_hash = {}\r\n  result_array = []\r\n\r\n  <span class=\"hljs-comment\"># loop through array and build a hash with counters</span>\r\n  <span class=\"hljs-comment\"># where the key is the array element and the counter is the value</span>\r\n  <span class=\"hljs-comment\"># increase counter when duplicate is found</span>\r\n  array.each <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|num|</span>\r\n    <span class=\"hljs-keyword\">if</span> result_hash[num].<span class=\"hljs-literal\">nil</span>?\r\n      result_hash[num] = <span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">else</span>\r\n      result_hash[num] += <span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">end</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n\r\n  <span class=\"hljs-comment\"># loop through hash and look for values &gt; 1</span>\r\n  result_hash.each <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|k, v|</span>\r\n    result_array.push(k) <span class=\"hljs-keyword\">if</span> v &gt; <span class=\"hljs-number\">1</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n\r\n  <span class=\"hljs-comment\"># return keys</span>\r\n  result_array\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\nBenchmark.bmbm <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|x|</span>\r\n  x.report(<span class=\"hljs-string\">&#x27;execute algorithm 3&#x27;</span>) <span class=\"hljs-keyword\">do</span>\r\n    print(find_duplicates(array))\r\n    print(find_duplicates(long_array))\r\n  <span class=\"hljs-keyword\">end</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Jessica Kwok",
+      "email": "jessicatckwok@gmail.com",
+      "commits": 3
+    },
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 5
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "fast-exponentiation",
+  "name": "Fast Exponentiation",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "php": {
+      "dir": "Maths\\FastExponentiation.php",
+      "url": "https://github.com/TheAlgorithms/php/tree/master/Maths\\FastExponentiation.php",
+      "code": "<span class=\"hljs-meta\">&lt;?php</span>\r\n<span class=\"hljs-comment\">/**\r\n * This functions computes an exponent by doing repeated squares\r\n *\r\n * <span class=\"hljs-doctag\">@param</span> Integer $base the base\r\n * <span class=\"hljs-doctag\">@param</span> Integer $exponent the exponent (ie the number of times that the base is multiplied by itself)\r\n * <span class=\"hljs-doctag\">@return</span> Integer\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">fastExponentiation</span>(<span class=\"hljs-params\"><span class=\"hljs-keyword\">int</span> <span class=\"hljs-variable\">$base</span>, <span class=\"hljs-keyword\">int</span> <span class=\"hljs-variable\">$exponent</span></span>)\r\n</span>{\r\n    <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-variable\">$exponent</span> == <span class=\"hljs-number\">0</span>) {\r\n\t\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>;\r\n\t}   \r\n\r\n\t<span class=\"hljs-keyword\">if</span> (<span class=\"hljs-variable\">$exponent</span> == <span class=\"hljs-number\">1</span>) {\r\n\t\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-variable\">$base</span>;\r\n\t}\r\n\r\n\t<span class=\"hljs-keyword\">if</span> (<span class=\"hljs-variable\">$exponent</span> % <span class=\"hljs-number\">2</span> == <span class=\"hljs-number\">0</span>) {\r\n\t\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-title function_ invoke__\">fastExponentiation</span>(<span class=\"hljs-variable\">$base</span>*<span class=\"hljs-variable\">$base</span>, <span class=\"hljs-variable\">$exponent</span>/<span class=\"hljs-number\">2</span>);\r\n\t} <span class=\"hljs-keyword\">else</span> {\r\n\t\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-variable\">$base</span> * <span class=\"hljs-title function_ invoke__\">fastExponentiation</span>(<span class=\"hljs-variable\">$base</span>*<span class=\"hljs-variable\">$base</span>, (<span class=\"hljs-variable\">$exponent</span>-<span class=\"hljs-number\">1</span>)/<span class=\"hljs-number\">2</span>);\r\n\t}\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Juan Martín Enríquez",
+      "email": "juan@flydreamers.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

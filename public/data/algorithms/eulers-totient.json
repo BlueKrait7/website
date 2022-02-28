@@ -1,0 +1,43 @@
+{
+  "slug": "eulers-totient",
+  "name": "Eulers Totient",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\eulers_totient.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\eulers_totient.py",
+      "code": "<span class=\"hljs-comment\"># Eulers Totient function finds the number of relative primes of a number n from 1 to n</span>\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">totient</span>(<span class=\"hljs-params\">n: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">list</span>:\r\n    is_prime = [<span class=\"hljs-literal\">True</span> <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(n + <span class=\"hljs-number\">1</span>)]\r\n    totients = [i - <span class=\"hljs-number\">1</span> <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(n + <span class=\"hljs-number\">1</span>)]\r\n    primes = []\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-number\">2</span>, n + <span class=\"hljs-number\">1</span>):\r\n        <span class=\"hljs-keyword\">if</span> is_prime[i]:\r\n            primes.append(i)\r\n        <span class=\"hljs-keyword\">for</span> j <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-number\">0</span>, <span class=\"hljs-built_in\">len</span>(primes)):\r\n            <span class=\"hljs-keyword\">if</span> i * primes[j] &gt;= n:\r\n                <span class=\"hljs-keyword\">break</span>\r\n            is_prime[i * primes[j]] = <span class=\"hljs-literal\">False</span>\r\n\r\n            <span class=\"hljs-keyword\">if</span> i % primes[j] == <span class=\"hljs-number\">0</span>:\r\n                totients[i * primes[j]] = totients[i] * primes[j]\r\n                <span class=\"hljs-keyword\">break</span>\r\n\r\n            totients[i * primes[j]] = totients[i] * (primes[j] - <span class=\"hljs-number\">1</span>)\r\n\r\n    <span class=\"hljs-keyword\">return</span> totients\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">test_totient</span>() -&gt; <span class=\"hljs-literal\">None</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    &gt;&gt;&gt; n = 10\r\n    &gt;&gt;&gt; totient_calculation = totient(n)\r\n    &gt;&gt;&gt; for i in range(1, n):\r\n    ...     print(f&quot;{i} has {totient_calculation[i]} relative primes.&quot;)\r\n    1 has 0 relative primes.\r\n    2 has 1 relative primes.\r\n    3 has 2 relative primes.\r\n    4 has 2 relative primes.\r\n    5 has 4 relative primes.\r\n    6 has 2 relative primes.\r\n    7 has 6 relative primes.\r\n    8 has 4 relative primes.\r\n    9 has 6 relative primes.\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">pass</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    },
+    "javascript": {
+      "dir": "Maths\\test\\EulersTotient.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\EulersTotient.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { <span class=\"hljs-title class_\">EulersTotient</span> } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../EulersTotient&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;EulersTotient&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return 6 as 1, 2, 4, 5, 7, and 8 are coprime to 9&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">EulersTotient</span>(<span class=\"hljs-number\">9</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">6</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return 4 as 1, 3, 7, and 9 are coprime to 10&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">EulersTotient</span>(<span class=\"hljs-number\">10</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">4</span>)\r\n  })\r\n})\r\n"
+    },
+    "dart": {
+      "dir": "maths\\eulers_totient.dart",
+      "url": "https://github.com/TheAlgorithms/dart/tree/master/maths\\eulers_totient.dart",
+      "code": "<span class=\"hljs-comment\">/* Source:\r\n *   https://en.wikipedia.org/wiki/Euler%27s_totient_function\r\n * \r\n * Description:\r\n *   eulers_totient(n) = n * product(1 - 1/p for all prime p dividing n)\r\n * \r\n * Time Complexity:\r\n *   O(sqrt(n))\r\n */</span>\r\n\r\n<span class=\"hljs-built_in\">int</span> eulers_totient(<span class=\"hljs-built_in\">int</span> n) {\r\n  <span class=\"hljs-comment\">// Input: n: int</span>\r\n  <span class=\"hljs-comment\">// Output: phi(n): count of numbers b/w 1 and n that are coprime to n</span>\r\n  <span class=\"hljs-built_in\">int</span> res = n;\r\n  <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-built_in\">int</span> i = <span class=\"hljs-number\">2</span>; i * i &lt;= n; i++) {\r\n    <span class=\"hljs-keyword\">if</span> (n % i == <span class=\"hljs-number\">0</span>) {\r\n      <span class=\"hljs-keyword\">while</span> (n % i == <span class=\"hljs-number\">0</span>) {\r\n        n = n ~/ i;\r\n      }\r\n      <span class=\"hljs-comment\">// i is a prime dividing n, multiply res bu 1 - 1/i</span>\r\n      <span class=\"hljs-comment\">// res = res * (1 - 1/i) = res - (res/i)</span>\r\n      res = res - (res ~/ i);\r\n    }\r\n  }\r\n  <span class=\"hljs-keyword\">if</span> (n &gt; <span class=\"hljs-number\">1</span>) {\r\n    res = res - (res ~/ n);\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> res;\r\n}\r\n\r\nmain() {\r\n  <span class=\"hljs-comment\">// eulers_totient(9) = 6 as 1, 2, 4, 5, 6, 7, 8 are coprime to 9</span>\r\n  <span class=\"hljs-comment\">// &gt; 6</span>\r\n  <span class=\"hljs-built_in\">print</span>(eulers_totient(<span class=\"hljs-number\">9</span>));\r\n  <span class=\"hljs-comment\">// eulers_totient(10) = 4 as 1, 3, 7, 9 are coprime to 10</span>\r\n  <span class=\"hljs-comment\">// &gt; 4</span>\r\n  <span class=\"hljs-built_in\">print</span>(eulers_totient(<span class=\"hljs-number\">10</span>));\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Abhijit Patil",
+      "email": "abhi175668@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "utkarsh",
+      "email": "ucponia@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Roland Hummel",
+      "email": "roland.hummel@qaware.de",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "fcfs",
+  "name": "Fcfs",
+  "categories": [
+    "scheduling"
+  ],
+  "body": {},
+  "implementations": {
+    "julia": {
+      "dir": "src\\scheduling\\fcfs.jl",
+      "url": "https://github.com/TheAlgorithms/julia/tree/master/src\\scheduling\\fcfs.jl",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n    fcfs(n, process_id, burst_time)\r\n\r\nImplementation of first come first served scheduling algorithm\r\n\r\n# Output\r\nTuple of vectors (process_id, burst_time, waiting_time, turnaround_time, avg_waiting_time, avg_turnaround_time)\r\n\r\n# Example\r\n\r\n```julia\r\nn = 3 # number of processes\r\nprocess_id = Any[1, 2, 3] # process ids\r\nburst_times = Any[3, 4, 5] # burst times\r\nfcfs(n, process_id, burst_times)\r\n```\r\n# Reference\r\n\r\nhttps://en.wikipedia.org/wiki/Scheduling_(computing)#First_come,_first_served\r\n\r\nContributed By:- [Ashwani Rathee](https://github.com/ashwani-rathee)\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">function</span> fcfs(n, process_id, burst_time)\r\n    waiting_time = []\r\n    push!(waiting_time, <span class=\"hljs-number\">0</span>)\r\n    <span class=\"hljs-keyword\">for</span> i = <span class=\"hljs-number\">2</span>:n\r\n        <span class=\"hljs-comment\"># Calculates waiting time</span>\r\n        push!(waiting_time, burst_time[i - <span class=\"hljs-number\">1</span>] + waiting_time[i - <span class=\"hljs-number\">1</span>])\r\n    <span class=\"hljs-keyword\">end</span>\r\n\r\n    turnaround_time = []\r\n    <span class=\"hljs-keyword\">for</span> i = <span class=\"hljs-number\">1</span>:n\r\n        <span class=\"hljs-comment\"># Calculates turnaround time</span>\r\n        push!(turnaround_time, burst_time[i] + waiting_time[i])\r\n    <span class=\"hljs-keyword\">end</span>\r\n\r\n    <span class=\"hljs-comment\"># Calculates Average waiting time</span>\r\n    avg_waiting_time = sum(waiting_time) / length(waiting_time)\r\n\r\n    <span class=\"hljs-comment\"># Calculates Average turnaround time</span>\r\n    avg_turnaround_time = sum(turnaround_time) / length(turnaround_time)\r\n\r\n    <span class=\"hljs-keyword\">return</span> process_id, burst_time, waiting_time, turnaround_time, avg_waiting_time, avg_turnaround_time\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Azzaare",
+      "email": "jf@baffier.fr",
+      "commits": 1
+    },
+    {
+      "name": "Ashwani Rathee",
+      "email": "ab669522@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

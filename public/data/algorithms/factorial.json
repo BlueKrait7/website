@@ -1,0 +1,253 @@
+{
+  "slug": "factorial",
+  "name": "Factorial",
+  "categories": [
+    "dynamicprogramming"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "dynamic_programming\\factorial.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/dynamic_programming\\factorial.py",
+      "code": "<span class=\"hljs-comment\"># Factorial of a number using memoization</span>\r\n\r\n<span class=\"hljs-keyword\">from</span> functools <span class=\"hljs-keyword\">import</span> lru_cache\r\n\r\n\r\n<span class=\"hljs-meta\">@lru_cache</span>\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">factorial</span>(<span class=\"hljs-params\">num: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">int</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    &gt;&gt;&gt; factorial(7)\r\n    5040\r\n    &gt;&gt;&gt; factorial(-1)\r\n    Traceback (most recent call last):\r\n      ...\r\n    ValueError: Number should not be negative.\r\n    &gt;&gt;&gt; [factorial(i) for i in range(10)]\r\n    [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880]\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> num &lt; <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;Number should not be negative.&quot;</span>)\r\n\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span> <span class=\"hljs-keyword\">if</span> num <span class=\"hljs-keyword\">in</span> (<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>) <span class=\"hljs-keyword\">else</span> num * factorial(num - <span class=\"hljs-number\">1</span>)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    },
+    "javascript": {
+      "dir": "Recursive\\test\\Factorial.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Recursive\\test\\Factorial.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { factorial } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../Factorial&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;Factorial&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return factorial 1 for value &quot;0&quot;&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">factorial</span>(<span class=\"hljs-number\">0</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">1</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return factorial 120 for value &quot;5&quot;&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">factorial</span>(<span class=\"hljs-number\">5</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">120</span>)\r\n  })\r\n})\r\n"
+    },
+    "c-plus-plus": {
+      "dir": "math\\factorial.cpp",
+      "url": "https://github.com/TheAlgorithms/c-plus-plus/tree/master/math\\factorial.cpp",
+      "code": "<span class=\"hljs-comment\">/**\r\n * @file\r\n * @brief C++ program to find factorial of given number\r\n */</span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;iostream&gt;</span></span>\r\n\r\n<span class=\"hljs-comment\">/** function to find factorial of given number */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">unsigned</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-title\">factorial</span><span class=\"hljs-params\">(<span class=\"hljs-type\">unsigned</span> <span class=\"hljs-type\">int</span> n)</span> </span>{\r\n    <span class=\"hljs-keyword\">if</span> (n == <span class=\"hljs-number\">0</span>)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>;\r\n    <span class=\"hljs-keyword\">return</span> n * <span class=\"hljs-built_in\">factorial</span>(n - <span class=\"hljs-number\">1</span>);\r\n}\r\n\r\n<span class=\"hljs-comment\">/** Main function */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">int</span> <span class=\"hljs-title\">main</span><span class=\"hljs-params\">()</span> </span>{\r\n    <span class=\"hljs-type\">int</span> num = <span class=\"hljs-number\">5</span>;\r\n    std::cout &lt;&lt; <span class=\"hljs-string\">&quot;Factorial of &quot;</span> &lt;&lt; num &lt;&lt; <span class=\"hljs-string\">&quot; is &quot;</span> &lt;&lt; <span class=\"hljs-built_in\">factorial</span>(num)\r\n              &lt;&lt; std::endl;\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n"
+    },
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\maths\\Factorial.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\maths\\Factorial.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.maths;\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Factorial</span> {\r\n\r\n    <span class=\"hljs-comment\">/* Driver Code */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">factorial</span><span class=\"hljs-params\">(<span class=\"hljs-number\">0</span>)</span> == <span class=\"hljs-number\">1</span>;\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">factorial</span><span class=\"hljs-params\">(<span class=\"hljs-number\">1</span>)</span> == <span class=\"hljs-number\">1</span>;\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">factorial</span><span class=\"hljs-params\">(<span class=\"hljs-number\">5</span>)</span> == <span class=\"hljs-number\">120</span>;\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">factorial</span><span class=\"hljs-params\">(<span class=\"hljs-number\">10</span>)</span> == <span class=\"hljs-number\">3628800</span>;\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Calculate factorial N using iteration\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> n the number\r\n     * <span class=\"hljs-doctag\">@return</span> the factorial of {<span class=\"hljs-doctag\">@code</span> n}\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">long</span> <span class=\"hljs-title function_\">factorial</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> n)</span> {\r\n        <span class=\"hljs-keyword\">if</span> (n &lt; <span class=\"hljs-number\">0</span>) {\r\n            <span class=\"hljs-keyword\">throw</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">IllegalArgumentException</span>(<span class=\"hljs-string\">&quot;number is negative&quot;</span>);\r\n        }\r\n        <span class=\"hljs-type\">long</span> <span class=\"hljs-variable\">factorial</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">1</span>;\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">1</span>; i &lt;= n; factorial *= i, ++i)\r\n      ;\r\n        <span class=\"hljs-keyword\">return</span> factorial;\r\n    }\r\n}\r\n"
+    },
+    "c": {
+      "dir": "misc\\factorial.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/misc\\factorial.c",
+      "code": "<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;stdio.h&gt;</span></span>\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">()</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> a[<span class=\"hljs-number\">200</span>], n, counter, temp, i;\r\n    a[<span class=\"hljs-number\">0</span>] = <span class=\"hljs-number\">1</span>;\r\n    counter = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;Enter a whole number to Find its Factorial: &quot;</span>);\r\n    <span class=\"hljs-built_in\">scanf</span>(<span class=\"hljs-string\">&quot;%d&quot;</span>, &amp;n);\r\n    <span class=\"hljs-keyword\">if</span> (n &lt; <span class=\"hljs-number\">0</span>)\r\n        <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;Cannot Calculate factorials for negative numbers.&quot;</span>);\r\n    <span class=\"hljs-keyword\">else</span>\r\n    {\r\n        <span class=\"hljs-keyword\">for</span> (; n &gt;= <span class=\"hljs-number\">2</span>; n--)\r\n        {\r\n            temp = <span class=\"hljs-number\">0</span>;\r\n            <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt;= counter; i++)\r\n            {\r\n                temp = (a[i] * n) + temp;\r\n                a[i] = temp % <span class=\"hljs-number\">10</span>;\r\n                temp = temp / <span class=\"hljs-number\">10</span>;\r\n            }\r\n            <span class=\"hljs-keyword\">while</span> (temp &gt; <span class=\"hljs-number\">0</span>)\r\n            {\r\n                a[++counter] = temp % <span class=\"hljs-number\">10</span>;\r\n                temp = temp / <span class=\"hljs-number\">10</span>;\r\n            }\r\n        }\r\n        <span class=\"hljs-keyword\">for</span> (i = counter; i &gt;= <span class=\"hljs-number\">0</span>; i--) <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;%d&quot;</span>, a[i]);\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n"
+    },
+    "haskell": {
+      "dir": "src\\Maths\\Factorial.hs",
+      "url": "https://github.com/TheAlgorithms/haskell/tree/master/src\\Maths\\Factorial.hs",
+      "code": "<span class=\"hljs-keyword\">module</span> Maths.Factorial <span class=\"hljs-keyword\">where</span>\r\n\r\n<span class=\"hljs-title\">fac</span> :: <span class=\"hljs-type\">Integer</span> -&gt; <span class=\"hljs-type\">Integer</span> \r\n<span class=\"hljs-title\">fac</span> <span class=\"hljs-number\">0</span> = <span class=\"hljs-number\">1</span>\r\n<span class=\"hljs-title\">fac</span> n = n * fac (n - <span class=\"hljs-number\">1</span>)\r\n\r\n<span class=\"hljs-title\">main</span> :: <span class=\"hljs-type\">IO</span> ()\r\n<span class=\"hljs-title\">main</span> = <span class=\"hljs-keyword\">do</span>\r\n    print (fac <span class=\"hljs-number\">4</span>)"
+    },
+    "f-sharp": {
+      "dir": "Algorithms\\Math\\Factorial.fs",
+      "url": "https://github.com/TheAlgorithms/f-sharp/tree/master/Algorithms\\Math\\Factorial.fs",
+      "code": "﻿<span class=\"hljs-keyword\">namespace</span> Algorithms.Math\r\n\r\n<span class=\"hljs-keyword\">module</span> Factorial <span class=\"hljs-operator\">=</span>\r\n    <span class=\"hljs-comment\">/// Calculates factorial. Time complexity: O(n)</span>\r\n    <span class=\"hljs-keyword\">let</span> byFoldFunction n <span class=\"hljs-operator\">=</span>\r\n        <span class=\"hljs-keyword\">if</span> n <span class=\"hljs-operator\">&lt;</span> <span class=\"hljs-number\">0</span> <span class=\"hljs-keyword\">then</span>\r\n            <span class=\"hljs-built_in\">failwith</span> <span class=\"hljs-string\">&quot;No factorial for negative numbers&quot;</span>\r\n        <span class=\"hljs-keyword\">else</span>\r\n            { <span class=\"hljs-number\">1</span> <span class=\"hljs-operator\">..</span> n } <span class=\"hljs-operator\">|&gt;</span> Seq.fold (<span class=\"hljs-keyword\">fun</span> acc n <span class=\"hljs-operator\">-&gt;</span> acc <span class=\"hljs-operator\">*</span> n) <span class=\"hljs-number\">1</span>\r\n\r\n    <span class=\"hljs-comment\">/// Calculates factorial. Time complexity: O(n)</span>\r\n    <span class=\"hljs-keyword\">let</span> byReduceFunction n <span class=\"hljs-operator\">=</span>\r\n        <span class=\"hljs-keyword\">match</span> n <span class=\"hljs-keyword\">with</span>\r\n        <span class=\"hljs-operator\">|</span> n <span class=\"hljs-keyword\">when</span> n <span class=\"hljs-operator\">&lt;</span> <span class=\"hljs-number\">0</span> <span class=\"hljs-operator\">-&gt;</span> <span class=\"hljs-built_in\">failwith</span> <span class=\"hljs-string\">&quot;No factorial for negative numbers&quot;</span>\r\n        <span class=\"hljs-operator\">|</span> <span class=\"hljs-number\">0</span> <span class=\"hljs-operator\">-&gt;</span> <span class=\"hljs-number\">1</span>\r\n        <span class=\"hljs-operator\">|</span> n <span class=\"hljs-operator\">-&gt;</span> { <span class=\"hljs-number\">1</span> <span class=\"hljs-operator\">..</span> n } <span class=\"hljs-operator\">|&gt;</span> Seq.reduce (<span class=\"hljs-operator\">*</span>)\r\n\r\n    <span class=\"hljs-comment\">/// Calculates factorial. Time complexity: O(n)</span>\r\n    <span class=\"hljs-keyword\">let</span> <span class=\"hljs-keyword\">rec</span> byRecursion n <span class=\"hljs-operator\">=</span>\r\n        <span class=\"hljs-keyword\">match</span> sign n <span class=\"hljs-keyword\">with</span>\r\n        <span class=\"hljs-operator\">|</span> <span class=\"hljs-number\">-1</span> <span class=\"hljs-operator\">-&gt;</span> <span class=\"hljs-built_in\">failwith</span> <span class=\"hljs-string\">&quot;No factorial for negative numbers&quot;</span>\r\n        <span class=\"hljs-operator\">|</span> <span class=\"hljs-number\">0</span> <span class=\"hljs-operator\">-&gt;</span> <span class=\"hljs-number\">1</span>\r\n        <span class=\"hljs-operator\">|</span> _ <span class=\"hljs-operator\">-&gt;</span> n <span class=\"hljs-operator\">*</span> byRecursion (n <span class=\"hljs-operator\">-</span> <span class=\"hljs-number\">1</span>)\r\n\r\n    <span class=\"hljs-comment\">/// Calculates factorial. Time complexity: O(n)</span>\r\n    <span class=\"hljs-keyword\">let</span> byTailRecursion n <span class=\"hljs-operator\">=</span>\r\n        <span class=\"hljs-keyword\">let</span> <span class=\"hljs-keyword\">rec</span> inner n prod <span class=\"hljs-operator\">=</span>\r\n            <span class=\"hljs-keyword\">match</span> n <span class=\"hljs-keyword\">with</span>\r\n            <span class=\"hljs-operator\">|</span> <span class=\"hljs-number\">0</span> <span class=\"hljs-operator\">-&gt;</span> prod\r\n            <span class=\"hljs-operator\">|</span> _ <span class=\"hljs-operator\">-&gt;</span> inner (n <span class=\"hljs-operator\">-</span> <span class=\"hljs-number\">1</span>) (prod <span class=\"hljs-operator\">*</span> n)\r\n\r\n        <span class=\"hljs-keyword\">match</span> n <span class=\"hljs-keyword\">with</span>\r\n        <span class=\"hljs-operator\">|</span> n <span class=\"hljs-keyword\">when</span> n <span class=\"hljs-operator\">&lt;</span> <span class=\"hljs-number\">0</span> <span class=\"hljs-operator\">-&gt;</span> <span class=\"hljs-built_in\">failwith</span> <span class=\"hljs-string\">&quot;No factorial for negative numbers&quot;</span>\r\n        <span class=\"hljs-operator\">|</span> _ <span class=\"hljs-operator\">-&gt;</span> inner n <span class=\"hljs-number\">1</span>\r\n\r\n    <span class=\"hljs-comment\">/// Calculates factorial. Time complexity: O(n)</span>\r\n    <span class=\"hljs-keyword\">let</span> <span class=\"hljs-keyword\">inline</span> byTailRecursionGeneric n <span class=\"hljs-operator\">=</span>\r\n        <span class=\"hljs-keyword\">let</span> gen0 <span class=\"hljs-operator\">=</span> LanguagePrimitives.GenericZero\r\n        <span class=\"hljs-keyword\">let</span> gen1 <span class=\"hljs-operator\">=</span> LanguagePrimitives.GenericOne\r\n\r\n        <span class=\"hljs-keyword\">let</span> <span class=\"hljs-keyword\">rec</span> inner n prod <span class=\"hljs-operator\">=</span>\r\n            <span class=\"hljs-keyword\">match</span> n <span class=\"hljs-keyword\">with</span>\r\n            <span class=\"hljs-operator\">|</span> n <span class=\"hljs-keyword\">when</span> n <span class=\"hljs-operator\">=</span> gen0 <span class=\"hljs-operator\">-&gt;</span> prod\r\n            <span class=\"hljs-operator\">|</span> _ <span class=\"hljs-operator\">-&gt;</span> inner (n <span class=\"hljs-operator\">-</span> gen1) (prod <span class=\"hljs-operator\">*</span> n)\r\n\r\n        <span class=\"hljs-keyword\">match</span> n <span class=\"hljs-keyword\">with</span>\r\n        <span class=\"hljs-operator\">|</span> n <span class=\"hljs-keyword\">when</span> n <span class=\"hljs-operator\">&lt;</span> gen0 <span class=\"hljs-operator\">-&gt;</span> <span class=\"hljs-built_in\">failwith</span> <span class=\"hljs-string\">&quot;No factorial for negative numbers&quot;</span>\r\n        <span class=\"hljs-operator\">|</span> _ <span class=\"hljs-operator\">-&gt;</span> inner n gen1\r\n"
+    },
+    "go": {
+      "dir": "math\\factorial\\factorial.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/math\\factorial\\factorial.go",
+      "code": "<span class=\"hljs-comment\">// factorial.go</span>\r\n<span class=\"hljs-comment\">// description: Calculating factorial</span>\r\n<span class=\"hljs-comment\">// details:</span>\r\n<span class=\"hljs-comment\">// The factorial of a non-negative integer n, denoted by n!, is the product of all positive integers less than or equal to n - [Factorial](https://en.wikipedia.org/wiki/Factorial)</span>\r\n<span class=\"hljs-comment\">// author(s) [red_byte](https://github.com/i-redbyte)</span>\r\n<span class=\"hljs-comment\">// see factorial_test.go</span>\r\n\r\n<span class=\"hljs-comment\">// Package factorial describes algorithms Factorials calculations.</span>\r\n<span class=\"hljs-keyword\">package</span> factorial\r\n\r\n<span class=\"hljs-comment\">// Iterative returns the iteratively brute forced factorial of n</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">Iterative</span><span class=\"hljs-params\">(n <span class=\"hljs-type\">int</span>)</span></span> <span class=\"hljs-type\">int</span> {\r\n\tresult := <span class=\"hljs-number\">1</span>\r\n\t<span class=\"hljs-keyword\">for</span> i := <span class=\"hljs-number\">2</span>; i &lt;= n; i++ {\r\n\t\tresult *= i\r\n\t}\r\n\t<span class=\"hljs-keyword\">return</span> result\r\n}\r\n\r\n<span class=\"hljs-comment\">// Recursive This function recursively computes the factorial of a number</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">Recursive</span><span class=\"hljs-params\">(n <span class=\"hljs-type\">int</span>)</span></span> <span class=\"hljs-type\">int</span> {\r\n\t<span class=\"hljs-keyword\">if</span> n == <span class=\"hljs-number\">1</span> {\r\n\t\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>\r\n\t} <span class=\"hljs-keyword\">else</span> {\r\n\t\t<span class=\"hljs-keyword\">return</span> n * Recursive(n<span class=\"hljs-number\">-1</span>)\r\n\t}\r\n}\r\n\r\n<span class=\"hljs-comment\">// UsingTree This function finds the factorial of a number using a binary tree</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">UsingTree</span><span class=\"hljs-params\">(n <span class=\"hljs-type\">int</span>)</span></span> <span class=\"hljs-type\">int</span> {\r\n\t<span class=\"hljs-keyword\">if</span> n &lt; <span class=\"hljs-number\">0</span> {\r\n\t\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>\r\n\t}\r\n\t<span class=\"hljs-keyword\">if</span> n == <span class=\"hljs-number\">0</span> {\r\n\t\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>\r\n\t}\r\n\t<span class=\"hljs-keyword\">if</span> n == <span class=\"hljs-number\">1</span> || n == <span class=\"hljs-number\">2</span> {\r\n\t\t<span class=\"hljs-keyword\">return</span> n\r\n\t}\r\n\t<span class=\"hljs-keyword\">return</span> prodTree(<span class=\"hljs-number\">2</span>, n)\r\n}\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">prodTree</span><span class=\"hljs-params\">(l <span class=\"hljs-type\">int</span>, r <span class=\"hljs-type\">int</span>)</span></span> <span class=\"hljs-type\">int</span> {\r\n\t<span class=\"hljs-keyword\">if</span> l &gt; r {\r\n\t\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>\r\n\t}\r\n\t<span class=\"hljs-keyword\">if</span> l == r {\r\n\t\t<span class=\"hljs-keyword\">return</span> l\r\n\t}\r\n\t<span class=\"hljs-keyword\">if</span> r-l == <span class=\"hljs-number\">1</span> {\r\n\t\t<span class=\"hljs-keyword\">return</span> l * r\r\n\t}\r\n\tm := (l + r) / <span class=\"hljs-number\">2</span>\r\n\t<span class=\"hljs-keyword\">return</span> prodTree(l, m) * prodTree(m+<span class=\"hljs-number\">1</span>, r)\r\n}\r\n"
+    },
+    "dart": {
+      "dir": "maths\\factorial.dart",
+      "url": "https://github.com/TheAlgorithms/dart/tree/master/maths\\factorial.dart",
+      "code": "<span class=\"hljs-keyword\">void</span> main() {\r\n  <span class=\"hljs-keyword\">var</span> n = <span class=\"hljs-number\">5</span>;\r\n  <span class=\"hljs-keyword\">var</span> fac = factorial(n);\r\n  <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;<span class=\"hljs-subst\">$n</span>! = <span class=\"hljs-subst\">$fac</span>&quot;</span>); <span class=\"hljs-comment\">/* output: 5! = 120 */</span>\r\n}\r\n\r\n<span class=\"hljs-comment\">/* calculate factorial of n*/</span>\r\n<span class=\"hljs-built_in\">int</span> factorial(<span class=\"hljs-keyword\">var</span> n) {\r\n  <span class=\"hljs-keyword\">var</span> fac = <span class=\"hljs-number\">1</span>;\r\n  <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-built_in\">int</span> i = <span class=\"hljs-number\">2</span>; i &lt;= n; ++i) {\r\n    fac *= i;\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> fac;\r\n}\r\n"
+    },
+    "r": {
+      "dir": "Mathematics\\Factorial.R",
+      "url": "https://github.com/TheAlgorithms/r/tree/master/Mathematics\\Factorial.R",
+      "code": "Fact <span class=\"hljs-operator\">&lt;-</span> <span class=\"hljs-keyword\">function</span><span class=\"hljs-punctuation\">(</span>n<span class=\"hljs-punctuation\">)</span><span class=\"hljs-punctuation\">{</span>\r\n  <span class=\"hljs-keyword\">if</span><span class=\"hljs-punctuation\">(</span>n <span class=\"hljs-operator\">&lt;</span> <span class=\"hljs-number\">0</span><span class=\"hljs-punctuation\">)</span><span class=\"hljs-punctuation\">{</span>\r\n    stop<span class=\"hljs-punctuation\">(</span><span class=\"hljs-string\">&quot;Error: your input is wrong!&quot;</span><span class=\"hljs-punctuation\">)</span>\r\n  <span class=\"hljs-punctuation\">}</span> <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span><span class=\"hljs-punctuation\">(</span>n <span class=\"hljs-operator\">==</span> <span class=\"hljs-number\">0</span><span class=\"hljs-punctuation\">)</span><span class=\"hljs-punctuation\">{</span>\r\n    <span class=\"hljs-built_in\">return</span><span class=\"hljs-punctuation\">(</span><span class=\"hljs-number\">1</span><span class=\"hljs-punctuation\">)</span>\r\n  <span class=\"hljs-punctuation\">}</span> <span class=\"hljs-keyword\">else</span> <span class=\"hljs-punctuation\">{</span>\r\n    <span class=\"hljs-built_in\">return</span><span class=\"hljs-punctuation\">(</span><span class=\"hljs-built_in\">prod</span><span class=\"hljs-punctuation\">(</span><span class=\"hljs-number\">1</span><span class=\"hljs-operator\">:</span>n<span class=\"hljs-punctuation\">)</span><span class=\"hljs-punctuation\">)</span>\r\n  <span class=\"hljs-punctuation\">}</span>\r\n<span class=\"hljs-punctuation\">}</span>\r\n\r\nFact<span class=\"hljs-punctuation\">(</span><span class=\"hljs-number\">5</span><span class=\"hljs-punctuation\">)</span>\r\nFact<span class=\"hljs-punctuation\">(</span><span class=\"hljs-number\">6</span><span class=\"hljs-punctuation\">)</span>\r\n"
+    },
+    "ruby": {
+      "dir": "maths\\factorial.rb",
+      "url": "https://github.com/TheAlgorithms/ruby/tree/master/maths\\factorial.rb",
+      "code": "<span class=\"hljs-comment\"># A ruby program calculate factorial of a given number.</span>\r\n<span class=\"hljs-comment\"># Mathematical Explanation: The factorial of a number is the product of all the integers from 1 to that number.</span>\r\n<span class=\"hljs-comment\"># i.e: n! = n*(n-1)*(n-2)......*2*1</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Approach: Interative</span>\r\n<span class=\"hljs-comment\">#</span>\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">factorial</span><span class=\"hljs-params\">(n)</span></span>\r\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">nil</span> <span class=\"hljs-keyword\">if</span> n &lt; <span class=\"hljs-number\">0</span>\r\n\r\n  fac = <span class=\"hljs-number\">1</span>\r\n\r\n  <span class=\"hljs-keyword\">while</span> n &gt; <span class=\"hljs-number\">0</span>\r\n    fac *= n\r\n    n -= <span class=\"hljs-number\">1</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n\r\n  fac\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\nputs <span class=\"hljs-string\">&#x27;4! = &#x27;</span> + factorial(<span class=\"hljs-number\">4</span>).to_s\r\n<span class=\"hljs-comment\"># 4! = 24</span>\r\n\r\nputs <span class=\"hljs-string\">&#x27;0! = &#x27;</span> + factorial(<span class=\"hljs-number\">0</span>).to_s\r\n<span class=\"hljs-comment\"># 0! = 1</span>\r\n\r\nputs <span class=\"hljs-string\">&#x27;10! = &#x27;</span> + factorial(<span class=\"hljs-number\">10</span>).to_s\r\n<span class=\"hljs-comment\"># 10! = 3628800</span>\r\n"
+    },
+    "php": {
+      "dir": "Maths\\Factorial.php",
+      "url": "https://github.com/TheAlgorithms/php/tree/master/Maths\\Factorial.php",
+      "code": "<span class=\"hljs-meta\">&lt;?php</span>\r\n<span class=\"hljs-comment\">/**\r\n * This function calculates\r\n * and returns the factorial\r\n * of provided positive integer\r\n * number.\r\n *\r\n * <span class=\"hljs-doctag\">@param</span> Integer $number Integer input\r\n * <span class=\"hljs-doctag\">@return</span> Integer Factorial of the input\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">factorial</span>(<span class=\"hljs-params\"><span class=\"hljs-keyword\">int</span> <span class=\"hljs-variable\">$number</span></span>)\r\n</span>{\r\n    <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-variable\">$number</span> &lt; <span class=\"hljs-number\">0</span>) {\r\n        <span class=\"hljs-keyword\">throw</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">\\Exception</span>(<span class=\"hljs-string\">&quot;Negative numbers are not allowed for calculating Factorial&quot;</span>);\r\n    }\r\n    <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-variable\">$number</span> === <span class=\"hljs-number\">0</span>) {\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>; <span class=\"hljs-comment\">// Factorial of 0 is 1</span>\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> (<span class=\"hljs-variable\">$number</span> * <span class=\"hljs-title function_ invoke__\">factorial</span>(<span class=\"hljs-variable\">$number</span> - <span class=\"hljs-number\">1</span>)); <span class=\"hljs-comment\">// Recursion since x! = x * (x-1)!</span>\r\n}\r\n"
+    },
+    "kotlin": {
+      "dir": "src\\main\\kotlin\\math\\Factorial.kt",
+      "url": "https://github.com/TheAlgorithms/kotlin/tree/master/src\\main\\kotlin\\math\\Factorial.kt",
+      "code": "<span class=\"hljs-keyword\">package</span> mathematics\r\n\r\n<span class=\"hljs-keyword\">import</span> java.security.InvalidParameterException\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Calculates the factorial of a natural number greater than or equal to 0 recursively.\r\n * <span class=\"hljs-doctag\">@param</span> number The number of which to calculate the factorial.\r\n * <span class=\"hljs-doctag\">@return</span> The factorial of the number passed as parameter.\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">fun</span> <span class=\"hljs-title\">getFactorial</span><span class=\"hljs-params\">(number: <span class=\"hljs-type\">Long</span>)</span></span>: <span class=\"hljs-built_in\">Long</span> {\r\n    <span class=\"hljs-keyword\">if</span> (number &lt; <span class=\"hljs-number\">0L</span>) {\r\n        <span class=\"hljs-keyword\">throw</span> InvalidParameterException(<span class=\"hljs-string\">&quot;The number of which to calculate the factorial must be greater or equal to zero.&quot;</span>)\r\n    } <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">return</span> <span class=\"hljs-keyword\">when</span> (number) {\r\n        <span class=\"hljs-number\">0L</span> -&gt; <span class=\"hljs-number\">1</span>\r\n        <span class=\"hljs-number\">1L</span> -&gt; number\r\n        <span class=\"hljs-keyword\">else</span> -&gt; number * getFactorial(number - <span class=\"hljs-number\">1</span>)\r\n    }\r\n}"
+    },
+    "julia": {
+      "dir": "src\\math\\factorial.jl",
+      "url": "https://github.com/TheAlgorithms/julia/tree/master/src\\math\\factorial.jl",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n    factorial_iterative(n)\r\n\r\nFinds factorial of a number using Iterative method\r\n\r\n# Example\r\n```julia\r\nfactorial_iterative(5)      # returns 120\r\nfactorial_iterative(-1)     # returns error\r\n```\r\n# Reference\r\n- factorial of a positive integer -- https://en.wikipedia.org/wiki/Factorial\r\n\r\nContributed By:- [Ashwani Rathee](https://github.com/ashwani-rathee) and [Rratic](https://github.com/Rratic)\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">function</span> factorial_iterative(n::N)<span class=\"hljs-keyword\">where</span> N&lt;:<span class=\"hljs-built_in\">Integer</span>\r\n    <span class=\"hljs-keyword\">if</span> n &lt; <span class=\"hljs-number\">0</span>\r\n        throw(error(<span class=\"hljs-string\">&quot;factorial_iterative() only accepts non-negative integral values&quot;</span>))\r\n    <span class=\"hljs-keyword\">end</span>\r\n    <span class=\"hljs-keyword\">if</span> n==<span class=\"hljs-number\">0</span> || n==<span class=\"hljs-number\">1</span>\r\n        <span class=\"hljs-keyword\">return</span> one(<span class=\"hljs-built_in\">BigInt</span>)\r\n    <span class=\"hljs-keyword\">end</span>\r\n    <span class=\"hljs-keyword\">return</span> n*factorial_iterative(n-<span class=\"hljs-number\">1</span>)\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\n<span class=\"hljs-string\">&quot;&quot;&quot;\r\n    factorial_recursive(n)\r\n\r\nFinds factorial of anumber using recursive method\r\n\r\n# Example\r\n```julia\r\nfactorial_recursive(5)      # returns 120\r\n```\r\n# Reference\r\n- factorial of a positive integer -- https://en.wikipedia.org/wiki/Factorial\r\n\r\nContributed By:- [Ashwani Rathee](https://github.com/ashwani-rathee) and [Rratic](https://github.com/Rratic)\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">function</span> factorial_recursive(n::N)::<span class=\"hljs-built_in\">BigInt</span> <span class=\"hljs-keyword\">where</span> N&lt;:<span class=\"hljs-built_in\">Integer</span>\r\n    <span class=\"hljs-keyword\">if</span> n &lt; <span class=\"hljs-number\">0</span>\r\n        throw(error(<span class=\"hljs-string\">&quot;factorial_iterative() only accepts non-negative integral values&quot;</span>))\r\n    <span class=\"hljs-keyword\">end</span>\r\n    <span class=\"hljs-keyword\">if</span> n == <span class=\"hljs-number\">0</span> || n == <span class=\"hljs-number\">1</span>\r\n        <span class=\"hljs-keyword\">return</span> one(<span class=\"hljs-built_in\">BigInt</span>)\r\n        <span class=\"hljs-comment\"># keep same result type</span>\r\n    <span class=\"hljs-keyword\">else</span>\r\n        factorial=one(<span class=\"hljs-built_in\">BigInt</span>)\r\n        <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-number\">1</span>:n\r\n            factorial*=i\r\n        <span class=\"hljs-keyword\">end</span>\r\n        <span class=\"hljs-keyword\">return</span> factorial\r\n    <span class=\"hljs-keyword\">end</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Stepfen Shawn",
+      "email": "m18824909883@163.com",
+      "commits": 1
+    },
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Anh Tu Do",
+      "email": "d04nhtu@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Andrii Siriak",
+      "email": "siryaka@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Alex Garland",
+      "email": "alex@numinar.com",
+      "commits": 1
+    },
+    {
+      "name": "shashanknp-linx",
+      "email": "shashanknp@apiplatform.io",
+      "commits": 1
+    },
+    {
+      "name": "i1e0",
+      "email": "96235137+i1e0@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Liam Di Dato",
+      "email": "liamdidato@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "1fisedi",
+      "email": "51143882+1fisedi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Sahil Afrid Farookhi",
+      "email": "msafarookhi@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Ashwani Rathee",
+      "email": "ab669522@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Croustys",
+      "email": "51267148+Croustys@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Wendell Lucas",
+      "email": "49886455+wendelllsc@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Arogon1",
+      "email": "40372809+Arogon1@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Kenneth Nero",
+      "email": "kbn1798@rit.edu",
+      "commits": 1
+    },
+    {
+      "name": "Sanders Lin",
+      "email": "45224617+SandersLin@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Jigyasa G",
+      "email": "33327397+jpg-130@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Akshay Khale",
+      "email": "khaleakshay@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Erez Shomron",
+      "email": "48328872+eshom@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "Rratic",
+      "email": "Rratic@163.com",
+      "commits": 2
+    },
+    {
+      "name": "Ilya Sokolov",
+      "email": "developer.sokolov@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "vinayak",
+      "email": "itssvinayak@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 2
+    },
+    {
+      "name": "YATIN KATHURIA",
+      "email": "47096348+Yatin-kathuria@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "Ephraim Atta-Duncan",
+      "email": "55143799+dephraiim@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "PatOnTheBack",
+      "email": "51241310+PatOnTheBack@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 3
+    },
+    {
+      "name": "Vikrant khedkar",
+      "email": "vikrantkhedkar2720@gmail.com",
+      "commits": 3
+    },
+    {
+      "name": "MatanDavidi",
+      "email": "davidi.matan@gmail.com",
+      "commits": 4
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 5
+    },
+    {
+      "name": "Ejiah",
+      "email": "yosapoljittarak@hotmail.com",
+      "commits": 6
+    }
+  ],
+  "explanationUrl": {}
+}

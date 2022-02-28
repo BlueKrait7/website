@@ -1,0 +1,33 @@
+{
+  "slug": "eulers-totient-function",
+  "name": "Eulers Totient Function",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\test\\EulersTotientFunction.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\EulersTotientFunction.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { eulersTotientFunction } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../EulersTotientFunction&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;eulersTotientFunction&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;is a function&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-keyword\">typeof</span> eulersTotientFunction).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-string\">&#x27;function&#x27;</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return the phi of a given number&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> phiOfNumber = <span class=\"hljs-title function_\">eulersTotientFunction</span>(<span class=\"hljs-number\">10</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(phiOfNumber).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">4</span>)\r\n  })\r\n})\r\n"
+    },
+    "c-plus-plus": {
+      "dir": "math\\eulers_totient_function.cpp",
+      "url": "https://github.com/TheAlgorithms/c-plus-plus/tree/master/math\\eulers_totient_function.cpp",
+      "code": "<span class=\"hljs-comment\">/**\r\n * @file\r\n * @brief C++ Program to find\r\n * [Euler&#x27;s Totient](https://en.wikipedia.org/wiki/Euler%27s_totient_function)\r\n * function\r\n *\r\n * Euler Totient Function is also known as phi function.\r\n * \\f[\\phi(n) =\r\n * \\phi\\left({p_1}^{a_1}\\right)\\cdot\\phi\\left({p_2}^{a_2}\\right)\\ldots\\f] where\r\n * \\f$p_1\\f$, \\f$p_2\\f$, \\f$\\ldots\\f$ are prime factors of n.\r\n * &lt;br/&gt;3 Euler&#x27;s properties:\r\n * 1. \\f$\\phi(n) = n-1\\f$\r\n * 2. \\f$\\phi(n^k) = n^k - n^{k-1}\\f$\r\n * 3. \\f$\\phi(a,b) = \\phi(a)\\cdot\\phi(b)\\f$ where a and b are relative primes.\r\n *\r\n * Applying this 3 properties on the first equation.\r\n * \\f[\\phi(n) =\r\n * n\\cdot\\left(1-\\frac{1}{p_1}\\right)\\cdot\\left(1-\\frac{1}{p_2}\\right)\\cdots\\f]\r\n * where \\f$p_1\\f$,\\f$p_2\\f$... are prime factors.\r\n * Hence Implementation in \\f$O\\left(\\sqrt{n}\\right)\\f$.\r\n * &lt;br/&gt;Some known values are:\r\n * * \\f$\\phi(100) = 40\\f$\r\n * * \\f$\\phi(1) = 1\\f$\r\n * * \\f$\\phi(17501) = 15120\\f$\r\n * * \\f$\\phi(1420) = 560\\f$\r\n */</span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;cstdlib&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;iostream&gt;</span></span>\r\n\r\n<span class=\"hljs-comment\">/** Function to caculate Euler&#x27;s totient phi\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">uint64_t</span> <span class=\"hljs-title\">phiFunction</span><span class=\"hljs-params\">(<span class=\"hljs-type\">uint64_t</span> n)</span> </span>{\r\n    <span class=\"hljs-type\">uint64_t</span> result = n;\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">uint64_t</span> i = <span class=\"hljs-number\">2</span>; i * i &lt;= n; i++) {\r\n        <span class=\"hljs-keyword\">if</span> (n % i == <span class=\"hljs-number\">0</span>) {\r\n            <span class=\"hljs-keyword\">while</span> (n % i == <span class=\"hljs-number\">0</span>) {\r\n                n /= i;\r\n            }\r\n            result -= result / i;\r\n        }\r\n    }\r\n    <span class=\"hljs-keyword\">if</span> (n &gt; <span class=\"hljs-number\">1</span>)\r\n        result -= result / n;\r\n    <span class=\"hljs-keyword\">return</span> result;\r\n}\r\n\r\n<span class=\"hljs-comment\">/// Main function</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">int</span> <span class=\"hljs-title\">main</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> argc, <span class=\"hljs-type\">char</span> *argv[])</span> </span>{\r\n    <span class=\"hljs-type\">uint64_t</span> n;\r\n    <span class=\"hljs-keyword\">if</span> (argc &lt; <span class=\"hljs-number\">2</span>) {\r\n        std::cout &lt;&lt; <span class=\"hljs-string\">&quot;Enter the number: &quot;</span>;\r\n    } <span class=\"hljs-keyword\">else</span> {\r\n        n = <span class=\"hljs-built_in\">strtoull</span>(argv[<span class=\"hljs-number\">1</span>], <span class=\"hljs-literal\">nullptr</span>, <span class=\"hljs-number\">10</span>);\r\n    }\r\n    std::cin &gt;&gt; n;\r\n    std::cout &lt;&lt; <span class=\"hljs-built_in\">phiFunction</span>(n);\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "EliteDaMyth",
+      "email": "elitemythyt@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "sandyboypraper",
+      "email": "sandyboyraper@gmail.com",
+      "commits": 6
+    }
+  ],
+  "explanationUrl": {}
+}

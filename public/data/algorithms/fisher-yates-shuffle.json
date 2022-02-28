@@ -1,0 +1,48 @@
+{
+  "slug": "fisher-yates-shuffle",
+  "name": "Fisher Yates Shuffle",
+  "categories": [
+    "sorts"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Sorts\\test\\FisherYatesShuffle.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Sorts\\test\\FisherYatesShuffle.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { shuffle } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../FisherYatesShuffle&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;shuffle&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to have a new array with same size&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> fibonacci = [<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">8</span>, <span class=\"hljs-number\">13</span>, <span class=\"hljs-number\">21</span>, <span class=\"hljs-number\">34</span>, <span class=\"hljs-number\">55</span>, <span class=\"hljs-number\">89</span>]\r\n    <span class=\"hljs-keyword\">const</span> mixedArray = <span class=\"hljs-title function_\">shuffle</span>(fibonacci)\r\n\r\n    <span class=\"hljs-title function_\">expect</span>(mixedArray).<span class=\"hljs-title function_\">toHaveLength</span>(fibonacci.<span class=\"hljs-property\">length</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to have a new array with same values&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> fibonacci = [<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">8</span>, <span class=\"hljs-number\">13</span>, <span class=\"hljs-number\">21</span>, <span class=\"hljs-number\">34</span>, <span class=\"hljs-number\">55</span>, <span class=\"hljs-number\">89</span>]\r\n    <span class=\"hljs-keyword\">const</span> mixedArray = <span class=\"hljs-title function_\">shuffle</span>(fibonacci)\r\n\r\n    <span class=\"hljs-title function_\">expect</span>(mixedArray).<span class=\"hljs-title function_\">toContain</span>(<span class=\"hljs-number\">0</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(mixedArray).<span class=\"hljs-title function_\">toContain</span>(<span class=\"hljs-number\">1</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(mixedArray).<span class=\"hljs-title function_\">toContain</span>(<span class=\"hljs-number\">2</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(mixedArray).<span class=\"hljs-title function_\">toContain</span>(<span class=\"hljs-number\">3</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(mixedArray).<span class=\"hljs-title function_\">toContain</span>(<span class=\"hljs-number\">5</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(mixedArray).<span class=\"hljs-title function_\">toContain</span>(<span class=\"hljs-number\">8</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(mixedArray).<span class=\"hljs-title function_\">toContain</span>(<span class=\"hljs-number\">13</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(mixedArray).<span class=\"hljs-title function_\">toContain</span>(<span class=\"hljs-number\">21</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(mixedArray).<span class=\"hljs-title function_\">toContain</span>(<span class=\"hljs-number\">34</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(mixedArray).<span class=\"hljs-title function_\">toContain</span>(<span class=\"hljs-number\">55</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(mixedArray).<span class=\"hljs-title function_\">toContain</span>(<span class=\"hljs-number\">89</span>)\r\n  })\r\n})\r\n"
+    },
+    "dart": {
+      "dir": "other\\fisher_yates_shuffle.dart",
+      "url": "https://github.com/TheAlgorithms/dart/tree/master/other\\fisher_yates_shuffle.dart",
+      "code": "<span class=\"hljs-keyword\">import</span> <span class=\"hljs-string\">&#x27;dart:math&#x27;</span>;\r\n\r\nRandom rng = <span class=\"hljs-keyword\">new</span> Random();\r\n\r\n<span class=\"hljs-comment\">/// <span class=\"language-markdown\">Swap given [index1] and [index2] in given [collection]</span></span>\r\n<span class=\"hljs-keyword\">void</span> swap&lt;T&gt;(<span class=\"hljs-built_in\">List</span>&lt;T&gt; collection, <span class=\"hljs-built_in\">int</span> index1, <span class=\"hljs-built_in\">int</span> index2) {\r\n  T temp = collection[index1];\r\n  collection[index1] = collection[index2];\r\n  collection[index2] = temp;\r\n}\r\n\r\n<span class=\"hljs-comment\">/// <span class=\"language-markdown\">Randomly shuffle given [collection] (inplace)</span></span>\r\n<span class=\"hljs-keyword\">void</span> shuffle&lt;T&gt;(<span class=\"hljs-built_in\">List</span>&lt;T&gt; collection) {\r\n  <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-built_in\">int</span> i = collection.length - <span class=\"hljs-number\">1</span>; i &gt; <span class=\"hljs-number\">1</span>; i--) {\r\n    swap(collection, i, rng.nextInt(i - <span class=\"hljs-number\">1</span>));\r\n  }\r\n}\r\n\r\nmain() {\r\n  <span class=\"hljs-built_in\">List</span>&lt;<span class=\"hljs-built_in\">double</span>&gt; someList = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>];\r\n  <span class=\"hljs-built_in\">print</span>(someList);\r\n  shuffle(someList);\r\n  <span class=\"hljs-built_in\">print</span>(someList);\r\n  shuffle(someList);\r\n  <span class=\"hljs-built_in\">print</span>(someList);\r\n  shuffle(someList);\r\n  <span class=\"hljs-built_in\">print</span>(someList);\r\n}\r\n"
+    },
+    "lua": {
+      "dir": "src\\random\\fisher_yates_shuffle.lua",
+      "url": "https://github.com/TheAlgorithms/lua/tree/master/src\\random\\fisher_yates_shuffle.lua",
+      "code": "<span class=\"hljs-keyword\">return</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span><span class=\"hljs-params\">(\r\n\tlist <span class=\"hljs-comment\">-- list to be shuffled in-place</span>\r\n)</span></span>\r\n\t<span class=\"hljs-keyword\">for</span> index = <span class=\"hljs-number\">1</span>, #list - <span class=\"hljs-number\">1</span> <span class=\"hljs-keyword\">do</span>\r\n\t\t<span class=\"hljs-keyword\">local</span> index_2 = <span class=\"hljs-built_in\">math</span>.<span class=\"hljs-built_in\">random</span>(index, #list)\r\n\t\tlist[index], list[index_2] = list[index_2], list[index]\r\n\t<span class=\"hljs-keyword\">end</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Lars Mueller",
+      "email": "appgurulars@gmx.de",
+      "commits": 1
+    },
+    {
+      "name": "Damien Chazoule",
+      "email": "damien.chazoule@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Parowicz",
+      "email": "arturparowicz@gmail.com",
+      "commits": 3
+    },
+    {
+      "name": "Omkarnath Parida",
+      "email": "pomkarnath98@gmail.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

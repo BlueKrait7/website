@@ -1,0 +1,23 @@
+{
+  "slug": "equated-monthly-installments",
+  "name": "Equated Monthly Installments",
+  "categories": [
+    "financial"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "financial\\equated_monthly_installments.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/financial\\equated_monthly_installments.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nProgram to calculate the amortization amount per month, given\r\n- Principal borrowed\r\n- Rate of interest per annum\r\n- Years to repay the loan\r\n\r\nWikipedia Reference: https://en.wikipedia.org/wiki/Equated_monthly_installment\r\n&quot;&quot;&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">equated_monthly_installments</span>(<span class=\"hljs-params\">\r\n    principal: <span class=\"hljs-built_in\">float</span>, rate_per_annum: <span class=\"hljs-built_in\">float</span>, years_to_repay: <span class=\"hljs-built_in\">int</span>\r\n</span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Formula for amortization amount per month:\r\n    A = p * r * (1 + r)^n / ((1 + r)^n - 1)\r\n    where p is the principal, r is the rate of interest per month\r\n    and n is the number of payments\r\n\r\n    &gt;&gt;&gt; equated_monthly_installments(25000, 0.12, 3)\r\n    830.3577453212793\r\n    &gt;&gt;&gt; equated_monthly_installments(25000, 0.12, 10)\r\n    358.67737100646826\r\n    &gt;&gt;&gt; equated_monthly_installments(0, 0.12, 3)\r\n    Traceback (most recent call last):\r\n        ...\r\n    Exception: Principal borrowed must be &gt; 0\r\n    &gt;&gt;&gt; equated_monthly_installments(25000, -1, 3)\r\n    Traceback (most recent call last):\r\n        ...\r\n    Exception: Rate of interest must be &gt;= 0\r\n    &gt;&gt;&gt; equated_monthly_installments(25000, 0.12, 0)\r\n    Traceback (most recent call last):\r\n        ...\r\n    Exception: Years to repay must be an integer &gt; 0\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> principal &lt;= <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">raise</span> Exception(<span class=\"hljs-string\">&quot;Principal borrowed must be &gt; 0&quot;</span>)\r\n    <span class=\"hljs-keyword\">if</span> rate_per_annum &lt; <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">raise</span> Exception(<span class=\"hljs-string\">&quot;Rate of interest must be &gt;= 0&quot;</span>)\r\n    <span class=\"hljs-keyword\">if</span> years_to_repay &lt;= <span class=\"hljs-number\">0</span> <span class=\"hljs-keyword\">or</span> <span class=\"hljs-keyword\">not</span> <span class=\"hljs-built_in\">isinstance</span>(years_to_repay, <span class=\"hljs-built_in\">int</span>):\r\n        <span class=\"hljs-keyword\">raise</span> Exception(<span class=\"hljs-string\">&quot;Years to repay must be an integer &gt; 0&quot;</span>)\r\n\r\n    <span class=\"hljs-comment\"># Yearly rate is divided by 12 to get monthly rate</span>\r\n    rate_per_month = rate_per_annum / <span class=\"hljs-number\">12</span>\r\n\r\n    <span class=\"hljs-comment\"># Years to repay is multiplied by 12 to get number of payments as payment is monthly</span>\r\n    number_of_payments = years_to_repay * <span class=\"hljs-number\">12</span>\r\n\r\n    <span class=\"hljs-keyword\">return</span> (\r\n        principal\r\n        * rate_per_month\r\n        * (<span class=\"hljs-number\">1</span> + rate_per_month) ** number_of_payments\r\n        / ((<span class=\"hljs-number\">1</span> + rate_per_month) ** number_of_payments - <span class=\"hljs-number\">1</span>)\r\n    )\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Rohan R Bharadwaj",
+      "email": "rohanrbharadwaj@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

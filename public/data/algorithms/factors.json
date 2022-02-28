@@ -1,0 +1,58 @@
+{
+  "slug": "factors",
+  "name": "Factors",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\factors.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\factors.py",
+      "code": "<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">factors_of_a_number</span>(<span class=\"hljs-params\">num: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">list</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    &gt;&gt;&gt; factors_of_a_number(1)\r\n    [1]\r\n    &gt;&gt;&gt; factors_of_a_number(5)\r\n    [1, 5]\r\n    &gt;&gt;&gt; factors_of_a_number(24)\r\n    [1, 2, 3, 4, 6, 8, 12, 24]\r\n    &gt;&gt;&gt; factors_of_a_number(-24)\r\n    []\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">return</span> [i <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-number\">1</span>, num + <span class=\"hljs-number\">1</span>) <span class=\"hljs-keyword\">if</span> num % i == <span class=\"hljs-number\">0</span>]\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    num = <span class=\"hljs-built_in\">int</span>(<span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Enter a number to find its factors: &quot;</span>))\r\n    factors = factors_of_a_number(num)\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f&quot;<span class=\"hljs-subst\">{num}</span> has <span class=\"hljs-subst\">{<span class=\"hljs-built_in\">len</span>(factors)}</span> factors: <span class=\"hljs-subst\">{<span class=\"hljs-string\">&#x27;, &#x27;</span>.join(<span class=\"hljs-built_in\">str</span>(f) <span class=\"hljs-keyword\">for</span> f <span class=\"hljs-keyword\">in</span> factors)}</span>&quot;</span>)\r\n"
+    },
+    "javascript": {
+      "dir": "Maths\\test\\Factors.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\Factors.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { factorsOfANumber } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../Factors&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;Factors&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">factorsOfANumber</span>(<span class=\"hljs-number\">50</span>).<span class=\"hljs-title function_\">forEach</span>(<span class=\"hljs-function\">(<span class=\"hljs-params\">num</span>) =&gt;</span> {\r\n    <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">`<span class=\"hljs-subst\">${num}</span> is a factor of 50`</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n      <span class=\"hljs-keyword\">const</span> isFactor = <span class=\"hljs-number\">50</span> % num === <span class=\"hljs-number\">0</span>\r\n      <span class=\"hljs-title function_\">expect</span>(isFactor).<span class=\"hljs-title function_\">toBeTruthy</span>()\r\n    })\r\n  })\r\n})\r\n"
+    },
+    "dart": {
+      "dir": "maths\\factors.dart",
+      "url": "https://github.com/TheAlgorithms/dart/tree/master/maths\\factors.dart",
+      "code": "<span class=\"hljs-keyword\">void</span> main() {\r\n  <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;factors: <span class=\"hljs-subst\">${factorsOf(<span class=\"hljs-number\">12</span>)}</span>&quot;</span>); <span class=\"hljs-comment\">//factors: [1, 2, 3, 4, 6, 12]</span>\r\n\r\n  <span class=\"hljs-keyword\">try</span> {\r\n    <span class=\"hljs-built_in\">print</span>(factorsOf(<span class=\"hljs-number\">-1</span>)\r\n        .toString()); <span class=\"hljs-comment\">//Unhandled exception: Exception: A non-positive value was passed to the function</span>\r\n  } <span class=\"hljs-keyword\">catch</span> (ex) {\r\n    <span class=\"hljs-built_in\">print</span>(ex);\r\n  }\r\n}\r\n\r\n<span class=\"hljs-built_in\">List</span>&lt;<span class=\"hljs-built_in\">int</span>&gt; factorsOf(<span class=\"hljs-built_in\">int</span> <span class=\"hljs-built_in\">num</span>) {\r\n  <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-built_in\">num</span> &lt;= <span class=\"hljs-number\">0</span>)\r\n    <span class=\"hljs-keyword\">throw</span> Exception(<span class=\"hljs-string\">&quot;A non-positive value was passed to the function&quot;</span>);\r\n  <span class=\"hljs-built_in\">List</span>&lt;<span class=\"hljs-built_in\">int</span>&gt; factors = [<span class=\"hljs-number\">1</span>];\r\n  <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-built_in\">int</span> i = <span class=\"hljs-number\">2</span>; i &lt;= <span class=\"hljs-built_in\">num</span>; i++) {\r\n    <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-built_in\">num</span> % i == <span class=\"hljs-number\">0</span>) factors.add(i);\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> factors;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "NIKHIL WANI",
+      "email": "65514201+Nikhil-Wani@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "mohammadreza490",
+      "email": "47437328+mohammadreza490@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "himanshujain171",
+      "email": "43314193+himanshujain171@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Parowicz",
+      "email": "arturparowicz@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Ephraim Atta-Duncan",
+      "email": "55143799+dephraiim@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

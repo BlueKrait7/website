@@ -1,0 +1,58 @@
+{
+  "slug": "find-lcm",
+  "name": "Find Lcm",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\test\\FindLcm.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\FindLcm.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { findLcm } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../FindLcm&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;findLcm&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should throw a statement for values less than 1&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">findLcm</span>(<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;Please enter values greater than zero.&#x27;</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should throw a statement for one value less than 1&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">findLcm</span>(<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">0</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;Please enter values greater than zero.&#x27;</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">findLcm</span>(<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;Please enter values greater than zero.&#x27;</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return an error for values non-integer values&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">findLcm</span>(<span class=\"hljs-number\">4.564</span>, <span class=\"hljs-number\">7.39</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;Please enter whole numbers.&#x27;</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return the LCM of two given integers&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">findLcm</span>(<span class=\"hljs-number\">27</span>, <span class=\"hljs-number\">36</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">108</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "vinayak",
+      "email": "itssvinayak@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "thiru15",
+      "email": "33665749+thiru15@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Michael Fried",
+      "email": "mikelfried@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Shivam Arora",
+      "email": "shivam.arora@inficold.com",
+      "commits": 1
+    },
+    {
+      "name": "Ephraim Atta-Duncan",
+      "email": "55143799+dephraiim@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 3
+    },
+    {
+      "name": "PatOnTheBack",
+      "email": "51241310+PatOnTheBack@users.noreply.github.com",
+      "commits": 4
+    }
+  ],
+  "explanationUrl": {}
+}

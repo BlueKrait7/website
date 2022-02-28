@@ -1,0 +1,28 @@
+{
+  "slug": "factorial-non-recursive-non-iterative",
+  "name": "Factorial Non Recursive Non Iterative",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "ruby": {
+      "dir": "maths\\factorial_non_recursive_non_iterative.rb",
+      "url": "https://github.com/TheAlgorithms/ruby/tree/master/maths\\factorial_non_recursive_non_iterative.rb",
+      "code": "<span class=\"hljs-comment\"># A ruby program to find factorial of a given integer</span>\r\n<span class=\"hljs-comment\"># Factorial of a given integer is defined as the product of all the positive integers less than or equal to the given integer</span>\r\n<span class=\"hljs-comment\"># Mathematical representation: n! = n * (n - 1) * (n - 2) * ... * 1</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Non-recursive and non-iterative approach</span>\r\n<span class=\"hljs-comment\">#</span>\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">factorial</span><span class=\"hljs-params\">(number)</span></span>\r\n  <span class=\"hljs-keyword\">if</span> number &lt; <span class=\"hljs-number\">0</span>\r\n    <span class=\"hljs-string\">&#x27;Please check your input number! The given number is a negative number.&#x27;</span>\r\n  <span class=\"hljs-keyword\">elsif</span> number == <span class=\"hljs-number\">0</span>\r\n    <span class=\"hljs-string\">&quot;The factorial of <span class=\"hljs-subst\">#{number}</span> is 1.&quot;</span>\r\n  <span class=\"hljs-keyword\">else</span>\r\n    result = (<span class=\"hljs-number\">1</span>..number).inject(<span class=\"hljs-symbol\">:*</span>)\r\n    <span class=\"hljs-string\">&quot;The factorial of <span class=\"hljs-subst\">#{number}</span> is <span class=\"hljs-subst\">#{result}</span>.&quot;</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n<span class=\"hljs-keyword\">rescue</span> StandardError\r\n  <span class=\"hljs-string\">&#x27;Error: Please provide integer only!&#x27;</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\n<span class=\"hljs-comment\"># Valid inputs</span>\r\nputs factorial(<span class=\"hljs-number\">0</span>)\r\n<span class=\"hljs-comment\"># The factorial of 0 is 1.</span>\r\n\r\nputs factorial(<span class=\"hljs-number\">4</span>)\r\n<span class=\"hljs-comment\"># The factorial of 4 is 24.</span>\r\n\r\nputs factorial(<span class=\"hljs-number\">10</span>)\r\n<span class=\"hljs-comment\"># The factorial of 10 is 3628800.</span>\r\n\r\nputs factorial(<span class=\"hljs-number\">1</span>)\r\n<span class=\"hljs-comment\"># The factorial of 1 is 1.</span>\r\n\r\nputs factorial(-<span class=\"hljs-number\">5</span>)\r\n<span class=\"hljs-comment\"># Please check your input number! The given number is a negative number.</span>\r\n\r\n<span class=\"hljs-comment\"># Invalid inputs</span>\r\nputs factorial(<span class=\"hljs-string\">&#x27;a&#x27;</span>)\r\n<span class=\"hljs-comment\"># Error: Please provide integer only!</span>\r\n\r\nputs factorial(<span class=\"hljs-string\">&#x27;2&#x27;</span>)\r\n<span class=\"hljs-comment\"># Error: Please provide integer only!</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Sahil Afrid Farookhi",
+      "email": "msafarookhi@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

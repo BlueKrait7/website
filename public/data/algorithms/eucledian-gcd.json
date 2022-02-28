@@ -1,0 +1,43 @@
+{
+  "slug": "eucledian-gcd",
+  "name": "Eucledian GCD",
+  "categories": [
+    "recursive"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Recursive\\EucledianGCD.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Recursive\\EucledianGCD.js",
+      "code": "<span class=\"hljs-keyword\">function</span> <span class=\"hljs-title function_\">euclideanGCDRecursive</span> (first, second) {\r\n  <span class=\"hljs-comment\">/*\r\n    Calculates GCD of two numbers using Euclidean Recursive Algorithm\r\n    :param first: First number\r\n    :param second: Second number\r\n    :return: GCD of the numbers\r\n    */</span>\r\n  <span class=\"hljs-keyword\">if</span> (second === <span class=\"hljs-number\">0</span>) {\r\n    <span class=\"hljs-keyword\">return</span> first\r\n  } <span class=\"hljs-keyword\">else</span> {\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-title function_\">euclideanGCDRecursive</span>(second, (first % second))\r\n  }\r\n}\r\n\r\n<span class=\"hljs-keyword\">function</span> <span class=\"hljs-title function_\">euclideanGCDIterative</span> (first, second) {\r\n  <span class=\"hljs-comment\">/*\r\n    Calculates GCD of two numbers using Euclidean Iterative Algorithm\r\n    :param first: First number\r\n    :param second: Second number\r\n    :return: GCD of the numbers\r\n    */</span>\r\n  <span class=\"hljs-keyword\">while</span> (second !== <span class=\"hljs-number\">0</span>) {\r\n    <span class=\"hljs-keyword\">const</span> temp = second\r\n    second = first % second\r\n    first = temp\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> first\r\n}\r\n\r\n<span class=\"hljs-keyword\">export</span> { euclideanGCDIterative, euclideanGCDRecursive }\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Bender",
+      "email": "christianbender89@web.de",
+      "commits": 1
+    },
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "PatOnTheBack",
+      "email": "51241310+PatOnTheBack@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Mohit Sharma",
+      "email": "mohit1532.cse16@chitkara.edu.in",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

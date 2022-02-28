@@ -1,0 +1,24 @@
+{
+  "slug": "extendedgcd",
+  "name": "Extendedgcd",
+  "categories": [
+    "math",
+    "gcd"
+  ],
+  "body": {},
+  "implementations": {
+    "go": {
+      "dir": "math\\gcd\\extendedgcd.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/math\\gcd\\extendedgcd.go",
+      "code": "<span class=\"hljs-keyword\">package</span> gcd\r\n\r\n<span class=\"hljs-comment\">// ExtendedRecursive finds and returns gcd(a, b), x, y satisfying a*x + b*y = gcd(a, b).</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">ExtendedRecursive</span><span class=\"hljs-params\">(a, b <span class=\"hljs-type\">int64</span>)</span></span> (<span class=\"hljs-type\">int64</span>, <span class=\"hljs-type\">int64</span>, <span class=\"hljs-type\">int64</span>) {\r\n\t<span class=\"hljs-keyword\">if</span> b &gt; <span class=\"hljs-number\">0</span> {\r\n\t\td, y, x := ExtendedRecursive(b, a%b)\r\n\t\ty -= (a / b) * x\r\n\t\t<span class=\"hljs-keyword\">return</span> d, x, y\r\n\t}\r\n\r\n\t<span class=\"hljs-keyword\">return</span> a, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">0</span>\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Ryusei Nagai",
+      "email": "ryuuryuu908@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "factorial-iterative",
+  "name": "Factorial Iterative",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\factorial_iterative.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\factorial_iterative.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;Factorial of a positive integer -- https://en.wikipedia.org/wiki/Factorial\r\n&quot;&quot;&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">factorial</span>(<span class=\"hljs-params\">number: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">int</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Calculate the factorial of specified number (n!).\r\n\r\n    &gt;&gt;&gt; import math\r\n    &gt;&gt;&gt; all(factorial(i) == math.factorial(i) for i in range(20))\r\n    True\r\n    &gt;&gt;&gt; factorial(0.1)\r\n    Traceback (most recent call last):\r\n        ...\r\n    ValueError: factorial() only accepts integral values\r\n    &gt;&gt;&gt; factorial(-1)\r\n    Traceback (most recent call last):\r\n        ...\r\n    ValueError: factorial() not defined for negative values\r\n    &gt;&gt;&gt; factorial(1)\r\n    1\r\n    &gt;&gt;&gt; factorial(6)\r\n    720\r\n    &gt;&gt;&gt; factorial(0)\r\n    1\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> number != <span class=\"hljs-built_in\">int</span>(number):\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;factorial() only accepts integral values&quot;</span>)\r\n    <span class=\"hljs-keyword\">if</span> number &lt; <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;factorial() not defined for negative values&quot;</span>)\r\n    value = <span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-number\">1</span>, number + <span class=\"hljs-number\">1</span>):\r\n        value *= i\r\n    <span class=\"hljs-keyword\">return</span> value\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n\r\n    n = <span class=\"hljs-built_in\">int</span>(<span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Enter a positive integer: &quot;</span>).strip() <span class=\"hljs-keyword\">or</span> <span class=\"hljs-number\">0</span>)\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f&quot;factorial<span class=\"hljs-subst\">{n}</span> is <span class=\"hljs-subst\">{factorial(n)}</span>&quot;</span>)\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Abhinav Anand",
+      "email": "manasgmishra@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "John Law",
+      "email": "johnlaw.po@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Pooja",
+      "email": "pooja016mca19@igdtuw.ac.in",
+      "commits": 1
+    },
+    {
+      "name": "matkosoric",
+      "email": "soric.matko@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

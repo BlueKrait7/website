@@ -1,0 +1,43 @@
+{
+  "slug": "exchange-sort",
+  "name": "Exchange Sort",
+  "categories": [
+    "sorts"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "sorts\\exchange_sort.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/sorts\\exchange_sort.py",
+      "code": "<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">exchange_sort</span>(<span class=\"hljs-params\">numbers: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]</span>) -&gt; <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Uses exchange sort to sort a list of numbers.\r\n    Source: https://en.wikipedia.org/wiki/Sorting_algorithm#Exchange_sort\r\n    &gt;&gt;&gt; exchange_sort([5, 4, 3, 2, 1])\r\n    [1, 2, 3, 4, 5]\r\n    &gt;&gt;&gt; exchange_sort([-1, -2, -3])\r\n    [-3, -2, -1]\r\n    &gt;&gt;&gt; exchange_sort([1, 2, 3, 4, 5])\r\n    [1, 2, 3, 4, 5]\r\n    &gt;&gt;&gt; exchange_sort([0, 10, -2, 5, 3])\r\n    [-2, 0, 3, 5, 10]\r\n    &gt;&gt;&gt; exchange_sort([])\r\n    []\r\n    &quot;&quot;&quot;</span>\r\n    numbers_length = <span class=\"hljs-built_in\">len</span>(numbers)\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(numbers_length):\r\n        <span class=\"hljs-keyword\">for</span> j <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(i + <span class=\"hljs-number\">1</span>, numbers_length):\r\n            <span class=\"hljs-keyword\">if</span> numbers[j] &lt; numbers[i]:\r\n                numbers[i], numbers[j] = numbers[j], numbers[i]\r\n    <span class=\"hljs-keyword\">return</span> numbers\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    user_input = <span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Enter numbers separated by a comma:\\n&quot;</span>).strip()\r\n    unsorted = [<span class=\"hljs-built_in\">int</span>(item) <span class=\"hljs-keyword\">for</span> item <span class=\"hljs-keyword\">in</span> user_input.split(<span class=\"hljs-string\">&quot;,&quot;</span>)]\r\n    <span class=\"hljs-built_in\">print</span>(exchange_sort(unsorted))\r\n"
+    },
+    "go": {
+      "dir": "sort\\exchangesort.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/sort\\exchangesort.go",
+      "code": "<span class=\"hljs-comment\">// Implementation of exchange sort algorithm, a variant of bubble sort</span>\r\n<span class=\"hljs-comment\">// Reference: https://en.wikipedia.org/wiki/Sorting_algorithm#Exchange_sort</span>\r\n\r\n<span class=\"hljs-keyword\">package</span> sort\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">Exchange</span><span class=\"hljs-params\">(arr []<span class=\"hljs-type\">int</span>)</span></span> []<span class=\"hljs-type\">int</span> {\r\n\t<span class=\"hljs-keyword\">for</span> i := <span class=\"hljs-number\">0</span>; i &lt; <span class=\"hljs-built_in\">len</span>(arr)<span class=\"hljs-number\">-1</span>; i++ {\r\n\t\t<span class=\"hljs-keyword\">for</span> j := i + <span class=\"hljs-number\">1</span>; j &lt; <span class=\"hljs-built_in\">len</span>(arr); j++ {\r\n\t\t\t<span class=\"hljs-keyword\">if</span> arr[i] &gt; arr[j] {\r\n\t\t\t\tarr[i], arr[j] = arr[j], arr[i]\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\r\n\t<span class=\"hljs-keyword\">return</span> arr\r\n}\r\n"
+    },
+    "julia": {
+      "dir": "src\\sorts\\exchange_sort.jl",
+      "url": "https://github.com/TheAlgorithms/julia/tree/master/src\\sorts\\exchange_sort.jl",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n    ExchangeSort(arr)\r\n\r\nSort an array by exchanging elements that are not in their proper position, hence Exchange Sort\r\n\r\nExchange Sort Steps\r\n1. Compares each element of an array\r\n2. Swap those elements that are not in their proper position\r\n\r\nExample\r\n1. An array of [1, 2, 4, 3, 5] and compare each elements\r\n2. Since 4 is greater than 3\r\n3. Swap both position\r\n4. Returns [1, 2, 3, 4, 5]\r\n\r\nProgram to sort an array\r\n\r\n# Example\r\n```julia\r\nExchangeSort([5, 4, 3, 2, 1]) # returns [1, 2, 3, 4, 5]\r\nExchangeSort([1, 2, 3, 4, 5]) # returns [1, 2, 3, 4, 5]\r\nExchangeSort([&#x27;5&#x27;, &#x27;4&#x27;, &#x27;3&#x27;, &#x27;2&#x27;, &#x27;1&#x27;]) # returns [&#x27;1&#x27;, &#x27;2&#x27;, &#x27;3&#x27;, &#x27;4&#x27;, &#x27;5&#x27;]\r\n```\r\n\r\nContributed By:- [Gervin Fung](https://github.com/GervinFung)\r\n&quot;&quot;&quot;</span>\r\n\r\n<span class=\"hljs-keyword\">function</span> exchange_sort!(arr::<span class=\"hljs-built_in\">Vector</span>{T})<span class=\"hljs-keyword\">where</span> T\r\n    size=length(arr)\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-number\">1</span>:size\r\n        <span class=\"hljs-keyword\">for</span> j <span class=\"hljs-keyword\">in</span> i:size\r\n            <span class=\"hljs-keyword\">if</span> (arr[i]&gt;arr[j])\r\n                temp = arr[j];\r\n                arr[j] = arr[i];\r\n                arr[i] = temp;\r\n            <span class=\"hljs-keyword\">end</span>\r\n        <span class=\"hljs-keyword\">end</span>\r\n    <span class=\"hljs-keyword\">end</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "PoolOfDeath20",
+      "email": "53143214+GervinFung@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Bonnie",
+      "email": "58572137+bonbon99@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "PoolOfDeath20",
+      "email": "gervinfungdaxuen@gmail.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

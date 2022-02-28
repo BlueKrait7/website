@@ -1,0 +1,23 @@
+{
+  "slug": "fibonacci-2",
+  "name": "Fibonacci 2",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "php": {
+      "dir": "Maths\\Fibonacci2.php",
+      "url": "https://github.com/TheAlgorithms/php/tree/master/Maths\\Fibonacci2.php",
+      "code": "<span class=\"hljs-meta\">&lt;?php</span>\r\n\r\n<span class=\"hljs-comment\">/*\r\n * Print Fibocanni sequence using a generator\r\n */</span>\r\n\r\n <span class=\"hljs-comment\">/**\r\n  * <span class=\"hljs-doctag\">@param</span> int $i number of Fibonacci numbers to generate\r\n  * <span class=\"hljs-doctag\">@param</span> Generator $set Fibonacci calculator\r\n  */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">loop</span>(<span class=\"hljs-params\"><span class=\"hljs-variable\">$i</span>, <span class=\"hljs-built_in\">Generator</span> <span class=\"hljs-variable\">$set</span></span>)\r\n</span>{\r\n    <span class=\"hljs-keyword\">while</span>(<span class=\"hljs-variable\">$i</span>-- &gt; <span class=\"hljs-number\">0</span> &amp;&amp; <span class=\"hljs-variable\">$set</span>-&gt;<span class=\"hljs-title function_ invoke__\">valid</span>())\r\n    {\r\n        <span class=\"hljs-keyword\">yield</span> <span class=\"hljs-variable\">$set</span>-&gt;<span class=\"hljs-title function_ invoke__\">current</span>();\r\n        <span class=\"hljs-variable\">$set</span>-&gt;<span class=\"hljs-title function_ invoke__\">next</span>();\r\n    }\r\n}\r\n\r\n<span class=\"hljs-comment\">/*\r\n * Fibonacci generator\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">fib</span>(<span class=\"hljs-params\"></span>)\r\n</span>{\r\n    <span class=\"hljs-keyword\">yield</span> <span class=\"hljs-variable\">$i</span> = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-keyword\">yield</span> <span class=\"hljs-variable\">$j</span> = <span class=\"hljs-number\">1</span>;\r\n\r\n    <span class=\"hljs-keyword\">while</span>(<span class=\"hljs-literal\">true</span>)\r\n    {\r\n        <span class=\"hljs-keyword\">yield</span> <span class=\"hljs-variable\">$k</span> = <span class=\"hljs-variable\">$i</span> + <span class=\"hljs-variable\">$j</span>;\r\n        <span class=\"hljs-variable\">$i</span> = <span class=\"hljs-variable\">$j</span>;\r\n        <span class=\"hljs-variable\">$j</span> = <span class=\"hljs-variable\">$k</span>;\r\n    }\r\n}\r\n\r\n<span class=\"hljs-comment\">/*\r\n * Generate 100 Fibonacci numbers\r\n */</span>\r\n<span class=\"hljs-keyword\">foreach</span>(<span class=\"hljs-title function_ invoke__\">loop</span>(<span class=\"hljs-number\">100</span>, <span class=\"hljs-title function_ invoke__\">fib</span>()) <span class=\"hljs-keyword\">as</span> <span class=\"hljs-variable\">$item</span>)\r\n{\r\n    <span class=\"hljs-keyword\">print</span>(<span class=\"hljs-variable\">$item</span>.<span class=\"hljs-string\">&#x27;,&#x27;</span>);\r\n}"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Andrew S Erwin",
+      "email": "andrew@andrewerwin.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

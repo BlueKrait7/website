@@ -1,0 +1,28 @@
+{
+  "slug": "extended-euclidean-gcd",
+  "name": "Extended Euclidean GCD",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\test\\ExtendedEuclideanGCD.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\ExtendedEuclideanGCD.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { extendedEuclideanGCD } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../ExtendedEuclideanGCD&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;extendedEuclideanGCD&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return valid values in order for positive arguments&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">extendedEuclideanGCD</span>(<span class=\"hljs-number\">240</span>, <span class=\"hljs-number\">46</span>)).<span class=\"hljs-title function_\">toMatchObject</span>([<span class=\"hljs-number\">2</span>, -<span class=\"hljs-number\">9</span>, <span class=\"hljs-number\">47</span>])\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">extendedEuclideanGCD</span>(<span class=\"hljs-number\">46</span>, <span class=\"hljs-number\">240</span>)).<span class=\"hljs-title function_\">toMatchObject</span>([<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">47</span>, -<span class=\"hljs-number\">9</span>])\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should give error on non-positive arguments&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> <span class=\"hljs-title function_\">extendedEuclideanGCD</span>(<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">240</span>)).<span class=\"hljs-title function_\">toThrowError</span>(<span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">TypeError</span>(<span class=\"hljs-string\">&#x27;Must be positive numbers&#x27;</span>))\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> <span class=\"hljs-title function_\">extendedEuclideanGCD</span>(<span class=\"hljs-number\">46</span>, -<span class=\"hljs-number\">240</span>)).<span class=\"hljs-title function_\">toThrowError</span>(<span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">TypeError</span>(<span class=\"hljs-string\">&#x27;Must be positive numbers&#x27;</span>))\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should give error on non-numeric arguments&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> <span class=\"hljs-title function_\">extendedEuclideanGCD</span>(<span class=\"hljs-string\">&#x27;240&#x27;</span>, <span class=\"hljs-number\">46</span>)).<span class=\"hljs-title function_\">toThrowError</span>(<span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">TypeError</span>(<span class=\"hljs-string\">&#x27;Not a Number&#x27;</span>))\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> <span class=\"hljs-title function_\">extendedEuclideanGCD</span>([<span class=\"hljs-number\">240</span>, <span class=\"hljs-number\">46</span>])).<span class=\"hljs-title function_\">toThrowError</span>(<span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">TypeError</span>(<span class=\"hljs-string\">&#x27;Not a Number&#x27;</span>))\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Rak Laptudirm",
+      "email": "raklaptudirm@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "VinWare",
+      "email": "28603906+VinWare@users.noreply.github.com",
+      "commits": 6
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,33 @@
+{
+  "slug": "eulers-function",
+  "name": "Eulers Function",
+  "categories": [
+    "others"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\others\\EulersFunction.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\others\\EulersFunction.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.others;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * You can read more about Euler&#x27;s totient function\r\n *\r\n * &lt;p&gt;\r\n * See https://en.wikipedia.org/wiki/Euler%27s_totient_function\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">EulersFunction</span> {\r\n    <span class=\"hljs-comment\">// This method returns us number of x that (x &lt; n) and gcd(x, n) == 1 in O(sqrt(n)) time</span>\r\n    <span class=\"hljs-comment\">// complexity;</span>\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">getEuler</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> n)</span> {\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">result</span> <span class=\"hljs-operator\">=</span> n;\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">2</span>; i * i &lt;= n; i++) {\r\n            <span class=\"hljs-keyword\">if</span> (n % i == <span class=\"hljs-number\">0</span>) {\r\n                <span class=\"hljs-keyword\">while</span> (n % i == <span class=\"hljs-number\">0</span>) {\r\n                    n /= i;\r\n                }\r\n                result -= result / i;\r\n            }\r\n        }\r\n        <span class=\"hljs-keyword\">if</span> (n &gt; <span class=\"hljs-number\">1</span>) {\r\n            result -= result / n;\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> result;\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">1</span>; i &lt; <span class=\"hljs-number\">100</span>; i++) {\r\n            System.out.println(getEuler(i));\r\n        }\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Bolot Bekbolotov",
+      "email": "bekbolotov.bolot@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

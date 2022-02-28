@@ -1,0 +1,23 @@
+{
+  "slug": "farey-approximation",
+  "name": "Farey Approximation",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\test\\FareyApproximation.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\FareyApproximation.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { fareyApproximation } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../FareyApproximation&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;fareyApproximation&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;Return Farey Approximation of 0.7538385&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> approx = <span class=\"hljs-title function_\">fareyApproximation</span>(<span class=\"hljs-number\">0.7538385</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(approx).<span class=\"hljs-title function_\">toStrictEqual</span>({ <span class=\"hljs-attr\">numerator</span>: <span class=\"hljs-number\">52</span>, <span class=\"hljs-attr\">denominator</span>: <span class=\"hljs-number\">69</span> })\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;Return Farey Approximation of 0.23584936&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> approx = <span class=\"hljs-title function_\">fareyApproximation</span>(<span class=\"hljs-number\">0.23584936</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(approx).<span class=\"hljs-title function_\">toStrictEqual</span>({ <span class=\"hljs-attr\">numerator</span>: <span class=\"hljs-number\">196</span>, <span class=\"hljs-attr\">denominator</span>: <span class=\"hljs-number\">831</span> })\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Rak Laptudirm",
+      "email": "raklaptudirm@gmail.com",
+      "commits": 5
+    }
+  ],
+  "explanationUrl": {}
+}
