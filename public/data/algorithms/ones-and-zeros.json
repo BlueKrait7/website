@@ -1,0 +1,23 @@
+{
+  "slug": "ones-and-zeros",
+  "name": "Ones and Zeros",
+  "categories": [
+    "dynamicprogramming"
+  ],
+  "body": {},
+  "implementations": {
+    "ruby": {
+      "dir": "dynamic_programming\\ones_and_zeros.rb",
+      "url": "https://github.com/TheAlgorithms/ruby/tree/master/dynamic_programming\\ones_and_zeros.rb",
+      "code": "<span class=\"hljs-comment\"># You are given an array of binary strings strs and two integers m and n.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Return the size of the largest subset of strs such that there are at most m 0&#x27;s and n 1&#x27;s in the subset.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># A set x is a subset of a set y if all elements of x are also elements of y.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Example 1:</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Input: strs = [&quot;10&quot;,&quot;0001&quot;,&quot;111001&quot;,&quot;1&quot;,&quot;0&quot;], m = 5, n = 3</span>\r\n<span class=\"hljs-comment\"># Output: 4</span>\r\n<span class=\"hljs-comment\"># Explanation: The largest subset with at most 5 0&#x27;s and 3 1&#x27;s is {&quot;10&quot;, &quot;0001&quot;, &quot;1&quot;, &quot;0&quot;}, so the answer is 4.</span>\r\n<span class=\"hljs-comment\"># Other valid but smaller subsets include {&quot;0001&quot;, &quot;1&quot;} and {&quot;10&quot;, &quot;1&quot;, &quot;0&quot;}.</span>\r\n<span class=\"hljs-comment\"># {&quot;111001&quot;} is an invalid subset because it contains 4 1&#x27;s, greater than the maximum of 3.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Example 2:</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Input: strs = [&quot;10&quot;,&quot;0&quot;,&quot;1&quot;], m = 1, n = 1</span>\r\n<span class=\"hljs-comment\"># Output: 2</span>\r\n<span class=\"hljs-comment\"># Explanation: The largest subset is {&quot;0&quot;, &quot;1&quot;}, so the answer is 2.</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Approach #1 Dynamic Programming</span>\r\n<span class=\"hljs-comment\">#</span>\r\n\r\n<span class=\"hljs-comment\"># <span class=\"hljs-doctag\">@param</span> {String[]} strs</span>\r\n<span class=\"hljs-comment\"># <span class=\"hljs-doctag\">@param</span> {Integer} m</span>\r\n<span class=\"hljs-comment\"># <span class=\"hljs-doctag\">@param</span> {Integer} n</span>\r\n<span class=\"hljs-comment\"># <span class=\"hljs-doctag\">@return</span> {Integer}</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">find_max_form</span><span class=\"hljs-params\">(strs, m, n)</span></span>\r\n  dp = (m + <span class=\"hljs-number\">1</span>).times.map { [<span class=\"hljs-number\">0</span>] * (n + <span class=\"hljs-number\">1</span>) }\r\n\r\n  strs.each <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|str|</span>\r\n    zeros = str.count(<span class=\"hljs-string\">&#x27;0&#x27;</span>)\r\n    ones = str.count(<span class=\"hljs-string\">&#x27;1&#x27;</span>)\r\n\r\n    m.downto(zeros) <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|i|</span>\r\n      n.downto(ones) <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|j|</span>\r\n        dp[i][j] = [dp[i][j], dp[i - zeros][j - ones] + <span class=\"hljs-number\">1</span>].max\r\n      <span class=\"hljs-keyword\">end</span>\r\n    <span class=\"hljs-keyword\">end</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n\r\n  dp[m][n]\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\nstrs = <span class=\"hljs-string\">%w[10 0001 111001 1 0]</span>\r\nm = <span class=\"hljs-number\">5</span>\r\nn = <span class=\"hljs-number\">3</span>\r\nputs find_max_form(strs, m, n)\r\n<span class=\"hljs-comment\"># Output: 4</span>\r\n\r\nstrs = <span class=\"hljs-string\">%w[10 0 1]</span>\r\nm = <span class=\"hljs-number\">1</span>\r\nn = <span class=\"hljs-number\">1</span>\r\nputs find_max_form(strs, m, n)\r\n<span class=\"hljs-comment\"># Output: 2</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "naive",
+  "name": "Naive",
+  "categories": [
+    "strings",
+    "searches"
+  ],
+  "body": {},
+  "implementations": {
+    "go": {
+      "dir": "strings\\search\\naive.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/strings\\search\\naive.go",
+      "code": "<span class=\"hljs-keyword\">package</span> search\r\n\r\n<span class=\"hljs-comment\">// Implementation of naive string search</span>\r\n<span class=\"hljs-comment\">// O(n*m) where n=len(txt) and m=len(pattern)</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">Naive</span><span class=\"hljs-params\">(text <span class=\"hljs-type\">string</span>, pattern <span class=\"hljs-type\">string</span>)</span></span> []<span class=\"hljs-type\">int</span> {\r\n\t<span class=\"hljs-keyword\">var</span> positions []<span class=\"hljs-type\">int</span>\r\n\t<span class=\"hljs-keyword\">for</span> i := <span class=\"hljs-number\">0</span>; i &lt;= <span class=\"hljs-built_in\">len</span>(text)-<span class=\"hljs-built_in\">len</span>(pattern); i++ {\r\n\t\t<span class=\"hljs-keyword\">var</span> match <span class=\"hljs-type\">bool</span> = <span class=\"hljs-literal\">true</span>\r\n\t\t<span class=\"hljs-keyword\">for</span> j := <span class=\"hljs-number\">0</span>; j &lt; <span class=\"hljs-built_in\">len</span>(pattern); j++ {\r\n\t\t\t<span class=\"hljs-keyword\">if</span> text[i+j] != pattern[j] {\r\n\t\t\t\tmatch = <span class=\"hljs-literal\">false</span>\r\n\t\t\t\t<span class=\"hljs-keyword\">break</span>\r\n\t\t\t}\r\n\r\n\t\t}\r\n\t\t<span class=\"hljs-keyword\">if</span> match {\r\n\t\t\tpositions = <span class=\"hljs-built_in\">append</span>(positions, i)\r\n\t\t}\r\n\t}\r\n\t<span class=\"hljs-keyword\">return</span> positions\r\n}\r\n"
+    }
+  },
+  "contributors": [],
+  "explanationUrl": {}
+}

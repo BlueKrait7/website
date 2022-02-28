@@ -1,0 +1,28 @@
+{
+  "slug": "number-of-days",
+  "name": "Number of Days",
+  "categories": [
+    "others"
+  ],
+  "body": {},
+  "implementations": {
+    "ruby": {
+      "dir": "other\\number_of_days.rb",
+      "url": "https://github.com/TheAlgorithms/ruby/tree/master/other\\number_of_days.rb",
+      "code": "<span class=\"hljs-comment\"># Challenge name: Number of Days Between Two Dates</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Write a program to count the number of days between two dates.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># The two dates are given as strings, their format is YYYY-MM-DD as shown in the examples.</span>\r\n<span class=\"hljs-comment\"># Example 1:</span>\r\n<span class=\"hljs-comment\"># Input: date1 = &quot;2019-06-29&quot;, date2 = &quot;2019-06-30&quot;</span>\r\n<span class=\"hljs-comment\"># Output: 1</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Example 2:</span>\r\n<span class=\"hljs-comment\"># Input: date1 = &quot;2020-01-15&quot;, date2 = &quot;2019-12-31&quot;</span>\r\n<span class=\"hljs-comment\"># Output: 15</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Constraints: The given dates are valid dates between the years 1971 and 2100.</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Approach 1: Using Ruby built-in feature Date.parse</span>\r\n<span class=\"hljs-comment\"># Time complexity: O(1)</span>\r\n<span class=\"hljs-comment\"># Space complexity: O(1)</span>\r\n<span class=\"hljs-comment\">#</span>\r\n\r\n<span class=\"hljs-keyword\">require</span> <span class=\"hljs-string\">&#x27;date&#x27;</span>\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">number_of_days</span><span class=\"hljs-params\">(date1, date2)</span></span>\r\n  beginning_date = Date.parse(date1)\r\n  end_date = Date.parse(date2)\r\n  (end_date - beginning_date).to_i.abs\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\nputs number_of_days(<span class=\"hljs-string\">&#x27;2019-06-29&#x27;</span>, <span class=\"hljs-string\">&#x27;2019-06-30&#x27;</span>)\r\n<span class=\"hljs-comment\"># =&gt; 1</span>\r\n\r\nputs number_of_days(<span class=\"hljs-string\">&#x27;2020-01-15&#x27;</span>, <span class=\"hljs-string\">&#x27;2019-12-31&#x27;</span>)\r\n<span class=\"hljs-comment\"># =&gt; 15</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Jessica Kwok",
+      "email": "jessicatckwok@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

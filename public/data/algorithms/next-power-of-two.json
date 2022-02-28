@@ -1,0 +1,23 @@
+{
+  "slug": "next-power-of-two",
+  "name": "Next Power Of Two",
+  "categories": [
+    "bitmanipulation"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Bit-Manipulation\\test\\NextPowerOfTwo.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Bit-Manipulation\\test\\NextPowerOfTwo.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { nextPowerOfTwo } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../NextPowerOfTwo&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;NextPowerOfTwo&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  it.<span class=\"hljs-property\">each</span><span class=\"hljs-string\">`\r\n    input    | result\r\n    <span class=\"hljs-subst\">${<span class=\"hljs-number\">0</span>}</span>     | <span class=\"hljs-subst\">${<span class=\"hljs-number\">1</span>}</span>\r\n    <span class=\"hljs-subst\">${<span class=\"hljs-number\">1</span>}</span>     | <span class=\"hljs-subst\">${<span class=\"hljs-number\">1</span>}</span>\r\n    <span class=\"hljs-subst\">${<span class=\"hljs-number\">2</span>}</span>     | <span class=\"hljs-subst\">${<span class=\"hljs-number\">2</span>}</span>\r\n    <span class=\"hljs-subst\">${<span class=\"hljs-number\">3</span>}</span>     | <span class=\"hljs-subst\">${<span class=\"hljs-number\">4</span>}</span>\r\n    <span class=\"hljs-subst\">${<span class=\"hljs-number\">5</span>}</span>     | <span class=\"hljs-subst\">${<span class=\"hljs-number\">8</span>}</span>\r\n    <span class=\"hljs-subst\">${<span class=\"hljs-number\">125</span>}</span>   | <span class=\"hljs-subst\">${<span class=\"hljs-number\">128</span>}</span>\r\n    <span class=\"hljs-subst\">${<span class=\"hljs-number\">1024</span>}</span>  | <span class=\"hljs-subst\">${<span class=\"hljs-number\">1024</span>}</span>\r\n    <span class=\"hljs-subst\">${<span class=\"hljs-number\">10000</span>}</span> | <span class=\"hljs-subst\">${<span class=\"hljs-number\">16384</span>}</span>\r\n  `</span>(<span class=\"hljs-string\">&#x27;returns $result when is given $input&#x27;</span>, <span class=\"hljs-function\">(<span class=\"hljs-params\">{ input, result }</span>) =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> res = <span class=\"hljs-title function_\">nextPowerOfTwo</span>(input)\r\n    <span class=\"hljs-title function_\">expect</span>(res).<span class=\"hljs-title function_\">toBe</span>(result)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Indre Maksimovaite",
+      "email": "imaksimovaite@gmail.com",
+      "commits": 4
+    }
+  ],
+  "explanationUrl": {}
+}

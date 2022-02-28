@@ -1,0 +1,33 @@
+{
+  "slug": "monte-carlo-integration",
+  "name": "Monte Carlo Integration",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "julia": {
+      "dir": "src\\math\\monte_carlo_integration.jl",
+      "url": "https://github.com/TheAlgorithms/julia/tree/master/src\\math\\monte_carlo_integration.jl",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n    monte_carlo_integration(f::Function, a::Real, b::Real, n::Int)\r\n\r\nMonte carlo integration is a very easy and scalable way to do multidimentional integrals.\r\nHowever, only single variable integrals are considered.\r\n\r\n# Arguments\r\n- `f`: the function to integrate. (at the momment only single variable is suported)\r\n- `a`: start in the integration limits.\r\n- `b`: endin the integration limits.\r\n- `N`: Number of points to sample. For most simple functions, 1000 to 10,000 should be okay.\r\n\r\n# Examples\r\n```julia\r\njulia&gt; monte_carlo_integration(x -&gt; 3*x^2, 0, 1, 100000) # integrate a polynomial\r\n1.0000037602209\r\n\r\njulia&gt; monte_carlo_integration(x -&gt; sin(x), 0, pi, 1000) # integrate the sin function\r\n2.0018927826323756\r\n```\r\n\r\n# References\r\n- https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-in-practice/monte-carlo-integration\r\n- https://kingaa.github.io/sbied/pfilter/monteCarlo.html\r\n\r\n# Contributors\r\n- [AugustoCL](https://github.com/AugustoCL)\r\n- [Ved Mahajan](https://github.com/Ved-Mahajan)\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">function</span> monte_carlo_integration(f::<span class=\"hljs-built_in\">Function</span>, a::<span class=\"hljs-built_in\">Real</span>, b::<span class=\"hljs-built_in\">Real</span>, n::<span class=\"hljs-built_in\">Int</span>)\r\n    Δₓ = ((b - a) / n)\r\n\r\n    Σ = <span class=\"hljs-number\">0.0</span>\r\n    <span class=\"hljs-keyword\">for</span> _ ∈ <span class=\"hljs-number\">1</span>:n\r\n        <span class=\"hljs-comment\"># generate uniform(a, b) using uniform(0, 1)</span>\r\n        Xᵢ = a + (b-a)*rand()\r\n        Σ += f(Xᵢ)\r\n    <span class=\"hljs-keyword\">end</span>\r\n\r\n    <span class=\"hljs-keyword\">return</span> Δₓ * Σ\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Augusto C. Leal",
+      "email": "augustoleal72@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Augusto C. Leal",
+      "email": "leal.augusto@unifesp.br",
+      "commits": 1
+    },
+    {
+      "name": "Ved Mahajan",
+      "email": "74182892+Ved-Mahajan@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

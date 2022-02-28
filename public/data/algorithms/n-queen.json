@@ -1,0 +1,33 @@
+{
+  "slug": "n-queen",
+  "name": "N Queen",
+  "categories": [
+    "backtracking"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Backtracking\\tests\\NQueen.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Backtracking\\tests\\NQueen.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { <span class=\"hljs-title class_\">NQueen</span> } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../NQueen&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;NQueen&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return 2 solutions for 4x4 size board&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> _4Queen = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">NQueen</span>(<span class=\"hljs-number\">4</span>)\r\n    _4Queen.<span class=\"hljs-title function_\">solve</span>()\r\n    <span class=\"hljs-title function_\">expect</span>(_4Queen.<span class=\"hljs-property\">solutionCount</span>).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">2</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return 92 solutions for 8x8 size board&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> _8Queen = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">NQueen</span>(<span class=\"hljs-number\">8</span>)\r\n    _8Queen.<span class=\"hljs-title function_\">solve</span>()\r\n    <span class=\"hljs-title function_\">expect</span>(_8Queen.<span class=\"hljs-property\">solutionCount</span>).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">92</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Tapajyoti Bose",
+      "email": "44058757+ruppysuppy@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "hasan",
+      "email": "hasanuli10@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

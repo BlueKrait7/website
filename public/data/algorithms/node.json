@@ -1,0 +1,69 @@
+{
+  "slug": "node",
+  "name": "Node",
+  "categories": [
+    "datastructures",
+    "disjointset"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\devutils\\nodes\\Node.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\devutils\\nodes\\Node.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.devutils.nodes;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Base class for any node implementation which contains a generic type\r\n * variable.\r\n *\r\n * All known subclasses: {<span class=\"hljs-doctag\">@link</span> TreeNode}, {<span class=\"hljs-doctag\">@link</span> SimpleNode}.\r\n *\r\n * <span class=\"hljs-doctag\">@param</span> &lt;E&gt; The type of the data held in the Node.\r\n *\r\n * <span class=\"hljs-doctag\">@author</span> &lt;a href=&quot;https://github.com/aitorfi&quot;&gt;aitorfi&lt;/a&gt;\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">abstract</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Node</span>&lt;E&gt; {\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Generic type data stored in the Node.\r\n     */</span>\r\n    <span class=\"hljs-keyword\">private</span> E data;\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Empty constructor.\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-title function_\">Node</span><span class=\"hljs-params\">()</span> {\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Initializes the Nodes&#x27; data.\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> data Value to which data will be initialized.\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-title function_\">Node</span><span class=\"hljs-params\">(E data)</span> {\r\n        <span class=\"hljs-built_in\">this</span>.data = data;\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">public</span> E <span class=\"hljs-title function_\">getData</span><span class=\"hljs-params\">()</span> {\r\n        <span class=\"hljs-keyword\">return</span> data;\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">setData</span><span class=\"hljs-params\">(E data)</span> {\r\n        <span class=\"hljs-built_in\">this</span>.data = data;\r\n    }\r\n}\r\n"
+    },
+    "go": {
+      "dir": "structure\\binarysearchtree\\node.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/structure\\binarysearchtree\\node.go",
+      "code": "<span class=\"hljs-keyword\">package</span> binarytree\r\n\r\n<span class=\"hljs-comment\">// Node structure for Nodes</span>\r\n<span class=\"hljs-keyword\">type</span> Node <span class=\"hljs-keyword\">struct</span> {\r\n\tval   <span class=\"hljs-type\">int</span>\r\n\tleft  *Node\r\n\tright *Node\r\n}\r\n\r\n<span class=\"hljs-comment\">// NewNode Returns a new pointer to an empty Node</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">NewNode</span><span class=\"hljs-params\">(val <span class=\"hljs-type\">int</span>)</span></span> *Node {\r\n\t<span class=\"hljs-keyword\">return</span> &amp;Node{val, <span class=\"hljs-literal\">nil</span>, <span class=\"hljs-literal\">nil</span>}\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Nicholas",
+      "email": "88036449+mime8@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Tim Akermann",
+      "email": "ti.akermann@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Nimrod Rak",
+      "email": "nimrod.rak@mail.huji.ac.il",
+      "commits": 1
+    },
+    {
+      "name": "Taj",
+      "email": "tjgurwara99@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "shivg7706",
+      "email": "shivamgupta7706@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "NimrodRak",
+      "email": "68863114+NimrodRak@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "Andrii Siriak",
+      "email": "siryaka@gmail.com",
+      "commits": 4
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 5
+    }
+  ],
+  "explanationUrl": {}
+}

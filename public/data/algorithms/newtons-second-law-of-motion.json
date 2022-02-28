@@ -1,0 +1,23 @@
+{
+  "slug": "newtons-second-law-of-motion",
+  "name": "Newtons Second Law of Motion",
+  "categories": [
+    "physics"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "physics\\newtons_second_law_of_motion.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/physics\\newtons_second_law_of_motion.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nDescription :\r\nNewton&#x27;s second law of motion pertains to the behavior of objects for which\r\nall existing forces are not balanced.\r\nThe second law states that the acceleration of an object is dependent upon two variables\r\n- the net force acting upon the object and the mass of the object.\r\nThe acceleration of an object depends directly\r\nupon the net force acting upon the object,\r\nand inversely upon the mass of the object.\r\nAs the force acting upon an object is increased,\r\nthe acceleration of the object is increased.\r\nAs the mass of an object is increased, the acceleration of the object is decreased.\r\nSource: https://www.physicsclassroom.com/class/newtlaws/Lesson-3/Newton-s-Second-Law\r\nFormulation: Fnet = m • a\r\nDiagrammatic Explanation:\r\n              Forces are unbalanced\r\n                        |\r\n                        |\r\n                        |\r\n                        V\r\n               There is acceleration\r\n                        /\\\r\n                       /  \\\r\n                      /    \\\r\n                     /      \\\r\n                    /        \\\r\n                   /          \\\r\n                  /            \\\r\n        __________________   ____ ________________\r\n        |The acceleration |  |The acceleration   |\r\n        |depends directly |  |depends inversely  |\r\n        |on the net Force |  |upon the object&#x27;s  |\r\n        |_________________|  |mass_______________|\r\nUnits:\r\n1 Newton = 1 kg X meters / (seconds^2)\r\nHow to use?\r\nInputs:\r\n    ___________________________________________________\r\n   |Name         | Units                   | Type      |\r\n   |-------------|-------------------------|-----------|\r\n   |mass         | (in kgs)                | float     |\r\n   |-------------|-------------------------|-----------|\r\n   |acceleration | (in meters/(seconds^2)) | float     |\r\n   |_____________|_________________________|___________|\r\n\r\nOutput:\r\n    ___________________________________________________\r\n   |Name         | Units                   | Type      |\r\n   |-------------|-------------------------|-----------|\r\n   |force        | (in Newtons)            | float     |\r\n   |_____________|_________________________|___________|\r\n\r\n&quot;&quot;&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">newtons_second_law_of_motion</span>(<span class=\"hljs-params\">mass: <span class=\"hljs-built_in\">float</span>, acceleration: <span class=\"hljs-built_in\">float</span></span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    &gt;&gt;&gt; newtons_second_law_of_motion(10, 10)\r\n    100\r\n    &gt;&gt;&gt; newtons_second_law_of_motion(2.0, 1)\r\n    2.0\r\n    &quot;&quot;&quot;</span>\r\n    force = <span class=\"hljs-built_in\">float</span>()\r\n    <span class=\"hljs-keyword\">try</span>:\r\n        force = mass * acceleration\r\n    <span class=\"hljs-keyword\">except</span> Exception:\r\n        <span class=\"hljs-keyword\">return</span> -<span class=\"hljs-number\">0.0</span>\r\n    <span class=\"hljs-keyword\">return</span> force\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    <span class=\"hljs-comment\"># run doctest</span>\r\n    doctest.testmod()\r\n\r\n    <span class=\"hljs-comment\"># demo</span>\r\n    mass = <span class=\"hljs-number\">12.5</span>\r\n    acceleration = <span class=\"hljs-number\">10</span>\r\n    force = newtons_second_law_of_motion(mass, acceleration)\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;The force is &quot;</span>, force, <span class=\"hljs-string\">&quot;N&quot;</span>)\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Divyesh Vishwakarma",
+      "email": "divyesh1099@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

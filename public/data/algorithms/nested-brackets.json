@@ -1,0 +1,88 @@
+{
+  "slug": "nested-brackets",
+  "name": "Nested Brackets",
+  "categories": [
+    "others"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "other\\nested_brackets.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/other\\nested_brackets.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nThe nested brackets problem is a problem that determines if a sequence of\r\nbrackets are properly nested.  A sequence of brackets s is considered properly nested\r\nif any of the following conditions are true:\r\n\r\n        - s is empty\r\n        - s has the form (U) or [U] or {U} where U is a properly nested string\r\n        - s has the form VW where V and W are properly nested strings\r\n\r\nFor example, the string &quot;()()[()]&quot; is properly nested but &quot;[(()]&quot; is not.\r\n\r\nThe function called is_balanced takes as input a string S which is a sequence of\r\nbrackets and returns true if S is nested and false otherwise.\r\n&quot;&quot;&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">is_balanced</span>(<span class=\"hljs-params\">S</span>):\r\n\r\n    stack = []\r\n    open_brackets = <span class=\"hljs-built_in\">set</span>({<span class=\"hljs-string\">&quot;(&quot;</span>, <span class=\"hljs-string\">&quot;[&quot;</span>, <span class=\"hljs-string\">&quot;{&quot;</span>})\r\n    closed_brackets = <span class=\"hljs-built_in\">set</span>({<span class=\"hljs-string\">&quot;)&quot;</span>, <span class=\"hljs-string\">&quot;]&quot;</span>, <span class=\"hljs-string\">&quot;}&quot;</span>})\r\n    open_to_closed = <span class=\"hljs-built_in\">dict</span>({<span class=\"hljs-string\">&quot;{&quot;</span>: <span class=\"hljs-string\">&quot;}&quot;</span>, <span class=\"hljs-string\">&quot;[&quot;</span>: <span class=\"hljs-string\">&quot;]&quot;</span>, <span class=\"hljs-string\">&quot;(&quot;</span>: <span class=\"hljs-string\">&quot;)&quot;</span>})\r\n\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-built_in\">len</span>(S)):\r\n\r\n        <span class=\"hljs-keyword\">if</span> S[i] <span class=\"hljs-keyword\">in</span> open_brackets:\r\n            stack.append(S[i])\r\n\r\n        <span class=\"hljs-keyword\">elif</span> S[i] <span class=\"hljs-keyword\">in</span> closed_brackets:\r\n            <span class=\"hljs-keyword\">if</span> <span class=\"hljs-built_in\">len</span>(stack) == <span class=\"hljs-number\">0</span> <span class=\"hljs-keyword\">or</span> (\r\n                <span class=\"hljs-built_in\">len</span>(stack) &gt; <span class=\"hljs-number\">0</span> <span class=\"hljs-keyword\">and</span> open_to_closed[stack.pop()] != S[i]\r\n            ):\r\n                <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">False</span>\r\n\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-built_in\">len</span>(stack) == <span class=\"hljs-number\">0</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">main</span>():\r\n    s = <span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Enter sequence of brackets: &quot;</span>)\r\n    <span class=\"hljs-keyword\">if</span> is_balanced(s):\r\n        <span class=\"hljs-built_in\">print</span>(s, <span class=\"hljs-string\">&quot;is balanced&quot;</span>)\r\n    <span class=\"hljs-keyword\">else</span>:\r\n        <span class=\"hljs-built_in\">print</span>(s, <span class=\"hljs-string\">&quot;is not balanced&quot;</span>)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    main()\r\n"
+    },
+    "go": {
+      "dir": "other\\nested\\nestedbrackets.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/other\\nested\\nestedbrackets.go",
+      "code": "<span class=\"hljs-comment\">// Package nested provides functions for testing</span>\r\n<span class=\"hljs-comment\">// strings proper brackets nesting.</span>\r\n<span class=\"hljs-keyword\">package</span> nested\r\n\r\n<span class=\"hljs-comment\">// IsBalanced returns true if provided input string is properly nested.</span>\r\n<span class=\"hljs-comment\">//</span>\r\n<span class=\"hljs-comment\">// Input is a sequence of brackets: &#x27;(&#x27;, &#x27;)&#x27;, &#x27;[&#x27;, &#x27;]&#x27;, &#x27;{&#x27;, &#x27;}&#x27;.</span>\r\n<span class=\"hljs-comment\">//</span>\r\n<span class=\"hljs-comment\">// A sequence of brackets `s` is considered properly nested</span>\r\n<span class=\"hljs-comment\">// if any of the following conditions are true:</span>\r\n<span class=\"hljs-comment\">// \t- `s` is empty;</span>\r\n<span class=\"hljs-comment\">// \t- `s` has the form (U) or [U] or {U} where U is a properly nested string;</span>\r\n<span class=\"hljs-comment\">// \t- `s` has the form VW where V and W are properly nested strings.</span>\r\n<span class=\"hljs-comment\">//</span>\r\n<span class=\"hljs-comment\">// For example, the string &quot;()()[()]&quot; is properly nested but &quot;[(()]&quot; is not.</span>\r\n<span class=\"hljs-comment\">//</span>\r\n<span class=\"hljs-comment\">// **Note** Providing characters other then brackets would return false,</span>\r\n<span class=\"hljs-comment\">// despite brackets sequence in the string. Make sure to filter</span>\r\n<span class=\"hljs-comment\">// input before usage.</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">IsBalanced</span><span class=\"hljs-params\">(input <span class=\"hljs-type\">string</span>)</span></span> <span class=\"hljs-type\">bool</span> {\r\n\t<span class=\"hljs-keyword\">if</span> <span class=\"hljs-built_in\">len</span>(input) == <span class=\"hljs-number\">0</span> {\r\n\t\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">true</span>\r\n\t}\r\n\r\n\t<span class=\"hljs-keyword\">if</span> <span class=\"hljs-built_in\">len</span>(input)%<span class=\"hljs-number\">2</span> != <span class=\"hljs-number\">0</span> {\r\n\t\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>\r\n\t}\r\n\r\n\t<span class=\"hljs-comment\">// Brackets such as &#x27;{&#x27;, &#x27;[&#x27;, &#x27;(&#x27; are valid UTF-8 characters,</span>\r\n\t<span class=\"hljs-comment\">// which means that only one byte is required to code them,</span>\r\n\t<span class=\"hljs-comment\">// so can be stored as bytes.</span>\r\n\t<span class=\"hljs-keyword\">var</span> stack []<span class=\"hljs-type\">byte</span>\r\n\r\n\t<span class=\"hljs-keyword\">for</span> i := <span class=\"hljs-number\">0</span>; i &lt; <span class=\"hljs-built_in\">len</span>(input); i++ {\r\n\t\t<span class=\"hljs-keyword\">if</span> input[i] == <span class=\"hljs-string\">&#x27;(&#x27;</span> || input[i] == <span class=\"hljs-string\">&#x27;{&#x27;</span> || input[i] == <span class=\"hljs-string\">&#x27;[&#x27;</span> {\r\n\t\t\tstack = <span class=\"hljs-built_in\">append</span>(stack, input[i])\r\n\t\t} <span class=\"hljs-keyword\">else</span> {\r\n\t\t\t<span class=\"hljs-keyword\">if</span> <span class=\"hljs-built_in\">len</span>(stack) &gt; <span class=\"hljs-number\">0</span> {\r\n\t\t\t\tpair := <span class=\"hljs-type\">string</span>(stack[<span class=\"hljs-built_in\">len</span>(stack)<span class=\"hljs-number\">-1</span>]) + <span class=\"hljs-type\">string</span>(input[i])\r\n\t\t\t\tstack = stack[:<span class=\"hljs-built_in\">len</span>(stack)<span class=\"hljs-number\">-1</span>]\r\n\r\n\t\t\t\t<span class=\"hljs-keyword\">if</span> pair != <span class=\"hljs-string\">&quot;[]&quot;</span> &amp;&amp; pair != <span class=\"hljs-string\">&quot;{}&quot;</span> &amp;&amp; pair != <span class=\"hljs-string\">&quot;()&quot;</span> {\r\n\t\t\t\t\t<span class=\"hljs-comment\">// This means that two types of brackets has</span>\r\n\t\t\t\t\t<span class=\"hljs-comment\">// been mixed together, for example &quot;([)]&quot;,</span>\r\n\t\t\t\t\t<span class=\"hljs-comment\">// which makes seuqence invalid by definition.</span>\r\n\t\t\t\t\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>\r\n\t\t\t\t}\r\n\t\t\t} <span class=\"hljs-keyword\">else</span> {\r\n\t\t\t\t<span class=\"hljs-comment\">// This means that closing bracket is encountered</span>\r\n\t\t\t\t<span class=\"hljs-comment\">// before opening one, which makes all sequence</span>\r\n\t\t\t\t<span class=\"hljs-comment\">// invalid by definition.</span>\r\n\t\t\t\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\r\n\t<span class=\"hljs-comment\">// If sequence is properly nested, all elements in stack</span>\r\n\t<span class=\"hljs-comment\">// has been paired with closing elements. If even one</span>\r\n\t<span class=\"hljs-comment\">// element has not been paired with a closing bracket,</span>\r\n\t<span class=\"hljs-comment\">// means that sequence is invalid by definition.</span>\r\n\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-built_in\">len</span>(stack) == <span class=\"hljs-number\">0</span>\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "AlexDvorak",
+      "email": "opti.jawsome@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Rak Laptudirm",
+      "email": "raklaptudirm@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Vitaly Tikhoplav",
+      "email": "62797411+tikhoplav@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "ParthS007",
+      "email": "parth1989shandilya@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Akshay Sharma",
+      "email": "sushsilsharma.ss451@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "cclauss",
+      "email": "cclauss@bluewin.ch",
+      "commits": 1
+    },
+    {
+      "name": "97arushisharma",
+      "email": "97arushisharma@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Danni",
+      "email": "dannielleorlando@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Taj",
+      "email": "tjgurwara99@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "alvin562",
+      "email": "alvindantic562@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 3
+    },
+    {
+      "name": "Brayo",
+      "email": "vukubrian@gmail.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

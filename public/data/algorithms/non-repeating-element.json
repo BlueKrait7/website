@@ -1,0 +1,28 @@
+{
+  "slug": "non-repeating-element",
+  "name": "Non Repeating Element",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\maths\\NonRepeatingElement.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\maths\\NonRepeatingElement.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.maths;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.Scanner;\r\n\r\n<span class=\"hljs-comment\">/*\r\n * Find the 2 elements which are non repeating in an array\r\n * Reason to use bitwise operator: It makes our program faster as we are operating on bits and not on\r\n * actual numbers.  \r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">NonRepeatingElement</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n\r\n        <span class=\"hljs-type\">Scanner</span> <span class=\"hljs-variable\">sc</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Scanner</span>(System.in);\r\n        <span class=\"hljs-type\">int</span> i, res = <span class=\"hljs-number\">0</span>;\r\n        System.out.println(<span class=\"hljs-string\">&quot;Enter the number of elements in the array&quot;</span>);\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">n</span> <span class=\"hljs-operator\">=</span> sc.nextInt();\r\n        <span class=\"hljs-keyword\">if</span> ((n &amp; <span class=\"hljs-number\">1</span>) == <span class=\"hljs-number\">1</span>) {\r\n            <span class=\"hljs-comment\">//Not allowing odd number of elements as we are expecting 2 non repeating numbers</span>\r\n            System.out.println(<span class=\"hljs-string\">&quot;Array should contain even number of elements&quot;</span>);\r\n            <span class=\"hljs-keyword\">return</span>;\r\n        }\r\n        <span class=\"hljs-type\">int</span> arr[] = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">int</span>[n];\r\n\r\n        System.out.println(<span class=\"hljs-string\">&quot;Enter &quot;</span> + n + <span class=\"hljs-string\">&quot; elements in the array. NOTE: Only 2 elements should not repeat&quot;</span>);\r\n        <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; n; i++) {\r\n            arr[i] = sc.nextInt();\r\n        }\r\n\r\n        <span class=\"hljs-keyword\">try</span> {\r\n            sc.close();\r\n        } <span class=\"hljs-keyword\">catch</span> (Exception e) {\r\n            System.out.println(<span class=\"hljs-string\">&quot;Unable to close scanner&quot;</span> + e);\r\n        }\r\n\r\n        <span class=\"hljs-comment\">//Find XOR of the 2 non repeating elements</span>\r\n        <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; n; i++) {\r\n            res ^= arr[i];\r\n        }\r\n\r\n        <span class=\"hljs-comment\">//Finding the rightmost set bit</span>\r\n        res = res &amp; (-res);\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">num1</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>, num2 = <span class=\"hljs-number\">0</span>;\r\n\r\n        <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; n; i++) {\r\n            <span class=\"hljs-keyword\">if</span> ((res &amp; arr[i]) &gt; <span class=\"hljs-number\">0</span>)<span class=\"hljs-comment\">//Case 1 explained below</span>\r\n            {\r\n                num1 ^= arr[i];\r\n            } <span class=\"hljs-keyword\">else</span> {\r\n                num2 ^= arr[i];<span class=\"hljs-comment\">//Case 2 explained below</span>\r\n            }\r\n        }\r\n\r\n        System.out.println(<span class=\"hljs-string\">&quot;The two non repeating elements are &quot;</span> + num1 + <span class=\"hljs-string\">&quot; and &quot;</span> + num2);\r\n\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/* \r\n  Explanation of the code:\r\n  let us assume we have an array [1,2,1,2,3,4]\r\n  Property of XOR: num ^ num = 0. \r\n  If we XOR all the elemnets of the array we will be left with 3 ^ 4 as 1 ^ 1 and 2 ^ 2 would give 0.\r\n  Our task is to find num1 and num2 from the result of 3 ^ 4 = 7.\r\n  We need to find two&#x27;s complement of 7 and find the rightmost set bit. i.e. (num &amp; (-num))\r\n  Two&#x27;s complement of 7 is 001 and hence res = 1.\r\n  There can be 2 options when we Bitise AND this res with all the elements in our array\r\n  1. Result will come non zero number\r\n  2. Result will be 0.\r\n  In the first case we will XOR our element with the first number (which is initially 0)\r\n  In the second case we will XOR our element with the second number(which is initially 0)\r\n  This is how we will get non repeating elements with the help of bitwise operators. \r\n     */</span>\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "ishika22",
+      "email": "ishuagarwal2210@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

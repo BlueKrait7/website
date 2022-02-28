@@ -1,0 +1,24 @@
+{
+  "slug": "next-grater-element",
+  "name": "Next Grater Element",
+  "categories": [
+    "datastructures",
+    "stacks"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\datastructures\\stacks\\NextGraterElement.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\datastructures\\stacks\\NextGraterElement.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.datastructures.stacks;\r\n<span class=\"hljs-keyword\">import</span> java.util.Arrays;\r\n<span class=\"hljs-keyword\">import</span> java.util.Stack;\r\n<span class=\"hljs-comment\">/*\r\n    Given an array &quot;input&quot; you need to print the first grater element for each element.\r\n    For a given element x of an array, the Next Grater element of that element is the\r\n    first grater element to the right side of it. If no such element is present print -1.\r\n\r\n    Example\r\n    input = { 2, 7, 3, 5, 4, 6, 8 };\r\n    At i = 0\r\n    Next Grater element between (1 to n) is 7\r\n    At i = 1\r\n    Next Grater element between (2 to n) is 8\r\n    At i = 2\r\n    Next Grater element between (3 to n) is 5\r\n    At i = 3\r\n    Next Grater element between (4 to n) is 6\r\n    At i = 4\r\n    Next Grater element between (5 to n) is 6\r\n    At i = 5\r\n    Next Grater element between (6 to n) is 8\r\n    At i = 6\r\n    Next Grater element between (6 to n) is -1\r\n\r\n    result : [7, 8, 5, 6, 6, 8, -1]\r\n\r\n    1. If the stack is empty Push an element in the stack.\r\n    2. If the stack is not empty:\r\n        a.  compare the top element of the stack with next.\r\n        b.  If next is greater than the top element, Pop element from the stack.\r\n            next is the next greater element for the popped element.\r\n        c.  Keep popping from the stack while the popped element is smaller\r\n            than next. next becomes the next greater element for all such\r\n            popped elements.\r\n        d. Finally, push the next in the stack.\r\n\r\n    3. If elements are left in stack after completing while loop then their Next Grater element is -1.\r\n */</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">NextGraterElement</span> {\r\n \r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">int</span>[] findNextGreaterElements(<span class=\"hljs-type\">int</span>[] array) {\r\n\r\n        <span class=\"hljs-keyword\">if</span> (array == <span class=\"hljs-literal\">null</span>) {\r\n            <span class=\"hljs-keyword\">return</span> array;\r\n        }\r\n\r\n        <span class=\"hljs-type\">int</span>[] result = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">int</span>[array.length];\r\n        Stack&lt;Integer&gt; stack = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Stack</span>&lt;&gt;();\r\n\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>; i &lt; array.length; i++) {\r\n            <span class=\"hljs-keyword\">while</span> (!stack.isEmpty() &amp;&amp; array[stack.peek()] &lt; array[i]) {\r\n                result[stack.pop()] = array[i];\r\n            }\r\n            stack.push(i);\r\n        }\r\n\r\n        <span class=\"hljs-keyword\">return</span> result;\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span>\r\n    {\r\n        <span class=\"hljs-type\">int</span>[] input = { <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">7</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">6</span>, <span class=\"hljs-number\">8</span> };\r\n        <span class=\"hljs-type\">int</span>[] result = findNextGreaterElements(input);\r\n        System.out.println(Arrays.toString(result));\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Mohit Kumar",
+      "email": "74761614+itsmohitmkk@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

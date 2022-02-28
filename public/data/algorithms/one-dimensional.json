@@ -1,0 +1,43 @@
+{
+  "slug": "one-dimensional",
+  "name": "One Dimensional",
+  "categories": [
+    "cellularautomata"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "cellular_automata\\one_dimensional.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/cellular_automata\\one_dimensional.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nReturn an image of 16 generations of one-dimensional cellular automata based on a given\r\nruleset number\r\nhttps://mathworld.wolfram.com/ElementaryCellularAutomaton.html\r\n&quot;&quot;&quot;</span>\r\n\r\n<span class=\"hljs-keyword\">from</span> __future__ <span class=\"hljs-keyword\">import</span> annotations\r\n\r\n<span class=\"hljs-keyword\">from</span> PIL <span class=\"hljs-keyword\">import</span> Image\r\n\r\n<span class=\"hljs-comment\"># Define the first generation of cells</span>\r\n<span class=\"hljs-comment\"># fmt: off</span>\r\nCELLS = [[<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>,\r\n          <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0</span>]]\r\n<span class=\"hljs-comment\"># fmt: on</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">format_ruleset</span>(<span class=\"hljs-params\">ruleset: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    &gt;&gt;&gt; format_ruleset(11100)\r\n    [0, 0, 0, 1, 1, 1, 0, 0]\r\n    &gt;&gt;&gt; format_ruleset(0)\r\n    [0, 0, 0, 0, 0, 0, 0, 0]\r\n    &gt;&gt;&gt; format_ruleset(11111111)\r\n    [1, 1, 1, 1, 1, 1, 1, 1]\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">return</span> [<span class=\"hljs-built_in\">int</span>(c) <span class=\"hljs-keyword\">for</span> c <span class=\"hljs-keyword\">in</span> <span class=\"hljs-string\">f&quot;<span class=\"hljs-subst\">{ruleset:08}</span>&quot;</span>[:<span class=\"hljs-number\">8</span>]]\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">new_generation</span>(<span class=\"hljs-params\">cells: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]], rule: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>], time: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]:\r\n    population = <span class=\"hljs-built_in\">len</span>(cells[<span class=\"hljs-number\">0</span>])  <span class=\"hljs-comment\"># 31</span>\r\n    next_generation = []\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(population):\r\n        <span class=\"hljs-comment\"># Get the neighbors of each cell</span>\r\n        <span class=\"hljs-comment\"># Handle neighbours outside bounds by using 0 as their value</span>\r\n        left_neighbor = <span class=\"hljs-number\">0</span> <span class=\"hljs-keyword\">if</span> i == <span class=\"hljs-number\">0</span> <span class=\"hljs-keyword\">else</span> cells[time][i - <span class=\"hljs-number\">1</span>]\r\n        right_neighbor = <span class=\"hljs-number\">0</span> <span class=\"hljs-keyword\">if</span> i == population - <span class=\"hljs-number\">1</span> <span class=\"hljs-keyword\">else</span> cells[time][i + <span class=\"hljs-number\">1</span>]\r\n        <span class=\"hljs-comment\"># Define a new cell and add it to the new generation</span>\r\n        situation = <span class=\"hljs-number\">7</span> - <span class=\"hljs-built_in\">int</span>(<span class=\"hljs-string\">f&quot;<span class=\"hljs-subst\">{left_neighbor}</span><span class=\"hljs-subst\">{cells[time][i]}</span><span class=\"hljs-subst\">{right_neighbor}</span>&quot;</span>, <span class=\"hljs-number\">2</span>)\r\n        next_generation.append(rule[situation])\r\n    <span class=\"hljs-keyword\">return</span> next_generation\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">generate_image</span>(<span class=\"hljs-params\">cells: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]]</span>) -&gt; Image.Image:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Convert the cells into a greyscale PIL.Image.Image and return it to the caller.\r\n    &gt;&gt;&gt; from random import random\r\n    &gt;&gt;&gt; cells = [[random() for w in range(31)] for h in range(16)]\r\n    &gt;&gt;&gt; img = generate_image(cells)\r\n    &gt;&gt;&gt; isinstance(img, Image.Image)\r\n    True\r\n    &gt;&gt;&gt; img.width, img.height\r\n    (31, 16)\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-comment\"># Create the output image</span>\r\n    img = Image.new(<span class=\"hljs-string\">&quot;RGB&quot;</span>, (<span class=\"hljs-built_in\">len</span>(cells[<span class=\"hljs-number\">0</span>]), <span class=\"hljs-built_in\">len</span>(cells)))\r\n    pixels = img.load()\r\n    <span class=\"hljs-comment\"># Generates image</span>\r\n    <span class=\"hljs-keyword\">for</span> w <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(img.width):\r\n        <span class=\"hljs-keyword\">for</span> h <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(img.height):\r\n            color = <span class=\"hljs-number\">255</span> - <span class=\"hljs-built_in\">int</span>(<span class=\"hljs-number\">255</span> * cells[h][w])\r\n            pixels[w, h] = (color, color, color)\r\n    <span class=\"hljs-keyword\">return</span> img\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    rule_num = <span class=\"hljs-built_in\">bin</span>(<span class=\"hljs-built_in\">int</span>(<span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Rule:\\n&quot;</span>).strip()))[<span class=\"hljs-number\">2</span>:]\r\n    rule = format_ruleset(<span class=\"hljs-built_in\">int</span>(rule_num))\r\n    <span class=\"hljs-keyword\">for</span> time <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-number\">16</span>):\r\n        CELLS.append(new_generation(CELLS, rule, time))\r\n    img = generate_image(CELLS)\r\n    <span class=\"hljs-comment\"># Uncomment to save the image</span>\r\n    <span class=\"hljs-comment\"># img.save(f&quot;rule_{rule_num}.png&quot;)</span>\r\n    img.show()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "algobytewise",
+      "email": "algobytewise@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Novice :)",
+      "email": "72334601+noviicee@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Hasenn",
+      "email": "eliottarloveyrier@live.fr",
+      "commits": 1
+    },
+    {
+      "name": "8Dion8",
+      "email": "62215043+8Dion8@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

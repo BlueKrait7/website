@@ -1,0 +1,23 @@
+{
+  "slug": "moore-voting-algorithm",
+  "name": "Moore Voting Algorithm",
+  "categories": [
+    "others"
+  ],
+  "body": {},
+  "implementations": {
+    "dart": {
+      "dir": "other\\Moore_voting_algorithm.dart",
+      "url": "https://github.com/TheAlgorithms/dart/tree/master/other\\Moore_voting_algorithm.dart",
+      "code": "<span class=\"hljs-keyword\">import</span> <span class=\"hljs-string\">&#x27;package:test/test.dart&#x27;</span>;\r\n\r\n<span class=\"hljs-built_in\">int</span> majorityElement(<span class=\"hljs-built_in\">List</span>&lt;<span class=\"hljs-built_in\">int</span>&gt; arr, <span class=\"hljs-built_in\">int</span> n) {\r\n  arr.sort();\r\n\r\n  <span class=\"hljs-keyword\">var</span> count = <span class=\"hljs-number\">1</span>, max_ele = <span class=\"hljs-number\">-1</span>, temp = arr[<span class=\"hljs-number\">0</span>], ele = <span class=\"hljs-number\">0</span>, f = <span class=\"hljs-number\">0</span>;\r\n\r\n  <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-built_in\">int</span> i = <span class=\"hljs-number\">1</span>; i &lt; n; i++) {\r\n    <span class=\"hljs-keyword\">if</span> (temp == arr[i]) {\r\n      count++;\r\n    } <span class=\"hljs-keyword\">else</span> {\r\n      count = <span class=\"hljs-number\">1</span>;\r\n      temp = arr[i];\r\n    }\r\n    <span class=\"hljs-keyword\">if</span> (max_ele &lt; count) {\r\n      max_ele = count;\r\n      ele = arr[i];\r\n\r\n      <span class=\"hljs-keyword\">if</span> (max_ele &gt; (n / <span class=\"hljs-number\">2</span>)) {\r\n        f = <span class=\"hljs-number\">1</span>;\r\n        <span class=\"hljs-keyword\">break</span>;\r\n      }\r\n    }\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> (f == <span class=\"hljs-number\">1</span> ? ele : <span class=\"hljs-number\">-1</span>);\r\n}\r\n\r\n<span class=\"hljs-comment\">// Driver code</span>\r\n<span class=\"hljs-keyword\">void</span> main() {\r\n  test(<span class=\"hljs-string\">&quot;majorityElement&quot;</span>, () {\r\n    <span class=\"hljs-built_in\">List</span>&lt;<span class=\"hljs-built_in\">int</span>&gt; a1 = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">1</span>];\r\n    expect(majorityElement(a1, a1.length), equals(<span class=\"hljs-number\">2</span>));\r\n\r\n    <span class=\"hljs-built_in\">List</span>&lt;<span class=\"hljs-built_in\">int</span>&gt; a2 = [<span class=\"hljs-number\">30</span>, <span class=\"hljs-number\">30</span>, <span class=\"hljs-number\">40</span>, <span class=\"hljs-number\">30</span>, <span class=\"hljs-number\">40</span>, <span class=\"hljs-number\">30</span>, <span class=\"hljs-number\">40</span>];\r\n    expect(majorityElement(a2, a2.length), equals(<span class=\"hljs-number\">30</span>));\r\n  });\r\n\r\n  test(<span class=\"hljs-string\">&quot;majorityElement returns -1 when there is no dominant element&quot;</span>, () {\r\n    <span class=\"hljs-built_in\">List</span>&lt;<span class=\"hljs-built_in\">int</span>&gt; a1 = [<span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">22</span>, <span class=\"hljs-number\">21</span>, <span class=\"hljs-number\">21</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">21</span>];\r\n    expect(majorityElement(a1, a1.length), equals(<span class=\"hljs-number\">-1</span>));\r\n\r\n    <span class=\"hljs-built_in\">List</span>&lt;<span class=\"hljs-built_in\">int</span>&gt; a2 = [<span class=\"hljs-number\">100</span>, <span class=\"hljs-number\">4000</span>, <span class=\"hljs-number\">220</span>, <span class=\"hljs-number\">220</span>, <span class=\"hljs-number\">220</span>, <span class=\"hljs-number\">100</span>, <span class=\"hljs-number\">4000</span>];\r\n    expect(majorityElement(a2, a2.length), equals(<span class=\"hljs-number\">-1</span>));\r\n  });\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Neha Hasija",
+      "email": "nehahasija9@gmail.com",
+      "commits": 4
+    }
+  ],
+  "explanationUrl": {}
+}

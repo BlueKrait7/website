@@ -1,0 +1,33 @@
+{
+  "slug": "oct-to-decimal",
+  "name": "Oct To Decimal",
+  "categories": [
+    "conversions"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Conversions\\OctToDecimal.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Conversions\\OctToDecimal.js",
+      "code": "<span class=\"hljs-keyword\">function</span> <span class=\"hljs-title function_\">octalToDecimal</span> (num) {\r\n  <span class=\"hljs-keyword\">let</span> dec = <span class=\"hljs-number\">0</span>\r\n  <span class=\"hljs-keyword\">let</span> base = <span class=\"hljs-number\">1</span>\r\n  <span class=\"hljs-keyword\">while</span> (num &gt; <span class=\"hljs-number\">0</span>) {\r\n    <span class=\"hljs-keyword\">const</span> r = num % <span class=\"hljs-number\">10</span>\r\n    num = <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">floor</span>(num / <span class=\"hljs-number\">10</span>)\r\n    dec = dec + (r * base)\r\n    base = base * <span class=\"hljs-number\">8</span>\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> dec\r\n}\r\n\r\n<span class=\"hljs-keyword\">export</span> { octalToDecimal }\r\n\r\n<span class=\"hljs-comment\">// &gt; octalToDecimal(56)</span>\r\n<span class=\"hljs-comment\">// 46</span>\r\n\r\n<span class=\"hljs-comment\">// &gt; octalToDecimal(2365)</span>\r\n<span class=\"hljs-comment\">// 1269</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "vinayak",
+      "email": "itssvinayak@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Vishnu",
+      "email": "vishnupothan2@gmail.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

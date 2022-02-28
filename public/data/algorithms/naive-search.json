@@ -1,0 +1,29 @@
+{
+  "slug": "naive-search",
+  "name": "Naive Search",
+  "categories": [
+    "searches",
+    "patternsearch"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "searching\\pattern_search\\naive_search.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/searching\\pattern_search\\naive_search.c",
+      "code": "<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;stdio.h&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;string.h&gt;</span></span>\r\n\r\n<span class=\"hljs-comment\">/* Naive Pattern Search algorithm (brute force way) */</span>\r\n<span class=\"hljs-type\">void</span> <span class=\"hljs-title function_\">naive_search</span><span class=\"hljs-params\">(<span class=\"hljs-type\">char</span> *str, <span class=\"hljs-type\">char</span> *pattern)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> len_str = <span class=\"hljs-built_in\">strlen</span>(str);\r\n    <span class=\"hljs-type\">int</span> len_pat = <span class=\"hljs-built_in\">strlen</span>(pattern);\r\n\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> i = <span class=\"hljs-number\">0</span>; i &lt;= len_str - len_pat; i++)\r\n    {\r\n        <span class=\"hljs-type\">int</span> j;\r\n        <span class=\"hljs-keyword\">for</span> (j = <span class=\"hljs-number\">0</span>; j &lt; len_pat; j++)\r\n        {\r\n            <span class=\"hljs-keyword\">if</span> (str[i + j] != pattern[j])\r\n                <span class=\"hljs-keyword\">break</span>;\r\n        }\r\n        <span class=\"hljs-keyword\">if</span> (j == len_pat)\r\n            <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;--Pattern is found at: %d\\n&quot;</span>, i);\r\n    }\r\n}\r\n\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">()</span>\r\n{\r\n    <span class=\"hljs-type\">char</span> str[] = <span class=\"hljs-string\">&quot;AABCAB12AFAABCABFFEGABCAB&quot;</span>;\r\n    <span class=\"hljs-type\">char</span> pat1[] = <span class=\"hljs-string\">&quot;ABCAB&quot;</span>;\r\n    <span class=\"hljs-type\">char</span> pat2[] = <span class=\"hljs-string\">&quot;FFF&quot;</span>; <span class=\"hljs-comment\">/* not found */</span>\r\n    <span class=\"hljs-type\">char</span> pat3[] = <span class=\"hljs-string\">&quot;CAB&quot;</span>;\r\n\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;String test: %s\\n&quot;</span>, str);\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;Test1: search pattern %s\\n&quot;</span>, pat1);\r\n    naive_search(str, pat1);\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;Test2: search pattern %s\\n&quot;</span>, pat2);\r\n    naive_search(str, pat2);\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;Test3: search pattern %s\\n&quot;</span>, pat3);\r\n    naive_search(str, pat3);\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}
