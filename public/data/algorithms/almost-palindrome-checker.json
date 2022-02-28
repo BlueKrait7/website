@@ -1,0 +1,30 @@
+{
+  "slug": "almost-palindrome-checker",
+  "name": "Almost Palindrome Checker",
+  "categories": [
+    "datastructures",
+    "array",
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "ruby": {
+      "dir": "data_structures\\arrays\\strings\\almost_palindrome_checker.rb",
+      "url": "https://github.com/TheAlgorithms/ruby/tree/master/data_structures\\arrays\\strings\\almost_palindrome_checker.rb",
+      "code": "<span class=\"hljs-comment\"># Challenge name: Almost Palindrome</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Given a string s, return true if the s can be palindrome after deleting at most one character from it.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Example 1:</span>\r\n<span class=\"hljs-comment\"># Input: s = &quot;aba&quot;</span>\r\n<span class=\"hljs-comment\"># Output: true</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Example 2:</span>\r\n<span class=\"hljs-comment\"># Input: s = &quot;abca&quot;</span>\r\n<span class=\"hljs-comment\"># Output: true</span>\r\n<span class=\"hljs-comment\"># Explanation: You could delete the character &#x27;c&#x27;.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Example 3:</span>\r\n<span class=\"hljs-comment\"># Input: s = &quot;abc&quot;</span>\r\n<span class=\"hljs-comment\"># Output: false</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Constraints:</span>\r\n<span class=\"hljs-comment\"># 1 &lt;= s.length &lt;= 105</span>\r\n<span class=\"hljs-comment\"># s consists of lowercase English letters.</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Approach 1: Two Pointers</span>\r\n<span class=\"hljs-comment\">#</span>\r\n\r\n<span class=\"hljs-comment\"># Complexity Analysis:</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Time Complexity: O(n)</span>\r\n<span class=\"hljs-comment\"># Space Complexity: O(1)</span>\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">almost_palindrome_checker</span><span class=\"hljs-params\">(string)</span></span>\r\n  p1 = <span class=\"hljs-number\">0</span>\r\n  p2 = string.length - <span class=\"hljs-number\">1</span>\r\n  array = string.split(<span class=\"hljs-string\">&#x27;&#x27;</span>)\r\n\r\n  <span class=\"hljs-keyword\">while</span> p1 &lt; p2\r\n    <span class=\"hljs-keyword\">return</span> palindrome_checker(array, p1, p2 - <span class=\"hljs-number\">1</span>) <span class=\"hljs-params\">||</span> palindrome_checker(array, p1 + <span class=\"hljs-number\">1</span>, p2) <span class=\"hljs-keyword\">if</span> array[p1] != array[p2]\r\n\r\n    p1 += <span class=\"hljs-number\">1</span>\r\n    p2 -= <span class=\"hljs-number\">1</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n\r\n  <span class=\"hljs-literal\">true</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">palindrome_checker</span><span class=\"hljs-params\">(array, p1, p2)</span></span>\r\n  <span class=\"hljs-keyword\">while</span> p1 &lt; p2\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span> <span class=\"hljs-keyword\">if</span> array[p1] != array[p2]\r\n\r\n    p1 += <span class=\"hljs-number\">1</span>\r\n    p2 -= <span class=\"hljs-number\">1</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n\r\n  <span class=\"hljs-literal\">true</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\nputs almost_palindrome_checker(<span class=\"hljs-string\">&#x27;aba&#x27;</span>)\r\n<span class=\"hljs-comment\"># =&gt; true</span>\r\n\r\nputs almost_palindrome_checker(<span class=\"hljs-string\">&#x27;abca&#x27;</span>)\r\n<span class=\"hljs-comment\"># =&gt; true</span>\r\n\r\nputs almost_palindrome_checker(<span class=\"hljs-string\">&#x27;abc&#x27;</span>)\r\n<span class=\"hljs-comment\"># =&gt; false</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Jessica Kwok",
+      "email": "jessicatckwok@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

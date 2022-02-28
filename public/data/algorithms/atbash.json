@@ -1,0 +1,78 @@
+{
+  "slug": "atbash",
+  "name": "Atbash",
+  "categories": [
+    "ciphers"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "ciphers\\atbash.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/ciphers\\atbash.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot; https://en.wikipedia.org/wiki/Atbash &quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">import</span> string\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">atbash_slow</span>(<span class=\"hljs-params\">sequence: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-built_in\">str</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    &gt;&gt;&gt; atbash_slow(&quot;ABCDEFG&quot;)\r\n    &#x27;ZYXWVUT&#x27;\r\n\r\n    &gt;&gt;&gt; atbash_slow(&quot;aW;;123BX&quot;)\r\n    &#x27;zD;;123YC&#x27;\r\n    &quot;&quot;&quot;</span>\r\n    output = <span class=\"hljs-string\">&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> sequence:\r\n        extract = <span class=\"hljs-built_in\">ord</span>(i)\r\n        <span class=\"hljs-keyword\">if</span> <span class=\"hljs-number\">65</span> &lt;= extract &lt;= <span class=\"hljs-number\">90</span>:\r\n            output += <span class=\"hljs-built_in\">chr</span>(<span class=\"hljs-number\">155</span> - extract)\r\n        <span class=\"hljs-keyword\">elif</span> <span class=\"hljs-number\">97</span> &lt;= extract &lt;= <span class=\"hljs-number\">122</span>:\r\n            output += <span class=\"hljs-built_in\">chr</span>(<span class=\"hljs-number\">219</span> - extract)\r\n        <span class=\"hljs-keyword\">else</span>:\r\n            output += i\r\n    <span class=\"hljs-keyword\">return</span> output\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">atbash</span>(<span class=\"hljs-params\">sequence: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-built_in\">str</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    &gt;&gt;&gt; atbash(&quot;ABCDEFG&quot;)\r\n    &#x27;ZYXWVUT&#x27;\r\n\r\n    &gt;&gt;&gt; atbash(&quot;aW;;123BX&quot;)\r\n    &#x27;zD;;123YC&#x27;\r\n    &quot;&quot;&quot;</span>\r\n    letters = string.ascii_letters\r\n    letters_reversed = string.ascii_lowercase[::-<span class=\"hljs-number\">1</span>] + string.ascii_uppercase[::-<span class=\"hljs-number\">1</span>]\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">&quot;&quot;</span>.join(\r\n        letters_reversed[letters.index(c)] <span class=\"hljs-keyword\">if</span> c <span class=\"hljs-keyword\">in</span> letters <span class=\"hljs-keyword\">else</span> c <span class=\"hljs-keyword\">for</span> c <span class=\"hljs-keyword\">in</span> sequence\r\n    )\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">benchmark</span>() -&gt; <span class=\"hljs-literal\">None</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;Let&#x27;s benchmark them side-by-side...&quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">from</span> timeit <span class=\"hljs-keyword\">import</span> timeit\r\n\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;Running performance benchmarks...&quot;</span>)\r\n    <span class=\"hljs-built_in\">print</span>(\r\n        <span class=\"hljs-string\">&quot;&gt; atbash_slow()&quot;</span>,\r\n        timeit(\r\n            <span class=\"hljs-string\">&quot;atbash_slow(printable)&quot;</span>,\r\n            setup=<span class=\"hljs-string\">&quot;from string import printable ; from __main__ import atbash_slow&quot;</span>,\r\n        ),\r\n        <span class=\"hljs-string\">&quot;seconds&quot;</span>,\r\n    )\r\n    <span class=\"hljs-built_in\">print</span>(\r\n        <span class=\"hljs-string\">&quot;&gt;      atbash()&quot;</span>,\r\n        timeit(\r\n            <span class=\"hljs-string\">&quot;atbash(printable)&quot;</span>,\r\n            setup=<span class=\"hljs-string\">&quot;from string import printable ; from __main__ import atbash&quot;</span>,\r\n        ),\r\n        <span class=\"hljs-string\">&quot;seconds&quot;</span>,\r\n    )\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">for</span> example <span class=\"hljs-keyword\">in</span> (<span class=\"hljs-string\">&quot;ABCDEFGH&quot;</span>, <span class=\"hljs-string\">&quot;123GGjj&quot;</span>, <span class=\"hljs-string\">&quot;testStringtest&quot;</span>, <span class=\"hljs-string\">&quot;with space&quot;</span>):\r\n        <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f&quot;<span class=\"hljs-subst\">{example}</span> encrypted in atbash: <span class=\"hljs-subst\">{atbash(example)}</span>&quot;</span>)\r\n    benchmark()\r\n"
+    },
+    "javascript": {
+      "dir": "Ciphers\\Atbash.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Ciphers\\Atbash.js",
+      "code": "<span class=\"hljs-comment\">/*\r\nThe Atbash cipher is a particular type of monoalphabetic cipher\r\nformed by taking the alphabet and mapping it to its reverse,\r\nso that the first letter becomes the last letter,\r\nthe second letter becomes the second to last letter, and so on.\r\n*/</span>\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Decrypt a Atbash cipher\r\n * <span class=\"hljs-doctag\">@param</span> {<span class=\"hljs-type\">String</span>} <span class=\"hljs-variable\">str</span> - string to be decrypted/encrypt\r\n * <span class=\"hljs-doctag\">@return</span> {<span class=\"hljs-type\">String</span>} decrypted/encrypted string\r\n */</span>\r\n<span class=\"hljs-keyword\">function</span> <span class=\"hljs-title function_\">Atbash</span> (message) {\r\n  <span class=\"hljs-keyword\">let</span> decodedString = <span class=\"hljs-string\">&#x27;&#x27;</span>\r\n  <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> i = <span class=\"hljs-number\">0</span>; i &lt; message.<span class=\"hljs-property\">length</span>; i++) {\r\n    <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-regexp\">/[^a-zA-Z]/</span>.<span class=\"hljs-title function_\">test</span>(message[i])) {\r\n      decodedString += message[i]\r\n    } <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span> (message[i] === message[i].<span class=\"hljs-title function_\">toUpperCase</span>()) {\r\n      decodedString += <span class=\"hljs-title class_\">String</span>.<span class=\"hljs-title function_\">fromCharCode</span>(<span class=\"hljs-number\">90</span> + <span class=\"hljs-number\">65</span> - message.<span class=\"hljs-title function_\">charCodeAt</span>(i))\r\n    } <span class=\"hljs-keyword\">else</span> {\r\n      decodedString += <span class=\"hljs-title class_\">String</span>.<span class=\"hljs-title function_\">fromCharCode</span>(<span class=\"hljs-number\">122</span> + <span class=\"hljs-number\">97</span> - message.<span class=\"hljs-title function_\">charCodeAt</span>(i))\r\n    }\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> decodedString\r\n}\r\n\r\n<span class=\"hljs-keyword\">export</span> { <span class=\"hljs-title class_\">Atbash</span> }\r\n\r\n<span class=\"hljs-comment\">// &gt; Atbash(&#x27;HELLO WORLD&#x27;)</span>\r\n<span class=\"hljs-comment\">// &#x27;SVOOL DLIOW&#x27;</span>\r\n"
+    },
+    "julia": {
+      "dir": "src\\cipher\\atbash.jl",
+      "url": "https://github.com/TheAlgorithms/julia/tree/master/src\\cipher\\atbash.jl",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nencode(input)\r\n\r\nProgram to implement atbash cipher for the given sentence.A full description of the algorithm can be found on [wikipedia](https://en.wikipedia.org/wiki/Atbash)\r\n\r\n# Arguments:\r\n- `input` : The sentence needed to rotate\r\n\r\n# Examples/Tests \r\n```julia\r\njulia&gt; encode(&quot;test&quot;)\r\ngvhg\r\n\r\njulia&gt; encode(&quot;abcdefghijklmnopqrstuvwxyz&quot;)\r\nzyxwvutsrqponmlkjihgfedcba\r\n\r\njulia&gt; encode(&quot;hello&quot;)\r\nsvool\r\n\r\n```\r\n\r\n# Algorithm: \r\n\r\n```julia\r\n\r\nfor r in input\r\n    part *= xform(r)\r\n    if length(part) &gt;= 5\r\n      push!(parts, part)\r\n      part = &quot;&quot;\r\n    end\r\n  end\r\n  if part != &quot;&quot;\r\n    push!(parts, part)\r\n  end\r\n  return join(parts, &quot; &quot;)\r\n\r\n```\r\n\r\n# References:\r\nhttps://en.wikipedia.org/wiki/Atbash\r\n\r\n```\r\n\r\n# Contributed by:- [Ihjass Thasbekha](https://github.com/Ihjass)\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">function</span> encode(input)\r\n  input = replace(lowercase(input), reject_re =&gt; <span class=\"hljs-string\">&quot;&quot;</span>)\r\n  parts = []\r\n  part = <span class=\"hljs-string\">&quot;&quot;</span>\r\n  <span class=\"hljs-keyword\">for</span> r <span class=\"hljs-keyword\">in</span> input\r\n    part *= xform(r)\r\n    <span class=\"hljs-keyword\">if</span> length(part) &gt;= <span class=\"hljs-number\">5</span>\r\n      push!(parts, part)\r\n      part = <span class=\"hljs-string\">&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">end</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n  <span class=\"hljs-keyword\">if</span> !isempty(part)\r\n\r\n    push!(parts, part)\r\n  <span class=\"hljs-keyword\">end</span>\r\n  <span class=\"hljs-keyword\">return</span> join(parts, <span class=\"hljs-string\">&quot; &quot;</span>)\r\n<span class=\"hljs-keyword\">end</span>\r\nreject_re = <span class=\"hljs-string\">r&quot;[^a-z\\d]+&quot;</span>\r\nxform(r) = (r &gt;= <span class=\"hljs-string\">&#x27;a&#x27;</span> &amp;&amp; r &lt;= <span class=\"hljs-string\">&#x27;z&#x27;</span>) ? r = <span class=\"hljs-number\">25</span> - (r - <span class=\"hljs-string\">&#x27;a&#x27;</span>) + <span class=\"hljs-string\">&#x27;a&#x27;</span> : r\r\n \r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Anup Kumar Panwar",
+      "email": "1anuppanwar@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Ihjass Thasbekha",
+      "email": "44056715+Ihjass@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "vinayak",
+      "email": "itssvinayak@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Dhruv Manilawala",
+      "email": "dhruvmanila@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "mateuszz0000",
+      "email": "mtszzwdzk@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Shubhayu Das",
+      "email": "43082352+sateslayer@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 3
+    },
+    {
+      "name": "Bharat Arya",
+      "email": "aryabharat33@gmail.com",
+      "commits": 4
+    }
+  ],
+  "explanationUrl": {}
+}

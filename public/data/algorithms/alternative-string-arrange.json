@@ -1,0 +1,43 @@
+{
+  "slug": "alternative-string-arrange",
+  "name": "Alternative String Arrange",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "strings\\alternative_string_arrange.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/strings\\alternative_string_arrange.py",
+      "code": "<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">alternative_string_arrange</span>(<span class=\"hljs-params\">first_str: <span class=\"hljs-built_in\">str</span>, second_str: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-built_in\">str</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Return the alternative arrangements of the two strings.\r\n    :param first_str:\r\n    :param second_str:\r\n    :return: String\r\n    &gt;&gt;&gt; alternative_string_arrange(&quot;ABCD&quot;, &quot;XY&quot;)\r\n    &#x27;AXBYCD&#x27;\r\n    &gt;&gt;&gt; alternative_string_arrange(&quot;XY&quot;, &quot;ABCD&quot;)\r\n    &#x27;XAYBCD&#x27;\r\n    &gt;&gt;&gt; alternative_string_arrange(&quot;AB&quot;, &quot;XYZ&quot;)\r\n    &#x27;AXBYZ&#x27;\r\n    &gt;&gt;&gt; alternative_string_arrange(&quot;ABC&quot;, &quot;&quot;)\r\n    &#x27;ABC&#x27;\r\n    &quot;&quot;&quot;</span>\r\n    first_str_length: <span class=\"hljs-built_in\">int</span> = <span class=\"hljs-built_in\">len</span>(first_str)\r\n    second_str_length: <span class=\"hljs-built_in\">int</span> = <span class=\"hljs-built_in\">len</span>(second_str)\r\n    abs_length: <span class=\"hljs-built_in\">int</span> = (\r\n        first_str_length <span class=\"hljs-keyword\">if</span> first_str_length &gt; second_str_length <span class=\"hljs-keyword\">else</span> second_str_length\r\n    )\r\n    output_list: <span class=\"hljs-built_in\">list</span> = []\r\n    <span class=\"hljs-keyword\">for</span> char_count <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(abs_length):\r\n        <span class=\"hljs-keyword\">if</span> char_count &lt; first_str_length:\r\n            output_list.append(first_str[char_count])\r\n        <span class=\"hljs-keyword\">if</span> char_count &lt; second_str_length:\r\n            output_list.append(second_str[char_count])\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">&quot;&quot;</span>.join(output_list)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-built_in\">print</span>(alternative_string_arrange(<span class=\"hljs-string\">&quot;AB&quot;</span>, <span class=\"hljs-string\">&quot;XYZ&quot;</span>), end=<span class=\"hljs-string\">&quot; &quot;</span>)\r\n"
+    },
+    "javascript": {
+      "dir": "String\\AlternativeStringArrange.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/String\\AlternativeStringArrange.js",
+      "code": "<span class=\"hljs-comment\">// Alternative arrange the two given strings in one string in O(n) time complexity.</span>\r\n\r\n<span class=\"hljs-comment\">// Problem Source &amp; Explanation: https://www.geeksforgeeks.org/alternatively-merge-two-strings-in-java/</span>\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Alternative arrange the two given strings in one string in O(n) time complexity.\r\n * <span class=\"hljs-doctag\">@param</span> {<span class=\"hljs-type\">String</span>} str1 first input string\r\n * <span class=\"hljs-doctag\">@param</span> {<span class=\"hljs-type\">String</span>} str2 second input string\r\n * <span class=\"hljs-doctag\">@returns</span> `String` return one alternative arrange string.\r\n */</span>\r\n<span class=\"hljs-keyword\">const</span> <span class=\"hljs-title function_\">AlternativeStringArrange</span> = (<span class=\"hljs-params\">str1, str2</span>) =&gt; {\r\n  <span class=\"hljs-comment\">// firstly, check that both inputs are strings.</span>\r\n  <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-keyword\">typeof</span> str1 !== <span class=\"hljs-string\">&#x27;string&#x27;</span> || <span class=\"hljs-keyword\">typeof</span> str2 !== <span class=\"hljs-string\">&#x27;string&#x27;</span>) {\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">&#x27;Not string(s)&#x27;</span>\r\n  }\r\n\r\n  <span class=\"hljs-comment\">// output string value.</span>\r\n  <span class=\"hljs-keyword\">let</span> outStr = <span class=\"hljs-string\">&#x27;&#x27;</span>\r\n\r\n  <span class=\"hljs-comment\">// get first string length.</span>\r\n  <span class=\"hljs-keyword\">const</span> firstStringLength = str1.<span class=\"hljs-property\">length</span>\r\n  <span class=\"hljs-comment\">// get second string length.</span>\r\n  <span class=\"hljs-keyword\">const</span> secondStringLength = str2.<span class=\"hljs-property\">length</span>\r\n  <span class=\"hljs-comment\">// absolute length for operation.</span>\r\n  <span class=\"hljs-keyword\">const</span> absLength = firstStringLength &gt; secondStringLength ? firstStringLength : secondStringLength\r\n\r\n  <span class=\"hljs-comment\">// Iterate the character count until the absolute count is reached.</span>\r\n  <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> charCount = <span class=\"hljs-number\">0</span>; charCount &lt; absLength; charCount++) {\r\n    <span class=\"hljs-comment\">// If firstStringLength is lesser than the charCount it means they are able to re-arrange.</span>\r\n    <span class=\"hljs-keyword\">if</span> (charCount &lt; firstStringLength) {\r\n      outStr += str1[charCount]\r\n    }\r\n\r\n    <span class=\"hljs-comment\">// If secondStringLength is lesser than the charCount it means they are able to re-arrange.</span>\r\n    <span class=\"hljs-keyword\">if</span> (charCount &lt; secondStringLength) {\r\n      outStr += str2[charCount]\r\n    }\r\n  }\r\n\r\n  <span class=\"hljs-comment\">// return the output string.</span>\r\n  <span class=\"hljs-keyword\">return</span> outStr\r\n}\r\n\r\n<span class=\"hljs-keyword\">export</span> { <span class=\"hljs-title class_\">AlternativeStringArrange</span> }\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Keshav Bohra",
+      "email": "keshav2016@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "SURYAPRATAP SINGH SURYAVANSHI",
+      "email": "67123991+suryapratapsinghsuryavanshi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Suryapratap Singh",
+      "email": "suryprtaps@gmail.com",
+      "commits": 5
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "alternative-list-arrange",
+  "name": "Alternative List Arrange",
+  "categories": [
+    "others"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "other\\alternative_list_arrange.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/other\\alternative_list_arrange.py",
+      "code": "<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">alternative_list_arrange</span>(<span class=\"hljs-params\">first_input_list: <span class=\"hljs-built_in\">list</span>, second_input_list: <span class=\"hljs-built_in\">list</span></span>) -&gt; <span class=\"hljs-built_in\">list</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    The method arranges two lists as one list in alternative forms of the list elements.\r\n    :param first_input_list:\r\n    :param second_input_list:\r\n    :return: List\r\n    &gt;&gt;&gt; alternative_list_arrange([1, 2, 3, 4, 5], [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;])\r\n    [1, &#x27;A&#x27;, 2, &#x27;B&#x27;, 3, &#x27;C&#x27;, 4, 5]\r\n    &gt;&gt;&gt; alternative_list_arrange([&quot;A&quot;, &quot;B&quot;, &quot;C&quot;], [1, 2, 3, 4, 5])\r\n    [&#x27;A&#x27;, 1, &#x27;B&#x27;, 2, &#x27;C&#x27;, 3, 4, 5]\r\n    &gt;&gt;&gt; alternative_list_arrange([&quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;], [9, 8, 7, 6])\r\n    [&#x27;X&#x27;, 9, &#x27;Y&#x27;, 8, &#x27;Z&#x27;, 7, 6]\r\n    &gt;&gt;&gt; alternative_list_arrange([1, 2, 3, 4, 5], [])\r\n    [1, 2, 3, 4, 5]\r\n    &quot;&quot;&quot;</span>\r\n    first_input_list_length: <span class=\"hljs-built_in\">int</span> = <span class=\"hljs-built_in\">len</span>(first_input_list)\r\n    second_input_list_length: <span class=\"hljs-built_in\">int</span> = <span class=\"hljs-built_in\">len</span>(second_input_list)\r\n    abs_length: <span class=\"hljs-built_in\">int</span> = (\r\n        first_input_list_length\r\n        <span class=\"hljs-keyword\">if</span> first_input_list_length &gt; second_input_list_length\r\n        <span class=\"hljs-keyword\">else</span> second_input_list_length\r\n    )\r\n    output_result_list: <span class=\"hljs-built_in\">list</span> = []\r\n    <span class=\"hljs-keyword\">for</span> char_count <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(abs_length):\r\n        <span class=\"hljs-keyword\">if</span> char_count &lt; first_input_list_length:\r\n            output_result_list.append(first_input_list[char_count])\r\n        <span class=\"hljs-keyword\">if</span> char_count &lt; second_input_list_length:\r\n            output_result_list.append(second_input_list[char_count])\r\n\r\n    <span class=\"hljs-keyword\">return</span> output_result_list\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-built_in\">print</span>(alternative_list_arrange([<span class=\"hljs-string\">&quot;A&quot;</span>, <span class=\"hljs-string\">&quot;B&quot;</span>, <span class=\"hljs-string\">&quot;C&quot;</span>], [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>]), end=<span class=\"hljs-string\">&quot; &quot;</span>)\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "SURYAPRATAP SINGH SURYAVANSHI",
+      "email": "67123991+suryapratapsinghsuryavanshi@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

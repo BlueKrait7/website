@@ -1,0 +1,108 @@
+{
+  "slug": "armstrong-number",
+  "name": "Armstrong Number",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\test\\ArmstrongNumber.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\ArmstrongNumber.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { armstrongNumber } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../ArmstrongNumber&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;ArmstrongNumber&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return true for an armstrong number&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">armstrongNumber</span>(<span class=\"hljs-number\">371</span>)).<span class=\"hljs-title function_\">toBeTruthy</span>()\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return false for a non-armstrong number&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">armstrongNumber</span>(<span class=\"hljs-number\">300</span>)).<span class=\"hljs-title function_\">toBeFalsy</span>()\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return false for negative values&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">armstrongNumber</span>(-<span class=\"hljs-number\">2</span>)).<span class=\"hljs-title function_\">toBeFalsy</span>()\r\n  })\r\n})\r\n"
+    },
+    "c-plus-plus": {
+      "dir": "math\\armstrong_number.cpp",
+      "url": "https://github.com/TheAlgorithms/c-plus-plus/tree/master/math\\armstrong_number.cpp",
+      "code": "<span class=\"hljs-comment\">/**\r\n * @file\r\n * \\brief Program to check if a number is an [Armstrong/Narcissistic\r\n * number](https://en.wikipedia.org/wiki/Narcissistic_number) in decimal system.\r\n *\r\n * \\details\r\n * Armstrong number or [Narcissistic\r\n * number](https://en.wikipedia.org/wiki/Narcissistic_number) is a number that\r\n * is the sum of its own digits raised to the power of the number of digits.\r\n * @author iamnambiar\r\n */</span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;cassert&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;cmath&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;iostream&gt;</span></span>\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Function to calculate the total number of digits in the number.\r\n * @param num Number\r\n * @return Total number of digits.\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">int</span> <span class=\"hljs-title\">number_of_digits</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> num)</span> </span>{\r\n    <span class=\"hljs-type\">int</span> total_digits = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-keyword\">while</span> (num &gt; <span class=\"hljs-number\">0</span>) {\r\n        num = num / <span class=\"hljs-number\">10</span>;\r\n        ++total_digits;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> total_digits;\r\n}\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Function to check whether the number is armstrong number or not.\r\n * @param num Number\r\n * @return `true` if the number is armstrong.\r\n * @return `false` if the number is not armstrong.\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">bool</span> <span class=\"hljs-title\">is_armstrong</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> number)</span> </span>{\r\n    <span class=\"hljs-comment\">// If the number is less than 0, then it is not a armstrong number.</span>\r\n    <span class=\"hljs-keyword\">if</span> (number &lt; <span class=\"hljs-number\">0</span>) {\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>;\r\n    }\r\n    <span class=\"hljs-type\">int</span> sum = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-type\">int</span> temp = number;\r\n    <span class=\"hljs-comment\">// Finding the total number of digits in the number</span>\r\n    <span class=\"hljs-type\">int</span> total_digits = <span class=\"hljs-built_in\">number_of_digits</span>(number);\r\n    <span class=\"hljs-keyword\">while</span> (temp &gt; <span class=\"hljs-number\">0</span>) {\r\n        <span class=\"hljs-type\">int</span> rem = temp % <span class=\"hljs-number\">10</span>;\r\n        <span class=\"hljs-comment\">// Finding each digit raised to the power total digit and add it to the</span>\r\n        <span class=\"hljs-comment\">// total sum</span>\r\n        sum = sum + std::<span class=\"hljs-built_in\">pow</span>(rem, total_digits);\r\n        temp = temp / <span class=\"hljs-number\">10</span>;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> number == sum;\r\n}\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Function for testing the is_armstrong() function\r\n * with all the test cases.\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">void</span> <span class=\"hljs-title\">test</span><span class=\"hljs-params\">()</span> </span>{\r\n    <span class=\"hljs-comment\">// is_armstrong(370) returns true.</span>\r\n    <span class=\"hljs-built_in\">assert</span>(<span class=\"hljs-built_in\">is_armstrong</span>(<span class=\"hljs-number\">370</span>) == <span class=\"hljs-literal\">true</span>);\r\n    <span class=\"hljs-comment\">// is_armstrong(225) returns false.</span>\r\n    <span class=\"hljs-built_in\">assert</span>(<span class=\"hljs-built_in\">is_armstrong</span>(<span class=\"hljs-number\">225</span>) == <span class=\"hljs-literal\">false</span>);\r\n    <span class=\"hljs-comment\">// is_armstrong(-23) returns false.</span>\r\n    <span class=\"hljs-built_in\">assert</span>(<span class=\"hljs-built_in\">is_armstrong</span>(<span class=\"hljs-number\">-23</span>) == <span class=\"hljs-literal\">false</span>);\r\n    <span class=\"hljs-comment\">// is_armstrong(153) returns true.</span>\r\n    <span class=\"hljs-built_in\">assert</span>(<span class=\"hljs-built_in\">is_armstrong</span>(<span class=\"hljs-number\">153</span>) == <span class=\"hljs-literal\">true</span>);\r\n    <span class=\"hljs-comment\">// is_armstrong(0) returns true.</span>\r\n    <span class=\"hljs-built_in\">assert</span>(<span class=\"hljs-built_in\">is_armstrong</span>(<span class=\"hljs-number\">0</span>) == <span class=\"hljs-literal\">true</span>);\r\n    <span class=\"hljs-comment\">// is_armstrong(12) returns false.</span>\r\n    <span class=\"hljs-built_in\">assert</span>(<span class=\"hljs-built_in\">is_armstrong</span>(<span class=\"hljs-number\">12</span>) == <span class=\"hljs-literal\">false</span>);\r\n}\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Main Function\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">int</span> <span class=\"hljs-title\">main</span><span class=\"hljs-params\">()</span> </span>{\r\n    <span class=\"hljs-built_in\">test</span>();\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n"
+    },
+    "c": {
+      "dir": "misc\\armstrong_number.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/misc\\armstrong_number.c",
+      "code": "<span class=\"hljs-comment\">// A number is called as Armstrong number if sum of cubes of digits of number is</span>\r\n<span class=\"hljs-comment\">// equal to the number itself.</span>\r\n<span class=\"hljs-comment\">// For Example 153 is an Armstrong number because 153 = 1³+5³+3³.</span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;stdio.h&gt;</span></span>\r\n\r\n<span class=\"hljs-comment\">// Function to calculate x raised to the power y</span>\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">power</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> x, <span class=\"hljs-type\">unsigned</span> <span class=\"hljs-type\">int</span> y)</span>\r\n{\r\n    <span class=\"hljs-keyword\">if</span> (y == <span class=\"hljs-number\">0</span>)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>;\r\n    <span class=\"hljs-keyword\">if</span> (y % <span class=\"hljs-number\">2</span> == <span class=\"hljs-number\">0</span>)\r\n        <span class=\"hljs-keyword\">return</span> power(x, y / <span class=\"hljs-number\">2</span>) * power(x, y / <span class=\"hljs-number\">2</span>);\r\n    <span class=\"hljs-keyword\">return</span> x * power(x, y / <span class=\"hljs-number\">2</span>) * power(x, y / <span class=\"hljs-number\">2</span>);\r\n}\r\n\r\n<span class=\"hljs-comment\">// Function to calculate order of the number</span>\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">order</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> x)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> n = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-keyword\">while</span> (x)\r\n    {\r\n        n++;\r\n        x = x / <span class=\"hljs-number\">10</span>;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> n;\r\n}\r\n\r\n<span class=\"hljs-comment\">// Function to check whether the given number is</span>\r\n<span class=\"hljs-comment\">// Armstrong number or not</span>\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">isArmstrong</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> x)</span>\r\n{\r\n    <span class=\"hljs-comment\">// Calling order function</span>\r\n    <span class=\"hljs-type\">int</span> n = order(x);\r\n    <span class=\"hljs-type\">int</span> temp = x, sum = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-keyword\">while</span> (temp)\r\n    {\r\n        <span class=\"hljs-type\">int</span> r = temp % <span class=\"hljs-number\">10</span>;\r\n        sum += power(r, n);\r\n        temp = temp / <span class=\"hljs-number\">10</span>;\r\n    }\r\n\r\n    <span class=\"hljs-comment\">// If satisfies Armstrong condition</span>\r\n    <span class=\"hljs-keyword\">if</span> (sum == x)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>;\r\n    <span class=\"hljs-keyword\">else</span>\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n\r\n<span class=\"hljs-comment\">//</span>\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">()</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> x = <span class=\"hljs-number\">153</span>;\r\n    <span class=\"hljs-keyword\">if</span> (isArmstrong(x) == <span class=\"hljs-number\">1</span>)\r\n        <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;True\\n&quot;</span>);\r\n    <span class=\"hljs-keyword\">else</span>\r\n        <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;False\\n&quot;</span>);\r\n\r\n    x = <span class=\"hljs-number\">1253</span>;\r\n    <span class=\"hljs-keyword\">if</span> (isArmstrong(x) == <span class=\"hljs-number\">1</span>)\r\n        <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;True\\n&quot;</span>);\r\n    <span class=\"hljs-keyword\">else</span>\r\n        <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;False\\n&quot;</span>);\r\n\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n"
+    },
+    "dart": {
+      "dir": "maths\\Armstrong_number.dart",
+      "url": "https://github.com/TheAlgorithms/dart/tree/master/maths\\Armstrong_number.dart",
+      "code": "<span class=\"hljs-keyword\">import</span> <span class=\"hljs-string\">&#x27;dart:math&#x27;</span>;\r\n\r\n<span class=\"hljs-built_in\">bool</span> Armstrong_no(<span class=\"hljs-keyword\">var</span> x) {\r\n  <span class=\"hljs-keyword\">var</span> n = x;\r\n  <span class=\"hljs-keyword\">var</span> s = n.toString();\r\n  <span class=\"hljs-keyword\">var</span> d = s.length;\r\n  <span class=\"hljs-keyword\">var</span> sum = <span class=\"hljs-number\">0</span>;\r\n  <span class=\"hljs-keyword\">while</span> (n != <span class=\"hljs-number\">0</span>) {\r\n    <span class=\"hljs-keyword\">var</span> r = n % <span class=\"hljs-number\">10</span>;\r\n    sum = sum + pow(r, d);\r\n    n = n ~/ <span class=\"hljs-number\">10</span>;\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> sum == x;\r\n}\r\n\r\n<span class=\"hljs-keyword\">void</span> main() {\r\n  <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">var</span> x <span class=\"hljs-keyword\">in</span> [<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">10</span>, <span class=\"hljs-number\">370</span>, <span class=\"hljs-number\">371</span>]) {\r\n    <span class=\"hljs-keyword\">if</span> (Armstrong_no(x)) {\r\n      <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;<span class=\"hljs-subst\">${x}</span> is armstrong number&quot;</span>);\r\n    } <span class=\"hljs-keyword\">else</span> {\r\n      <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;<span class=\"hljs-subst\">${x}</span> is not Armstrong number&quot;</span>);\r\n    }\r\n  }\r\n}\r\n"
+    },
+    "ruby": {
+      "dir": "maths\\armstrong_number.rb",
+      "url": "https://github.com/TheAlgorithms/ruby/tree/master/maths\\armstrong_number.rb",
+      "code": "<span class=\"hljs-comment\"># A ruby program to determine whether a given number is an Armstrong number</span>\r\n<span class=\"hljs-comment\"># Wiki url: https://en.wikipedia.org/wiki/Narcissistic_number</span>\r\n<span class=\"hljs-comment\"># other resources: https://pages.mtu.edu/~shene/COURSES/cs201/NOTES/chap04/arms.html</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Examples: -&gt; 153 = (1 * 1 * 1) + (5 * 5 * 5) + (3 * 3 * 3) [Armstrong number] and -&gt; 125 != (1 * 1 * 1) + (2 * 2 * 2) + (5 * 5 * 5)</span>\r\n<span class=\"hljs-comment\"># -&gt; 1634 = (1 * 1 * 1 * 1) + (6 * 6 * 6 * 6) + (3 * 3 * 3 * 3) + (4 * 4 * 4 * 4)</span>\r\n<span class=\"hljs-comment\">#</span>\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">armstrong_number</span><span class=\"hljs-params\">(number)</span></span>\r\n  num = number\r\n  sum = <span class=\"hljs-number\">0</span>\r\n  len = number.digits.count\r\n  <span class=\"hljs-keyword\">while</span> number != <span class=\"hljs-number\">0</span>\r\n    remainder = number % <span class=\"hljs-number\">10</span>\r\n    sum += remainder**len\r\n    number /= <span class=\"hljs-number\">10</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n\r\n  <span class=\"hljs-keyword\">if</span> num == sum\r\n    <span class=\"hljs-string\">&quot;The number <span class=\"hljs-subst\">#{num}</span> is an Armstrong number.&quot;</span>\r\n  <span class=\"hljs-keyword\">else</span>\r\n    <span class=\"hljs-string\">&quot;The number <span class=\"hljs-subst\">#{num}</span> is not an Armstrong number.&quot;</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n<span class=\"hljs-keyword\">rescue</span> StandardError\r\n  <span class=\"hljs-string\">&#x27;Error: Please provide number only!&#x27;</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Valid inputs</span>\r\n<span class=\"hljs-comment\">#</span>\r\nputs armstrong_number(<span class=\"hljs-number\">153</span>)\r\n<span class=\"hljs-comment\"># The number 153 is an Armstrong number.</span>\r\n\r\nputs armstrong_number(<span class=\"hljs-number\">0</span>)\r\n<span class=\"hljs-comment\"># The number 0 is an Armstrong number.</span>\r\n\r\nputs armstrong_number(<span class=\"hljs-number\">370</span>)\r\n<span class=\"hljs-comment\"># The number 370 is an Armstrong number.</span>\r\n\r\nputs armstrong_number(<span class=\"hljs-number\">10</span>)\r\n<span class=\"hljs-comment\"># The number 10 is not an Armstrong number.</span>\r\n\r\nputs armstrong_number(<span class=\"hljs-number\">1634</span>)\r\n<span class=\"hljs-comment\"># The number 1634 is an Armstrong number.</span>\r\n\r\nputs armstrong_number(<span class=\"hljs-number\">123</span>)\r\n<span class=\"hljs-comment\"># The number 123 is not an Armstrong number.</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Invalid inputs</span>\r\n<span class=\"hljs-comment\">#</span>\r\nputs armstrong_number(<span class=\"hljs-string\">&#x27;153&#x27;</span>)\r\n<span class=\"hljs-comment\"># Error: Please provide number only!</span>\r\n\r\nputs armstrong_number(<span class=\"hljs-string\">&#x27;a&#x27;</span>)\r\n<span class=\"hljs-comment\"># Error: Please provide number only!</span>\r\n"
+    },
+    "julia": {
+      "dir": "src\\math\\armstrong_number.jl",
+      "url": "https://github.com/TheAlgorithms/julia/tree/master/src\\math\\armstrong_number.jl",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n    is_armstrong(x)\r\n\r\nProgram to check if a number is an [Armstrong/Narcissistic number](https://en.wikipedia.org/wiki/Narcissistic_number) in decimal system.\r\n\r\nArmstrong number is a number that is the sum of its own digits raised to the power of the number of digits.\r\n\r\nContributed By:- [Ashwani Rathee](https://github.com/ashwani-rathee)\r\n\r\nA positive integer is called an Armstrong number (of order n) if\r\n\r\n`abcd... = a^n + b^n + c^n + d^n +....`\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">function</span> is_armstrong(x)\r\n    <span class=\"hljs-comment\"># If the number is less than 0, then it is not a armstrong number.</span>\r\n    <span class=\"hljs-keyword\">if</span> x &lt; <span class=\"hljs-number\">0</span>\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>\r\n    <span class=\"hljs-keyword\">elseif</span> x == <span class=\"hljs-number\">0</span>\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">true</span>\r\n    <span class=\"hljs-keyword\">else</span>\r\n        <span class=\"hljs-comment\"># Finding the total number of digits in the number</span>\r\n        length = <span class=\"hljs-built_in\">Int</span>(floor(log10(x) + <span class=\"hljs-number\">1</span>))\r\n        result = <span class=\"hljs-number\">0</span>\r\n        temp = x\r\n        <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-number\">1</span>:length\r\n            val = temp % <span class=\"hljs-number\">10</span>\r\n            <span class=\"hljs-comment\"># Finding each digit raised to the power total digit and add it to the total sum</span>\r\n            result = result + <span class=\"hljs-built_in\">Int</span>(trunc(val))^length\r\n            temp = temp / <span class=\"hljs-number\">10</span>\r\n        <span class=\"hljs-keyword\">end</span>\r\n        <span class=\"hljs-keyword\">return</span> x == result ? <span class=\"hljs-literal\">true</span> : <span class=\"hljs-literal\">false</span>\r\n    <span class=\"hljs-keyword\">end</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Azzaare",
+      "email": "jf@baffier.fr",
+      "commits": 1
+    },
+    {
+      "name": "Ashwani Rathee",
+      "email": "ab669522@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Krishna Vedala",
+      "email": "7001608+kvedala@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 1
+    },
+    {
+      "name": "IlyaIskra",
+      "email": "70522988+IlyaIskra@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Anuran Roy",
+      "email": "76481787+anuran-roy@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Harsh Tripathi",
+      "email": "63543719+happy-t@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Sahil Afrid Farookhi",
+      "email": "msafarookhi@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Ephraim Atta-Duncan",
+      "email": "55143799+dephraiim@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "Shivam Singhal",
+      "email": "shivamsinghal0610@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Abhishek Maletha",
+      "email": "67141747+Abhishek-photon@users.noreply.github.com",
+      "commits": 4
+    }
+  ],
+  "explanationUrl": {}
+}

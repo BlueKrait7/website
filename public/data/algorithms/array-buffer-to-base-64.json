@@ -1,0 +1,23 @@
+{
+  "slug": "array-buffer-to-base-64",
+  "name": "Array Buffer To Base 64",
+  "categories": [
+    "conversions"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Conversions\\test\\ArrayBufferToBase64.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Conversions\\test\\ArrayBufferToBase64.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { bufferToBase64 } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../ArrayBufferToBase64&#x27;</span>\r\n<span class=\"hljs-keyword\">import</span> { <span class=\"hljs-title class_\">TextEncoder</span> } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;util&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;ArrayBufferToBase64&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should encode &quot;Hello, world!&quot; as &quot;SGVsbG8sIHdvcmxkIQ==&quot;&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> testString = <span class=\"hljs-string\">&#x27;Hello, world!&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> encoder = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">TextEncoder</span>()\r\n    <span class=\"hljs-keyword\">const</span> helloWorldBuffer = encoder.<span class=\"hljs-title function_\">encode</span>(testString)\r\n    <span class=\"hljs-keyword\">const</span> result = <span class=\"hljs-title function_\">bufferToBase64</span>(helloWorldBuffer)\r\n    <span class=\"hljs-title function_\">expect</span>(result).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;SGVsbG8sIHdvcmxkIQ==&#x27;</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should encode binary buffer [55,23,177,234,68,26,90] as &quot;Nxex6kQaWg==&quot;&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> testBuffer = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Uint8Array</span>([<span class=\"hljs-number\">55</span>, <span class=\"hljs-number\">23</span>, <span class=\"hljs-number\">177</span>, <span class=\"hljs-number\">234</span>, <span class=\"hljs-number\">68</span>, <span class=\"hljs-number\">26</span>, <span class=\"hljs-number\">90</span>])\r\n    <span class=\"hljs-keyword\">const</span> result = <span class=\"hljs-title function_\">bufferToBase64</span>(testBuffer)\r\n    <span class=\"hljs-title function_\">expect</span>(result).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;Nxex6kQaWg==&#x27;</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should encode binary buffer [0,1,2,3,4,5,6,7,8,9] as &quot;AAECAwQFBgcICQ==&quot;&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> testBuffer = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Uint8Array</span>([<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">6</span>, <span class=\"hljs-number\">7</span>, <span class=\"hljs-number\">8</span>, <span class=\"hljs-number\">9</span>])\r\n    <span class=\"hljs-keyword\">const</span> result = <span class=\"hljs-title function_\">bufferToBase64</span>(testBuffer)\r\n    <span class=\"hljs-title function_\">expect</span>(result).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;AAECAwQFBgcICQ==&#x27;</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Luis De Anda",
+      "email": "ldeandac16@gmail.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,43 @@
+{
+  "slug": "all-combinations",
+  "name": "All Combinations",
+  "categories": [
+    "backtracking"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "backtracking\\all_combinations.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/backtracking\\all_combinations.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n        In this problem, we want to determine all possible combinations of k\r\n        numbers out of 1 ... n. We use backtracking to solve this problem.\r\n        Time complexity: O(C(n,k)) which is O(n choose k) = O((n!/(k! * (n - k)!)))\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">from</span> __future__ <span class=\"hljs-keyword\">import</span> annotations\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">generate_all_combinations</span>(<span class=\"hljs-params\">n: <span class=\"hljs-built_in\">int</span>, k: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]]:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    &gt;&gt;&gt; generate_all_combinations(n=4, k=2)\r\n    [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]\r\n    &quot;&quot;&quot;</span>\r\n\r\n    result: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]] = []\r\n    create_all_state(<span class=\"hljs-number\">1</span>, n, k, [], result)\r\n    <span class=\"hljs-keyword\">return</span> result\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">create_all_state</span>(<span class=\"hljs-params\">\r\n    increment: <span class=\"hljs-built_in\">int</span>,\r\n    total_number: <span class=\"hljs-built_in\">int</span>,\r\n    level: <span class=\"hljs-built_in\">int</span>,\r\n    current_list: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>],\r\n    total_list: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]],\r\n</span>) -&gt; <span class=\"hljs-literal\">None</span>:\r\n    <span class=\"hljs-keyword\">if</span> level == <span class=\"hljs-number\">0</span>:\r\n        total_list.append(current_list[:])\r\n        <span class=\"hljs-keyword\">return</span>\r\n\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(increment, total_number - level + <span class=\"hljs-number\">2</span>):\r\n        current_list.append(i)\r\n        create_all_state(i + <span class=\"hljs-number\">1</span>, total_number, level - <span class=\"hljs-number\">1</span>, current_list, total_list)\r\n        current_list.pop()\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">print_all_state</span>(<span class=\"hljs-params\">total_list: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]]</span>) -&gt; <span class=\"hljs-literal\">None</span>:\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> total_list:\r\n        <span class=\"hljs-built_in\">print</span>(*i)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    n = <span class=\"hljs-number\">4</span>\r\n    k = <span class=\"hljs-number\">2</span>\r\n    total_list = generate_all_combinations(n, k)\r\n    print_all_state(total_list)\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "obelisk0114",
+      "email": "obelisk0114@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "John Law",
+      "email": "johnlaw.po@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Jenia Dysin",
+      "email": "jenia90@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

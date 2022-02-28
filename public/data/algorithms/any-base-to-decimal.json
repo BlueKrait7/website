@@ -1,0 +1,38 @@
+{
+  "slug": "any-base-to-decimal",
+  "name": "Any Base To Decimal",
+  "categories": [
+    "conversions"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\conversions\\AnyBaseToDecimal.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\conversions\\AnyBaseToDecimal.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.conversions;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * <span class=\"hljs-doctag\">@author</span> Varun Upadhyay (https://github.com/varunu28)\r\n */</span>\r\n<span class=\"hljs-comment\">// Driver program</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">AnyBaseToDecimal</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">convertToDecimal</span><span class=\"hljs-params\">(<span class=\"hljs-string\">&quot;1010&quot;</span>, <span class=\"hljs-number\">2</span>)</span> == Integer.valueOf(<span class=\"hljs-string\">&quot;1010&quot;</span>, <span class=\"hljs-number\">2</span>);\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">convertToDecimal</span><span class=\"hljs-params\">(<span class=\"hljs-string\">&quot;777&quot;</span>, <span class=\"hljs-number\">8</span>)</span> == Integer.valueOf(<span class=\"hljs-string\">&quot;777&quot;</span>, <span class=\"hljs-number\">8</span>);\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">convertToDecimal</span><span class=\"hljs-params\">(<span class=\"hljs-string\">&quot;999&quot;</span>, <span class=\"hljs-number\">10</span>)</span> == Integer.valueOf(<span class=\"hljs-string\">&quot;999&quot;</span>, <span class=\"hljs-number\">10</span>);\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">convertToDecimal</span><span class=\"hljs-params\">(<span class=\"hljs-string\">&quot;ABCDEF&quot;</span>, <span class=\"hljs-number\">16</span>)</span> == Integer.valueOf(<span class=\"hljs-string\">&quot;ABCDEF&quot;</span>, <span class=\"hljs-number\">16</span>);\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">convertToDecimal</span><span class=\"hljs-params\">(<span class=\"hljs-string\">&quot;XYZ&quot;</span>, <span class=\"hljs-number\">36</span>)</span> == Integer.valueOf(<span class=\"hljs-string\">&quot;XYZ&quot;</span>, <span class=\"hljs-number\">36</span>);\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Convert any radix to decimal number\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> s the string to be convert\r\n     * <span class=\"hljs-doctag\">@param</span> radix the radix\r\n     * <span class=\"hljs-doctag\">@return</span> decimal of bits\r\n     * <span class=\"hljs-doctag\">@throws</span> NumberFormatException if {<span class=\"hljs-doctag\">@code</span> bits} or {<span class=\"hljs-doctag\">@code</span> radix} is invalid\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">convertToDecimal</span><span class=\"hljs-params\">(String s, <span class=\"hljs-type\">int</span> radix)</span> {\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">num</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>;\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">pow</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">1</span>;\r\n\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> s.length() - <span class=\"hljs-number\">1</span>; i &gt;= <span class=\"hljs-number\">0</span>; i--) {\r\n            <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">digit</span> <span class=\"hljs-operator\">=</span> valOfChar(s.charAt(i));\r\n            <span class=\"hljs-keyword\">if</span> (digit &gt;= radix) {\r\n                <span class=\"hljs-keyword\">throw</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">NumberFormatException</span>(<span class=\"hljs-string\">&quot;For input string &quot;</span> + s);\r\n            }\r\n            num += valOfChar(s.charAt(i)) * pow;\r\n            pow *= radix;\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> num;\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Convert character to integer\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> c the character\r\n     * <span class=\"hljs-doctag\">@return</span> represented digit of given character\r\n     * <span class=\"hljs-doctag\">@throws</span> NumberFormatException if {<span class=\"hljs-doctag\">@code</span> ch} is not UpperCase or Digit\r\n     * character.\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">valOfChar</span><span class=\"hljs-params\">(<span class=\"hljs-type\">char</span> c)</span> {\r\n        <span class=\"hljs-keyword\">if</span> (!(Character.isUpperCase(c) || Character.isDigit(c))) {\r\n            <span class=\"hljs-keyword\">throw</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">NumberFormatException</span>(<span class=\"hljs-string\">&quot;invalid character :&quot;</span> + c);\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> Character.isDigit(c) ? c - <span class=\"hljs-string\">&#x27;0&#x27;</span> : c - <span class=\"hljs-string\">&#x27;A&#x27;</span> + <span class=\"hljs-number\">10</span>;\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "varunu28",
+      "email": "varun.u28@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

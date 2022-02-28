@@ -1,0 +1,17 @@
+{
+  "slug": "a011557-powers-of-10",
+  "name": "A011557 Powers of 10",
+  "categories": [
+    "sequences"
+  ],
+  "body": {},
+  "implementations": {
+    "c-sharp": {
+      "dir": "./Algorithms/Sequences/PowersOf10Sequence.cs",
+      "url": "https:\\github.com\\TheAlgorithms\\C-Sharp\\tree\\master\\Algorithms\\Sequences\\PowersOf10Sequence.cs",
+      "code": "<span class=\"hljs-keyword\">using</span> System.Collections.Generic;\r\n<span class=\"hljs-keyword\">using</span> System.Numerics;\r\n\r\n<span class=\"hljs-keyword\">namespace</span> <span class=\"hljs-title\">Algorithms.Sequences</span>\r\n{\r\n    <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;summary&gt;</span></span>\r\n    <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>     <span class=\"hljs-doctag\">&lt;para&gt;</span></span>\r\n    <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>         Sequence of powers of 10: a(n) = 10^n.</span>\r\n    <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>     <span class=\"hljs-doctag\">&lt;/para&gt;</span></span>\r\n    <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>     <span class=\"hljs-doctag\">&lt;para&gt;</span></span>\r\n    <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>         Wikipedia: https://wikipedia.org/wiki/Power_of_10.</span>\r\n    <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>     <span class=\"hljs-doctag\">&lt;/para&gt;</span></span>\r\n    <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>     <span class=\"hljs-doctag\">&lt;para&gt;</span></span>\r\n    <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>         OEIS: https://oeis.org/A011557.</span>\r\n    <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>     <span class=\"hljs-doctag\">&lt;/para&gt;</span></span>\r\n    <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;/summary&gt;</span></span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">PowersOf10Sequence</span> : <span class=\"hljs-title\">ISequence</span>\r\n    {\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;summary&gt;</span></span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> Gets sequence of powers of 10.</span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;/summary&gt;</span></span>\r\n        <span class=\"hljs-keyword\">public</span> IEnumerable&lt;BigInteger&gt; Sequence\r\n        {\r\n            <span class=\"hljs-keyword\">get</span>\r\n            {\r\n                <span class=\"hljs-keyword\">var</span> n = <span class=\"hljs-keyword\">new</span> BigInteger(<span class=\"hljs-number\">1</span>);\r\n\r\n                <span class=\"hljs-keyword\">while</span> (<span class=\"hljs-literal\">true</span>)\r\n                {\r\n                    <span class=\"hljs-keyword\">yield</span> <span class=\"hljs-keyword\">return</span> n;\r\n                    n *= <span class=\"hljs-number\">10</span>;\r\n                }\r\n            }\r\n        }\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [],
+  "explanationUrl": {}
+}

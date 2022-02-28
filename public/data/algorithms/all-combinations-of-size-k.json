@@ -1,0 +1,33 @@
+{
+  "slug": "all-combinations-of-size-k",
+  "name": "All Combinations Of Size K",
+  "categories": [
+    "backtracking"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Backtracking\\tests\\AllCombinationsOfSizeK.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Backtracking\\tests\\AllCombinationsOfSizeK.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { <span class=\"hljs-title class_\">Combinations</span> } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../AllCombinationsOfSizeK&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;AllCombinationsOfSizeK&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return 3x2 matrix solution for n = 3 and k = 2&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> test1 = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Combinations</span>(<span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">2</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(test1.<span class=\"hljs-title function_\">findCombinations</span>()).<span class=\"hljs-title function_\">toEqual</span>([[<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>], [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">3</span>], [<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>]])\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return 6x2 matrix solution for n = 4 and k = 2&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> test2 = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Combinations</span>(<span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">2</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(test2.<span class=\"hljs-title function_\">findCombinations</span>()).<span class=\"hljs-title function_\">toEqual</span>([[<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>], [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">3</span>], [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">4</span>], [<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>], [<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">4</span>], [<span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>]])\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Rak Laptudirm",
+      "email": "raklaptudirm@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Chiranjeev",
+      "email": "6258860@gmail.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "array-stack",
+  "name": "Array Stack",
+  "categories": [
+    "datastructures",
+    "stacks"
+  ],
+  "body": {},
+  "implementations": {
+    "dart": {
+      "dir": "data_structures\\Stack\\Array_Stack.dart",
+      "url": "https://github.com/TheAlgorithms/dart/tree/master/data_structures\\Stack\\Array_Stack.dart",
+      "code": "<span class=\"hljs-comment\">//Author: Shawn</span>\r\n<span class=\"hljs-comment\">//Email: stepfencurryxiao@gmail.com</span>\r\n\r\n<span class=\"hljs-class\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">ArrayStack</span>&lt;<span class=\"hljs-title\">T</span>&gt; </span>{\r\n  <span class=\"hljs-comment\">//stack</span>\r\n  <span class=\"hljs-built_in\">List</span>&lt;T&gt; stack;\r\n  <span class=\"hljs-comment\">//element of the stack</span>\r\n  <span class=\"hljs-built_in\">int</span> count;\r\n  <span class=\"hljs-comment\">//size of stack</span>\r\n  <span class=\"hljs-built_in\">int</span> n;\r\n\r\n  <span class=\"hljs-comment\">//Init the array stack</span>\r\n  ArrayStack(<span class=\"hljs-keyword\">var</span> n) {\r\n    <span class=\"hljs-keyword\">this</span>.n = n;\r\n    <span class=\"hljs-keyword\">this</span>.stack = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-built_in\">List</span>&lt;T&gt;(n);\r\n    <span class=\"hljs-keyword\">this</span>.count = <span class=\"hljs-number\">0</span>;\r\n  }\r\n\r\n  <span class=\"hljs-comment\">//Push a item to the stack</span>\r\n  <span class=\"hljs-keyword\">void</span> push(T item) {\r\n    <span class=\"hljs-keyword\">if</span> (count == n) {\r\n      <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;The stack is full\\n&quot;</span>);\r\n    }\r\n    stack[count] = item;\r\n    count++;\r\n  }\r\n\r\n  <span class=\"hljs-comment\">//Pop a item from the stack</span>\r\n  T pop() {\r\n    <span class=\"hljs-keyword\">if</span> (count == <span class=\"hljs-number\">0</span>) {\r\n      <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;No data in the stack!\\n&quot;</span>);\r\n    }\r\n    T pop_data = stack[count - <span class=\"hljs-number\">1</span>];\r\n    stack[count - <span class=\"hljs-number\">1</span>] = <span class=\"hljs-keyword\">null</span>;\r\n    count--;\r\n    <span class=\"hljs-keyword\">return</span> pop_data;\r\n  }\r\n\r\n  <span class=\"hljs-keyword\">void</span> Display() {\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;ArrayStack: <span class=\"hljs-subst\">$stack</span>\\n&quot;</span>);\r\n  }\r\n}\r\n\r\n<span class=\"hljs-keyword\">void</span> main() {\r\n  ArrayStack&lt;<span class=\"hljs-built_in\">String</span>&gt; array_stack = <span class=\"hljs-keyword\">new</span> ArrayStack&lt;<span class=\"hljs-built_in\">String</span>&gt;(<span class=\"hljs-number\">6</span>);\r\n\r\n  array_stack.push(<span class=\"hljs-string\">&#x27;1&#x27;</span>);\r\n  array_stack.push(<span class=\"hljs-string\">&quot;2&quot;</span>);\r\n  array_stack.push(<span class=\"hljs-string\">&#x27;3&#x27;</span>);\r\n  array_stack.push(<span class=\"hljs-string\">&quot;4&quot;</span>);\r\n  array_stack.push(<span class=\"hljs-string\">&#x27;5&#x27;</span>);\r\n  array_stack.push(<span class=\"hljs-string\">&quot;6&quot;</span>);\r\n\r\n  array_stack.Display();\r\n\r\n  <span class=\"hljs-keyword\">var</span> pop_data;\r\n  pop_data = array_stack.pop();\r\n  <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;Pop <span class=\"hljs-subst\">$pop_data</span> from stack\\n&quot;</span>);\r\n  pop_data = array_stack.pop();\r\n  <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;Pop <span class=\"hljs-subst\">$pop_data</span> from stack\\n&quot;</span>);\r\n  <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;Now the stock:&quot;</span>);\r\n  array_stack.Display();\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "stepfencurryxiao",
+      "email": "stepfencurryxiao@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

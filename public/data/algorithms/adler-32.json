@@ -1,0 +1,33 @@
+{
+  "slug": "adler-32",
+  "name": "Adler 32",
+  "categories": [
+    "hashing"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "hashes\\adler32.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/hashes\\adler32.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Adler-32 is a checksum algorithm which was invented by Mark Adler in 1995.\r\n    Compared to a cyclic redundancy check of the same length, it trades reliability for\r\n    speed (preferring the latter).\r\n    Adler-32 is more reliable than Fletcher-16, and slightly less reliable than\r\n    Fletcher-32.[2]\r\n\r\n    source: https://en.wikipedia.org/wiki/Adler-32\r\n&quot;&quot;&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">adler32</span>(<span class=\"hljs-params\">plain_text: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-built_in\">int</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Function implements adler-32 hash.\r\n    Iterates and evaluates a new value for each character\r\n\r\n    &gt;&gt;&gt; adler32(&#x27;Algorithms&#x27;)\r\n    363791387\r\n\r\n    &gt;&gt;&gt; adler32(&#x27;go adler em all&#x27;)\r\n    708642122\r\n    &quot;&quot;&quot;</span>\r\n    MOD_ADLER = <span class=\"hljs-number\">65521</span>\r\n    a = <span class=\"hljs-number\">1</span>\r\n    b = <span class=\"hljs-number\">0</span>\r\n    <span class=\"hljs-keyword\">for</span> plain_chr <span class=\"hljs-keyword\">in</span> plain_text:\r\n        a = (a + <span class=\"hljs-built_in\">ord</span>(plain_chr)) % MOD_ADLER\r\n        b = (b + a) % MOD_ADLER\r\n    <span class=\"hljs-keyword\">return</span> (b &lt;&lt; <span class=\"hljs-number\">16</span>) | a\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "algobytewise",
+      "email": "algobytewise@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "bnMikheili",
+      "email": "39998190+bnMikheili@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

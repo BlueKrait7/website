@@ -1,0 +1,24 @@
+{
+  "slug": "alternate-disjoint-set",
+  "name": "Alternate Disjoint Set",
+  "categories": [
+    "datastructures",
+    "disjointset"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "data_structures\\disjoint_set\\alternate_disjoint_set.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/data_structures\\disjoint_set\\alternate_disjoint_set.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nImplements a disjoint set using Lists and some added heuristics for efficiency\r\nUnion by Rank Heuristic and Path Compression\r\n&quot;&quot;&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">DisjointSet</span>:\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">__init__</span>(<span class=\"hljs-params\">self, set_counts: <span class=\"hljs-built_in\">list</span></span>) -&gt; <span class=\"hljs-literal\">None</span>:\r\n        <span class=\"hljs-string\">&quot;&quot;&quot;\r\n        Initialize with a list of the number of items in each set\r\n        and with rank = 1 for each set\r\n        &quot;&quot;&quot;</span>\r\n        self.set_counts = set_counts\r\n        self.max_set = <span class=\"hljs-built_in\">max</span>(set_counts)\r\n        num_sets = <span class=\"hljs-built_in\">len</span>(set_counts)\r\n        self.ranks = [<span class=\"hljs-number\">1</span>] * num_sets\r\n        self.parents = <span class=\"hljs-built_in\">list</span>(<span class=\"hljs-built_in\">range</span>(num_sets))\r\n\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">merge</span>(<span class=\"hljs-params\">self, src: <span class=\"hljs-built_in\">int</span>, dst: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">bool</span>:\r\n        <span class=\"hljs-string\">&quot;&quot;&quot;\r\n        Merge two sets together using Union by rank heuristic\r\n        Return True if successful\r\n        Merge two disjoint sets\r\n        &gt;&gt;&gt; A = DisjointSet([1, 1, 1])\r\n        &gt;&gt;&gt; A.merge(1, 2)\r\n        True\r\n        &gt;&gt;&gt; A.merge(0, 2)\r\n        True\r\n        &gt;&gt;&gt; A.merge(0, 1)\r\n        False\r\n        &quot;&quot;&quot;</span>\r\n        src_parent = self.get_parent(src)\r\n        dst_parent = self.get_parent(dst)\r\n\r\n        <span class=\"hljs-keyword\">if</span> src_parent == dst_parent:\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">False</span>\r\n\r\n        <span class=\"hljs-keyword\">if</span> self.ranks[dst_parent] &gt;= self.ranks[src_parent]:\r\n            self.set_counts[dst_parent] += self.set_counts[src_parent]\r\n            self.set_counts[src_parent] = <span class=\"hljs-number\">0</span>\r\n            self.parents[src_parent] = dst_parent\r\n            <span class=\"hljs-keyword\">if</span> self.ranks[dst_parent] == self.ranks[src_parent]:\r\n                self.ranks[dst_parent] += <span class=\"hljs-number\">1</span>\r\n            joined_set_size = self.set_counts[dst_parent]\r\n        <span class=\"hljs-keyword\">else</span>:\r\n            self.set_counts[src_parent] += self.set_counts[dst_parent]\r\n            self.set_counts[dst_parent] = <span class=\"hljs-number\">0</span>\r\n            self.parents[dst_parent] = src_parent\r\n            joined_set_size = self.set_counts[src_parent]\r\n\r\n        self.max_set = <span class=\"hljs-built_in\">max</span>(self.max_set, joined_set_size)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">True</span>\r\n\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">get_parent</span>(<span class=\"hljs-params\">self, disj_set: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">int</span>:\r\n        <span class=\"hljs-string\">&quot;&quot;&quot;\r\n        Find the Parent of a given set\r\n        &gt;&gt;&gt; A = DisjointSet([1, 1, 1])\r\n        &gt;&gt;&gt; A.merge(1, 2)\r\n        True\r\n        &gt;&gt;&gt; A.get_parent(0)\r\n        0\r\n        &gt;&gt;&gt; A.get_parent(1)\r\n        2\r\n        &quot;&quot;&quot;</span>\r\n        <span class=\"hljs-keyword\">if</span> self.parents[disj_set] == disj_set:\r\n            <span class=\"hljs-keyword\">return</span> disj_set\r\n        self.parents[disj_set] = self.get_parent(self.parents[disj_set])\r\n        <span class=\"hljs-keyword\">return</span> self.parents[disj_set]\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aanuoluwapo Babajide",
+      "email": "46856621+anubabajide@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

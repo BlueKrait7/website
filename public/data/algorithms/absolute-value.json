@@ -1,0 +1,43 @@
+{
+  "slug": "absolute-value",
+  "name": "Absolute Value",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\maths\\AbsoluteValue.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\maths\\AbsoluteValue.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.maths;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.Random;\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">AbsoluteValue</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-type\">Random</span> <span class=\"hljs-variable\">random</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Random</span>();\r\n\r\n        <span class=\"hljs-comment\">/* test 1000 random numbers */</span>\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">1</span>; i &lt;= <span class=\"hljs-number\">1000</span>; ++i) {\r\n            <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">randomNumber</span> <span class=\"hljs-operator\">=</span> random.nextInt();\r\n            <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">absVal</span><span class=\"hljs-params\">(randomNumber)</span> == Math.abs(randomNumber);\r\n        }\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * If value is less than zero, make value positive.\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> value a number\r\n     * <span class=\"hljs-doctag\">@return</span> the absolute value of a number\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">absVal</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> value)</span> {\r\n        <span class=\"hljs-keyword\">return</span> value &lt; <span class=\"hljs-number\">0</span> ? -value : value;\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "PatOnTheBack",
+      "email": "51241310+PatOnTheBack@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Ray",
+      "email": "rbshealy@live.unc.edu",
+      "commits": 1
+    },
+    {
+      "name": "Yang Libin",
+      "email": "contact@yanglibin.info",
+      "commits": 1
+    },
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

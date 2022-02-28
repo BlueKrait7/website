@@ -1,0 +1,103 @@
+{
+  "slug": "affine-cipher",
+  "name": "Affine Cipher",
+  "categories": [
+    "ciphers"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "ciphers\\affine_cipher.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/ciphers\\affine_cipher.py",
+      "code": "<span class=\"hljs-keyword\">import</span> random\r\n<span class=\"hljs-keyword\">import</span> sys\r\n\r\n<span class=\"hljs-keyword\">from</span> . <span class=\"hljs-keyword\">import</span> cryptomath_module <span class=\"hljs-keyword\">as</span> cryptomath\r\n\r\nSYMBOLS = (\r\n    <span class=\"hljs-string\">r&quot;&quot;&quot; !&quot;#$%&amp;&#x27;()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`&quot;&quot;&quot;</span>\r\n    <span class=\"hljs-string\">r&quot;&quot;&quot;abcdefghijklmnopqrstuvwxyz{|}~&quot;&quot;&quot;</span>\r\n)\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">check_keys</span>(<span class=\"hljs-params\">keyA: <span class=\"hljs-built_in\">int</span>, keyB: <span class=\"hljs-built_in\">int</span>, mode: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-literal\">None</span>:\r\n    <span class=\"hljs-keyword\">if</span> mode == <span class=\"hljs-string\">&quot;encrypt&quot;</span>:\r\n        <span class=\"hljs-keyword\">if</span> keyA == <span class=\"hljs-number\">1</span>:\r\n            sys.exit(\r\n                <span class=\"hljs-string\">&quot;The affine cipher becomes weak when key &quot;</span>\r\n                <span class=\"hljs-string\">&quot;A is set to 1. Choose different key&quot;</span>\r\n            )\r\n        <span class=\"hljs-keyword\">if</span> keyB == <span class=\"hljs-number\">0</span>:\r\n            sys.exit(\r\n                <span class=\"hljs-string\">&quot;The affine cipher becomes weak when key &quot;</span>\r\n                <span class=\"hljs-string\">&quot;B is set to 0. Choose different key&quot;</span>\r\n            )\r\n    <span class=\"hljs-keyword\">if</span> keyA &lt; <span class=\"hljs-number\">0</span> <span class=\"hljs-keyword\">or</span> keyB &lt; <span class=\"hljs-number\">0</span> <span class=\"hljs-keyword\">or</span> keyB &gt; <span class=\"hljs-built_in\">len</span>(SYMBOLS) - <span class=\"hljs-number\">1</span>:\r\n        sys.exit(\r\n            <span class=\"hljs-string\">&quot;Key A must be greater than 0 and key B must &quot;</span>\r\n            <span class=\"hljs-string\">f&quot;be between 0 and <span class=\"hljs-subst\">{<span class=\"hljs-built_in\">len</span>(SYMBOLS) - <span class=\"hljs-number\">1</span>}</span>.&quot;</span>\r\n        )\r\n    <span class=\"hljs-keyword\">if</span> cryptomath.gcd(keyA, <span class=\"hljs-built_in\">len</span>(SYMBOLS)) != <span class=\"hljs-number\">1</span>:\r\n        sys.exit(\r\n            <span class=\"hljs-string\">f&quot;Key A <span class=\"hljs-subst\">{keyA}</span> and the symbol set size <span class=\"hljs-subst\">{<span class=\"hljs-built_in\">len</span>(SYMBOLS)}</span> &quot;</span>\r\n            <span class=\"hljs-string\">&quot;are not relatively prime. Choose a different key.&quot;</span>\r\n        )\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">encrypt_message</span>(<span class=\"hljs-params\">key: <span class=\"hljs-built_in\">int</span>, message: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-built_in\">str</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    &gt;&gt;&gt; encrypt_message(4545, &#x27;The affine cipher is a type of monoalphabetic &#x27;\r\n    ...                       &#x27;substitution cipher.&#x27;)\r\n    &#x27;VL}p MM{I}p~{HL}Gp{vp pFsH}pxMpyxIx JHL O}F{~pvuOvF{FuF{xIp~{HL}Gi&#x27;\r\n    &quot;&quot;&quot;</span>\r\n    keyA, keyB = <span class=\"hljs-built_in\">divmod</span>(key, <span class=\"hljs-built_in\">len</span>(SYMBOLS))\r\n    check_keys(keyA, keyB, <span class=\"hljs-string\">&quot;encrypt&quot;</span>)\r\n    cipherText = <span class=\"hljs-string\">&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">for</span> symbol <span class=\"hljs-keyword\">in</span> message:\r\n        <span class=\"hljs-keyword\">if</span> symbol <span class=\"hljs-keyword\">in</span> SYMBOLS:\r\n            symIndex = SYMBOLS.find(symbol)\r\n            cipherText += SYMBOLS[(symIndex * keyA + keyB) % <span class=\"hljs-built_in\">len</span>(SYMBOLS)]\r\n        <span class=\"hljs-keyword\">else</span>:\r\n            cipherText += symbol\r\n    <span class=\"hljs-keyword\">return</span> cipherText\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">decrypt_message</span>(<span class=\"hljs-params\">key: <span class=\"hljs-built_in\">int</span>, message: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-built_in\">str</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    &gt;&gt;&gt; decrypt_message(4545, &#x27;VL}p MM{I}p~{HL}Gp{vp pFsH}pxMpyxIx JHL O}F{~pvuOvF{FuF&#x27;\r\n    ...                       &#x27;{xIp~{HL}Gi&#x27;)\r\n    &#x27;The affine cipher is a type of monoalphabetic substitution cipher.&#x27;\r\n    &quot;&quot;&quot;</span>\r\n    keyA, keyB = <span class=\"hljs-built_in\">divmod</span>(key, <span class=\"hljs-built_in\">len</span>(SYMBOLS))\r\n    check_keys(keyA, keyB, <span class=\"hljs-string\">&quot;decrypt&quot;</span>)\r\n    plainText = <span class=\"hljs-string\">&quot;&quot;</span>\r\n    modInverseOfkeyA = cryptomath.find_mod_inverse(keyA, <span class=\"hljs-built_in\">len</span>(SYMBOLS))\r\n    <span class=\"hljs-keyword\">for</span> symbol <span class=\"hljs-keyword\">in</span> message:\r\n        <span class=\"hljs-keyword\">if</span> symbol <span class=\"hljs-keyword\">in</span> SYMBOLS:\r\n            symIndex = SYMBOLS.find(symbol)\r\n            plainText += SYMBOLS[(symIndex - keyB) * modInverseOfkeyA % <span class=\"hljs-built_in\">len</span>(SYMBOLS)]\r\n        <span class=\"hljs-keyword\">else</span>:\r\n            plainText += symbol\r\n    <span class=\"hljs-keyword\">return</span> plainText\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">get_random_key</span>() -&gt; <span class=\"hljs-built_in\">int</span>:\r\n    <span class=\"hljs-keyword\">while</span> <span class=\"hljs-literal\">True</span>:\r\n        keyA = random.randint(<span class=\"hljs-number\">2</span>, <span class=\"hljs-built_in\">len</span>(SYMBOLS))\r\n        keyB = random.randint(<span class=\"hljs-number\">2</span>, <span class=\"hljs-built_in\">len</span>(SYMBOLS))\r\n        <span class=\"hljs-keyword\">if</span> cryptomath.gcd(keyA, <span class=\"hljs-built_in\">len</span>(SYMBOLS)) == <span class=\"hljs-number\">1</span> <span class=\"hljs-keyword\">and</span> keyB % <span class=\"hljs-built_in\">len</span>(SYMBOLS) != <span class=\"hljs-number\">0</span>:\r\n            <span class=\"hljs-keyword\">return</span> keyA * <span class=\"hljs-built_in\">len</span>(SYMBOLS) + keyB\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">main</span>() -&gt; <span class=\"hljs-literal\">None</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    &gt;&gt;&gt; key = get_random_key()\r\n    &gt;&gt;&gt; msg = &quot;This is a test!&quot;\r\n    &gt;&gt;&gt; decrypt_message(key, encrypt_message(key, msg)) == msg\r\n    True\r\n    &quot;&quot;&quot;</span>\r\n    message = <span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Enter message: &quot;</span>).strip()\r\n    key = <span class=\"hljs-built_in\">int</span>(<span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Enter key [2000 - 9000]: &quot;</span>).strip())\r\n    mode = <span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Encrypt/Decrypt [E/D]: &quot;</span>).strip().lower()\r\n\r\n    <span class=\"hljs-keyword\">if</span> mode.startswith(<span class=\"hljs-string\">&quot;e&quot;</span>):\r\n        mode = <span class=\"hljs-string\">&quot;encrypt&quot;</span>\r\n        translated = encrypt_message(key, message)\r\n    <span class=\"hljs-keyword\">elif</span> mode.startswith(<span class=\"hljs-string\">&quot;d&quot;</span>):\r\n        mode = <span class=\"hljs-string\">&quot;decrypt&quot;</span>\r\n        translated = decrypt_message(key, message)\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f&quot;\\n<span class=\"hljs-subst\">{mode.title()}</span>ed text: \\n<span class=\"hljs-subst\">{translated}</span>&quot;</span>)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n    <span class=\"hljs-comment\"># main()</span>\r\n"
+    },
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\ciphers\\AffineCipher.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\ciphers\\AffineCipher.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.ciphers;\r\n\r\n<span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">AffineCipher</span> {\r\n\r\n    <span class=\"hljs-comment\">// Key values of a and b</span>\r\n    <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">a</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">17</span>;\r\n    <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">b</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">20</span>;\r\n\r\n    <span class=\"hljs-keyword\">static</span> String <span class=\"hljs-title function_\">encryptMessage</span><span class=\"hljs-params\">(<span class=\"hljs-type\">char</span>[] msg)</span> {\r\n        <span class=\"hljs-comment\">/// Cipher Text initially empty</span>\r\n        <span class=\"hljs-type\">String</span> <span class=\"hljs-variable\">cipher</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-string\">&quot;&quot;</span>;\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>; i &lt; msg.length; i++) {\r\n            <span class=\"hljs-comment\">// Avoid space to be encrypted</span>\r\n            <span class=\"hljs-comment\">/* applying encryption formula ( a x + b ) mod m\r\n            {here x is msg[i] and m is 26} and added &#x27;A&#x27; to\r\n            bring it in range of ascii alphabet[ 65-90 | A-Z ] */</span>\r\n            <span class=\"hljs-keyword\">if</span> (msg[i] != <span class=\"hljs-string\">&#x27; &#x27;</span>) {\r\n                cipher = cipher\r\n                        + (<span class=\"hljs-type\">char</span>) ((((a * (msg[i] - <span class=\"hljs-string\">&#x27;A&#x27;</span>)) + b) % <span class=\"hljs-number\">26</span>) + <span class=\"hljs-string\">&#x27;A&#x27;</span>);\r\n            } <span class=\"hljs-keyword\">else</span> <span class=\"hljs-comment\">// else simply append space character</span>\r\n            {\r\n                cipher += msg[i];\r\n            }\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> cipher;\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">static</span> String <span class=\"hljs-title function_\">decryptCipher</span><span class=\"hljs-params\">(String cipher)</span> {\r\n        <span class=\"hljs-type\">String</span> <span class=\"hljs-variable\">msg</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-string\">&quot;&quot;</span>;\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">a_inv</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>;\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">flag</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>;\r\n\r\n        <span class=\"hljs-comment\">//Find a^-1 (the multiplicative inverse of a</span>\r\n        <span class=\"hljs-comment\">//in the group of integers modulo m.)</span>\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>; i &lt; <span class=\"hljs-number\">26</span>; i++) {\r\n            flag = (a * i) % <span class=\"hljs-number\">26</span>;\r\n\r\n            <span class=\"hljs-comment\">// Check if (a*i)%26 == 1,</span>\r\n            <span class=\"hljs-comment\">// then i will be the multiplicative inverse of a</span>\r\n            <span class=\"hljs-keyword\">if</span> (flag == <span class=\"hljs-number\">1</span>) {\r\n                a_inv = i;\r\n            }\r\n        }\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>; i &lt; cipher.length(); i++) {\r\n            <span class=\"hljs-comment\">/*Applying decryption formula a^-1 ( x - b ) mod m\r\n            {here x is cipher[i] and m is 26} and added &#x27;A&#x27;\r\n            to bring it in range of ASCII alphabet[ 65-90 | A-Z ] */</span>\r\n            <span class=\"hljs-keyword\">if</span> (cipher.charAt(i) != <span class=\"hljs-string\">&#x27; &#x27;</span>) {\r\n                msg = msg + (<span class=\"hljs-type\">char</span>) (((a_inv\r\n                        * ((cipher.charAt(i) + <span class=\"hljs-string\">&#x27;A&#x27;</span> - b)) % <span class=\"hljs-number\">26</span>)) + <span class=\"hljs-string\">&#x27;A&#x27;</span>);\r\n            } <span class=\"hljs-keyword\">else</span> <span class=\"hljs-comment\">//else simply append space character</span>\r\n            {\r\n                msg += cipher.charAt(i);\r\n            }\r\n        }\r\n\r\n        <span class=\"hljs-keyword\">return</span> msg;\r\n    }\r\n\r\n    <span class=\"hljs-comment\">// Driver code</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-type\">String</span> <span class=\"hljs-variable\">msg</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-string\">&quot;AFFINE CIPHER&quot;</span>;\r\n\r\n        <span class=\"hljs-comment\">// Calling encryption function</span>\r\n        <span class=\"hljs-type\">String</span> <span class=\"hljs-variable\">cipherText</span> <span class=\"hljs-operator\">=</span> encryptMessage(msg.toCharArray());\r\n        System.out.println(<span class=\"hljs-string\">&quot;Encrypted Message is : &quot;</span> + cipherText);\r\n\r\n        <span class=\"hljs-comment\">// Calling Decryption function</span>\r\n        System.out.println(<span class=\"hljs-string\">&quot;Decrypted Message is: &quot;</span> + decryptCipher(cipherText));\r\n\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "AlexDvorak",
+      "email": "opti.jawsome@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Harshil Darji",
+      "email": "darjiharshil2994@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "vinayak",
+      "email": "itssvinayak@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 1
+    },
+    {
+      "name": "patrick-steve",
+      "email": "75305373+patrick-steve@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Vatsal Patel",
+      "email": "75309827+vatsal-dp@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Jenia Dysin",
+      "email": "jenia90@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "NAVEEN S R",
+      "email": "56086391+nkpro2000sr@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Saransh Gupta",
+      "email": "saranshgupta1995@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Mickaël Schoentgen",
+      "email": "contact@tiger-222.fr",
+      "commits": 1
+    },
+    {
+      "name": "cclauss",
+      "email": "cclauss@bluewin.ch",
+      "commits": 1
+    },
+    {
+      "name": "97arushisharma",
+      "email": "97arushisharma@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "ParthS007",
+      "email": "parth1989shandilya@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Dhruv Manilawala",
+      "email": "dhruvmanila@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "another-rot-13",
+  "name": "Another Rot 13",
+  "categories": [
+    "ciphers"
+  ],
+  "body": {},
+  "implementations": {
+    "rust": {
+      "dir": "src\\ciphers\\another_rot13.rs",
+      "url": "https://github.com/TheAlgorithms/rust/tree/master/src\\ciphers\\another_rot13.rs",
+      "code": "<span class=\"hljs-keyword\">pub</span> <span class=\"hljs-keyword\">fn</span> <span class=\"hljs-title function_\">another_rot13</span>(text: &amp;<span class=\"hljs-type\">str</span>) <span class=\"hljs-punctuation\">-&gt;</span> <span class=\"hljs-type\">String</span> {\r\n    <span class=\"hljs-keyword\">let</span> <span class=\"hljs-variable\">input</span> = <span class=\"hljs-string\">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz&quot;</span>;\r\n    <span class=\"hljs-keyword\">let</span> <span class=\"hljs-variable\">output</span> = <span class=\"hljs-string\">&quot;NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm&quot;</span>;\r\n    text.<span class=\"hljs-title function_ invoke__\">chars</span>()\r\n        .<span class=\"hljs-title function_ invoke__\">map</span>(|c| <span class=\"hljs-keyword\">match</span> input.<span class=\"hljs-title function_ invoke__\">find</span>(c) {\r\n            <span class=\"hljs-title function_ invoke__\">Some</span>(i) =&gt; output.<span class=\"hljs-title function_ invoke__\">chars</span>().<span class=\"hljs-title function_ invoke__\">nth</span>(i).<span class=\"hljs-title function_ invoke__\">unwrap</span>(),\r\n            <span class=\"hljs-literal\">None</span> =&gt; c,\r\n        })\r\n        .<span class=\"hljs-title function_ invoke__\">collect</span>()\r\n}\r\n\r\n<span class=\"hljs-meta\">#[cfg(test)]</span>\r\n<span class=\"hljs-keyword\">mod</span> tests {\r\n    <span class=\"hljs-comment\">// Note this useful idiom: importing names from outer (for mod tests) scope.</span>\r\n    <span class=\"hljs-keyword\">use</span> super::*;\r\n\r\n    <span class=\"hljs-meta\">#[test]</span>\r\n    <span class=\"hljs-keyword\">fn</span> <span class=\"hljs-title function_\">test_simple</span>() {\r\n        <span class=\"hljs-built_in\">assert_eq!</span>(<span class=\"hljs-title function_ invoke__\">another_rot13</span>(<span class=\"hljs-string\">&quot;ABCzyx&quot;</span>), <span class=\"hljs-string\">&quot;NOPmlk&quot;</span>);\r\n    }\r\n\r\n    <span class=\"hljs-meta\">#[test]</span>\r\n    <span class=\"hljs-keyword\">fn</span> <span class=\"hljs-title function_\">test_every_alphabet_with_space</span>() {\r\n        <span class=\"hljs-built_in\">assert_eq!</span>(\r\n            <span class=\"hljs-title function_ invoke__\">another_rot13</span>(<span class=\"hljs-string\">&quot;The quick brown fox jumps over the lazy dog&quot;</span>),\r\n            <span class=\"hljs-string\">&quot;Gur dhvpx oebja sbk whzcf bire gur ynml qbt&quot;</span>\r\n        );\r\n    }\r\n\r\n    <span class=\"hljs-meta\">#[test]</span>\r\n    <span class=\"hljs-keyword\">fn</span> <span class=\"hljs-title function_\">test_non_alphabet</span>() {\r\n        <span class=\"hljs-built_in\">assert_eq!</span>(<span class=\"hljs-title function_ invoke__\">another_rot13</span>(<span class=\"hljs-string\">&quot;🎃 Jack-o&#x27;-lantern&quot;</span>), <span class=\"hljs-string\">&quot;🎃 Wnpx-b&#x27;-ynagrea&quot;</span>);\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Sutthinart Khunvadhana",
+      "email": "iakgoog@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

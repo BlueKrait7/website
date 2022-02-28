@@ -1,0 +1,43 @@
+{
+  "slug": "armstrong",
+  "name": "Armstrong",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\maths\\Armstrong.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\maths\\Armstrong.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.maths;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * An Armstrong number is equal to the sum of the cubes of its digits. For\r\n * example, 370 is an Armstrong number because 3*3*3 + 7*7*7 + 0*0*0 = 370. An\r\n * Armstrong number is often called Narcissistic number.\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Armstrong</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-keyword\">assert</span> (isArmStrong(<span class=\"hljs-number\">0</span>));\r\n        <span class=\"hljs-keyword\">assert</span> (isArmStrong(<span class=\"hljs-number\">1</span>));\r\n        <span class=\"hljs-keyword\">assert</span> (isArmStrong(<span class=\"hljs-number\">153</span>));\r\n        <span class=\"hljs-keyword\">assert</span> (isArmStrong(<span class=\"hljs-number\">1634</span>));\r\n        <span class=\"hljs-keyword\">assert</span> (isArmStrong(<span class=\"hljs-number\">371</span>));\r\n        <span class=\"hljs-keyword\">assert</span> (!isArmStrong(<span class=\"hljs-number\">200</span>));\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Checks whether a given number is an armstrong number or not.\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> number number to check\r\n     * <span class=\"hljs-doctag\">@return</span> {<span class=\"hljs-doctag\">@code</span> true} if given number is armstrong number, {<span class=\"hljs-doctag\">@code</span> false}\r\n     * otherwise\r\n     */</span>\r\n    <span class=\"hljs-keyword\">private</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">boolean</span> <span class=\"hljs-title function_\">isArmStrong</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> number)</span> {\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">sum</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>;\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">temp</span> <span class=\"hljs-operator\">=</span> number;\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">numberOfDigits</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>;\r\n        <span class=\"hljs-keyword\">while</span> (temp != <span class=\"hljs-number\">0</span>) {\r\n            numberOfDigits++;\r\n            temp /= <span class=\"hljs-number\">10</span>;\r\n        }\r\n        temp = number;\r\n        <span class=\"hljs-comment\">/* copy number again */</span>\r\n        <span class=\"hljs-keyword\">while</span> (number &gt; <span class=\"hljs-number\">0</span>) {\r\n            <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">remainder</span> <span class=\"hljs-operator\">=</span> number % <span class=\"hljs-number\">10</span>;\r\n            <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">power</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">1</span>;\r\n            <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">1</span>; i &lt;= numberOfDigits; power *= remainder, ++i)\r\n        ;\r\n            sum = sum + power;\r\n            number /= <span class=\"hljs-number\">10</span>;\r\n        }\r\n        <span class=\"hljs-type\">return</span> <span class=\"hljs-variable\">sum</span> <span class=\"hljs-operator\">=</span>= temp;\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "SunggyuLee",
+      "email": "sq0216@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 2
+    },
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 3
+    },
+    {
+      "name": "Mani Manasa Mylavarapu",
+      "email": "mamylava@microsoft.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

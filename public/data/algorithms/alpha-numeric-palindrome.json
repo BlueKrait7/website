@@ -1,0 +1,33 @@
+{
+  "slug": "alpha-numeric-palindrome",
+  "name": "Alpha Numeric Palindrome",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "String\\test\\AlphaNumericPalindrome.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/String\\test\\AlphaNumericPalindrome.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { alphaNumericPlaindrome } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../AlphaNumericPalindrome&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;should return true if the given string has alphanumeric characters that are palindrom irrespective of case and symbols&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">alphaNumericPlaindrome</span>(<span class=\"hljs-string\">&#x27;eye&#x27;</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">true</span>)\r\n})\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;should return true if the given string has alphanumeric characters that are palindrom irrespective of case and symbols&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">alphaNumericPlaindrome</span>(<span class=\"hljs-string\">&#x27;0_0 (: /-:) 0-0&#x27;</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">true</span>)\r\n})\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;should return true if the given string has alphanumeric characters that are palindrom irrespective of case and symbols&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">alphaNumericPlaindrome</span>(<span class=\"hljs-string\">&#x27;five|_/|four&#x27;</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">false</span>)\r\n})\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;should return true if the given string has alphanumeric characters that are palindrom irrespective of case and symbols&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">alphaNumericPlaindrome</span>(<span class=\"hljs-string\">&#x27;A man, a plan, a canal. Panama&#x27;</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">true</span>)\r\n})\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;should return true if the given string has alphanumeric characters that are palindrom irrespective of case and symbols&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">alphaNumericPlaindrome</span>(<span class=\"hljs-string\">&#x27;1 eye for of 1 eye.&#x27;</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">false</span>)\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Rak Laptudirm",
+      "email": "raklaptudirm@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "YATIN KATHURIA",
+      "email": "47096348+Yatin-kathuria@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Syed Fasiuddin",
+      "email": "syedfasiuddin.02@gmail.com",
+      "commits": 8
+    }
+  ],
+  "explanationUrl": {}
+}

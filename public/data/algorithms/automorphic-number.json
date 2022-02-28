@@ -1,0 +1,28 @@
+{
+  "slug": "automorphic-number",
+  "name": "Automorphic Number",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\maths\\AutomorphicNumber.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\maths\\AutomorphicNumber.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.maths;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * A number is said to be an Automorphic, if it is present in the last digit(s)\r\n * of its square. Example- Let the number be 25, its square is 625. Since,\r\n * 25(The input number) is present in the last two digits of its square(625), it\r\n * is an Automorphic Number.\r\n */</span>\r\n<span class=\"hljs-keyword\">import</span> java.io.*;\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">AutomorphicNumber</span> {\r\n\r\n    <span class=\"hljs-comment\">//returns True if the number is a Automorphic number and False if it is not an Automorphic number</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">boolean</span> <span class=\"hljs-title function_\">isAutomorphic</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> n)</span> {\r\n        <span class=\"hljs-type\">int</span> m, c, r, p, k;\r\n        c = <span class=\"hljs-number\">0</span>;\r\n        <span class=\"hljs-comment\">/**\r\n         * m = Temporary variable to store a copy of the number entered by the\r\n         * user. n = The number entered by the user c = Count the digits of the\r\n         * number entered by user. p = To calculate the square of the number. k\r\n         * = Support variable to count the digits of the number\r\n         */</span>\r\n        <span class=\"hljs-type\">double</span> s;\r\n        m = n;\r\n        p = m * m; <span class=\"hljs-comment\">//Calculating square of the number</span>\r\n        <span class=\"hljs-keyword\">do</span> {\r\n            k = n / <span class=\"hljs-number\">10</span>;\r\n            c = c + <span class=\"hljs-number\">1</span>; <span class=\"hljs-comment\">//Counting the digits of the number entered by user.</span>\r\n            n = k;\r\n        } <span class=\"hljs-keyword\">while</span> (n != <span class=\"hljs-number\">0</span>);\r\n        s = Math.pow(<span class=\"hljs-number\">10</span>, c);\r\n        r = p % (<span class=\"hljs-type\">int</span>) s;\r\n        <span class=\"hljs-keyword\">if</span> (m == r) <span class=\"hljs-comment\">//Checking if the original number entered is present at the end of the square</span>\r\n        {\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">true</span>;\r\n        } <span class=\"hljs-keyword\">else</span> {\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>;\r\n        }\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Method to check if number is Automorphic Number or Not 1) Input - Enter a\r\n     * Number: 25 Output - It is an Automorphic Number. 2) Input - Enter a\r\n     * Number: 7 Output - It is not an Automorphic Number.\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String args[])</span> <span class=\"hljs-keyword\">throws</span> IOException {\r\n        <span class=\"hljs-type\">BufferedReader</span> <span class=\"hljs-variable\">br</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">BufferedReader</span>(<span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">InputStreamReader</span>(System.in));\r\n        System.out.println(<span class=\"hljs-string\">&quot;Enter a Number: &quot;</span>);\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">n</span> <span class=\"hljs-operator\">=</span> Integer.parseInt(br.readLine());\r\n        <span class=\"hljs-keyword\">if</span> (isAutomorphic(n)) {\r\n            System.out.println(<span class=\"hljs-string\">&quot;It is an Automorphic Number.&quot;</span>);\r\n        } <span class=\"hljs-keyword\">else</span> {\r\n            System.out.println(<span class=\"hljs-string\">&quot;It is not an Automorphic Number.&quot;</span>);\r\n        }\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "uttarabahad",
+      "email": "34717612+uttarabahad@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}
