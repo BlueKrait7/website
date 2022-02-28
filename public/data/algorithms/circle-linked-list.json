@@ -1,0 +1,69 @@
+{
+  "slug": "circle-linked-list",
+  "name": "Circle Linked List",
+  "categories": [
+    "datastructures",
+    "list"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\datastructures\\lists\\CircleLinkedList.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\datastructures\\lists\\CircleLinkedList.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.datastructures.lists;\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">CircleLinkedList</span>&lt;E&gt; {\r\n\r\n    <span class=\"hljs-keyword\">private</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Node</span>&lt;E&gt; {\r\n\r\n        Node&lt;E&gt; next;\r\n        E value;\r\n\r\n        <span class=\"hljs-keyword\">private</span> <span class=\"hljs-title function_\">Node</span><span class=\"hljs-params\">(E value, Node&lt;E&gt; next)</span> {\r\n            <span class=\"hljs-built_in\">this</span>.value = value;\r\n            <span class=\"hljs-built_in\">this</span>.next = next;\r\n        }\r\n    }\r\n\r\n    <span class=\"hljs-comment\">// For better O.O design this should be private allows for better black box design</span>\r\n    <span class=\"hljs-keyword\">private</span> <span class=\"hljs-type\">int</span> size;\r\n    <span class=\"hljs-comment\">// this will point to dummy node;</span>\r\n    <span class=\"hljs-keyword\">private</span> Node&lt;E&gt; head = <span class=\"hljs-literal\">null</span>;\r\n    <span class=\"hljs-keyword\">private</span> Node&lt;E&gt; tail = <span class=\"hljs-literal\">null</span>; <span class=\"hljs-comment\">// keeping a tail pointer to keep track of the end of list</span>\r\n\r\n    <span class=\"hljs-comment\">// constructer for class.. here we will make a dummy node for circly linked list implementation</span>\r\n    <span class=\"hljs-comment\">// with reduced error catching as our list will never be empty;</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-title function_\">CircleLinkedList</span><span class=\"hljs-params\">()</span> {\r\n        <span class=\"hljs-comment\">// creation of the dummy node</span>\r\n        head = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Node</span>&lt;E&gt;(<span class=\"hljs-literal\">null</span>, head);\r\n        tail = head;\r\n        size = <span class=\"hljs-number\">0</span>;\r\n    }\r\n\r\n    <span class=\"hljs-comment\">// getter for the size... needed because size is private.</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">getSize</span><span class=\"hljs-params\">()</span> {\r\n        <span class=\"hljs-keyword\">return</span> size;\r\n    }\r\n\r\n    <span class=\"hljs-comment\">// for the sake of simplistiy this class will only contain the append function or addLast other</span>\r\n    <span class=\"hljs-comment\">// add functions can be implemented however this is the basses of them all really.</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">append</span><span class=\"hljs-params\">(E value)</span> {\r\n        <span class=\"hljs-keyword\">if</span> (value == <span class=\"hljs-literal\">null</span>) {\r\n            <span class=\"hljs-comment\">// we do not want to add null elements to the list.</span>\r\n            <span class=\"hljs-keyword\">throw</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">NullPointerException</span>(<span class=\"hljs-string\">&quot;Cannot add null element to the list&quot;</span>);\r\n        }\r\n        <span class=\"hljs-comment\">// head.next points to the last element;</span>\r\n        <span class=\"hljs-keyword\">if</span> (tail == <span class=\"hljs-literal\">null</span>) {\r\n            tail = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Node</span>&lt;E&gt;(value, head);\r\n            head.next = tail;\r\n        } <span class=\"hljs-keyword\">else</span> {\r\n            tail.next = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Node</span>&lt;E&gt;(value, head);\r\n            tail = tail.next;\r\n        }\r\n        size++;\r\n    }\r\n\r\n    <span class=\"hljs-comment\">// utility function for teraversing the list</span>\r\n    <span class=\"hljs-keyword\">public</span> String <span class=\"hljs-title function_\">toString</span><span class=\"hljs-params\">()</span> {\r\n        <span class=\"hljs-type\">Node</span> <span class=\"hljs-variable\">p</span> <span class=\"hljs-operator\">=</span> head.next;\r\n        <span class=\"hljs-type\">String</span> <span class=\"hljs-variable\">s</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-string\">&quot;[ &quot;</span>;\r\n        <span class=\"hljs-keyword\">while</span> (p != head) {\r\n            s += p.value;\r\n            s += <span class=\"hljs-string\">&quot; , &quot;</span>;\r\n            p = p.next;\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> s + <span class=\"hljs-string\">&quot; ]&quot;</span>;\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String args[])</span> {\r\n        <span class=\"hljs-type\">CircleLinkedList</span> <span class=\"hljs-variable\">cl</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">CircleLinkedList</span>&lt;Integer&gt;();\r\n        cl.append(<span class=\"hljs-number\">12</span>);\r\n        System.out.println(cl);\r\n        cl.append(<span class=\"hljs-number\">23</span>);\r\n        System.out.println(cl);\r\n        cl.append(<span class=\"hljs-number\">34</span>);\r\n        System.out.println(cl);\r\n        cl.append(<span class=\"hljs-number\">56</span>);\r\n        System.out.println(cl);\r\n        cl.remove(<span class=\"hljs-number\">3</span>);\r\n        System.out.println(cl);\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">public</span> E <span class=\"hljs-title function_\">remove</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> pos)</span> {\r\n        <span class=\"hljs-keyword\">if</span> (pos &gt; size || pos &lt; <span class=\"hljs-number\">0</span>) {\r\n            <span class=\"hljs-comment\">// catching errors</span>\r\n            <span class=\"hljs-keyword\">throw</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">IndexOutOfBoundsException</span>(<span class=\"hljs-string\">&quot;position cannot be greater than size or negative&quot;</span>);\r\n        }\r\n        <span class=\"hljs-comment\">// we need to keep track of the element before the element we want to remove we can see why</span>\r\n        <span class=\"hljs-comment\">// bellow.</span>\r\n        Node&lt;E&gt; before = head;\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">1</span>; i &lt;= pos; i++) {\r\n            before = before.next;\r\n        }\r\n        Node&lt;E&gt; destroy = before.next;\r\n        <span class=\"hljs-type\">E</span> <span class=\"hljs-variable\">saved</span> <span class=\"hljs-operator\">=</span> destroy.value;\r\n        <span class=\"hljs-comment\">// assigning the next reference to the the element following the element we want to remove...</span>\r\n        <span class=\"hljs-comment\">// the last element will be assigned to the head.</span>\r\n        before.next = before.next.next;\r\n        <span class=\"hljs-comment\">// scrubbing</span>\r\n        <span class=\"hljs-keyword\">if</span> (destroy == tail) {\r\n            tail = before;\r\n        }\r\n        destroy = <span class=\"hljs-literal\">null</span>;\r\n        size--;\r\n        <span class=\"hljs-keyword\">return</span> saved;\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Bender",
+      "email": "christianbender89@web.de",
+      "commits": 1
+    },
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "DEBADRIBASAK",
+      "email": "32904247+DEBADRIBASAK@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Maria Lungeanu",
+      "email": "Maria.Lungeanu@anritsu.com",
+      "commits": 1
+    },
+    {
+      "name": "khalil2535",
+      "email": "khalil2535@localhost",
+      "commits": 1
+    },
+    {
+      "name": "teerapat1739",
+      "email": "teerapat12345678@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Moro-Code",
+      "email": "onasr013@uottawa.ca",
+      "commits": 2
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 3
+    },
+    {
+      "name": "Khwanchanok Srimool",
+      "email": "khwanchanok.sri@ascendcorp.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

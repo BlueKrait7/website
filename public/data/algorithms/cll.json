@@ -1,0 +1,33 @@
+{
+  "slug": "cll",
+  "name": "Cll",
+  "categories": [
+    "datastructures"
+  ],
+  "body": {},
+  "implementations": {
+    "c-plus-plus": {
+      "dir": "data_structures\\cll\\cll.h",
+      "url": "https://github.com/TheAlgorithms/c-plus-plus/tree/master/data_structures\\cll\\cll.h",
+      "code": "<span class=\"hljs-comment\">/*\r\n * Simple data structure CLL (Cicular Linear Linked List)\r\n * */</span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;cctype&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;cstdlib&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;cstring&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;iostream&gt;</span></span>\r\n\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">ifndef</span> CLL_H</span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">define</span> CLL_H</span>\r\n<span class=\"hljs-comment\">/*The data structure is a linear linked list of integers */</span>\r\n<span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title class_\">node</span> {\r\n    <span class=\"hljs-type\">int</span> data;\r\n    node* next;\r\n};\r\n\r\n<span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">cll</span> {\r\n <span class=\"hljs-keyword\">public</span>:\r\n    <span class=\"hljs-built_in\">cll</span>(); <span class=\"hljs-comment\">/* Construct without parameter */</span>\r\n    ~<span class=\"hljs-built_in\">cll</span>();\r\n    <span class=\"hljs-function\"><span class=\"hljs-type\">void</span> <span class=\"hljs-title\">display</span><span class=\"hljs-params\">()</span></span>; <span class=\"hljs-comment\">/* Show the list */</span>\r\n\r\n    <span class=\"hljs-comment\">/******************************************************\r\n     * Useful method for list\r\n     *******************************************************/</span>\r\n    <span class=\"hljs-function\"><span class=\"hljs-type\">void</span> <span class=\"hljs-title\">insert_front</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> new_data)</span></span>;  <span class=\"hljs-comment\">/* Insert a new value at head  */</span>\r\n    <span class=\"hljs-function\"><span class=\"hljs-type\">void</span> <span class=\"hljs-title\">insert_tail</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> new_data)</span></span>;   <span class=\"hljs-comment\">/* Insert a new value at tail */</span>\r\n    <span class=\"hljs-function\"><span class=\"hljs-type\">int</span> <span class=\"hljs-title\">get_size</span><span class=\"hljs-params\">()</span></span>;                   <span class=\"hljs-comment\">/* Get total element in list */</span>\r\n    <span class=\"hljs-function\"><span class=\"hljs-type\">bool</span> <span class=\"hljs-title\">find_item</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> item_to_find)</span></span>; <span class=\"hljs-comment\">/* Find an item in list */</span>\r\n\r\n    <span class=\"hljs-comment\">/******************************************************\r\n     * Overloading method for list\r\n     *******************************************************/</span>\r\n    <span class=\"hljs-type\">int</span> <span class=\"hljs-keyword\">operator</span>*(); <span class=\"hljs-comment\">/* Returns the info contained in head */</span>\r\n    <span class=\"hljs-comment\">/* Overload the pre-increment operator.\r\n       The iterator is advanced to the next node. */</span>\r\n    <span class=\"hljs-type\">void</span> <span class=\"hljs-keyword\">operator</span>++();\r\n\r\n <span class=\"hljs-keyword\">protected</span>:\r\n    node* head;\r\n    <span class=\"hljs-type\">int</span> total; <span class=\"hljs-comment\">/* Total element in a list */</span>\r\n};\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">endif</span></span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Krishna Vedala",
+      "email": "7001608+kvedala@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Shubham Sah",
+      "email": "42349247+shubhamsah@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

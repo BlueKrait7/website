@@ -1,0 +1,28 @@
+{
+  "slug": "characters-same",
+  "name": "Characters Same",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\strings\\CharactersSame.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\strings\\CharactersSame.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.strings;\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">CharactersSame</span> {\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Driver Code\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">isAllCharactersSame</span><span class=\"hljs-params\">(<span class=\"hljs-string\">&quot;&quot;</span>)</span>;\r\n        <span class=\"hljs-keyword\">assert</span> !isAllCharactersSame(<span class=\"hljs-string\">&quot;aab&quot;</span>);\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">isAllCharactersSame</span><span class=\"hljs-params\">(<span class=\"hljs-string\">&quot;aaa&quot;</span>)</span>;\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">isAllCharactersSame</span><span class=\"hljs-params\">(<span class=\"hljs-string\">&quot;11111&quot;</span>)</span>;\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * check if all the characters of a string are same\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> s the string to check\r\n     * <span class=\"hljs-doctag\">@return</span> {<span class=\"hljs-doctag\">@code</span> true} if all characters of a string are same, otherwise\r\n     * {<span class=\"hljs-doctag\">@code</span> false}\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">boolean</span> <span class=\"hljs-title function_\">isAllCharactersSame</span><span class=\"hljs-params\">(String s)</span> {\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">1</span>, length = s.length(); i &lt; length; ++i) {\r\n            <span class=\"hljs-keyword\">if</span> (s.charAt(i) != s.charAt(<span class=\"hljs-number\">0</span>)) {\r\n                <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>;\r\n            }\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">true</span>;\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

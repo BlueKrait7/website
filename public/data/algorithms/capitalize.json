@@ -1,0 +1,38 @@
+{
+  "slug": "capitalize",
+  "name": "Capitalize",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "strings\\capitalize.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/strings\\capitalize.py",
+      "code": "<span class=\"hljs-keyword\">from</span> string <span class=\"hljs-keyword\">import</span> ascii_lowercase, ascii_uppercase\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">capitalize</span>(<span class=\"hljs-params\">sentence: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-built_in\">str</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    This function will capitalize the first letter of a sentence or a word\r\n    &gt;&gt;&gt; capitalize(&quot;hello world&quot;)\r\n    &#x27;Hello world&#x27;\r\n    &gt;&gt;&gt; capitalize(&quot;123 hello world&quot;)\r\n    &#x27;123 hello world&#x27;\r\n    &gt;&gt;&gt; capitalize(&quot; hello world&quot;)\r\n    &#x27; hello world&#x27;\r\n    &gt;&gt;&gt; capitalize(&quot;a&quot;)\r\n    &#x27;A&#x27;\r\n    &gt;&gt;&gt; capitalize(&quot;&quot;)\r\n    &#x27;&#x27;\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> <span class=\"hljs-keyword\">not</span> sentence:\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">&quot;&quot;</span>\r\n    lower_to_upper = {lc: uc <span class=\"hljs-keyword\">for</span> lc, uc <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">zip</span>(ascii_lowercase, ascii_uppercase)}\r\n    <span class=\"hljs-keyword\">return</span> lower_to_upper.get(sentence[<span class=\"hljs-number\">0</span>], sentence[<span class=\"hljs-number\">0</span>]) + sentence[<span class=\"hljs-number\">1</span>:]\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">from</span> doctest <span class=\"hljs-keyword\">import</span> testmod\r\n\r\n    testmod()\r\n"
+    },
+    "f-sharp": {
+      "dir": "Algorithms\\Strings\\Capitalize.fs",
+      "url": "https://github.com/TheAlgorithms/f-sharp/tree/master/Algorithms\\Strings\\Capitalize.fs",
+      "code": "<span class=\"hljs-keyword\">namespace</span> Algorithms.Strings\r\n\r\n<span class=\"hljs-keyword\">module</span> Capitalize <span class=\"hljs-operator\">=</span>\r\n    <span class=\"hljs-comment\">/// &lt;summary&gt;</span>\r\n    <span class=\"hljs-comment\">/// This function will capitalize the first letter of a sentence or a word</span>\r\n    <span class=\"hljs-comment\">/// &lt;/summary&gt;</span>\r\n    <span class=\"hljs-comment\">/// &lt;example&gt;</span>\r\n    <span class=\"hljs-comment\">/// &lt;code&gt;</span>\r\n    <span class=\"hljs-comment\">/// capitalize(&quot;hello world&quot;)</span>\r\n    <span class=\"hljs-comment\">/// &#x27;Hello world&#x27;</span>\r\n    <span class=\"hljs-comment\">///</span>\r\n    <span class=\"hljs-comment\">/// capitalize(&quot;123 hello world&quot;)</span>\r\n    <span class=\"hljs-comment\">/// &#x27;123 hello world&#x27;</span>\r\n    <span class=\"hljs-comment\">///</span>\r\n    <span class=\"hljs-comment\">/// capitalize(&quot; hello world&quot;)</span>\r\n    <span class=\"hljs-comment\">/// &#x27; hello world&#x27;</span>\r\n    <span class=\"hljs-comment\">///</span>\r\n    <span class=\"hljs-comment\">/// capitalize(&quot;a&quot;)</span>\r\n    <span class=\"hljs-comment\">/// &#x27;A&#x27;</span>\r\n    <span class=\"hljs-comment\">///</span>\r\n    <span class=\"hljs-comment\">/// capitalize(&quot;&quot;)</span>\r\n    <span class=\"hljs-comment\">/// &#x27;&#x27;</span>\r\n    <span class=\"hljs-comment\">/// &lt;/code&gt;</span>\r\n    <span class=\"hljs-comment\">/// &lt;/example&gt;</span>\r\n    <span class=\"hljs-comment\">/// &lt;param name=&quot;sentence&quot;&gt;String to capitalize.&lt;/param&gt;</span>\r\n    <span class=\"hljs-comment\">/// &lt;returns&gt;Capitalized string&lt;/returns&gt;</span>\r\n    <span class=\"hljs-keyword\">let</span> capitalize (sentence<span class=\"hljs-operator\">:</span> <span class=\"hljs-type\">string</span>) <span class=\"hljs-operator\">=</span>\r\n        <span class=\"hljs-keyword\">match</span> sentence <span class=\"hljs-keyword\">with</span>\r\n        <span class=\"hljs-operator\">|</span> <span class=\"hljs-string\">&quot;&quot;</span> <span class=\"hljs-operator\">-&gt;</span> <span class=\"hljs-string\">&quot;&quot;</span>\r\n        <span class=\"hljs-operator\">|</span> s <span class=\"hljs-keyword\">when</span> s.[<span class=\"hljs-number\">0</span>] <span class=\"hljs-operator\">&gt;=</span> <span class=\"hljs-string\">&#x27;a&#x27;</span> <span class=\"hljs-operator\">&amp;&amp;</span> s.[<span class=\"hljs-number\">0</span>] <span class=\"hljs-operator\">&lt;=</span> <span class=\"hljs-string\">&#x27;z&#x27;</span> <span class=\"hljs-operator\">-&gt;</span>\r\n            sentence\r\n                .Remove(<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>)\r\n                .Insert(<span class=\"hljs-number\">0</span>, (string) ((char) ((int) s.[<span class=\"hljs-number\">0</span>] <span class=\"hljs-operator\">-</span> <span class=\"hljs-number\">32</span>)))\r\n        <span class=\"hljs-operator\">|</span> _ <span class=\"hljs-operator\">-&gt;</span> sentence\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "mohammadreza490",
+      "email": "47437328+mohammadreza490@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Allister Isaiah Harvey",
+      "email": "41553768+powpow58@users.noreply.github.com",
+      "commits": 4
+    }
+  ],
+  "explanationUrl": {}
+}

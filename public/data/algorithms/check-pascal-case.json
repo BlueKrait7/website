@@ -1,0 +1,33 @@
+{
+  "slug": "check-pascal-case",
+  "name": "Check Pascal Case",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "String\\CheckPascalCase.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/String\\CheckPascalCase.js",
+      "code": "<span class=\"hljs-comment\">// CheckPascalCase method checks the given string is in PascalCase or not.</span>\r\n\r\n<span class=\"hljs-comment\">// Problem Source &amp; Explanation: https://www.theserverside.com/definition/Pascal-case</span>\r\n\r\n<span class=\"hljs-comment\">/**\r\n * CheckPascalCase method returns true if the string in PascalCase, else return the false.\r\n * <span class=\"hljs-doctag\">@param</span> {<span class=\"hljs-type\">String</span>} VarName the name of the variable to check.\r\n * <span class=\"hljs-doctag\">@returns</span> `Boolean` return true if the string is in PascalCase, else return false.\r\n */</span>\r\n<span class=\"hljs-keyword\">const</span> <span class=\"hljs-title function_\">CheckPascalCase</span> = (<span class=\"hljs-params\">VarName</span>) =&gt; {\r\n  <span class=\"hljs-comment\">// firstly, check that input is a string or not.</span>\r\n  <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-keyword\">typeof</span> <span class=\"hljs-title class_\">VarName</span> !== <span class=\"hljs-string\">&#x27;string&#x27;</span>) {\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">TypeError</span>(<span class=\"hljs-string\">&#x27;Argument is not a string.&#x27;</span>)\r\n  }\r\n\r\n  <span class=\"hljs-keyword\">const</span> pat = <span class=\"hljs-regexp\">/^[A-Z][A-Za-z]*$/</span>\r\n  <span class=\"hljs-keyword\">return</span> pat.<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-title class_\">VarName</span>)\r\n}\r\n\r\n<span class=\"hljs-keyword\">export</span> { <span class=\"hljs-title class_\">CheckPascalCase</span> }\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "SURYAPRATAP SINGH SURYAVANSHI",
+      "email": "67123991+suryapratapsinghsuryavanshi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Suryapratap Singh",
+      "email": "suryprtaps@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,33 @@
+{
+  "slug": "breadth-first-shortest-path",
+  "name": "Breadth First Shortest Path",
+  "categories": [
+    "graphs"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Graphs\\test\\BreadthFirstShortestPath.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Graphs\\test\\BreadthFirstShortestPath.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { breadthFirstShortestPath } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../BreadthFirstShortestPath&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;BreadthFirstShortestPath&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-keyword\">const</span> graph = {\r\n    <span class=\"hljs-attr\">A</span>: [<span class=\"hljs-string\">&#x27;B&#x27;</span>, <span class=\"hljs-string\">&#x27;D&#x27;</span>],\r\n    <span class=\"hljs-attr\">B</span>: [<span class=\"hljs-string\">&#x27;E&#x27;</span>],\r\n    <span class=\"hljs-attr\">C</span>: [<span class=\"hljs-string\">&#x27;D&#x27;</span>],\r\n    <span class=\"hljs-attr\">D</span>: [<span class=\"hljs-string\">&#x27;A&#x27;</span>],\r\n    <span class=\"hljs-attr\">E</span>: [<span class=\"hljs-string\">&#x27;D&#x27;</span>],\r\n    <span class=\"hljs-attr\">F</span>: [<span class=\"hljs-string\">&#x27;G&#x27;</span>],\r\n    <span class=\"hljs-attr\">G</span>: []\r\n  }\r\n  <span class=\"hljs-comment\">/*\r\n        A &lt;-&gt; B\r\n        ʌ     |\r\n        |     |\r\n        v     v\r\n  C --&gt; D &lt;-- E\r\n\r\n  F --&gt; G\r\n  */</span>\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return the visited nodes&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">breadthFirstShortestPath</span>(graph, <span class=\"hljs-string\">&#x27;C&#x27;</span>, <span class=\"hljs-string\">&#x27;E&#x27;</span>)).<span class=\"hljs-title function_\">toEqual</span>([<span class=\"hljs-string\">&#x27;C&#x27;</span>, <span class=\"hljs-string\">&#x27;D&#x27;</span>, <span class=\"hljs-string\">&#x27;A&#x27;</span>, <span class=\"hljs-string\">&#x27;B&#x27;</span>, <span class=\"hljs-string\">&#x27;E&#x27;</span>])\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">breadthFirstShortestPath</span>(graph, <span class=\"hljs-string\">&#x27;E&#x27;</span>, <span class=\"hljs-string\">&#x27;B&#x27;</span>)).<span class=\"hljs-title function_\">toEqual</span>([<span class=\"hljs-string\">&#x27;E&#x27;</span>, <span class=\"hljs-string\">&#x27;D&#x27;</span>, <span class=\"hljs-string\">&#x27;A&#x27;</span>, <span class=\"hljs-string\">&#x27;B&#x27;</span>])\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">breadthFirstShortestPath</span>(graph, <span class=\"hljs-string\">&#x27;F&#x27;</span>, <span class=\"hljs-string\">&#x27;G&#x27;</span>)).<span class=\"hljs-title function_\">toEqual</span>([<span class=\"hljs-string\">&#x27;F&#x27;</span>, <span class=\"hljs-string\">&#x27;G&#x27;</span>])\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">breadthFirstShortestPath</span>(graph, <span class=\"hljs-string\">&#x27;A&#x27;</span>, <span class=\"hljs-string\">&#x27;G&#x27;</span>)).<span class=\"hljs-title function_\">toEqual</span>([])\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Tapajyoti Bose",
+      "email": "44058757+ruppysuppy@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "algobytewise",
+      "email": "algobytewise@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Roland Hummel",
+      "email": "roland.hummel@qaware.de",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

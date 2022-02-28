@@ -1,0 +1,29 @@
+{
+  "slug": "board-status",
+  "name": "Board Status",
+  "categories": [
+    "ai",
+    "minimax",
+    "sources",
+    "minimaxplayground",
+    "sources",
+    "model",
+    "board"
+  ],
+  "body": {},
+  "implementations": {
+    "swift": {
+      "dir": "algorithms\\AI\\minimax\\Sources\\Minimax.playground\\Sources\\Model\\Board\\BoardStatus.swift",
+      "url": "https://github.com/TheAlgorithms/swift/tree/master/algorithms\\AI\\minimax\\Sources\\Minimax.playground\\Sources\\Model\\Board\\BoardStatus.swift",
+      "code": "<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">enum</span> <span class=\"hljs-title class_\">BoardStatus</span> {\r\n\r\n    <span class=\"hljs-keyword\">case</span> continues\r\n\r\n    <span class=\"hljs-keyword\">case</span> win\r\n\r\n    <span class=\"hljs-keyword\">case</span> draw\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "michalnowak061",
+      "email": "michal.nowak061@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

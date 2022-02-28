@@ -1,0 +1,38 @@
+{
+  "slug": "breadth-first-search-shortest-path",
+  "name": "Breadth First Search Shortest Path",
+  "categories": [
+    "graphs"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "graphs\\breadth_first_search_shortest_path.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/graphs\\breadth_first_search_shortest_path.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;Breath First Search (BFS) can be used when finding the shortest path\r\nfrom a given source node to a target node in an unweighted graph.\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">from</span> __future__ <span class=\"hljs-keyword\">import</span> annotations\r\n\r\ngraph = {\r\n    <span class=\"hljs-string\">&quot;A&quot;</span>: [<span class=\"hljs-string\">&quot;B&quot;</span>, <span class=\"hljs-string\">&quot;C&quot;</span>, <span class=\"hljs-string\">&quot;E&quot;</span>],\r\n    <span class=\"hljs-string\">&quot;B&quot;</span>: [<span class=\"hljs-string\">&quot;A&quot;</span>, <span class=\"hljs-string\">&quot;D&quot;</span>, <span class=\"hljs-string\">&quot;E&quot;</span>],\r\n    <span class=\"hljs-string\">&quot;C&quot;</span>: [<span class=\"hljs-string\">&quot;A&quot;</span>, <span class=\"hljs-string\">&quot;F&quot;</span>, <span class=\"hljs-string\">&quot;G&quot;</span>],\r\n    <span class=\"hljs-string\">&quot;D&quot;</span>: [<span class=\"hljs-string\">&quot;B&quot;</span>],\r\n    <span class=\"hljs-string\">&quot;E&quot;</span>: [<span class=\"hljs-string\">&quot;A&quot;</span>, <span class=\"hljs-string\">&quot;B&quot;</span>, <span class=\"hljs-string\">&quot;D&quot;</span>],\r\n    <span class=\"hljs-string\">&quot;F&quot;</span>: [<span class=\"hljs-string\">&quot;C&quot;</span>],\r\n    <span class=\"hljs-string\">&quot;G&quot;</span>: [<span class=\"hljs-string\">&quot;C&quot;</span>],\r\n}\r\n\r\n\r\n<span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Graph</span>:\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">__init__</span>(<span class=\"hljs-params\">self, graph: <span class=\"hljs-built_in\">dict</span>[<span class=\"hljs-built_in\">str</span>, <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">str</span>]], source_vertex: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-literal\">None</span>:\r\n        <span class=\"hljs-string\">&quot;&quot;&quot;\r\n        Graph is implemented as dictionary of adjacency lists. Also,\r\n        Source vertex have to be defined upon initialization.\r\n        &quot;&quot;&quot;</span>\r\n        self.graph = graph\r\n        <span class=\"hljs-comment\"># mapping node to its parent in resulting breadth first tree</span>\r\n        self.parent: <span class=\"hljs-built_in\">dict</span>[<span class=\"hljs-built_in\">str</span>, <span class=\"hljs-built_in\">str</span> | <span class=\"hljs-literal\">None</span>] = {}\r\n        self.source_vertex = source_vertex\r\n\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">breath_first_search</span>(<span class=\"hljs-params\">self</span>) -&gt; <span class=\"hljs-literal\">None</span>:\r\n        <span class=\"hljs-string\">&quot;&quot;&quot;\r\n        This function is a helper for running breath first search on this graph.\r\n        &gt;&gt;&gt; g = Graph(graph, &quot;G&quot;)\r\n        &gt;&gt;&gt; g.breath_first_search()\r\n        &gt;&gt;&gt; g.parent\r\n        {&#x27;G&#x27;: None, &#x27;C&#x27;: &#x27;G&#x27;, &#x27;A&#x27;: &#x27;C&#x27;, &#x27;F&#x27;: &#x27;C&#x27;, &#x27;B&#x27;: &#x27;A&#x27;, &#x27;E&#x27;: &#x27;A&#x27;, &#x27;D&#x27;: &#x27;B&#x27;}\r\n        &quot;&quot;&quot;</span>\r\n        visited = {self.source_vertex}\r\n        self.parent[self.source_vertex] = <span class=\"hljs-literal\">None</span>\r\n        queue = [self.source_vertex]  <span class=\"hljs-comment\"># first in first out queue</span>\r\n\r\n        <span class=\"hljs-keyword\">while</span> queue:\r\n            vertex = queue.pop(<span class=\"hljs-number\">0</span>)\r\n            <span class=\"hljs-keyword\">for</span> adjacent_vertex <span class=\"hljs-keyword\">in</span> self.graph[vertex]:\r\n                <span class=\"hljs-keyword\">if</span> adjacent_vertex <span class=\"hljs-keyword\">not</span> <span class=\"hljs-keyword\">in</span> visited:\r\n                    visited.add(adjacent_vertex)\r\n                    self.parent[adjacent_vertex] = vertex\r\n                    queue.append(adjacent_vertex)\r\n\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">shortest_path</span>(<span class=\"hljs-params\">self, target_vertex: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-built_in\">str</span>:\r\n        <span class=\"hljs-string\">&quot;&quot;&quot;\r\n        This shortest path function returns a string, describing the result:\r\n        1.) No path is found. The string is a human readable message to indicate this.\r\n        2.) The shortest path is found. The string is in the form\r\n            `v1(-&gt;v2-&gt;v3-&gt;...-&gt;vn)`, where v1 is the source vertex and vn is the target\r\n            vertex, if it exists separately.\r\n\r\n        &gt;&gt;&gt; g = Graph(graph, &quot;G&quot;)\r\n        &gt;&gt;&gt; g.breath_first_search()\r\n\r\n        Case 1 - No path is found.\r\n        &gt;&gt;&gt; g.shortest_path(&quot;Foo&quot;)\r\n        &#x27;No path from vertex:G to vertex:Foo&#x27;\r\n\r\n        Case 2 - The path is found.\r\n        &gt;&gt;&gt; g.shortest_path(&quot;D&quot;)\r\n        &#x27;G-&gt;C-&gt;A-&gt;B-&gt;D&#x27;\r\n        &gt;&gt;&gt; g.shortest_path(&quot;G&quot;)\r\n        &#x27;G&#x27;\r\n        &quot;&quot;&quot;</span>\r\n        <span class=\"hljs-keyword\">if</span> target_vertex == self.source_vertex:\r\n            <span class=\"hljs-keyword\">return</span> self.source_vertex\r\n\r\n        target_vertex_parent = self.parent.get(target_vertex)\r\n        <span class=\"hljs-keyword\">if</span> target_vertex_parent <span class=\"hljs-keyword\">is</span> <span class=\"hljs-literal\">None</span>:\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">f&quot;No path from vertex:<span class=\"hljs-subst\">{self.source_vertex}</span> to vertex:<span class=\"hljs-subst\">{target_vertex}</span>&quot;</span>\r\n\r\n        <span class=\"hljs-keyword\">return</span> self.shortest_path(target_vertex_parent) + <span class=\"hljs-string\">f&quot;-&gt;<span class=\"hljs-subst\">{target_vertex}</span>&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    g = Graph(graph, <span class=\"hljs-string\">&quot;G&quot;</span>)\r\n    g.breath_first_search()\r\n    <span class=\"hljs-built_in\">print</span>(g.shortest_path(<span class=\"hljs-string\">&quot;D&quot;</span>))\r\n    <span class=\"hljs-built_in\">print</span>(g.shortest_path(<span class=\"hljs-string\">&quot;G&quot;</span>))\r\n    <span class=\"hljs-built_in\">print</span>(g.shortest_path(<span class=\"hljs-string\">&quot;Foo&quot;</span>))\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hasan",
+      "email": "hasanuli10@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Marcos Cannabrava",
+      "email": "54267712+marcoscannabrava@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Sanders Lin",
+      "email": "45224617+SandersLin@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

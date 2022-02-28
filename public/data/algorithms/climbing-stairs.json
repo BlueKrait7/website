@@ -1,0 +1,73 @@
+{
+  "slug": "climbing-stairs",
+  "name": "Climbing Stairs",
+  "categories": [
+    "dynamicprogramming"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "dynamic_programming\\climbing_stairs.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/dynamic_programming\\climbing_stairs.py",
+      "code": "<span class=\"hljs-comment\">#!/usr/bin/env python3</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">climb_stairs</span>(<span class=\"hljs-params\">n: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">int</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    LeetCdoe No.70: Climbing Stairs\r\n    Distinct ways to climb a n step staircase where\r\n    each time you can either climb 1 or 2 steps.\r\n\r\n    Args:\r\n        n: number of steps of staircase\r\n\r\n    Returns:\r\n        Distinct ways to climb a n step staircase\r\n\r\n    Raises:\r\n        AssertionError: n not positive integer\r\n\r\n    &gt;&gt;&gt; climb_stairs(3)\r\n    3\r\n    &gt;&gt;&gt; climb_stairs(1)\r\n    1\r\n    &gt;&gt;&gt; climb_stairs(-7)  # doctest: +ELLIPSIS\r\n    Traceback (most recent call last):\r\n        ...\r\n    AssertionError: n needs to be positive integer, your input -7\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">assert</span> (\r\n        <span class=\"hljs-built_in\">isinstance</span>(n, <span class=\"hljs-built_in\">int</span>) <span class=\"hljs-keyword\">and</span> n &gt; <span class=\"hljs-number\">0</span>\r\n    ), <span class=\"hljs-string\">f&quot;n needs to be positive integer, your input <span class=\"hljs-subst\">{n}</span>&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> n == <span class=\"hljs-number\">1</span>:\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>\r\n    dp = [<span class=\"hljs-number\">0</span>] * (n + <span class=\"hljs-number\">1</span>)\r\n    dp[<span class=\"hljs-number\">0</span>], dp[<span class=\"hljs-number\">1</span>] = (<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">1</span>)\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-number\">2</span>, n + <span class=\"hljs-number\">1</span>):\r\n        dp[i] = dp[i - <span class=\"hljs-number\">1</span>] + dp[i - <span class=\"hljs-number\">2</span>]\r\n    <span class=\"hljs-keyword\">return</span> dp[n]\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    },
+    "javascript": {
+      "dir": "Dynamic-Programming\\tests\\ClimbingStairs.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Dynamic-Programming\\tests\\ClimbingStairs.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { climbStairs } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../ClimbingStairs&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;ClimbingStairs&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;climbStairs of 0&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">climbStairs</span>(<span class=\"hljs-number\">0</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">1</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;climbStairs of 1&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">climbStairs</span>(<span class=\"hljs-number\">1</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">1</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;climbStairs of 10&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">climbStairs</span>(<span class=\"hljs-number\">10</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">89</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;climbStairs of 15&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">climbStairs</span>(<span class=\"hljs-number\">15</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">987</span>)\r\n  })\r\n})\r\n"
+    },
+    "ruby": {
+      "dir": "dynamic_programming\\climbing_stairs.rb",
+      "url": "https://github.com/TheAlgorithms/ruby/tree/master/dynamic_programming\\climbing_stairs.rb",
+      "code": "<span class=\"hljs-comment\"># You are climbing a staircase. It takes n steps to reach the top.</span>\r\n<span class=\"hljs-comment\"># Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?</span>\r\n\r\n<span class=\"hljs-comment\"># Example 1:</span>\r\n<span class=\"hljs-comment\"># Input: n = 2</span>\r\n<span class=\"hljs-comment\"># Output: 2</span>\r\n<span class=\"hljs-comment\"># Explanation: There are two ways to climb to the top.</span>\r\n<span class=\"hljs-comment\"># 1. 1 step + 1 step</span>\r\n<span class=\"hljs-comment\"># 2. 2 steps</span>\r\n\r\n<span class=\"hljs-comment\"># Example 2:</span>\r\n<span class=\"hljs-comment\"># Input: n = 3</span>\r\n<span class=\"hljs-comment\"># Output: 3</span>\r\n<span class=\"hljs-comment\"># Explanation: There are three ways to climb to the top.</span>\r\n<span class=\"hljs-comment\"># 1. 1 step + 1 step + 1 step</span>\r\n<span class=\"hljs-comment\"># 2. 1 step + 2 steps</span>\r\n<span class=\"hljs-comment\"># 3. 2 steps + 1 step</span>\r\n\r\n<span class=\"hljs-comment\"># Constraints:</span>\r\n<span class=\"hljs-comment\"># 1 &lt;= n &lt;= 45</span>\r\n\r\n<span class=\"hljs-comment\"># Dynamic Programming, Recursive Bottom Up Approach - O(n) Time / O(n) Space</span>\r\n<span class=\"hljs-comment\"># Init memoization hash (only 1 parameter)</span>\r\n<span class=\"hljs-comment\"># Set base cases which are memo[0] = 1 and memo[1] = 1, since there are only 1 way to get to each stair</span>\r\n<span class=\"hljs-comment\"># Iterate from 2..n and call recurse(n, memo) for each value n.</span>\r\n<span class=\"hljs-comment\"># Return memo[n].</span>\r\n\r\n<span class=\"hljs-comment\"># recurse(n, memo) - Recurrence Relation is n = (n - 1) + (n - 2)</span>\r\n<span class=\"hljs-comment\"># return memo[n] if memo[n] exists.</span>\r\n<span class=\"hljs-comment\"># otherwise, memo[n] = recurse(n - 1, memo) + recurse(n - 2, memo)</span>\r\n\r\n<span class=\"hljs-comment\"># <span class=\"hljs-doctag\">@param</span> {Integer} n</span>\r\n<span class=\"hljs-comment\"># <span class=\"hljs-doctag\">@return</span> {Integer}</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">climb_stairs</span><span class=\"hljs-params\">(n)</span></span>\r\n  memo = {}\r\n\r\n  memo[<span class=\"hljs-number\">0</span>] = <span class=\"hljs-number\">1</span>\r\n  memo[<span class=\"hljs-number\">1</span>] = <span class=\"hljs-number\">1</span>\r\n\r\n  <span class=\"hljs-keyword\">return</span> memo[n] <span class=\"hljs-keyword\">if</span> [<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>].<span class=\"hljs-keyword\">include</span>?(n)\r\n\r\n  (<span class=\"hljs-number\">2</span>..n).each <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|n|</span>\r\n    recurse(n, memo)\r\n  <span class=\"hljs-keyword\">end</span>\r\n\r\n  memo[n]\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">recurse</span><span class=\"hljs-params\">(n, memo)</span></span>\r\n  <span class=\"hljs-keyword\">return</span> memo[n] <span class=\"hljs-keyword\">if</span> memo[n]\r\n\r\n  memo[n] = recurse(n - <span class=\"hljs-number\">1</span>, memo) + recurse(n - <span class=\"hljs-number\">2</span>, memo)\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\nputs climb_stairs(<span class=\"hljs-number\">2</span>)\r\n<span class=\"hljs-comment\"># =&gt; 2</span>\r\n\r\nputs climb_stairs(<span class=\"hljs-number\">4</span>)\r\n<span class=\"hljs-comment\"># =&gt; 5</span>\r\n\r\nputs climb_stairs(<span class=\"hljs-number\">10</span>)\r\n<span class=\"hljs-comment\"># =&gt; 89</span>\r\n\r\nputs climb_stairs(<span class=\"hljs-number\">45</span>)\r\n<span class=\"hljs-comment\"># =&gt; 1836311903</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Brett Smith",
+      "email": "hello@thebrettsmith.com",
+      "commits": 1
+    },
+    {
+      "name": "illegalcall",
+      "email": "44542765+illegalcall@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "CarsonHam",
+      "email": "carson.ham@utexas.edu",
+      "commits": 1
+    },
+    {
+      "name": "Sanders Lin",
+      "email": "45224617+SandersLin@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "sidaksohi",
+      "email": "31377210+sidaksohi@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "YATIN KATHURIA",
+      "email": "47096348+Yatin-kathuria@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

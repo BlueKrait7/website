@@ -1,0 +1,33 @@
+{
+  "slug": "check-camel-case",
+  "name": "Check Camel Case",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "String\\test\\CheckCamelCase.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/String\\test\\CheckCamelCase.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { checkCamelCase } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../CheckCamelCase&#x27;</span>\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;checkCamelCase&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expect to throw an error if input is not a string&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> <span class=\"hljs-title function_\">checkCamelCase</span>(<span class=\"hljs-literal\">null</span>)).<span class=\"hljs-title function_\">toThrow</span>()\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return true if the input is in camel case format&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> value = <span class=\"hljs-string\">&#x27;dockerBuild&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> result = <span class=\"hljs-title function_\">checkCamelCase</span>(value)\r\n    <span class=\"hljs-title function_\">expect</span>(result).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">true</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return false if the input is not in camel case format&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> value = <span class=\"hljs-string\">&#x27;docker_build&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> result = <span class=\"hljs-title function_\">checkCamelCase</span>(value)\r\n    <span class=\"hljs-title function_\">expect</span>(result).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">false</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "SURYAPRATAP SINGH SURYAVANSHI",
+      "email": "67123991+suryapratapsinghsuryavanshi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "alvux",
+      "email": "alexandre.vu@hotmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Suryapratap Singh",
+      "email": "suryprtaps@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

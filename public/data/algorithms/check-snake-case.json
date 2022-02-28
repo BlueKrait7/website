@@ -1,0 +1,28 @@
+{
+  "slug": "check-snake-case",
+  "name": "Check Snake Case",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "String\\test\\CheckSnakeCase.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/String\\test\\CheckSnakeCase.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { checkSnakeCase } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../CheckSnakeCase&#x27;</span>\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;checkSnakeCase&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expect to throw an error if input is not a string&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> <span class=\"hljs-title function_\">checkSnakeCase</span>(<span class=\"hljs-number\">0</span>)).<span class=\"hljs-title function_\">toThrow</span>()\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return true if the input is in snake case format&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> value = <span class=\"hljs-string\">&#x27;docker_build&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> result = <span class=\"hljs-title function_\">checkSnakeCase</span>(value)\r\n    <span class=\"hljs-title function_\">expect</span>(result).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">true</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return false if the input is not in snake case format&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> value = <span class=\"hljs-string\">&#x27;dockerBuild&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> result = <span class=\"hljs-title function_\">checkSnakeCase</span>(value)\r\n    <span class=\"hljs-title function_\">expect</span>(result).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">false</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Suryapratap Singh",
+      "email": "suryprtaps@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "alvux",
+      "email": "alexandre.vu@hotmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

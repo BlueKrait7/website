@@ -1,0 +1,38 @@
+{
+  "slug": "brute-force-string-searching",
+  "name": "Brute Force String Searching",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "c-plus-plus": {
+      "dir": "strings\\brute_force_string_searching.cpp",
+      "url": "https://github.com/TheAlgorithms/c-plus-plus/tree/master/strings\\brute_force_string_searching.cpp",
+      "code": "<span class=\"hljs-comment\">/**\r\n * @file\r\n * @brief          String pattern search - brute force\r\n */</span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;iostream&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">ifdef</span> _MSC_VER</span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;string&gt;</span>  <span class=\"hljs-comment\">// use this for MS Visual C++</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">else</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;cstring&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">endif</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;vector&gt;</span></span>\r\n\r\n<span class=\"hljs-keyword\">namespace</span> string_search {\r\n<span class=\"hljs-comment\">/**\r\n * Find a pattern in a string by comparing the pattern to every substring.\r\n * @param text     Any string that might contain the pattern.\r\n * @param pattern  String that we are searching for.\r\n * @return         Index where the pattern starts in the text\r\n * @return         -1 if the pattern was not found.\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">int</span> <span class=\"hljs-title\">brute_force</span><span class=\"hljs-params\">(<span class=\"hljs-type\">const</span> std::string &amp;text, <span class=\"hljs-type\">const</span> std::string &amp;pattern)</span> </span>{\r\n    <span class=\"hljs-type\">size_t</span> pat_l = pattern.<span class=\"hljs-built_in\">length</span>();\r\n    <span class=\"hljs-type\">size_t</span> txt_l = text.<span class=\"hljs-built_in\">length</span>();\r\n    <span class=\"hljs-type\">int</span> index = <span class=\"hljs-number\">-1</span>;\r\n    <span class=\"hljs-keyword\">if</span> (pat_l &lt;= txt_l) {\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">size_t</span> i = <span class=\"hljs-number\">0</span>; i &lt; txt_l - pat_l + <span class=\"hljs-number\">1</span>; i++) {\r\n            std::string s = text.<span class=\"hljs-built_in\">substr</span>(i, pat_l);\r\n            <span class=\"hljs-keyword\">if</span> (s == pattern) {\r\n                index = i;\r\n                <span class=\"hljs-keyword\">break</span>;\r\n            }\r\n        }\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> index;\r\n}\r\n}  <span class=\"hljs-comment\">// namespace string_search</span>\r\n\r\n<span class=\"hljs-keyword\">using</span> string_search::brute_force;\r\n\r\n<span class=\"hljs-comment\">/** set of test cases */</span>\r\n<span class=\"hljs-type\">const</span> std::vector&lt;std::vector&lt;std::string&gt;&gt; test_set = {\r\n    <span class=\"hljs-comment\">// {text, pattern, expected output}</span>\r\n    {<span class=\"hljs-string\">&quot;a&quot;</span>, <span class=\"hljs-string\">&quot;aa&quot;</span>, <span class=\"hljs-string\">&quot;-1&quot;</span>},  {<span class=\"hljs-string\">&quot;a&quot;</span>, <span class=\"hljs-string\">&quot;a&quot;</span>, <span class=\"hljs-string\">&quot;0&quot;</span>},    {<span class=\"hljs-string\">&quot;ba&quot;</span>, <span class=\"hljs-string\">&quot;b&quot;</span>, <span class=\"hljs-string\">&quot;0&quot;</span>},\r\n    {<span class=\"hljs-string\">&quot;bba&quot;</span>, <span class=\"hljs-string\">&quot;bb&quot;</span>, <span class=\"hljs-string\">&quot;0&quot;</span>}, {<span class=\"hljs-string\">&quot;bbca&quot;</span>, <span class=\"hljs-string\">&quot;c&quot;</span>, <span class=\"hljs-string\">&quot;2&quot;</span>}, {<span class=\"hljs-string\">&quot;ab&quot;</span>, <span class=\"hljs-string\">&quot;b&quot;</span>, <span class=\"hljs-string\">&quot;1&quot;</span>}};\r\n\r\n<span class=\"hljs-comment\">/** Main function */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">int</span> <span class=\"hljs-title\">main</span><span class=\"hljs-params\">()</span> </span>{\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">const</span> <span class=\"hljs-keyword\">auto</span> &amp;i : test_set) {\r\n        <span class=\"hljs-type\">int</span> output = <span class=\"hljs-built_in\">brute_force</span>(i[<span class=\"hljs-number\">0</span>], i[<span class=\"hljs-number\">1</span>]);\r\n\r\n        <span class=\"hljs-keyword\">if</span> (std::<span class=\"hljs-built_in\">to_string</span>(output) == i[<span class=\"hljs-number\">2</span>]) {\r\n            std::cout &lt;&lt; <span class=\"hljs-string\">&quot;success\\n&quot;</span>;\r\n        } <span class=\"hljs-keyword\">else</span> {\r\n            std::cout &lt;&lt; <span class=\"hljs-string\">&quot;failure\\n&quot;</span>;\r\n        }\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Krishna Vedala",
+      "email": "7001608+kvedala@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Siddhartha Shankar Padhy",
+      "email": "83332618+Siddhartha-Padhy@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Goyal-Akshit",
+      "email": "91284474+Goyal-Akshit@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "1pierres1u",
+      "email": "1pierres1u@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

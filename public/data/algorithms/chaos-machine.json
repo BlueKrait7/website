@@ -1,0 +1,48 @@
+{
+  "slug": "chaos-machine",
+  "name": "Chaos Machine",
+  "categories": [
+    "hashing"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "hashes\\chaos_machine.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/hashes\\chaos_machine.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;example of simple chaos machine&quot;&quot;&quot;</span>\r\n\r\n<span class=\"hljs-comment\"># Chaos Machine (K, t, m)</span>\r\nK = [<span class=\"hljs-number\">0.33</span>, <span class=\"hljs-number\">0.44</span>, <span class=\"hljs-number\">0.55</span>, <span class=\"hljs-number\">0.44</span>, <span class=\"hljs-number\">0.33</span>]\r\nt = <span class=\"hljs-number\">3</span>\r\nm = <span class=\"hljs-number\">5</span>\r\n\r\n<span class=\"hljs-comment\"># Buffer Space (with Parameters Space)</span>\r\nbuffer_space: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">float</span>] = []\r\nparams_space: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">float</span>] = []\r\n\r\n<span class=\"hljs-comment\"># Machine Time</span>\r\nmachine_time = <span class=\"hljs-number\">0</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">push</span>(<span class=\"hljs-params\">seed</span>):\r\n    <span class=\"hljs-keyword\">global</span> buffer_space, params_space, machine_time, K, m, t\r\n\r\n    <span class=\"hljs-comment\"># Choosing Dynamical Systems (All)</span>\r\n    <span class=\"hljs-keyword\">for</span> key, value <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">enumerate</span>(buffer_space):\r\n        <span class=\"hljs-comment\"># Evolution Parameter</span>\r\n        e = <span class=\"hljs-built_in\">float</span>(seed / value)\r\n\r\n        <span class=\"hljs-comment\"># Control Theory: Orbit Change</span>\r\n        value = (buffer_space[(key + <span class=\"hljs-number\">1</span>) % m] + e) % <span class=\"hljs-number\">1</span>\r\n\r\n        <span class=\"hljs-comment\"># Control Theory: Trajectory Change</span>\r\n        r = (params_space[key] + e) % <span class=\"hljs-number\">1</span> + <span class=\"hljs-number\">3</span>\r\n\r\n        <span class=\"hljs-comment\"># Modification (Transition Function) - Jumps</span>\r\n        buffer_space[key] = <span class=\"hljs-built_in\">round</span>(<span class=\"hljs-built_in\">float</span>(r * value * (<span class=\"hljs-number\">1</span> - value)), <span class=\"hljs-number\">10</span>)\r\n        params_space[key] = r  <span class=\"hljs-comment\"># Saving to Parameters Space</span>\r\n\r\n    <span class=\"hljs-comment\"># Logistic Map</span>\r\n    <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-built_in\">max</span>(buffer_space) &lt; <span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-built_in\">max</span>(params_space) &lt; <span class=\"hljs-number\">4</span>\r\n\r\n    <span class=\"hljs-comment\"># Machine Time</span>\r\n    machine_time += <span class=\"hljs-number\">1</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">pull</span>():\r\n    <span class=\"hljs-keyword\">global</span> buffer_space, params_space, machine_time, K, m, t\r\n\r\n    <span class=\"hljs-comment\"># PRNG (Xorshift by George Marsaglia)</span>\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">xorshift</span>(<span class=\"hljs-params\">X, Y</span>):\r\n        X ^= Y &gt;&gt; <span class=\"hljs-number\">13</span>\r\n        Y ^= X &lt;&lt; <span class=\"hljs-number\">17</span>\r\n        X ^= Y &gt;&gt; <span class=\"hljs-number\">5</span>\r\n        <span class=\"hljs-keyword\">return</span> X\r\n\r\n    <span class=\"hljs-comment\"># Choosing Dynamical Systems (Increment)</span>\r\n    key = machine_time % m\r\n\r\n    <span class=\"hljs-comment\"># Evolution (Time Length)</span>\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-number\">0</span>, t):\r\n        <span class=\"hljs-comment\"># Variables (Position + Parameters)</span>\r\n        r = params_space[key]\r\n        value = buffer_space[key]\r\n\r\n        <span class=\"hljs-comment\"># Modification (Transition Function) - Flow</span>\r\n        buffer_space[key] = <span class=\"hljs-built_in\">round</span>(<span class=\"hljs-built_in\">float</span>(r * value * (<span class=\"hljs-number\">1</span> - value)), <span class=\"hljs-number\">10</span>)\r\n        params_space[key] = (machine_time * <span class=\"hljs-number\">0.01</span> + r * <span class=\"hljs-number\">1.01</span>) % <span class=\"hljs-number\">1</span> + <span class=\"hljs-number\">3</span>\r\n\r\n    <span class=\"hljs-comment\"># Choosing Chaotic Data</span>\r\n    X = <span class=\"hljs-built_in\">int</span>(buffer_space[(key + <span class=\"hljs-number\">2</span>) % m] * (<span class=\"hljs-number\">10</span>**<span class=\"hljs-number\">10</span>))\r\n    Y = <span class=\"hljs-built_in\">int</span>(buffer_space[(key - <span class=\"hljs-number\">2</span>) % m] * (<span class=\"hljs-number\">10</span>**<span class=\"hljs-number\">10</span>))\r\n\r\n    <span class=\"hljs-comment\"># Machine Time</span>\r\n    machine_time += <span class=\"hljs-number\">1</span>\r\n\r\n    <span class=\"hljs-keyword\">return</span> xorshift(X, Y) % <span class=\"hljs-number\">0xFFFFFFFF</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">reset</span>():\r\n    <span class=\"hljs-keyword\">global</span> buffer_space, params_space, machine_time, K, m, t\r\n\r\n    buffer_space = K\r\n    params_space = [<span class=\"hljs-number\">0</span>] * m\r\n    machine_time = <span class=\"hljs-number\">0</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-comment\"># Initialization</span>\r\n    reset()\r\n\r\n    <span class=\"hljs-comment\"># Pushing Data (Input)</span>\r\n    <span class=\"hljs-keyword\">import</span> random\r\n\r\n    message = random.sample(<span class=\"hljs-built_in\">range</span>(<span class=\"hljs-number\">0xFFFFFFFF</span>), <span class=\"hljs-number\">100</span>)\r\n    <span class=\"hljs-keyword\">for</span> chunk <span class=\"hljs-keyword\">in</span> message:\r\n        push(chunk)\r\n\r\n    <span class=\"hljs-comment\"># for controlling</span>\r\n    inp = <span class=\"hljs-string\">&quot;&quot;</span>\r\n\r\n    <span class=\"hljs-comment\"># Pulling Data (Output)</span>\r\n    <span class=\"hljs-keyword\">while</span> inp <span class=\"hljs-keyword\">in</span> (<span class=\"hljs-string\">&quot;e&quot;</span>, <span class=\"hljs-string\">&quot;E&quot;</span>):\r\n        <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;%s&quot;</span> % <span class=\"hljs-built_in\">format</span>(pull(), <span class=\"hljs-string\">&quot;#04x&quot;</span>))\r\n        <span class=\"hljs-built_in\">print</span>(buffer_space)\r\n        <span class=\"hljs-built_in\">print</span>(params_space)\r\n        inp = <span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;(e)exit? &quot;</span>).strip()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "algobytewise",
+      "email": "algobytewise@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Maciej A. Czyzewski",
+      "email": "mail@maciejczyzewski.me",
+      "commits": 1
+    },
+    {
+      "name": "Christian Bender",
+      "email": "christianbender89@web.de",
+      "commits": 2
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 3
+    },
+    {
+      "name": "cclauss",
+      "email": "cclauss@bluewin.ch",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "brick-sort",
+  "name": "Brick Sort",
+  "categories": [
+    "sorts"
+  ],
+  "body": {},
+  "implementations": {
+    "kotlin": {
+      "dir": "src\\main\\kotlin\\sort\\BrickSort.kt",
+      "url": "https://github.com/TheAlgorithms/kotlin/tree/master/src\\main\\kotlin\\sort\\BrickSort.kt",
+      "code": "<span class=\"hljs-keyword\">package</span> sort\r\n\r\n<span class=\"hljs-comment\">/**\r\n * This method implements the Generic Brick Sort\r\n *\r\n * <span class=\"hljs-doctag\">@param</span> array The array to be sorted\r\n * Sorts the array in increasing order\r\n *\r\n * Worst-case performance\tO(n^2)\r\n * Best-case performance\tO(n)\r\n * Average performance\tO(n^2)\r\n * Worst-case space complexity\tO(1)\r\n **/</span>\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">fun</span> <span class=\"hljs-type\">&lt;T : Comparable&lt;T&gt;</span>&gt;  <span class=\"hljs-title\">oddEvenSort</span><span class=\"hljs-params\">(array: <span class=\"hljs-type\">Array</span>&lt;<span class=\"hljs-type\">T</span>&gt;)</span></span> {\r\n    <span class=\"hljs-keyword\">var</span> isSorted = <span class=\"hljs-literal\">false</span>\r\n    <span class=\"hljs-keyword\">while</span> (!isSorted) {\r\n        isSorted = <span class=\"hljs-literal\">true</span>\r\n        <span class=\"hljs-keyword\">var</span> temp : Comparable&lt;T&gt;\r\n\r\n\r\n        <span class=\"hljs-keyword\">var</span> i = <span class=\"hljs-number\">1</span>\r\n        <span class=\"hljs-keyword\">while</span> (i &lt;= array.size - <span class=\"hljs-number\">2</span>) {\r\n            <span class=\"hljs-keyword\">if</span> (array[i] &gt; array[i + <span class=\"hljs-number\">1</span>]) {\r\n                temp = array[i]\r\n                array[i] = array[i + <span class=\"hljs-number\">1</span>]\r\n                array[i + <span class=\"hljs-number\">1</span>] = temp\r\n                isSorted = <span class=\"hljs-literal\">false</span>\r\n            }\r\n            i += <span class=\"hljs-number\">2</span>\r\n        }\r\n        <span class=\"hljs-keyword\">var</span> j = <span class=\"hljs-number\">0</span>\r\n        <span class=\"hljs-keyword\">while</span> (j &lt;= array.size - <span class=\"hljs-number\">2</span>) {\r\n            <span class=\"hljs-keyword\">if</span> (array[j] &gt; array[j + <span class=\"hljs-number\">1</span>]) {\r\n                temp = array[j]\r\n                array[j] = array[j + <span class=\"hljs-number\">1</span>]\r\n                array[j + <span class=\"hljs-number\">1</span>] = temp\r\n                isSorted = <span class=\"hljs-literal\">false</span>\r\n            }\r\n            j += <span class=\"hljs-number\">2</span>\r\n        }\r\n    }\r\n    <span class=\"hljs-keyword\">return</span>\r\n}"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Akshay-H",
+      "email": "akshayhari555@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

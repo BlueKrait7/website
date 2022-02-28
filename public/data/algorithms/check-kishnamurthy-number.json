@@ -1,0 +1,33 @@
+{
+  "slug": "check-kishnamurthy-number",
+  "name": "Check Kishnamurthy Number",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\CheckKishnamurthyNumber.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\CheckKishnamurthyNumber.js",
+      "code": "<span class=\"hljs-comment\">/*\r\n    Problem statement and Explanation : https://www.geeksforgeeks.org/check-if-a-number-is-a-krishnamurthy-number-or-not-2/\r\n\r\n    krishnamurthy number is a number the sum of the all factorial of the all dights is equal to the number itself.\r\n    145 =&gt; 1! + 4! + 5! = 1  + 24 + 120 = 145\r\n*/</span>\r\n\r\n<span class=\"hljs-comment\">// factorial utility method.</span>\r\n<span class=\"hljs-keyword\">const</span> <span class=\"hljs-title function_\">factorial</span> = (<span class=\"hljs-params\">n</span>) =&gt; {\r\n  <span class=\"hljs-keyword\">let</span> fact = <span class=\"hljs-number\">1</span>\r\n  <span class=\"hljs-keyword\">while</span> (n !== <span class=\"hljs-number\">0</span>) {\r\n    fact = fact * n\r\n    n--\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> fact\r\n}\r\n\r\n<span class=\"hljs-comment\">/**\r\n * krishnamurthy number is a number the sum of the factorial of the all dights is equal to the number itself.\r\n * <span class=\"hljs-doctag\">@param</span> {<span class=\"hljs-type\">Number</span>} number a number for checking is krishnamurthy number or not.\r\n * <span class=\"hljs-doctag\">@returns</span> return correspond boolean value, if the number is krishnamurthy number return `true` else return `false`.\r\n * <span class=\"hljs-doctag\">@example</span> 145 =&gt; 1! + 4! + 5! = 1  + 24 + 120 = 145\r\n */</span>\r\n<span class=\"hljs-keyword\">const</span> <span class=\"hljs-title function_\">CheckKishnamurthyNumber</span> = (<span class=\"hljs-params\">number</span>) =&gt; {\r\n  <span class=\"hljs-comment\">// firstly, check that input is a number or not.</span>\r\n  <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-keyword\">typeof</span> number !== <span class=\"hljs-string\">&#x27;number&#x27;</span>) {\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">TypeError</span>(<span class=\"hljs-string\">&#x27;Argument is not a number.&#x27;</span>)\r\n  }\r\n  <span class=\"hljs-comment\">// create a variable to store the sum of all digits factorial.</span>\r\n  <span class=\"hljs-keyword\">let</span> sumOfAllDigitFactorial = <span class=\"hljs-number\">0</span>\r\n  <span class=\"hljs-comment\">// convert the number to string for convenience.</span>\r\n  <span class=\"hljs-keyword\">let</span> newNumber = number\r\n  <span class=\"hljs-comment\">// Extract number digits using the remainder method.</span>\r\n  <span class=\"hljs-keyword\">while</span> (newNumber &gt; <span class=\"hljs-number\">0</span>) {\r\n    <span class=\"hljs-keyword\">const</span> lastDigit = newNumber % <span class=\"hljs-number\">10</span>\r\n    <span class=\"hljs-comment\">// calculate each digit factorial.</span>\r\n    sumOfAllDigitFactorial += <span class=\"hljs-title function_\">factorial</span>(lastDigit)\r\n    newNumber = <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">floor</span>(newNumber / <span class=\"hljs-number\">10</span>)\r\n  }\r\n  <span class=\"hljs-comment\">// if the sumOftheFactorial is equal to the given number it means the number is a Krishnamurthy number.</span>\r\n  <span class=\"hljs-keyword\">return</span> sumOfAllDigitFactorial === number\r\n}\r\n\r\n<span class=\"hljs-keyword\">export</span> { <span class=\"hljs-title class_\">CheckKishnamurthyNumber</span> }\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Keshav Bohra",
+      "email": "keshav2016@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Suryapratap Singh",
+      "email": "suryprtaps@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

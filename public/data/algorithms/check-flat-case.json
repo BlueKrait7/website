@@ -1,0 +1,28 @@
+{
+  "slug": "check-flat-case",
+  "name": "Check Flat Case",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "String\\test\\CheckFlatCase.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/String\\test\\CheckFlatCase.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { checkFlatCase } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../CheckFlatCase&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;checkFlatCase function&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return false when the input string is not in flatcase&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> actual = <span class=\"hljs-title function_\">checkFlatCase</span>(<span class=\"hljs-string\">&#x27;this is not in flatcase&#x27;</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(actual).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">false</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return true when the input string is a single letter character&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> actual = <span class=\"hljs-title function_\">checkFlatCase</span>(<span class=\"hljs-string\">&#x27;a&#x27;</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(actual).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">true</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return true when the input string is a string of lowercase letter characters with no spaces&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> actual = <span class=\"hljs-title function_\">checkFlatCase</span>(<span class=\"hljs-string\">&#x27;abcdefghijklmnopqrstuvwxyz&#x27;</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(actual).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">true</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Suryapratap Singh",
+      "email": "suryprtaps@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Charlie Moore",
+      "email": "58339043+charliejmoore@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

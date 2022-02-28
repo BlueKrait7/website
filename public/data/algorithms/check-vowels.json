@@ -1,0 +1,43 @@
+{
+  "slug": "check-vowels",
+  "name": "Check Vowels",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\strings\\CheckVowels.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\strings\\CheckVowels.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.strings;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Vowel Count is a system whereby character strings are placed in order based\r\n * on the position of the characters in the conventional ordering of an\r\n * alphabet. Wikipedia: https://en.wikipedia.org/wiki/Alphabetical_order\r\n */</span>\r\n<span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">CheckVowels</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-keyword\">assert</span> !hasVowels(<span class=\"hljs-string\">&quot;This is a strings&quot;</span>);\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">hasVowels</span><span class=\"hljs-params\">(<span class=\"hljs-string\">&quot;Hello World&quot;</span>)</span>;\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">hasVowels</span><span class=\"hljs-params\">(<span class=\"hljs-string\">&quot;Java is fun&quot;</span>)</span>;\r\n        <span class=\"hljs-keyword\">assert</span> !hasVowels(<span class=\"hljs-string\">&quot;123hi&quot;</span>);\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">hasVowels</span><span class=\"hljs-params\">(<span class=\"hljs-string\">&quot;Coding vs Programming&quot;</span>)</span>;\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Check if a string is has vowels or not\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> input a string\r\n     * <span class=\"hljs-doctag\">@return</span> {<span class=\"hljs-doctag\">@code</span> true} if given string has vowels, otherwise {<span class=\"hljs-doctag\">@code</span> false}\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">boolean</span> <span class=\"hljs-title function_\">hasVowels</span><span class=\"hljs-params\">(String input)</span> {\r\n        <span class=\"hljs-keyword\">if</span> (input.matches(<span class=\"hljs-string\">&quot;[AEIOUaeiou]&quot;</span>)) {\r\n            countVowels(input);\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">true</span>;\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>;\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * count the number of vowels\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> input a string prints the count of vowels\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">countVowels</span><span class=\"hljs-params\">(String input)</span> {\r\n        input = input.toLowerCase();\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">count</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>;\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>;\r\n        <span class=\"hljs-keyword\">while</span> (i &lt; input.length()) {\r\n            <span class=\"hljs-keyword\">if</span> (input.charAt(i) == <span class=\"hljs-string\">&#x27;a&#x27;</span>\r\n                    || input.charAt(i) == <span class=\"hljs-string\">&#x27;e&#x27;</span>\r\n                    || input.charAt(i) == <span class=\"hljs-string\">&#x27;i&#x27;</span>\r\n                    || input.charAt(i) == <span class=\"hljs-string\">&#x27;o&#x27;</span>\r\n                    || input.charAt(i) == <span class=\"hljs-string\">&#x27;u&#x27;</span>) {\r\n                count++;\r\n            }\r\n            i++;\r\n        }\r\n        System.out.println(count);\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Rak Laptudirm",
+      "email": "raklaptudirm@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Charlie Moore",
+      "email": "58339043+charliejmoore@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Shravana Tirtha",
+      "email": "34398606+shravanatirtha@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Carlos Carvalho",
+      "email": "jcarloss.carvalho@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

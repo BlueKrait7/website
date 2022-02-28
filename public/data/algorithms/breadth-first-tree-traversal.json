@@ -1,0 +1,43 @@
+{
+  "slug": "breadth-first-tree-traversal",
+  "name": "Breadth First Tree Traversal",
+  "categories": [
+    "tree"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Trees\\test\\BreadthFirstTreeTraversal.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Trees\\test\\BreadthFirstTreeTraversal.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { <span class=\"hljs-title class_\">BinaryTree</span>, <span class=\"hljs-title class_\">Node</span> } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../BreadthFirstTreeTraversal&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;Breadth First Tree Traversal&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-keyword\">const</span> binaryTree = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">BinaryTree</span>()\r\n\r\n  <span class=\"hljs-keyword\">const</span> root = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Node</span>(<span class=\"hljs-number\">7</span>)\r\n  root.<span class=\"hljs-property\">left</span> = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Node</span>(<span class=\"hljs-number\">5</span>)\r\n  root.<span class=\"hljs-property\">right</span> = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Node</span>(<span class=\"hljs-number\">8</span>)\r\n  root.<span class=\"hljs-property\">left</span>.<span class=\"hljs-property\">left</span> = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Node</span>(<span class=\"hljs-number\">3</span>)\r\n  root.<span class=\"hljs-property\">left</span>.<span class=\"hljs-property\">right</span> = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Node</span>(<span class=\"hljs-number\">6</span>)\r\n  root.<span class=\"hljs-property\">right</span>.<span class=\"hljs-property\">right</span> = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Node</span>(<span class=\"hljs-number\">9</span>)\r\n  binaryTree.<span class=\"hljs-property\">root</span> = root\r\n\r\n  <span class=\"hljs-comment\">// Visualization :</span>\r\n  <span class=\"hljs-comment\">//</span>\r\n  <span class=\"hljs-comment\">//            7</span>\r\n  <span class=\"hljs-comment\">//           / \\</span>\r\n  <span class=\"hljs-comment\">//          5   8</span>\r\n  <span class=\"hljs-comment\">//         / \\   \\</span>\r\n  <span class=\"hljs-comment\">//        3   6   9</span>\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;Binary tree - Level order traversal&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(binaryTree.<span class=\"hljs-property\">traversal</span>).<span class=\"hljs-title function_\">toStrictEqual</span>([])\r\n    <span class=\"hljs-keyword\">const</span> traversal = binaryTree.<span class=\"hljs-title function_\">breadthFirst</span>()\r\n    <span class=\"hljs-title function_\">expect</span>(traversal).<span class=\"hljs-title function_\">toStrictEqual</span>([<span class=\"hljs-number\">7</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">8</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">6</span>, <span class=\"hljs-number\">9</span>])\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Rak Laptudirm",
+      "email": "raklaptudirm@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Worldwidebrine",
+      "email": "40757969+Worldwidebrine@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Keshav Bohra",
+      "email": "keshav2016@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Gerardo A. Abantao Jr",
+      "email": "gaabantao1@up.edu.ph",
+      "commits": 1
+    },
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

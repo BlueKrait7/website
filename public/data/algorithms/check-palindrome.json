@@ -1,0 +1,48 @@
+{
+  "slug": "check-palindrome",
+  "name": "Check Palindrome",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "String\\test\\CheckPalindrome.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/String\\test\\CheckPalindrome.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { checkPalindrome } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../CheckPalindrome&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;checkPalindrome&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return &quot;Palindrome&quot; if the given string is a palindrome&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> <span class=\"hljs-variable constant_\">SUT</span> = <span class=\"hljs-title function_\">checkPalindrome</span>(<span class=\"hljs-string\">&#x27;madam&#x27;</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-variable constant_\">SUT</span>).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;Palindrome&#x27;</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return &quot;Empty string&quot; if the given string is empty&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> <span class=\"hljs-variable constant_\">SUT</span> = <span class=\"hljs-title function_\">checkPalindrome</span>(<span class=\"hljs-string\">&#x27;&#x27;</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-variable constant_\">SUT</span>).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;Empty string&#x27;</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return &quot;Not a string&quot; if the given string is not a string&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> <span class=\"hljs-variable constant_\">SUT</span> = <span class=\"hljs-title function_\">checkPalindrome</span>(<span class=\"hljs-number\">123</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-variable constant_\">SUT</span>).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;Not a string&#x27;</span>)\r\n  })\r\n})\r\n"
+    },
+    "php": {
+      "dir": "String\\CheckPalindrome.php",
+      "url": "https://github.com/TheAlgorithms/php/tree/master/String\\CheckPalindrome.php",
+      "code": "<span class=\"hljs-meta\">&lt;?php</span>\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">is_palindrome</span>(<span class=\"hljs-params\"><span class=\"hljs-keyword\">string</span> <span class=\"hljs-variable\">$string</span>, <span class=\"hljs-keyword\">bool</span> <span class=\"hljs-variable\">$caseInsensitive</span> = <span class=\"hljs-literal\">true</span></span>)\r\n</span>{\r\n    <span class=\"hljs-variable\">$string</span> = <span class=\"hljs-title function_ invoke__\">trim</span>(<span class=\"hljs-variable\">$string</span>); <span class=\"hljs-comment\">// Removing leading and trailing spaces</span>\r\n\r\n    <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-keyword\">empty</span>(<span class=\"hljs-variable\">$string</span>)) {\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>; <span class=\"hljs-comment\">// Returning false for an Empty String</span>\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-variable\">$caseInsensitive</span>) {\r\n        <span class=\"hljs-variable\">$string</span> = <span class=\"hljs-title function_ invoke__\">strtolower</span>(<span class=\"hljs-variable\">$string</span>); <span class=\"hljs-comment\">// Converting string to lowercase for case-insensitive check</span>\r\n    }\r\n\r\n    <span class=\"hljs-variable\">$characters</span> = <span class=\"hljs-title function_ invoke__\">str_split</span>(<span class=\"hljs-variable\">$string</span>);\r\n\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-variable\">$i</span> = <span class=\"hljs-number\">0</span>; <span class=\"hljs-variable\">$i</span> &lt; <span class=\"hljs-title function_ invoke__\">count</span>(<span class=\"hljs-variable\">$characters</span>); <span class=\"hljs-variable\">$i</span>++) {\r\n        <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-variable\">$characters</span>[<span class=\"hljs-variable\">$i</span>] !== <span class=\"hljs-variable\">$characters</span>[<span class=\"hljs-title function_ invoke__\">count</span>(<span class=\"hljs-variable\">$characters</span>) - (<span class=\"hljs-variable\">$i</span> + <span class=\"hljs-number\">1</span>)]) {\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>;\r\n        }\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">true</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Akshay Khale",
+      "email": "khaleakshay@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Keshav Bohra",
+      "email": "keshav2016@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Lokesh Patil",
+      "email": "43759648+IamLokesh@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Swapnil-2001",
+      "email": "53232360+Swapnil-2001@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Alexandre Xavier",
+      "email": "ale.bxsantos@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

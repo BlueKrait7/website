@@ -1,0 +1,24 @@
+{
+  "slug": "checkisnumberpoweroftwo",
+  "name": "Checkisnumberpoweroftwo",
+  "categories": [
+    "math",
+    "binary"
+  ],
+  "body": {},
+  "implementations": {
+    "go": {
+      "dir": "math\\checkisnumberpoweroftwo.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/math\\checkisnumberpoweroftwo.go",
+      "code": "<span class=\"hljs-keyword\">package</span> math\r\n\r\n<span class=\"hljs-keyword\">import</span> (\r\n\t<span class=\"hljs-string\">&quot;math&quot;</span>\r\n)\r\n\r\n<span class=\"hljs-comment\">// IsPowOfTwoUseLog This function checks if a number is a power of two using the logarithm.</span>\r\n<span class=\"hljs-comment\">// The limiting degree can be from 0 to 63.</span>\r\n<span class=\"hljs-comment\">// See alternatives in the binary package.</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">IsPowOfTwoUseLog</span><span class=\"hljs-params\">(number <span class=\"hljs-type\">float64</span>)</span></span> <span class=\"hljs-type\">bool</span> {\r\n\t<span class=\"hljs-keyword\">if</span> number == <span class=\"hljs-number\">0</span> || math.Round(number) == math.MaxInt64 {\r\n\t\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>\r\n\t}\r\n\tlog := math.Log2(number)\r\n\t<span class=\"hljs-keyword\">return</span> log == math.Round(log)\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Ilya Sokolov",
+      "email": "developer.sokolov@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

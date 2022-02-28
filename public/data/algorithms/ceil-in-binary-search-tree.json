@@ -1,0 +1,29 @@
+{
+  "slug": "ceil-in-binary-search-tree",
+  "name": "Ceil In Binary Search Tree",
+  "categories": [
+    "datastructures",
+    "tree"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\datastructures\\trees\\CeilInBinarySearchTree.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\datastructures\\trees\\CeilInBinarySearchTree.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.datastructures.trees;\r\n\r\n<span class=\"hljs-keyword\">import</span> com.thealgorithms.datastructures.trees.BinaryTree.Node;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Problem Statement Ceil value for any number x in a collection is a number y\r\n * which is either equal to x or the least greater number than x.\r\n *\r\n * Problem: Given a binary search tree containing positive integer values. Find\r\n * ceil value for a given key in O(lg(n)) time. In case if it is not present\r\n * return -1.\r\n *\r\n * Ex.1. [30,20,40,10,25,35,50] represents level order traversal of a binary\r\n * search tree. Find ceil for 10. Answer: 20\r\n *\r\n * Ex.2. [30,20,40,10,25,35,50] represents level order traversal of a binary\r\n * search tree. Find ceil for 22 Answer: 25\r\n *\r\n * Ex.2. [30,20,40,10,25,35,50] represents level order traversal of a binary\r\n * search tree. Find ceil for 52 Answer: -1\r\n */</span>\r\n<span class=\"hljs-comment\">/**\r\n *\r\n * Solution 1: Brute Force Solution: Do an inorder traversal and save result\r\n * into an array. Iterate over the array to get an element equal to or greater\r\n * than current key. Time Complexity: O(n) Space Complexity: O(n) for auxillary\r\n * array to save inorder representation of tree.\r\n * &lt;p&gt;\r\n * &lt;p&gt;\r\n * Solution 2: Brute Force Solution: Do an inorder traversal and save result\r\n * into an array.Since array is sorted do a binary search over the array to get\r\n * an element equal to or greater than current key. Time Complexity: O(n) for\r\n * traversal of tree and O(lg(n)) for binary search in array. Total = O(n) Space\r\n * Complexity: O(n) for auxillary array to save inorder representation of tree.\r\n * &lt;p&gt;\r\n * &lt;p&gt;\r\n * Solution 3: Optimal We can do a DFS search on given tree in following\r\n * fashion. i) if root is null then return null because then ceil doesn&#x27;t exist\r\n * ii) If key is lesser than root value than ceil will be in right subtree so\r\n * call recursively on right subtree iii) if key is greater than current root,\r\n * then either a) the root is ceil b) ceil is in left subtree: call for left\r\n * subtree. If left subtree returns a non null value then that will be ceil\r\n * otherwise the root is ceil\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">CeilInBinarySearchTree</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> Node <span class=\"hljs-title function_\">getCeil</span><span class=\"hljs-params\">(Node root, <span class=\"hljs-type\">int</span> key)</span> {\r\n        <span class=\"hljs-keyword\">if</span> (root == <span class=\"hljs-literal\">null</span>) {\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">null</span>;\r\n        }\r\n\r\n        <span class=\"hljs-comment\">// if root value is same as key than root is the ceiling</span>\r\n        <span class=\"hljs-keyword\">if</span> (root.data == key) {\r\n            <span class=\"hljs-keyword\">return</span> root;\r\n        }\r\n\r\n        <span class=\"hljs-comment\">// if root value is lesser than key then ceil must be in right subtree</span>\r\n        <span class=\"hljs-keyword\">if</span> (root.data &lt; key) {\r\n            <span class=\"hljs-keyword\">return</span> getCeil(root.right, key);\r\n        }\r\n\r\n        <span class=\"hljs-comment\">// if root value is greater than key then ceil can be in left subtree or if</span>\r\n        <span class=\"hljs-comment\">// it is not in left subtree then current node will be ceil</span>\r\n        <span class=\"hljs-type\">Node</span> <span class=\"hljs-variable\">result</span> <span class=\"hljs-operator\">=</span> getCeil(root.left, key);\r\n\r\n        <span class=\"hljs-comment\">// if result is null it means that there is no ceil in children subtrees</span>\r\n        <span class=\"hljs-comment\">// and the root is the ceil otherwise the returned node is the ceil.</span>\r\n        <span class=\"hljs-type\">return</span> <span class=\"hljs-variable\">result</span> <span class=\"hljs-operator\">=</span>= <span class=\"hljs-literal\">null</span> ? root : result;\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Amit Kumar",
+      "email": "kumanoit@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}
