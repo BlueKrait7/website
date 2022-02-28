@@ -1,0 +1,23 @@
+{
+  "slug": "jump-2",
+  "name": "Jump 2",
+  "categories": [
+    "searches"
+  ],
+  "body": {},
+  "implementations": {
+    "go": {
+      "dir": "search\\jump2.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/search\\jump2.go",
+      "code": "<span class=\"hljs-keyword\">package</span> search\r\n\r\n<span class=\"hljs-keyword\">import</span> <span class=\"hljs-string\">&quot;math&quot;</span>\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">Jump2</span><span class=\"hljs-params\">(arr []<span class=\"hljs-type\">int</span>, target <span class=\"hljs-type\">int</span>)</span></span> (<span class=\"hljs-type\">int</span>, <span class=\"hljs-type\">error</span>) {\r\n\tstep := <span class=\"hljs-type\">int</span>(math.Round(math.Sqrt(<span class=\"hljs-type\">float64</span>(<span class=\"hljs-built_in\">len</span>(arr)))))\r\n\trbound := <span class=\"hljs-built_in\">len</span>(arr)\r\n\t<span class=\"hljs-keyword\">for</span> i := step; i &lt; <span class=\"hljs-built_in\">len</span>(arr); i += step {\r\n\t\t<span class=\"hljs-keyword\">if</span> arr[i] &gt; target {\r\n\t\t\trbound = i\r\n\t\t\t<span class=\"hljs-keyword\">break</span>\r\n\t\t}\r\n\t}\r\n\r\n\t<span class=\"hljs-keyword\">for</span> i := rbound - step; i &lt; rbound; i++ {\r\n\t\t<span class=\"hljs-keyword\">if</span> arr[i] == target {\r\n\t\t\t<span class=\"hljs-keyword\">return</span> i, <span class=\"hljs-literal\">nil</span>\r\n\t\t}\r\n\t\t<span class=\"hljs-keyword\">if</span> arr[i] &gt; target {\r\n\t\t\t<span class=\"hljs-keyword\">break</span>\r\n\t\t}\r\n\t}\r\n\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">-1</span>, ErrNotFound\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "1327253585",
+      "email": "1327253585@qq.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

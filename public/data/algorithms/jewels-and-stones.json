@@ -1,0 +1,30 @@
+{
+  "slug": "jewels-and-stones",
+  "name": "Jewels and Stones",
+  "categories": [
+    "datastructures",
+    "array",
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "ruby": {
+      "dir": "data_structures\\arrays\\strings\\jewels_and_stones.rb",
+      "url": "https://github.com/TheAlgorithms/ruby/tree/master/data_structures\\arrays\\strings\\jewels_and_stones.rb",
+      "code": "<span class=\"hljs-comment\"># Challenge name: Jewels and Stones</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># You&#x27;re given strings jewels representing the types of stones that are jewels,</span>\r\n<span class=\"hljs-comment\"># and stones representing the stones you have. Each character in stones is a type</span>\r\n<span class=\"hljs-comment\"># of stone you have. You want to know how many of the stones you have are also</span>\r\n<span class=\"hljs-comment\"># jewels.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Example 1:</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Input: jewels = &quot;aA&quot;, stones = &quot;aAAbbbb&quot;</span>\r\n<span class=\"hljs-comment\"># Output: 3</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Example 2:</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Input: jewels = &quot;z&quot;, stones = &quot;ZZ&quot;</span>\r\n<span class=\"hljs-comment\"># Output: 0</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Constraints:</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># 1 &lt;= jewels.length, stones.length &lt;= 50</span>\r\n<span class=\"hljs-comment\"># jewels and stones consist of only English letters.</span>\r\n<span class=\"hljs-comment\"># All the characters of jewels are unique.</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Approach 1: Brute Force</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Time Complexity: O(n^2)</span>\r\n<span class=\"hljs-comment\">#</span>\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">find_jewels</span><span class=\"hljs-params\">(jewels, stones)</span></span>\r\n  jewels_array = jewels.split(<span class=\"hljs-string\">&#x27;&#x27;</span>)\r\n  stones_array = stones.split(<span class=\"hljs-string\">&#x27;&#x27;</span>)\r\n  result = <span class=\"hljs-number\">0</span>\r\n  jewels_array.each <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|jewel|</span>\r\n    stones_array.each <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|stone|</span>\r\n      result += <span class=\"hljs-number\">1</span> <span class=\"hljs-keyword\">if</span> jewel == stone\r\n    <span class=\"hljs-keyword\">end</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n  result\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\nputs find_jewels(<span class=\"hljs-string\">&#x27;aA&#x27;</span>, <span class=\"hljs-string\">&#x27;aAAbbbb&#x27;</span>)\r\n<span class=\"hljs-comment\"># =&gt; 3</span>\r\nputs find_jewels(<span class=\"hljs-string\">&#x27;z&#x27;</span>, <span class=\"hljs-string\">&#x27;ZZ&#x27;</span>)\r\n<span class=\"hljs-comment\"># =&gt; 0</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Approach 2: Hash</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Time Complexity: O(n)</span>\r\n<span class=\"hljs-comment\">#</span>\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">find_jewels</span><span class=\"hljs-params\">(jewels, stones)</span></span>\r\n  jewels_array = jewels.split(<span class=\"hljs-string\">&#x27;&#x27;</span>)\r\n  stones_array = stones.split(<span class=\"hljs-string\">&#x27;&#x27;</span>)\r\n  result_hash = {}\r\n  result = <span class=\"hljs-number\">0</span>\r\n\r\n  stones_array.each <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|stone|</span>\r\n    <span class=\"hljs-keyword\">if</span> result_hash[stone]\r\n      result_hash[stone] += <span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">else</span>\r\n      result_hash[stone] = <span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">end</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n\r\n  jewels_array.each <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|jewel|</span>\r\n    <span class=\"hljs-keyword\">if</span> result_hash[jewel]\r\n      result += result_hash[jewel]\r\n    <span class=\"hljs-keyword\">else</span>\r\n      result\r\n    <span class=\"hljs-keyword\">end</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n\r\n  result\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\nputs find_jewels(<span class=\"hljs-string\">&#x27;aA&#x27;</span>, <span class=\"hljs-string\">&#x27;aAAbbbb&#x27;</span>)\r\n<span class=\"hljs-comment\"># =&gt; 3</span>\r\nputs find_jewels(<span class=\"hljs-string\">&#x27;z&#x27;</span>, <span class=\"hljs-string\">&#x27;ZZ&#x27;</span>)\r\n<span class=\"hljs-comment\"># =&gt; 0</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Jessica Kwok",
+      "email": "jessicatckwok@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

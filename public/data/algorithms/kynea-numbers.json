@@ -1,0 +1,23 @@
+{
+  "slug": "kynea-numbers",
+  "name": "Kynea Numbers",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "dart": {
+      "dir": "maths\\Kynea_numbers.dart",
+      "url": "https://github.com/TheAlgorithms/dart/tree/master/maths\\Kynea_numbers.dart",
+      "code": "<span class=\"hljs-keyword\">import</span> <span class=\"hljs-string\">&#x27;package:test/test.dart&#x27;</span>;\r\n\r\n<span class=\"hljs-comment\">// Function to calculate nth kynea number</span>\r\n<span class=\"hljs-built_in\">int</span> nthKyneaNumber(<span class=\"hljs-built_in\">int</span> n) {\r\n  <span class=\"hljs-comment\">// Calculate nth kynea number</span>\r\n  <span class=\"hljs-comment\">// using formula ((2^n + 1)^2 ) -2</span>\r\n\r\n  <span class=\"hljs-comment\">// Firstly calculate 2^n + 1</span>\r\n  n = (<span class=\"hljs-number\">1</span> &lt;&lt; n) + <span class=\"hljs-number\">1</span>;\r\n\r\n  <span class=\"hljs-comment\">// Now calculate (2^n + 1)^2</span>\r\n  n = n * n;\r\n\r\n  <span class=\"hljs-comment\">// Now calculate ((2^n + 1)^2 ) - 2</span>\r\n  n = n - <span class=\"hljs-number\">2</span>;\r\n\r\n  <span class=\"hljs-comment\">// return nth Kynea number</span>\r\n  <span class=\"hljs-keyword\">return</span> n;\r\n}\r\n\r\n<span class=\"hljs-comment\">// Driver Program</span>\r\n\r\n<span class=\"hljs-keyword\">void</span> main() {\r\n  test(<span class=\"hljs-string\">&quot;1th Kynea number equals to 7&quot;</span>, () {\r\n    expect(nthKyneaNumber(<span class=\"hljs-number\">1</span>), equals(<span class=\"hljs-number\">7</span>));\r\n  });\r\n\r\n  test(<span class=\"hljs-string\">&quot;4th Kynea number equals to 287&quot;</span>, () {\r\n    expect(nthKyneaNumber(<span class=\"hljs-number\">4</span>), equals(<span class=\"hljs-number\">287</span>));\r\n  });\r\n\r\n  test(<span class=\"hljs-string\">&quot;6th Kynea number equals to 4223&quot;</span>, () {\r\n    expect(nthKyneaNumber(<span class=\"hljs-number\">6</span>), equals(<span class=\"hljs-number\">4223</span>));\r\n  });\r\n\r\n  test(<span class=\"hljs-string\">&quot;10th Kynea number equals to 1050623&quot;</span>, () {\r\n    expect(nthKyneaNumber(<span class=\"hljs-number\">10</span>), equals(<span class=\"hljs-number\">1050623</span>));\r\n  });\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Miracle",
+      "email": "73017979+RimjhimGupta@users.noreply.github.com",
+      "commits": 5
+    }
+  ],
+  "explanationUrl": {}
+}

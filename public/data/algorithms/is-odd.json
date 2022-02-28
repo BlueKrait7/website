@@ -1,0 +1,33 @@
+{
+  "slug": "is-odd",
+  "name": "Is Odd",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\IsOdd.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\IsOdd.js",
+      "code": "<span class=\"hljs-comment\">/*\r\n * function to check if number is odd\r\n * return true if number is odd\r\n * else false\r\n */</span>\r\n\r\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">const</span> <span class=\"hljs-title function_\">isOdd</span> = (<span class=\"hljs-params\">value</span>) =&gt; {\r\n  <span class=\"hljs-keyword\">return</span> !!((value &amp; <span class=\"hljs-number\">1</span>))\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "vinayak",
+      "email": "itssvinayak@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Jake Gerber",
+      "email": "jake.j.gerber@gmail.com",
+      "commits": 4
+    }
+  ],
+  "explanationUrl": {}
+}

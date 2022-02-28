@@ -1,0 +1,48 @@
+{
+  "slug": "iterative-binary-search",
+  "name": "Iterative Binary Search",
+  "categories": [
+    "searches"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\searches\\IterativeBinarySearch.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\searches\\IterativeBinarySearch.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.searches;\r\n\r\n<span class=\"hljs-keyword\">import</span> <span class=\"hljs-keyword\">static</span> java.lang.String.format;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.Arrays;\r\n<span class=\"hljs-keyword\">import</span> java.util.Random;\r\n<span class=\"hljs-keyword\">import</span> java.util.stream.Stream;\r\n<span class=\"hljs-keyword\">import</span> com.thealgorithms.devutils.searches.SearchAlgorithm;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Binary search is one of the most popular algorithms This class represents\r\n * iterative version {<span class=\"hljs-doctag\">@link</span> BinarySearch} Iterative binary search is likely to\r\n * have lower constant factors because it doesn&#x27;t involve the overhead of\r\n * manipulating the call stack. But in java the recursive version can be\r\n * optimized by the compiler to this version.\r\n *\r\n * &lt;p&gt;\r\n * Worst-case performance O(log n) Best-case performance O(1) Average\r\n * performance O(log n) Worst-case space complexity O(1)\r\n *\r\n * <span class=\"hljs-doctag\">@author</span> Gabriele La Greca : https://github.com/thegabriele97\r\n * <span class=\"hljs-doctag\">@author</span> Podshivalov Nikita (https://github.com/nikitap492)\r\n * <span class=\"hljs-doctag\">@see</span> SearchAlgorithm\r\n * <span class=\"hljs-doctag\">@see</span> BinarySearch\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">final</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">IterativeBinarySearch</span> <span class=\"hljs-keyword\">implements</span> <span class=\"hljs-title class_\">SearchAlgorithm</span> {\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * This method implements an iterative version of binary search algorithm\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> array a sorted array\r\n     * <span class=\"hljs-doctag\">@param</span> key the key to search in array\r\n     * <span class=\"hljs-doctag\">@return</span> the index of key in the array or -1 if not found\r\n     */</span>\r\n    <span class=\"hljs-meta\">@Override</span>\r\n    <span class=\"hljs-keyword\">public</span> &lt;T <span class=\"hljs-keyword\">extends</span> <span class=\"hljs-title class_\">Comparable</span>&lt;T&gt;&gt; <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">find</span><span class=\"hljs-params\">(T[] array, T key)</span> {\r\n        <span class=\"hljs-type\">int</span> l, r, k, cmp;\r\n\r\n        l = <span class=\"hljs-number\">0</span>;\r\n        r = array.length - <span class=\"hljs-number\">1</span>;\r\n\r\n        <span class=\"hljs-keyword\">while</span> (l &lt;= r) {\r\n            k = (l + r) &gt;&gt;&gt; <span class=\"hljs-number\">1</span>;\r\n            cmp = key.compareTo(array[k]);\r\n\r\n            <span class=\"hljs-keyword\">if</span> (cmp == <span class=\"hljs-number\">0</span>) {\r\n                <span class=\"hljs-keyword\">return</span> k;\r\n            } <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span> (cmp &lt; <span class=\"hljs-number\">0</span>) {\r\n                r = --k;\r\n            } <span class=\"hljs-keyword\">else</span> {\r\n                l = ++k;\r\n            }\r\n        }\r\n\r\n        <span class=\"hljs-keyword\">return</span> -<span class=\"hljs-number\">1</span>;\r\n    }\r\n\r\n    <span class=\"hljs-comment\">// Only a main method for test purpose</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-type\">Random</span> <span class=\"hljs-variable\">r</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Random</span>();\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">size</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">100</span>;\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">maxElement</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">100000</span>;\r\n        Integer[] integers\r\n                = Stream.generate(() -&gt; r.nextInt(maxElement)).limit(size).sorted().toArray(Integer[]::<span class=\"hljs-keyword\">new</span>);\r\n\r\n        <span class=\"hljs-comment\">// the element that should be found</span>\r\n        <span class=\"hljs-type\">Integer</span> <span class=\"hljs-variable\">shouldBeFound</span> <span class=\"hljs-operator\">=</span> integers[r.nextInt(size - <span class=\"hljs-number\">1</span>)];\r\n\r\n        <span class=\"hljs-type\">IterativeBinarySearch</span> <span class=\"hljs-variable\">search</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">IterativeBinarySearch</span>();\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">atIndex</span> <span class=\"hljs-operator\">=</span> search.find(integers, shouldBeFound);\r\n\r\n        System.out.println(\r\n                String.format(\r\n                        <span class=\"hljs-string\">&quot;Should be found: %d. Found %d at index %d. An array length %d&quot;</span>,\r\n                        shouldBeFound, integers[atIndex], atIndex, size));\r\n\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">toCheck</span> <span class=\"hljs-operator\">=</span> Arrays.binarySearch(integers, shouldBeFound);\r\n        System.out.println(\r\n                format(\r\n                        <span class=\"hljs-string\">&quot;Found by system method at an index: %d. Is equal: %b&quot;</span>, toCheck, toCheck == atIndex));\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Maria Lungeanu",
+      "email": "Maria.Lungeanu@anritsu.com",
+      "commits": 1
+    },
+    {
+      "name": "nik",
+      "email": "nikitap4.92@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Salvatore Gabriele La Greca",
+      "email": "35406071+thegabriele97@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "thegabriele97",
+      "email": "gabriele.lagreca@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 2
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

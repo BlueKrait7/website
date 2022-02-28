@@ -1,0 +1,48 @@
+{
+  "slug": "kadane-algorithm",
+  "name": "Kadane Algorithm",
+  "categories": [
+    "dynamicprogramming"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\dynamicprogramming\\KadaneAlgorithm.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\dynamicprogramming\\KadaneAlgorithm.java",
+      "code": "<span class=\"hljs-comment\">/** Author : Siddhant Swarup Mallick\r\n * Github : https://github.com/siddhant2002\r\n */</span>\r\n\r\n<span class=\"hljs-comment\">/** Program description - To find the maximum subarray sum */</span>\r\n <span class=\"hljs-keyword\">package</span> com.thealgorithms.dynamicprogramming;\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">KadaneAlgorithm</span> {\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">boolean</span> <span class=\"hljs-title function_\">max_Sum</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> a[] , <span class=\"hljs-type\">int</span> predicted_answer)</span>\r\n    {\r\n        <span class=\"hljs-type\">int</span> sum=a[<span class=\"hljs-number\">0</span>],running_sum=<span class=\"hljs-number\">0</span>;\r\n        <span class=\"hljs-keyword\">for</span>(<span class=\"hljs-type\">int</span> k:a)\r\n        {\r\n            running_sum=running_sum+k;\r\n            <span class=\"hljs-comment\">// running sum of all the indexs are stored</span>\r\n            sum=Math.max(sum,running_sum);\r\n            <span class=\"hljs-comment\">// the max is stored inorder to the get the maximum sum</span>\r\n            <span class=\"hljs-keyword\">if</span>(running_sum&lt;<span class=\"hljs-number\">0</span>)\r\n            running_sum=<span class=\"hljs-number\">0</span>;\r\n            <span class=\"hljs-comment\">// if running sum is negative then it is initialized to zero</span>\r\n        }\r\n        <span class=\"hljs-comment\">// for-each loop is used to iterate over the array and find the maximum subarray sum</span>\r\n        <span class=\"hljs-keyword\">return</span> sum==predicted_answer;\r\n        <span class=\"hljs-comment\">// It returns true if sum and predicted answer matches</span>\r\n        <span class=\"hljs-comment\">// The predicted answer is the answer itself. So it always return true</span>\r\n    }\r\n    <span class=\"hljs-comment\">/**\r\n     * OUTPUT :\r\n     * Input - {89,56,98,123,26,75,12,40,39,68,91}\r\n     * Output: it returns either true or false\r\n     * 1st approach Time Complexity : O(n)\r\n     * Auxiliary Space Complexity : O(1)\r\n     */</span>\r\n}"
+    },
+    "haskell": {
+      "dir": "src\\Maths\\KadaneAlgorithm.hs",
+      "url": "https://github.com/TheAlgorithms/haskell/tree/master/src\\Maths\\KadaneAlgorithm.hs",
+      "code": "<span class=\"hljs-keyword\">module</span> Maths.KadaneAlgorithm <span class=\"hljs-keyword\">where</span>\r\n\r\n<span class=\"hljs-comment\">-- Sample Input List </span>\r\n<span class=\"hljs-title\">inputList</span> :: [<span class=\"hljs-type\">Integer</span>]\r\n<span class=\"hljs-title\">inputList</span> = [<span class=\"hljs-number\">1</span>, -<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>, -<span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">6</span>, -<span class=\"hljs-number\">7</span>, <span class=\"hljs-number\">8</span>, <span class=\"hljs-number\">9</span>, <span class=\"hljs-number\">10</span>]\r\n\r\n\r\n<span class=\"hljs-comment\">-- Helper function that updates values of maxSoFar and maxEndingHere</span>\r\n<span class=\"hljs-comment\">-- and call itself recursively over the values of the list </span>\r\n<span class=\"hljs-comment\">-- and when the list is empty, return the maxSoFar value</span>\r\n<span class=\"hljs-comment\">-- with the start and end indices.</span>\r\n<span class=\"hljs-title\">maxSubArrayHelper</span> :: <span class=\"hljs-type\">Integer</span> -&gt; <span class=\"hljs-type\">Integer</span> -&gt; <span class=\"hljs-type\">Integer</span> -&gt; <span class=\"hljs-type\">Integer</span> -&gt; <span class=\"hljs-type\">Integer</span> -&gt; [<span class=\"hljs-type\">Integer</span>] -&gt; (<span class=\"hljs-type\">Integer</span>, <span class=\"hljs-type\">Integer</span>, <span class=\"hljs-type\">Integer</span>)\r\n<span class=\"hljs-title\">maxSubArrayHelper</span> maxSoFar _ _ start end [] = (maxSoFar, start, end)\r\n<span class=\"hljs-title\">maxSubArrayHelper</span> maxSoFar maxEndingHere i start end (x:xs) = \r\n    <span class=\"hljs-keyword\">let</span> i&#x27; = i + <span class=\"hljs-number\">1</span>\r\n        maxEndingHere&#x27; = maxEndingHere + x\r\n    <span class=\"hljs-keyword\">in</span> \r\n        <span class=\"hljs-keyword\">if</span> maxSoFar &lt; maxEndingHere&#x27; <span class=\"hljs-keyword\">then</span> \r\n            maxSubArrayHelper maxEndingHere&#x27; maxEndingHere&#x27; i&#x27; start i xs\r\n        <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span> maxEndingHere&#x27; &lt; <span class=\"hljs-number\">0</span> <span class=\"hljs-keyword\">then</span>\r\n            maxSubArrayHelper maxSoFar <span class=\"hljs-number\">0</span> i&#x27; i&#x27; i&#x27; xs\r\n        <span class=\"hljs-keyword\">else</span> \r\n            maxSubArrayHelper maxSoFar maxEndingHere&#x27; i&#x27; start end xs\r\n\r\n<span class=\"hljs-comment\">-- Initially maxSoFar (maximum sum till the previous iteration), </span>\r\n<span class=\"hljs-comment\">-- maxEndingHere (maximum sum till end index of the current iteration),</span>\r\n<span class=\"hljs-comment\">-- start (start index) and end (end index) are sent as 0</span>\r\n<span class=\"hljs-title\">maxSubArray</span> :: [<span class=\"hljs-type\">Integer</span>] -&gt; (<span class=\"hljs-type\">Integer</span>, <span class=\"hljs-type\">Integer</span>, <span class=\"hljs-type\">Integer</span>)\r\n<span class=\"hljs-title\">maxSubArray</span> = maxSubArrayHelper <span class=\"hljs-number\">0</span> <span class=\"hljs-number\">0</span> <span class=\"hljs-number\">0</span> <span class=\"hljs-number\">0</span> <span class=\"hljs-number\">0</span>\r\n\r\n<span class=\"hljs-comment\">-- Outputs (sum, start, end)</span>\r\n<span class=\"hljs-comment\">-- sum - sum from start to end indices of the input array</span>\r\n<span class=\"hljs-comment\">-- start:end - the subarray with max sum</span>\r\n<span class=\"hljs-title\">main</span> :: <span class=\"hljs-type\">IO</span> ()\r\n<span class=\"hljs-title\">main</span> = <span class=\"hljs-keyword\">do</span>\r\n    print (maxSubArray inputList)"
+    }
+  },
+  "contributors": [
+    {
+      "name": "shashank152k",
+      "email": "shashank152k@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Siddhant Swarup Mallick",
+      "email": "78552027+siddhant2002@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 2
+    },
+    {
+      "name": "Nishita Aggarwal",
+      "email": "naggarwal97@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

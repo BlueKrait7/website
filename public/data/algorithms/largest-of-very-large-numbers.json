@@ -1,0 +1,23 @@
+{
+  "slug": "largest-of-very-large-numbers",
+  "name": "Largest of Very Large Numbers",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\largest_of_very_large_numbers.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\largest_of_very_large_numbers.py",
+      "code": "<span class=\"hljs-comment\"># Author: Abhijeeth S</span>\r\n\r\n<span class=\"hljs-keyword\">import</span> math\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">res</span>(<span class=\"hljs-params\">x, y</span>):\r\n    <span class=\"hljs-keyword\">if</span> <span class=\"hljs-number\">0</span> <span class=\"hljs-keyword\">not</span> <span class=\"hljs-keyword\">in</span> (x, y):\r\n        <span class=\"hljs-comment\"># We use the relation x^y = y*log10(x), where 10 is the base.</span>\r\n        <span class=\"hljs-keyword\">return</span> y * math.log10(x)\r\n    <span class=\"hljs-keyword\">else</span>:\r\n        <span class=\"hljs-keyword\">if</span> x == <span class=\"hljs-number\">0</span>:  <span class=\"hljs-comment\"># 0 raised to any number is 0</span>\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>\r\n        <span class=\"hljs-keyword\">elif</span> y == <span class=\"hljs-number\">0</span>:\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>  <span class=\"hljs-comment\"># any number raised to 0 is 1</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:  <span class=\"hljs-comment\"># Main function</span>\r\n    <span class=\"hljs-comment\"># Read two numbers from input and typecast them to int using map function.</span>\r\n    <span class=\"hljs-comment\"># Here x is the base and y is the power.</span>\r\n    prompt = <span class=\"hljs-string\">&quot;Enter the base and the power separated by a comma: &quot;</span>\r\n    x1, y1 = <span class=\"hljs-built_in\">map</span>(<span class=\"hljs-built_in\">int</span>, <span class=\"hljs-built_in\">input</span>(prompt).split(<span class=\"hljs-string\">&quot;,&quot;</span>))\r\n    x2, y2 = <span class=\"hljs-built_in\">map</span>(<span class=\"hljs-built_in\">int</span>, <span class=\"hljs-built_in\">input</span>(prompt).split(<span class=\"hljs-string\">&quot;,&quot;</span>))\r\n\r\n    <span class=\"hljs-comment\"># We find the log of each number, using the function res(), which takes two</span>\r\n    <span class=\"hljs-comment\"># arguments.</span>\r\n    res1 = res(x1, y1)\r\n    res2 = res(x2, y2)\r\n\r\n    <span class=\"hljs-comment\"># We check for the largest number</span>\r\n    <span class=\"hljs-keyword\">if</span> res1 &gt; res2:\r\n        <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;Largest number is&quot;</span>, x1, <span class=\"hljs-string\">&quot;^&quot;</span>, y1)\r\n    <span class=\"hljs-keyword\">elif</span> res2 &gt; res1:\r\n        <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;Largest number is&quot;</span>, x2, <span class=\"hljs-string\">&quot;^&quot;</span>, y2)\r\n    <span class=\"hljs-keyword\">else</span>:\r\n        <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;Both are equal&quot;</span>)\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Abhijeeth S",
+      "email": "abhikampurath@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

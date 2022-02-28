@@ -1,0 +1,38 @@
+{
+  "slug": "kahns-algorithm-topo",
+  "name": "Kahns Algorithm Topo",
+  "categories": [
+    "graphs"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "graphs\\kahns_algorithm_topo.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/graphs\\kahns_algorithm_topo.py",
+      "code": "<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">topologicalSort</span>(<span class=\"hljs-params\">graph</span>):\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Kahn&#x27;s Algorithm is used to find Topological ordering of Directed Acyclic Graph\r\n    using BFS\r\n    &quot;&quot;&quot;</span>\r\n    indegree = [<span class=\"hljs-number\">0</span>] * <span class=\"hljs-built_in\">len</span>(graph)\r\n    queue = []\r\n    topo = []\r\n    cnt = <span class=\"hljs-number\">0</span>\r\n\r\n    <span class=\"hljs-keyword\">for</span> key, values <span class=\"hljs-keyword\">in</span> graph.items():\r\n        <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> values:\r\n            indegree[i] += <span class=\"hljs-number\">1</span>\r\n\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-built_in\">len</span>(indegree)):\r\n        <span class=\"hljs-keyword\">if</span> indegree[i] == <span class=\"hljs-number\">0</span>:\r\n            queue.append(i)\r\n\r\n    <span class=\"hljs-keyword\">while</span> queue:\r\n        vertex = queue.pop(<span class=\"hljs-number\">0</span>)\r\n        cnt += <span class=\"hljs-number\">1</span>\r\n        topo.append(vertex)\r\n        <span class=\"hljs-keyword\">for</span> x <span class=\"hljs-keyword\">in</span> graph[vertex]:\r\n            indegree[x] -= <span class=\"hljs-number\">1</span>\r\n            <span class=\"hljs-keyword\">if</span> indegree[x] == <span class=\"hljs-number\">0</span>:\r\n                queue.append(x)\r\n\r\n    <span class=\"hljs-keyword\">if</span> cnt != <span class=\"hljs-built_in\">len</span>(graph):\r\n        <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;Cycle exists&quot;</span>)\r\n    <span class=\"hljs-keyword\">else</span>:\r\n        <span class=\"hljs-built_in\">print</span>(topo)\r\n\r\n\r\n<span class=\"hljs-comment\"># Adjacency List of Graph</span>\r\ngraph = {<span class=\"hljs-number\">0</span>: [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>], <span class=\"hljs-number\">1</span>: [<span class=\"hljs-number\">3</span>], <span class=\"hljs-number\">2</span>: [<span class=\"hljs-number\">3</span>], <span class=\"hljs-number\">3</span>: [<span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>], <span class=\"hljs-number\">4</span>: [], <span class=\"hljs-number\">5</span>: []}\r\ntopologicalSort(graph)\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "AlexDvorak",
+      "email": "opti.jawsome@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Farhan",
+      "email": "farhankasmani956@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "ispangram",
+  "name": "Ispangram",
+  "categories": [
+    "strings",
+    "pangram"
+  ],
+  "body": {},
+  "implementations": {
+    "go": {
+      "dir": "strings\\pangram\\ispangram.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/strings\\pangram\\ispangram.go",
+      "code": "<span class=\"hljs-comment\">// ispangram.go</span>\r\n<span class=\"hljs-comment\">// description: Checks if a given string is pangram or not</span>\r\n<span class=\"hljs-comment\">// details: A pangram is a sentence or expression that uses all the letters of the alphabet.</span>\r\n<span class=\"hljs-comment\">// Reference: https://www.geeksforgeeks.org/pangram-checking/</span>\r\n<span class=\"hljs-comment\">// Author : Kavitha J</span>\r\n\r\n<span class=\"hljs-keyword\">package</span> pangram\r\n\r\n<span class=\"hljs-keyword\">import</span> (\r\n\t<span class=\"hljs-string\">&quot;regexp&quot;</span>\r\n\t<span class=\"hljs-string\">&quot;strings&quot;</span>\r\n)\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">cleanString</span><span class=\"hljs-params\">(text <span class=\"hljs-type\">string</span>)</span></span> <span class=\"hljs-type\">string</span> {\r\n\tcleanText := strings.ToLower(text)                      <span class=\"hljs-comment\">// Convert to lowercase</span>\r\n\tcleanText = strings.Join(strings.Fields(cleanText), <span class=\"hljs-string\">&quot;&quot;</span>) <span class=\"hljs-comment\">// Remove spaces</span>\r\n\tregex, _ := regexp.Compile(<span class=\"hljs-string\">`[^\\p{L}\\p{N} ]+`</span>)           <span class=\"hljs-comment\">// Regular expression for alphanumeric only characters</span>\r\n\t<span class=\"hljs-keyword\">return</span> regex.ReplaceAllString(cleanText, <span class=\"hljs-string\">&quot;&quot;</span>)\r\n}\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">IsPangram</span><span class=\"hljs-params\">(text <span class=\"hljs-type\">string</span>)</span></span> <span class=\"hljs-type\">bool</span> {\r\n\tcleanText := cleanString(text)\r\n\t<span class=\"hljs-keyword\">if</span> <span class=\"hljs-built_in\">len</span>(cleanText) &lt; <span class=\"hljs-number\">26</span> {\r\n\t\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>\r\n\t}\r\n\t<span class=\"hljs-keyword\">var</span> data = <span class=\"hljs-built_in\">make</span>(<span class=\"hljs-keyword\">map</span>[<span class=\"hljs-type\">rune</span>]<span class=\"hljs-type\">bool</span>)\r\n\t<span class=\"hljs-keyword\">for</span> _, i := <span class=\"hljs-keyword\">range</span> cleanText {\r\n\t\tdata[i] = <span class=\"hljs-literal\">true</span>\r\n\t}\r\n\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-built_in\">len</span>(data) == <span class=\"hljs-number\">26</span>\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "kavithajm",
+      "email": "91771245+kavithajm@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

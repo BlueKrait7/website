@@ -1,0 +1,38 @@
+{
+  "slug": "is-power-of-two",
+  "name": "Is Power Of Two",
+  "categories": [
+    "bitmanipulation"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Bit-Manipulation\\test\\IsPowerOfTwo.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Bit-Manipulation\\test\\IsPowerOfTwo.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { <span class=\"hljs-title class_\">IsPowerOfTwo</span> } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../IsPowerOfTwo&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;Check if 0 is a power of 2 or not:&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-keyword\">const</span> res = <span class=\"hljs-title class_\">IsPowerOfTwo</span>(<span class=\"hljs-number\">0</span>)\r\n  <span class=\"hljs-title function_\">expect</span>(res).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">false</span>)\r\n})\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;Check if 1 is a power of 2 or not:&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-keyword\">const</span> res = <span class=\"hljs-title class_\">IsPowerOfTwo</span>(<span class=\"hljs-number\">1</span>)\r\n  <span class=\"hljs-title function_\">expect</span>(res).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">true</span>)\r\n})\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;Check if 4 is a power of 2 or not:&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-keyword\">const</span> res = <span class=\"hljs-title class_\">IsPowerOfTwo</span>(<span class=\"hljs-number\">4</span>)\r\n  <span class=\"hljs-title function_\">expect</span>(res).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">true</span>)\r\n})\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;Check if 1024 is a power of 2 or not:&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-keyword\">const</span> res = <span class=\"hljs-title class_\">IsPowerOfTwo</span>(<span class=\"hljs-number\">1024</span>)\r\n  <span class=\"hljs-title function_\">expect</span>(res).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">true</span>)\r\n})\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;Check if 1025 is a power of 2 or not:&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-keyword\">const</span> res = <span class=\"hljs-title class_\">IsPowerOfTwo</span>(<span class=\"hljs-number\">1025</span>)\r\n  <span class=\"hljs-title function_\">expect</span>(res).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">false</span>)\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "ddhira123",
+      "email": "dhana_dhira@apps.ipb.ac.id",
+      "commits": 1
+    },
+    {
+      "name": "Indre Maksimovaite",
+      "email": "imaksimovaite@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 3
+    },
+    {
+      "name": "Aayushi-Mittal",
+      "email": "aayushimittal088@gmail.com",
+      "commits": 4
+    }
+  ],
+  "explanationUrl": {}
+}

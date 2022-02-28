@@ -1,0 +1,33 @@
+{
+  "slug": "is-divisible",
+  "name": "Is Divisible",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\test\\IsDivisible.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\IsDivisible.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { isDivisible } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../IsDivisible&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;isDivisible&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-keyword\">const</span> testCases = [\r\n    [<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-literal\">true</span>],\r\n    [<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-literal\">true</span>],\r\n    [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-literal\">true</span>],\r\n    [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-literal\">false</span>],\r\n    [<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-literal\">true</span>],\r\n    [<span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-literal\">true</span>],\r\n    [<span class=\"hljs-number\">16</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-literal\">true</span>],\r\n    [<span class=\"hljs-number\">36978235</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-literal\">true</span>],\r\n    [<span class=\"hljs-number\">36978235</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-literal\">false</span>],\r\n    [<span class=\"hljs-number\">4.5</span>, <span class=\"hljs-number\">1.5</span>, <span class=\"hljs-literal\">true</span>],\r\n    [<span class=\"hljs-number\">4.5</span>, <span class=\"hljs-number\">1.2</span>, <span class=\"hljs-literal\">false</span>],\r\n    [<span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">0</span>, <span class=\"hljs-literal\">false</span>],\r\n    [<span class=\"hljs-number\">5</span>, -<span class=\"hljs-number\">0</span>, <span class=\"hljs-literal\">false</span>]\r\n  ]\r\n\r\n  test.<span class=\"hljs-title function_\">each</span>(testCases)(<span class=\"hljs-string\">&#x27;if parameters are (%i, %i) it returns %p&#x27;</span>, <span class=\"hljs-function\">(<span class=\"hljs-params\">dividend, divisor, expected</span>) =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">isDivisible</span>(dividend, divisor)).<span class=\"hljs-title function_\">toBe</span>(expected)\r\n  })\r\n\r\n  <span class=\"hljs-keyword\">const</span> errorCases = [\r\n    [<span class=\"hljs-title class_\">NaN</span>, <span class=\"hljs-title class_\">NaN</span>],\r\n    [<span class=\"hljs-title class_\">NaN</span>, <span class=\"hljs-number\">1</span>],\r\n    [<span class=\"hljs-number\">1</span>, <span class=\"hljs-title class_\">NaN</span>],\r\n    [<span class=\"hljs-string\">&#x27;1&#x27;</span>, <span class=\"hljs-number\">1</span>],\r\n    [<span class=\"hljs-number\">1</span>, <span class=\"hljs-string\">&#x27;1&#x27;</span>],\r\n    [<span class=\"hljs-number\">1</span>, <span class=\"hljs-literal\">true</span>],\r\n    [<span class=\"hljs-literal\">false</span>, <span class=\"hljs-number\">2</span>]\r\n  ]\r\n\r\n  test.<span class=\"hljs-title function_\">each</span>(errorCases)(<span class=\"hljs-string\">&#x27;throws an error if parameters are (%p, %p)&#x27;</span>, <span class=\"hljs-function\">(<span class=\"hljs-params\">dividend, divisor</span>) =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> {\r\n      <span class=\"hljs-title function_\">isDivisible</span>(dividend, divisor)\r\n    }).<span class=\"hljs-title function_\">toThrow</span>()\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Japoncio3k",
+      "email": "49957327+Japoncio3k@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Masahiko Shin",
+      "email": "contact@shin-translation.com",
+      "commits": 5
+    }
+  ],
+  "explanationUrl": {}
+}

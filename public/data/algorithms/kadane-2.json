@@ -1,0 +1,28 @@
+{
+  "slug": "kadane-2",
+  "name": "Kadane 2",
+  "categories": [
+    "dynamicprogramming"
+  ],
+  "body": {},
+  "implementations": {
+    "c-plus-plus": {
+      "dir": "dynamic_programming\\kadane2.cpp",
+      "url": "https://github.com/TheAlgorithms/c-plus-plus/tree/master/dynamic_programming\\kadane2.cpp",
+      "code": "<span class=\"hljs-comment\">/**\r\n * @file\r\n * @brief Implementation of [Kadane\r\n * Algorithm] (https://en.wikipedia.org/wiki/Kadane%27s_algorithm)\r\n *\r\n * @details\r\n * Kadane algorithm is used to find the maximum sum subarray in an array and\r\n * maximum sum subarray problem is the task of finding a contiguous subarray\r\n * with the largest sum\r\n *\r\n * ### Algorithm\r\n * The simple idea of the algorithm is to search for all positive\r\n * contiguous segments of the array and keep track of maximum sum contiguous\r\n * segment among all positive segments(curr_sum is used for this)\r\n * Each time we get a positive sum we compare it with max_sum and update max_sum\r\n * if it is greater than curr_sum\r\n *\r\n * @author [Ayush Singh](https://github.com/ayush523)\r\n */</span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;array&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;climits&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;iostream&gt;</span></span>\r\n<span class=\"hljs-comment\">/**\r\n * @namespace dynamic_programming\r\n * @brief Dynamic Programming algorithms\r\n */</span>\r\n<span class=\"hljs-keyword\">namespace</span> dynamic_programming {\r\n<span class=\"hljs-comment\">/**\r\n * @namespace kadane\r\n * @brief Functions for\r\n * [Kadane](https://en.wikipedia.org/wiki/Kadane%27s_algorithm) algorithm.\r\n */</span>\r\n<span class=\"hljs-keyword\">namespace</span> kadane {\r\n<span class=\"hljs-comment\">/**\r\n * @brief maxSubArray function is used to calculate the maximum sum subarray\r\n * and returns the value of maximum sum which is stored in the variable max_sum\r\n * @tparam N number of array size\r\n * @param n array where numbers are saved\r\n * @returns the value of maximum subarray sum\r\n */</span>\r\n<span class=\"hljs-keyword\">template</span> &lt;<span class=\"hljs-type\">size_t</span> N&gt;\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">int</span> <span class=\"hljs-title\">maxSubArray</span><span class=\"hljs-params\">(<span class=\"hljs-type\">const</span> std::array&lt;<span class=\"hljs-type\">int</span>, N&gt; &amp;n)</span> </span>{\r\n    <span class=\"hljs-type\">int</span> curr_sum =\r\n        <span class=\"hljs-number\">0</span>;  <span class=\"hljs-comment\">// declaring a variable named as curr_sum and initialized it to 0</span>\r\n    <span class=\"hljs-type\">int</span> max_sum = INT_MIN;  <span class=\"hljs-comment\">// Initialized max_sum to INT_MIN</span>\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> i : n) {  <span class=\"hljs-comment\">// for loop to iterate over the elements of the array</span>\r\n        curr_sum += n[i];\r\n        max_sum = std::<span class=\"hljs-built_in\">max</span>(max_sum, curr_sum);  <span class=\"hljs-comment\">// getting the maximum value</span>\r\n        curr_sum = std::<span class=\"hljs-built_in\">max</span>(curr_sum, <span class=\"hljs-number\">0</span>);  <span class=\"hljs-comment\">// updating the value of curr_sum</span>\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> max_sum;  <span class=\"hljs-comment\">// returning the value of max_sum</span>\r\n}\r\n}  <span class=\"hljs-comment\">// namespace kadane</span>\r\n}  <span class=\"hljs-comment\">// namespace dynamic_programming</span>\r\n\r\n<span class=\"hljs-comment\">/**\r\n * @brief Main function\r\n * @returns 0 on exit\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">int</span> <span class=\"hljs-title\">main</span><span class=\"hljs-params\">()</span> </span>{\r\n    <span class=\"hljs-type\">const</span> <span class=\"hljs-type\">int</span> N = <span class=\"hljs-number\">5</span>;\r\n    std::array&lt;<span class=\"hljs-type\">int</span>, N&gt; n{};  <span class=\"hljs-comment\">// declaring array</span>\r\n                             <span class=\"hljs-comment\">// taking values of elements from user</span>\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> i = <span class=\"hljs-number\">0</span>; i &lt; n.<span class=\"hljs-built_in\">size</span>(); i++) {\r\n        std::cout &lt;&lt; <span class=\"hljs-string\">&quot;Enter value of n[&quot;</span> &lt;&lt; i &lt;&lt; <span class=\"hljs-string\">&quot;]&quot;</span>\r\n                  &lt;&lt; <span class=\"hljs-string\">&quot;\\n&quot;</span>;\r\n        std::cin &gt;&gt; n[i];\r\n    }\r\n    <span class=\"hljs-type\">int</span> max_sum = dynamic_programming::kadane::<span class=\"hljs-built_in\">maxSubArray</span>&lt;N&gt;(\r\n        n);  <span class=\"hljs-comment\">// calling maxSubArray function</span>\r\n    std::cout &lt;&lt; <span class=\"hljs-string\">&quot;Maximum subarray sum is &quot;</span> &lt;&lt; max_sum;  <span class=\"hljs-comment\">// Printing the answer</span>\r\n\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Pardeep Bhatt",
+      "email": "pardeepbhatt5254@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Ayush Singh",
+      "email": "ayushsingh523@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "is-sorted",
+  "name": "Is Sorted",
+  "categories": [
+    "sorts"
+  ],
+  "body": {},
+  "implementations": {
+    "lua": {
+      "dir": "src\\sorting\\is_sorted.lua",
+      "url": "https://github.com/TheAlgorithms/lua/tree/master/src\\sorting\\is_sorted.lua",
+      "code": "<span class=\"hljs-keyword\">return</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span><span class=\"hljs-params\">(\r\n\tlist,\r\n\t<span class=\"hljs-comment\">-- function(a, b) -&gt; truthy value if a &lt; b</span>\r\n\tless_than\r\n)</span></span>\r\n\tless_than = less_than <span class=\"hljs-keyword\">or</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span><span class=\"hljs-params\">(a, b)</span></span>\r\n\t\t<span class=\"hljs-keyword\">return</span> a &lt; b\r\n\t<span class=\"hljs-keyword\">end</span>\r\n\t<span class=\"hljs-keyword\">for</span> i = <span class=\"hljs-number\">2</span>, #list <span class=\"hljs-keyword\">do</span>\r\n\t\t<span class=\"hljs-comment\">-- Check whether an element is smaller than it&#x27;s predecessor;</span>\r\n\t\t<span class=\"hljs-comment\">-- If all elements are less than or equal to their predecessor, the list must be sorted</span>\r\n\t\t<span class=\"hljs-comment\">-- due to the transitivity of the comparison operator</span>\r\n\t\t<span class=\"hljs-keyword\">if</span> less_than(list[i], list[i - <span class=\"hljs-number\">1</span>]) <span class=\"hljs-keyword\">then</span>\r\n\t\t\t<span class=\"hljs-comment\">-- list is not sorted ascendingly</span>\r\n\t\t\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>\r\n\t\t<span class=\"hljs-keyword\">end</span>\r\n\t<span class=\"hljs-keyword\">end</span>\r\n\t<span class=\"hljs-comment\">-- list is sorted ascendingly</span>\r\n\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">true</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Lars Mueller",
+      "email": "appgurulars@gmx.de",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

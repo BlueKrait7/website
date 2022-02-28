@@ -1,0 +1,63 @@
+{
+  "slug": "kadane-algo",
+  "name": "Kadane Algo",
+  "categories": [
+    "dynamicprogramming"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Dynamic-Programming\\tests\\KadaneAlgo.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Dynamic-Programming\\tests\\KadaneAlgo.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { kadaneAlgo } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../KadaneAlgo&#x27;</span>\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;it is being checked that 15 is the answer to the corresponding array input&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">kadaneAlgo</span>([<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>])).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">15</span>)\r\n})\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;it is being checked that 5 is the answer to the corresponding array input&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">kadaneAlgo</span>([-<span class=\"hljs-number\">1</span>, -<span class=\"hljs-number\">2</span>, -<span class=\"hljs-number\">3</span>, -<span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>])).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">5</span>)\r\n})\r\n"
+    },
+    "dart": {
+      "dir": "other\\kadaneAlgo.dart",
+      "url": "https://github.com/TheAlgorithms/dart/tree/master/other\\kadaneAlgo.dart",
+      "code": "<span class=\"hljs-comment\">// Program to find the Maximum contiguous sum (Kadane&#x27;s Algorithm)</span>\r\n<span class=\"hljs-comment\">// Function to Calculate Maximum of Two Number</span>\r\n<span class=\"hljs-built_in\">int</span> max(<span class=\"hljs-built_in\">int</span> a, <span class=\"hljs-built_in\">int</span> b) {\r\n  <span class=\"hljs-keyword\">if</span> (a &gt; b)\r\n    <span class=\"hljs-keyword\">return</span> a;\r\n  <span class=\"hljs-keyword\">else</span>\r\n    <span class=\"hljs-keyword\">return</span> b;\r\n}\r\n\r\n<span class=\"hljs-comment\">// Function to find the Maximum contiguous Sum in the array</span>\r\n<span class=\"hljs-built_in\">int</span> maxSubArraySum(<span class=\"hljs-built_in\">List</span> a, <span class=\"hljs-built_in\">int</span> size) {\r\n  <span class=\"hljs-built_in\">int</span> max_so_far = a[<span class=\"hljs-number\">0</span>];\r\n  <span class=\"hljs-built_in\">int</span> curr_max = a[<span class=\"hljs-number\">0</span>];\r\n\r\n  <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-built_in\">int</span> i = <span class=\"hljs-number\">1</span>; i &lt; size; i++) {\r\n    curr_max = max(a[i], curr_max + a[i]);\r\n    max_so_far = max(max_so_far, curr_max);\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> max_so_far;\r\n}\r\n\r\n<span class=\"hljs-comment\">// main function for validation of the above</span>\r\n<span class=\"hljs-built_in\">int</span> main() {\r\n  <span class=\"hljs-built_in\">List</span> a = [<span class=\"hljs-number\">-2</span>, <span class=\"hljs-number\">-3</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">-1</span>, <span class=\"hljs-number\">-2</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">-3</span>];\r\n  <span class=\"hljs-built_in\">int</span> n = a.length;\r\n  <span class=\"hljs-built_in\">int</span> max_sum = maxSubArraySum(a, n);\r\n  <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;Maximum contiguous sum is &quot;</span> + max_sum.toString());\r\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "KAUSHAL DEVRARI",
+      "email": "71590645+KaushalDevrari@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Rak Laptudirm",
+      "email": "raklaptudirm@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Keshav Bohra",
+      "email": "keshav2016@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Rak Laptudirm",
+      "email": "68542775+raklaptudirm@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Kulkarni Shravan kashyap",
+      "email": "kskashyap94@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 2
+    },
+    {
+      "name": "lakshyabatman",
+      "email": "lakshya.khera@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Abhijeet Tiwari",
+      "email": "abhijeet1862@gmail.com",
+      "commits": 6
+    }
+  ],
+  "explanationUrl": {}
+}

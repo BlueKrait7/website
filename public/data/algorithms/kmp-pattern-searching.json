@@ -1,0 +1,23 @@
+{
+  "slug": "kmp-pattern-searching",
+  "name": "KMP Pattern Searching",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "String\\test\\KMPPatternSearching.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/String\\test\\KMPPatternSearching.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { <span class=\"hljs-title class_\">KMPSearch</span> } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../KMPPatternSearching&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;KMP Matcher&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;TC1: expects to return matching indices for pattern in text&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> text = <span class=\"hljs-string\">&#x27;ABC ABCDAB ABCDABCDABDE&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> pattern = <span class=\"hljs-string\">&#x27;ABCDABD&#x27;</span>\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">KMPSearch</span>(text, pattern)).<span class=\"hljs-title function_\">toStrictEqual</span>([<span class=\"hljs-number\">15</span>])\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;TC2: expects to return matching indices for pattern in text&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> text = <span class=\"hljs-string\">&#x27;ABC ABCDABD ABCDABCDABDE&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> pattern = <span class=\"hljs-string\">&#x27;ABCDABD&#x27;</span>\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">KMPSearch</span>(text, pattern)).<span class=\"hljs-title function_\">toStrictEqual</span>([<span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">16</span>])\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;TC3: expects to return matching indices for pattern in text&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> text = <span class=\"hljs-string\">&#x27;AAAAA&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> pattern = <span class=\"hljs-string\">&#x27;AAA&#x27;</span>\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">KMPSearch</span>(text, pattern)).<span class=\"hljs-title function_\">toStrictEqual</span>([<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>])\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;TC4: expects to return matching indices for pattern in text&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> text = <span class=\"hljs-string\">&#x27;ABCD&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> pattern = <span class=\"hljs-string\">&#x27;BA&#x27;</span>\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">KMPSearch</span>(text, pattern)).<span class=\"hljs-title function_\">toStrictEqual</span>([])\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "rahul1995",
+      "email": "jainrahul6620@gmail.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

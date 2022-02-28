@@ -1,0 +1,28 @@
+{
+  "slug": "kth-order-statistic",
+  "name": "Kth Order Statistic",
+  "categories": [
+    "divideandconquer"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "divide_and_conquer\\kth_order_statistic.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/divide_and_conquer\\kth_order_statistic.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nFind the kth smallest element in linear time using divide and conquer.\r\nRecall we can do this trivially in O(nlogn) time. Sort the list and\r\naccess kth element in constant time.\r\n\r\nThis is a divide and conquer algorithm that can find a solution in O(n) time.\r\n\r\nFor more information of this algorithm:\r\nhttps://web.stanford.edu/class/archive/cs/cs161/cs161.1138/lectures/08/Small08.pdf\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">from</span> __future__ <span class=\"hljs-keyword\">import</span> annotations\r\n\r\n<span class=\"hljs-keyword\">from</span> random <span class=\"hljs-keyword\">import</span> choice\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">random_pivot</span>(<span class=\"hljs-params\">lst</span>):\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Choose a random pivot for the list.\r\n    We can use a more sophisticated algorithm here, such as the median-of-medians\r\n    algorithm.\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">return</span> choice(lst)\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">kth_number</span>(<span class=\"hljs-params\">lst: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>], k: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">int</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Return the kth smallest number in lst.\r\n    &gt;&gt;&gt; kth_number([2, 1, 3, 4, 5], 3)\r\n    3\r\n    &gt;&gt;&gt; kth_number([2, 1, 3, 4, 5], 1)\r\n    1\r\n    &gt;&gt;&gt; kth_number([2, 1, 3, 4, 5], 5)\r\n    5\r\n    &gt;&gt;&gt; kth_number([3, 2, 5, 6, 7, 8], 2)\r\n    3\r\n    &gt;&gt;&gt; kth_number([25, 21, 98, 100, 76, 22, 43, 60, 89, 87], 4)\r\n    43\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-comment\"># pick a pivot and separate into list based on pivot.</span>\r\n    pivot = random_pivot(lst)\r\n\r\n    <span class=\"hljs-comment\"># partition based on pivot</span>\r\n    <span class=\"hljs-comment\"># linear time</span>\r\n    small = [e <span class=\"hljs-keyword\">for</span> e <span class=\"hljs-keyword\">in</span> lst <span class=\"hljs-keyword\">if</span> e &lt; pivot]\r\n    big = [e <span class=\"hljs-keyword\">for</span> e <span class=\"hljs-keyword\">in</span> lst <span class=\"hljs-keyword\">if</span> e &gt; pivot]\r\n\r\n    <span class=\"hljs-comment\"># if we get lucky, pivot might be the element we want.</span>\r\n    <span class=\"hljs-comment\"># we can easily see this:</span>\r\n    <span class=\"hljs-comment\"># small (elements smaller than k)</span>\r\n    <span class=\"hljs-comment\"># + pivot (kth element)</span>\r\n    <span class=\"hljs-comment\"># + big (elements larger than k)</span>\r\n    <span class=\"hljs-keyword\">if</span> <span class=\"hljs-built_in\">len</span>(small) == k - <span class=\"hljs-number\">1</span>:\r\n        <span class=\"hljs-keyword\">return</span> pivot\r\n    <span class=\"hljs-comment\"># pivot is in elements bigger than k</span>\r\n    <span class=\"hljs-keyword\">elif</span> <span class=\"hljs-built_in\">len</span>(small) &lt; k - <span class=\"hljs-number\">1</span>:\r\n        <span class=\"hljs-keyword\">return</span> kth_number(big, k - <span class=\"hljs-built_in\">len</span>(small) - <span class=\"hljs-number\">1</span>)\r\n    <span class=\"hljs-comment\"># pivot is in elements smaller than k</span>\r\n    <span class=\"hljs-keyword\">else</span>:\r\n        <span class=\"hljs-keyword\">return</span> kth_number(small, k)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "Cho Yin Yong",
+      "email": "choyiny@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

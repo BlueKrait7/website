@@ -1,0 +1,38 @@
+{
+  "slug": "krishnamurthy",
+  "name": "Krishnamurthy",
+  "categories": [
+    "others"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\others\\Krishnamurthy.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\others\\Krishnamurthy.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.others;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.Scanner;\r\n\r\n<span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Krishnamurthy</span> {\r\n\r\n    <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">fact</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> n)</span> {\r\n        <span class=\"hljs-type\">int</span> i, p = <span class=\"hljs-number\">1</span>;\r\n        <span class=\"hljs-keyword\">for</span> (i = n; i &gt;= <span class=\"hljs-number\">1</span>; i--) {\r\n            p = p * i;\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> p;\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String args[])</span> {\r\n        <span class=\"hljs-type\">Scanner</span> <span class=\"hljs-variable\">sc</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Scanner</span>(System.in);\r\n        <span class=\"hljs-type\">int</span> a, b, s = <span class=\"hljs-number\">0</span>;\r\n        System.out.print(<span class=\"hljs-string\">&quot;Enter the number : &quot;</span>);\r\n        a = sc.nextInt();\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">n</span> <span class=\"hljs-operator\">=</span> a;\r\n        <span class=\"hljs-keyword\">while</span> (a &gt; <span class=\"hljs-number\">0</span>) {\r\n            b = a % <span class=\"hljs-number\">10</span>;\r\n            s = s + fact(b);\r\n            a = a / <span class=\"hljs-number\">10</span>;\r\n        }\r\n        <span class=\"hljs-keyword\">if</span> (s == n) {\r\n            System.out.print(n + <span class=\"hljs-string\">&quot; is a krishnamurthy number&quot;</span>);\r\n        } <span class=\"hljs-keyword\">else</span> {\r\n            System.out.print(n + <span class=\"hljs-string\">&quot; is not a krishnamurthy number&quot;</span>);\r\n        }\r\n        sc.close();\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "unknown",
+      "email": "cnddhks846@naver.com",
+      "commits": 1
+    },
+    {
+      "name": "Kenneth Nero",
+      "email": "kbn1798@rit.edu",
+      "commits": 1
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "is-subsequence",
+  "name": "Is Subsequence",
+  "categories": [
+    "dynamicprogramming"
+  ],
+  "body": {},
+  "implementations": {
+    "rust": {
+      "dir": "src\\dynamic_programming\\is_subsequence.rs",
+      "url": "https://github.com/TheAlgorithms/rust/tree/master/src\\dynamic_programming\\is_subsequence.rs",
+      "code": "<span class=\"hljs-comment\">// Given two strings str1 and str2, return true if str1 is a subsequence of str2, or false otherwise.</span>\r\n<span class=\"hljs-comment\">// A subsequence of a string is a new string that is formed from the original string</span>\r\n<span class=\"hljs-comment\">// by deleting some (can be none) of the characters without disturbing the relative</span>\r\n<span class=\"hljs-comment\">// positions of the remaining characters.</span>\r\n<span class=\"hljs-comment\">// (i.e., &quot;ace&quot; is a subsequence of &quot;abcde&quot; while &quot;aec&quot; is not).</span>\r\n<span class=\"hljs-keyword\">pub</span> <span class=\"hljs-keyword\">fn</span> <span class=\"hljs-title function_\">is_subsequence</span>(str1: <span class=\"hljs-type\">String</span>, str2: <span class=\"hljs-type\">String</span>) <span class=\"hljs-punctuation\">-&gt;</span> <span class=\"hljs-type\">bool</span> {\r\n    <span class=\"hljs-keyword\">let</span> <span class=\"hljs-keyword\">mut </span><span class=\"hljs-variable\">it1</span> = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-keyword\">let</span> <span class=\"hljs-keyword\">mut </span><span class=\"hljs-variable\">it2</span> = <span class=\"hljs-number\">0</span>;\r\n\r\n    <span class=\"hljs-keyword\">let</span> <span class=\"hljs-variable\">byte1</span> = str1.<span class=\"hljs-title function_ invoke__\">as_bytes</span>();\r\n    <span class=\"hljs-keyword\">let</span> <span class=\"hljs-variable\">byte2</span> = str2.<span class=\"hljs-title function_ invoke__\">as_bytes</span>();\r\n\r\n    <span class=\"hljs-keyword\">while</span> it1 &lt; str1.<span class=\"hljs-title function_ invoke__\">len</span>() &amp;&amp; it2 &lt; str2.<span class=\"hljs-title function_ invoke__\">len</span>() {\r\n        <span class=\"hljs-keyword\">if</span> byte1[it1] == byte2[it2] {\r\n            it1 += <span class=\"hljs-number\">1</span>;\r\n        }\r\n\r\n        it2 += <span class=\"hljs-number\">1</span>;\r\n    }\r\n\r\n    it1 == str1.<span class=\"hljs-title function_ invoke__\">len</span>()\r\n}\r\n\r\n<span class=\"hljs-meta\">#[cfg(test)]</span>\r\n<span class=\"hljs-keyword\">mod</span> tests {\r\n    <span class=\"hljs-keyword\">use</span> super::*;\r\n\r\n    <span class=\"hljs-meta\">#[test]</span>\r\n    <span class=\"hljs-keyword\">fn</span> <span class=\"hljs-title function_\">test</span>() {\r\n        <span class=\"hljs-built_in\">assert_eq!</span>(\r\n            <span class=\"hljs-title function_ invoke__\">is_subsequence</span>(String::<span class=\"hljs-title function_ invoke__\">from</span>(<span class=\"hljs-string\">&quot;abc&quot;</span>), String::<span class=\"hljs-title function_ invoke__\">from</span>(<span class=\"hljs-string\">&quot;ahbgdc&quot;</span>)),\r\n            <span class=\"hljs-literal\">true</span>\r\n        );\r\n        <span class=\"hljs-built_in\">assert_eq!</span>(\r\n            <span class=\"hljs-title function_ invoke__\">is_subsequence</span>(String::<span class=\"hljs-title function_ invoke__\">from</span>(<span class=\"hljs-string\">&quot;axc&quot;</span>), String::<span class=\"hljs-title function_ invoke__\">from</span>(<span class=\"hljs-string\">&quot;ahbgdc&quot;</span>)),\r\n            <span class=\"hljs-literal\">false</span>\r\n        );\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "duy quang",
+      "email": "hyouka266@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

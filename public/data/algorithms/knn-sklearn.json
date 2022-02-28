@@ -1,0 +1,43 @@
+{
+  "slug": "knn-sklearn",
+  "name": "Knn Sklearn",
+  "categories": [
+    "machinelearning"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "machine_learning\\knn_sklearn.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/machine_learning\\knn_sklearn.py",
+      "code": "<span class=\"hljs-keyword\">from</span> sklearn.datasets <span class=\"hljs-keyword\">import</span> load_iris\r\n<span class=\"hljs-keyword\">from</span> sklearn.model_selection <span class=\"hljs-keyword\">import</span> train_test_split\r\n<span class=\"hljs-keyword\">from</span> sklearn.neighbors <span class=\"hljs-keyword\">import</span> KNeighborsClassifier\r\n\r\n<span class=\"hljs-comment\"># Load iris file</span>\r\niris = load_iris()\r\niris.keys()\r\n\r\n\r\n<span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f&quot;Target names: \\n <span class=\"hljs-subst\">{iris.target_names}</span> &quot;</span>)\r\n<span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f&quot;\\n Features: \\n <span class=\"hljs-subst\">{iris.feature_names}</span>&quot;</span>)\r\n\r\n<span class=\"hljs-comment\"># Train set e Test set</span>\r\nX_train, X_test, y_train, y_test = train_test_split(\r\n    iris[<span class=\"hljs-string\">&quot;data&quot;</span>], iris[<span class=\"hljs-string\">&quot;target&quot;</span>], random_state=<span class=\"hljs-number\">4</span>\r\n)\r\n\r\n<span class=\"hljs-comment\"># KNN</span>\r\n\r\nknn = KNeighborsClassifier(n_neighbors=<span class=\"hljs-number\">1</span>)\r\nknn.fit(X_train, y_train)\r\n\r\n<span class=\"hljs-comment\"># new array to test</span>\r\nX_new = [[<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">4</span>], [<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>]]\r\n\r\nprediction = knn.predict(X_new)\r\n\r\n<span class=\"hljs-built_in\">print</span>(\r\n    <span class=\"hljs-string\">f&quot;\\nNew array: \\n <span class=\"hljs-subst\">{X_new}</span>\\n\\nTarget Names Prediction: \\n&quot;</span>\r\n    <span class=\"hljs-string\">f&quot; <span class=\"hljs-subst\">{iris[<span class=\"hljs-string\">&#x27;target_names&#x27;</span>][prediction]}</span>&quot;</span>\r\n)\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "CarsonHam",
+      "email": "carson.ham@utexas.edu",
+      "commits": 1
+    },
+    {
+      "name": "GeorgeChambi",
+      "email": "charalambous99@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Dhandarah",
+      "email": "dhandarah1996@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

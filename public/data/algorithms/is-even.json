@@ -1,0 +1,23 @@
+{
+  "slug": "is-even",
+  "name": "Is Even",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\test\\IsEven.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\IsEven.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { isEven, isEvenBitwise } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../IsEven&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;should return if the number is even or not&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-keyword\">const</span> isEvenNumber = <span class=\"hljs-title function_\">isEven</span>(<span class=\"hljs-number\">4</span>)\r\n  <span class=\"hljs-title function_\">expect</span>(isEvenNumber).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">true</span>)\r\n})\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;should return if the number is even or not&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-keyword\">const</span> isEvenNumber = <span class=\"hljs-title function_\">isEven</span>(<span class=\"hljs-number\">7</span>)\r\n  <span class=\"hljs-title function_\">expect</span>(isEvenNumber).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">false</span>)\r\n})\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;should return if the number is even or not&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-keyword\">const</span> isEvenNumber = <span class=\"hljs-title function_\">isEvenBitwise</span>(<span class=\"hljs-number\">6</span>)\r\n  <span class=\"hljs-title function_\">expect</span>(isEvenNumber).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">true</span>)\r\n})\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;should return if the number is even or not&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-keyword\">const</span> isEvenNumber = <span class=\"hljs-title function_\">isEvenBitwise</span>(<span class=\"hljs-number\">3</span>)\r\n  <span class=\"hljs-title function_\">expect</span>(isEvenNumber).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">false</span>)\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "AbhinavXT",
+      "email": "abhinavpathaka17@gmail.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}
