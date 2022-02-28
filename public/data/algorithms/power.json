@@ -1,0 +1,38 @@
+{
+  "slug": "power",
+  "name": "Power",
+  "categories": [
+    "divideandconquer"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "divide_and_conquer\\power.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/divide_and_conquer\\power.py",
+      "code": "<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">actual_power</span>(<span class=\"hljs-params\">a: <span class=\"hljs-built_in\">int</span>, b: <span class=\"hljs-built_in\">int</span></span>):\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Function using divide and conquer to calculate a^b.\r\n    It only works for integer a,b.\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> b == <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">if</span> (b % <span class=\"hljs-number\">2</span>) == <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">return</span> actual_power(a, <span class=\"hljs-built_in\">int</span>(b / <span class=\"hljs-number\">2</span>)) * actual_power(a, <span class=\"hljs-built_in\">int</span>(b / <span class=\"hljs-number\">2</span>))\r\n    <span class=\"hljs-keyword\">else</span>:\r\n        <span class=\"hljs-keyword\">return</span> a * actual_power(a, <span class=\"hljs-built_in\">int</span>(b / <span class=\"hljs-number\">2</span>)) * actual_power(a, <span class=\"hljs-built_in\">int</span>(b / <span class=\"hljs-number\">2</span>))\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">power</span>(<span class=\"hljs-params\">a: <span class=\"hljs-built_in\">int</span>, b: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    &gt;&gt;&gt; power(4,6)\r\n    4096\r\n    &gt;&gt;&gt; power(2,3)\r\n    8\r\n    &gt;&gt;&gt; power(-2,3)\r\n    -8\r\n    &gt;&gt;&gt; power(2,-3)\r\n    0.125\r\n    &gt;&gt;&gt; power(-2,-3)\r\n    -0.125\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> b &lt; <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span> / actual_power(a, b)\r\n    <span class=\"hljs-keyword\">return</span> actual_power(a, b)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-built_in\">print</span>(power(-<span class=\"hljs-number\">2</span>, -<span class=\"hljs-number\">3</span>))\r\n"
+    },
+    "f-sharp": {
+      "dir": "Algorithms\\Math\\Power.fs",
+      "url": "https://github.com/TheAlgorithms/f-sharp/tree/master/Algorithms\\Math\\Power.fs",
+      "code": "﻿<span class=\"hljs-keyword\">namespace</span> Algorithms.Math\r\n\r\n<span class=\"hljs-keyword\">module</span> Power <span class=\"hljs-operator\">=</span>\r\n    <span class=\"hljs-comment\">/// Calculates x^n. Time complexity: O(√n).</span>\r\n    <span class=\"hljs-keyword\">let</span> byFoldFunction x n <span class=\"hljs-operator\">=</span>\r\n        { <span class=\"hljs-number\">1</span> <span class=\"hljs-operator\">..</span> n } <span class=\"hljs-operator\">|&gt;</span> Seq.fold (<span class=\"hljs-keyword\">fun</span> acc _ <span class=\"hljs-operator\">-&gt;</span> acc <span class=\"hljs-operator\">*</span> x) <span class=\"hljs-number\">1</span>\r\n\r\n    <span class=\"hljs-comment\">/// Calculates x^n. x and n can be negative.</span>\r\n    <span class=\"hljs-comment\">/// Time complexity O(n).</span>\r\n    <span class=\"hljs-keyword\">let</span> <span class=\"hljs-keyword\">rec</span> byRecursion x n <span class=\"hljs-operator\">=</span>\r\n        <span class=\"hljs-keyword\">match</span> x, sign n <span class=\"hljs-keyword\">with</span>\r\n        <span class=\"hljs-operator\">|</span> <span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">-1</span> <span class=\"hljs-operator\">-&gt;</span>\r\n            System.DivideByZeroException <span class=\"hljs-string\">&quot;Attempted to divide by zero.&quot;</span>\r\n            <span class=\"hljs-operator\">|&gt;</span> <span class=\"hljs-built_in\">raise</span>\r\n        <span class=\"hljs-operator\">|</span> <span class=\"hljs-number\">-1</span>, _ <span class=\"hljs-operator\">-&gt;</span> <span class=\"hljs-keyword\">if</span> n <span class=\"hljs-operator\">%</span> <span class=\"hljs-number\">2</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span> <span class=\"hljs-keyword\">then</span> <span class=\"hljs-number\">1</span> <span class=\"hljs-keyword\">else</span> <span class=\"hljs-number\">-1</span>\r\n        <span class=\"hljs-operator\">|</span> <span class=\"hljs-number\">1</span>, _ <span class=\"hljs-operator\">-&gt;</span> <span class=\"hljs-number\">1</span>\r\n        <span class=\"hljs-operator\">|</span> _, <span class=\"hljs-number\">0</span> <span class=\"hljs-operator\">-&gt;</span> <span class=\"hljs-number\">1</span>\r\n        <span class=\"hljs-operator\">|</span> <span class=\"hljs-number\">0</span>, _ <span class=\"hljs-operator\">-&gt;</span> <span class=\"hljs-number\">0</span>\r\n        <span class=\"hljs-operator\">|</span> _, <span class=\"hljs-number\">-1</span> <span class=\"hljs-operator\">-&gt;</span> <span class=\"hljs-number\">0</span>\r\n        <span class=\"hljs-operator\">|</span> _, _ <span class=\"hljs-operator\">-&gt;</span> x <span class=\"hljs-operator\">*</span> byRecursion x (n <span class=\"hljs-operator\">-</span> <span class=\"hljs-number\">1</span>)\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "i1e0",
+      "email": "96235137+i1e0@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Liam Di Dato",
+      "email": "liamdidato@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "AlexLeka98",
+      "email": "32596824+AlexLeka98@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

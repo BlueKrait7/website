@@ -1,0 +1,29 @@
+{
+  "slug": "player-symbol",
+  "name": "Player Symbol",
+  "categories": [
+    "ai",
+    "minimax",
+    "sources",
+    "minimaxplayground",
+    "sources",
+    "model",
+    "player"
+  ],
+  "body": {},
+  "implementations": {
+    "swift": {
+      "dir": "algorithms\\AI\\minimax\\Sources\\Minimax.playground\\Sources\\Model\\Player\\PlayerSymbol.swift",
+      "url": "https://github.com/TheAlgorithms/swift/tree/master/algorithms\\AI\\minimax\\Sources\\Minimax.playground\\Sources\\Model\\Player\\PlayerSymbol.swift",
+      "code": "<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">enum</span> <span class=\"hljs-title class_\">PlayerSymbol</span>: <span class=\"hljs-title class_\">String</span> {\r\n\r\n    <span class=\"hljs-keyword\">case</span> empty <span class=\"hljs-operator\">=</span> <span class=\"hljs-string\">&quot;&quot;</span>\r\n\r\n    <span class=\"hljs-keyword\">case</span> circle <span class=\"hljs-operator\">=</span> <span class=\"hljs-string\">&quot;⭕️&quot;</span>\r\n\r\n    <span class=\"hljs-keyword\">case</span> cross <span class=\"hljs-operator\">=</span> <span class=\"hljs-string\">&quot;❌&quot;</span>\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "michalnowak061",
+      "email": "michal.nowak061@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "pearson-correlation",
+  "name": "Pearson Correlation",
+  "categories": [
+    "statistics"
+  ],
+  "body": {},
+  "implementations": {
+    "julia": {
+      "dir": "src\\statistics\\pearson_correlation.jl",
+      "url": "https://github.com/TheAlgorithms/julia/tree/master/src\\statistics\\pearson_correlation.jl",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n    pearson_correlation(x, y)\r\n\r\nFind the pearson correlation between two variables.\r\n\r\n# Example:\r\n\r\njulia&gt; PearsonCorrelation([12,11,16,17,19,21],[11,51,66,72,12,15])\r\n-0.2092706263573845\r\n\r\nContribution by: [Aru Bhardwaj](https://github.com/arubhardwaj)\r\n\r\n\r\n&quot;&quot;&quot;</span>\r\n\r\n<span class=\"hljs-keyword\">function</span> pearson_correlation(x, y)\r\n    mean_x = sum(x) / length(x)\r\n    mean_y = sum(y) / length(y)\r\n    XY = (x .- mean_x) .* (y .- mean_y)\r\n    XXs = sum((x .- mean_x) .* (x .- mean_x))\r\n    YYs = sum((y .- mean_y) .* (y .- mean_y))\r\n    <span class=\"hljs-keyword\">return</span>(sum(XY) / (sqrt(XXs .* YYs)))\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Azzaare",
+      "email": "jf@baffier.fr",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

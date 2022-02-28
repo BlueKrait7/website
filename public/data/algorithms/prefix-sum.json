@@ -1,0 +1,23 @@
+{
+  "slug": "prefix-sum",
+  "name": "Prefix Sum",
+  "categories": [
+    "basic"
+  ],
+  "body": {},
+  "implementations": {
+    "julia": {
+      "dir": "src\\basic\\prefix_sum.jl",
+      "url": "https://github.com/TheAlgorithms/julia/tree/master/src\\basic\\prefix_sum.jl",
+      "code": "<span class=\"hljs-keyword\">function</span> prefix_sum(arr::<span class=\"hljs-built_in\">Vector</span>{T})<span class=\"hljs-keyword\">where</span> T&lt;:<span class=\"hljs-built_in\">Number</span>\r\n    pre=[]\r\n    preans=zero(T)\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> arr\r\n        preans+=i\r\n        push!(pre,preans)\r\n    <span class=\"hljs-keyword\">end</span>\r\n    <span class=\"hljs-keyword\">return</span> pre\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Rratic",
+      "email": "Rratic@163.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "pow-logarithmic",
+  "name": "Pow Logarithmic",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\test\\PowLogarithmic.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\PowLogarithmic.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { powLogarithmic } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../PowLogarithmic&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;PowLogarithmic&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return 1 for numbers with exponent 0&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">powLogarithmic</span>(<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">0</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">1</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return 0 for numbers with base 0&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">powLogarithmic</span>(<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">23</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">0</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return the base to the exponent power&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">powLogarithmic</span>(<span class=\"hljs-number\">24</span>, <span class=\"hljs-number\">4</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">331776</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "YATIN KATHURIA",
+      "email": "47096348+Yatin-kathuria@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

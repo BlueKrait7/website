@@ -1,0 +1,34 @@
+{
+  "slug": "preorder-traversal",
+  "name": "Preorder Traversal",
+  "categories": [
+    "datastructures",
+    "binarytree"
+  ],
+  "body": {},
+  "implementations": {
+    "ruby": {
+      "dir": "data_structures\\binary_trees\\preorder_traversal.rb",
+      "url": "https://github.com/TheAlgorithms/ruby/tree/master/data_structures\\binary_trees\\preorder_traversal.rb",
+      "code": "<span class=\"hljs-comment\"># Definition for a binary tree node.</span>\r\n<span class=\"hljs-comment\"># class TreeNode</span>\r\n<span class=\"hljs-comment\">#   attr_accessor :val, :left, :right</span>\r\n<span class=\"hljs-comment\">#   def initialize(val)</span>\r\n<span class=\"hljs-comment\">#     <span class=\"hljs-doctag\">@val</span> = val</span>\r\n<span class=\"hljs-comment\">#     <span class=\"hljs-doctag\">@left</span>, <span class=\"hljs-doctag\">@right</span> = nil, nil</span>\r\n<span class=\"hljs-comment\">#   end</span>\r\n<span class=\"hljs-comment\"># end</span>\r\n\r\n<span class=\"hljs-comment\"># <span class=\"hljs-doctag\">@param</span> {TreeNode} root</span>\r\n<span class=\"hljs-comment\"># <span class=\"hljs-doctag\">@return</span> {Integer[]}</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">preorder_traversal</span><span class=\"hljs-params\">(root)</span></span>\r\n  ans = []\r\n  <span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">traverse</span><span class=\"hljs-params\">(node, ans)</span></span>\r\n    <span class=\"hljs-keyword\">unless</span> node.<span class=\"hljs-literal\">nil</span>?\r\n      ans.push(node.val)\r\n      traverse(node.left, ans)\r\n      traverse(node.right, ans)\r\n    <span class=\"hljs-keyword\">end</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n  traverse(root, ans)\r\n  ans\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Doppon",
+      "email": "zaxpkuraudo7777@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Spencer King",
+      "email": "spencerking@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

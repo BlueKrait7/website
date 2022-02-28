@@ -1,0 +1,38 @@
+{
+  "slug": "polynomial-evaluation",
+  "name": "Polynomial Evaluation",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\polynomial_evaluation.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\polynomial_evaluation.py",
+      "code": "<span class=\"hljs-keyword\">from</span> typing <span class=\"hljs-keyword\">import</span> <span class=\"hljs-type\">Sequence</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">evaluate_poly</span>(<span class=\"hljs-params\">poly: <span class=\"hljs-type\">Sequence</span>[<span class=\"hljs-built_in\">float</span>], x: <span class=\"hljs-built_in\">float</span></span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;Evaluate a polynomial f(x) at specified point x and return the value.\r\n\r\n    Arguments:\r\n    poly -- the coefficients of a polynomial as an iterable in order of\r\n            ascending degree\r\n    x -- the point at which to evaluate the polynomial\r\n\r\n    &gt;&gt;&gt; evaluate_poly((0.0, 0.0, 5.0, 9.3, 7.0), 10.0)\r\n    79800.0\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-built_in\">sum</span>(c * (x**i) <span class=\"hljs-keyword\">for</span> i, c <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">enumerate</span>(poly))\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">horner</span>(<span class=\"hljs-params\">poly: <span class=\"hljs-type\">Sequence</span>[<span class=\"hljs-built_in\">float</span>], x: <span class=\"hljs-built_in\">float</span></span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;Evaluate a polynomial at specified point using Horner&#x27;s method.\r\n\r\n    In terms of computational complexity, Horner&#x27;s method is an efficient method\r\n    of evaluating a polynomial. It avoids the use of expensive exponentiation,\r\n    and instead uses only multiplication and addition to evaluate the polynomial\r\n    in O(n), where n is the degree of the polynomial.\r\n\r\n    https://en.wikipedia.org/wiki/Horner&#x27;s_method\r\n\r\n    Arguments:\r\n    poly -- the coefficients of a polynomial as an iterable in order of\r\n            ascending degree\r\n    x -- the point at which to evaluate the polynomial\r\n\r\n    &gt;&gt;&gt; horner((0.0, 0.0, 5.0, 9.3, 7.0), 10.0)\r\n    79800.0\r\n    &quot;&quot;&quot;</span>\r\n    result = <span class=\"hljs-number\">0.0</span>\r\n    <span class=\"hljs-keyword\">for</span> coeff <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">reversed</span>(poly):\r\n        result = result * x + coeff\r\n    <span class=\"hljs-keyword\">return</span> result\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Example:\r\n    &gt;&gt;&gt; poly = (0.0, 0.0, 5.0, 9.3, 7.0)  # f(x) = 7.0x^4 + 9.3x^3 + 5.0x^2\r\n    &gt;&gt;&gt; x = -13.0\r\n    &gt;&gt;&gt; # f(-13) = 7.0(-13)^4 + 9.3(-13)^3 + 5.0(-13)^2 = 180339.9\r\n    &gt;&gt;&gt; print(evaluate_poly(poly, x))\r\n    180339.9\r\n    &quot;&quot;&quot;</span>\r\n    poly = (<span class=\"hljs-number\">0.0</span>, <span class=\"hljs-number\">0.0</span>, <span class=\"hljs-number\">5.0</span>, <span class=\"hljs-number\">9.3</span>, <span class=\"hljs-number\">7.0</span>)\r\n    x = <span class=\"hljs-number\">10.0</span>\r\n    <span class=\"hljs-built_in\">print</span>(evaluate_poly(poly, x))\r\n    <span class=\"hljs-built_in\">print</span>(horner(poly, x))\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Shoaib Asgar",
+      "email": "shoaib.mca19.du@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Stephen",
+      "email": "24819660+infrontoftheforest@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

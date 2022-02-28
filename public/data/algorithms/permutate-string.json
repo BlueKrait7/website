@@ -1,0 +1,28 @@
+{
+  "slug": "permutate-string",
+  "name": "Permutate String",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "String\\test\\PermutateString.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/String\\test\\PermutateString.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { permutate } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../PermutateString&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;Permutate a string&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to throw an Error with an empty string&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> { <span class=\"hljs-title function_\">permutate</span>() }).<span class=\"hljs-title function_\">toThrow</span>(<span class=\"hljs-string\">&#x27;The arg must be a valid, non empty string&#x27;</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to permute &quot;no&quot; into [no, on]&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>([<span class=\"hljs-string\">&#x27;no&#x27;</span>, <span class=\"hljs-string\">&#x27;on&#x27;</span>]).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-title function_\">permutate</span>(<span class=\"hljs-string\">&#x27;no&#x27;</span>))\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to permute &quot;yes&quot; into [esy, eys, sey, sye, yes, yse]&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>([<span class=\"hljs-string\">&#x27;esy&#x27;</span>, <span class=\"hljs-string\">&#x27;eys&#x27;</span>, <span class=\"hljs-string\">&#x27;sey&#x27;</span>, <span class=\"hljs-string\">&#x27;sye&#x27;</span>, <span class=\"hljs-string\">&#x27;yes&#x27;</span>, <span class=\"hljs-string\">&#x27;yse&#x27;</span>]).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-title function_\">permutate</span>(<span class=\"hljs-string\">&#x27;yes&#x27;</span>))\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to permute &quot;good&quot; into [dgoo dogo doog gdoo godo good odgo odog ogdo ogod oodg oogd ]&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>([<span class=\"hljs-string\">&#x27;dgoo&#x27;</span>, <span class=\"hljs-string\">&#x27;dogo&#x27;</span>, <span class=\"hljs-string\">&#x27;doog&#x27;</span>, <span class=\"hljs-string\">&#x27;gdoo&#x27;</span>, <span class=\"hljs-string\">&#x27;godo&#x27;</span>, <span class=\"hljs-string\">&#x27;good&#x27;</span>, <span class=\"hljs-string\">&#x27;odgo&#x27;</span>, <span class=\"hljs-string\">&#x27;odog&#x27;</span>, <span class=\"hljs-string\">&#x27;ogdo&#x27;</span>, <span class=\"hljs-string\">&#x27;ogod&#x27;</span>, <span class=\"hljs-string\">&#x27;oodg&#x27;</span>, <span class=\"hljs-string\">&#x27;oogd&#x27;</span>])\r\n      .<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-title function_\">permutate</span>(<span class=\"hljs-string\">&#x27;good&#x27;</span>))\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Rak Laptudirm",
+      "email": "68542775+raklaptudirm@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "piemme",
+      "email": "paolomanca@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

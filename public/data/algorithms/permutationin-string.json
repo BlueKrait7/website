@@ -1,0 +1,29 @@
+{
+  "slug": "permutationin-string",
+  "name": "Permutationin String",
+  "categories": [
+    "dynamicprogramming",
+    "slidingwindow"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Dynamic-Programming\\Sliding-Window\\test\\PermutationinString.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Dynamic-Programming\\Sliding-Window\\test\\PermutationinString.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { <span class=\"hljs-title class_\">PermutationinString</span> } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../PermutationinString.js&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;PermutationinString&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&quot;should  return true if one of s1&#x27;s permutations is the substring of s2&quot;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">PermutationinString</span>(<span class=\"hljs-string\">&#x27;ab&#x27;</span>, <span class=\"hljs-string\">&#x27;eidbaooo&#x27;</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-literal\">true</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">PermutationinString</span>(<span class=\"hljs-string\">&#x27;abc&#x27;</span>, <span class=\"hljs-string\">&#x27;bcab&#x27;</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-literal\">true</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">PermutationinString</span>(<span class=\"hljs-string\">&#x27;ab&#x27;</span>, <span class=\"hljs-string\">&#x27;eidboaoo&#x27;</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-literal\">false</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">PermutationinString</span>(<span class=\"hljs-string\">&#x27;abc&#x27;</span>, <span class=\"hljs-string\">&#x27;&#x27;</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-literal\">false</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Leo Toff",
+      "email": "lev.taydakov@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Aditya Parmar",
+      "email": "58773630+Aditya1942@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

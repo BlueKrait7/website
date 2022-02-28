@@ -1,0 +1,38 @@
+{
+  "slug": "polymonial-regression",
+  "name": "Polymonial Regression",
+  "categories": [
+    "machinelearning"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "machine_learning\\polymonial_regression.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/machine_learning\\polymonial_regression.py",
+      "code": "<span class=\"hljs-keyword\">import</span> pandas <span class=\"hljs-keyword\">as</span> pd\r\n<span class=\"hljs-keyword\">from</span> matplotlib <span class=\"hljs-keyword\">import</span> pyplot <span class=\"hljs-keyword\">as</span> plt\r\n<span class=\"hljs-keyword\">from</span> sklearn.linear_model <span class=\"hljs-keyword\">import</span> LinearRegression\r\n\r\n<span class=\"hljs-comment\"># Splitting the dataset into the Training set and Test set</span>\r\n<span class=\"hljs-keyword\">from</span> sklearn.model_selection <span class=\"hljs-keyword\">import</span> train_test_split\r\n\r\n<span class=\"hljs-comment\"># Fitting Polynomial Regression to the dataset</span>\r\n<span class=\"hljs-keyword\">from</span> sklearn.preprocessing <span class=\"hljs-keyword\">import</span> PolynomialFeatures\r\n\r\n<span class=\"hljs-comment\"># Importing the dataset</span>\r\ndataset = pd.read_csv(\r\n    <span class=\"hljs-string\">&quot;https://s3.us-west-2.amazonaws.com/public.gamelab.fun/dataset/&quot;</span>\r\n    <span class=\"hljs-string\">&quot;position_salaries.csv&quot;</span>\r\n)\r\nX = dataset.iloc[:, <span class=\"hljs-number\">1</span>:<span class=\"hljs-number\">2</span>].values\r\ny = dataset.iloc[:, <span class=\"hljs-number\">2</span>].values\r\n\r\n\r\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class=\"hljs-number\">0.2</span>, random_state=<span class=\"hljs-number\">0</span>)\r\n\r\n\r\npoly_reg = PolynomialFeatures(degree=<span class=\"hljs-number\">4</span>)\r\nX_poly = poly_reg.fit_transform(X)\r\npol_reg = LinearRegression()\r\npol_reg.fit(X_poly, y)\r\n\r\n\r\n<span class=\"hljs-comment\"># Visualizing the Polymonial Regression results</span>\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">viz_polymonial</span>():\r\n    plt.scatter(X, y, color=<span class=\"hljs-string\">&quot;red&quot;</span>)\r\n    plt.plot(X, pol_reg.predict(poly_reg.fit_transform(X)), color=<span class=\"hljs-string\">&quot;blue&quot;</span>)\r\n    plt.title(<span class=\"hljs-string\">&quot;Truth or Bluff (Linear Regression)&quot;</span>)\r\n    plt.xlabel(<span class=\"hljs-string\">&quot;Position level&quot;</span>)\r\n    plt.ylabel(<span class=\"hljs-string\">&quot;Salary&quot;</span>)\r\n    plt.show()\r\n    <span class=\"hljs-keyword\">return</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    viz_polymonial()\r\n\r\n    <span class=\"hljs-comment\"># Predicting a new result with Polymonial Regression</span>\r\n    pol_reg.predict(poly_reg.fit_transform([[<span class=\"hljs-number\">5.5</span>]]))\r\n    <span class=\"hljs-comment\"># output should be 132148.43750003</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Mantas Zimnickas",
+      "email": "sirexas@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Ankur Chattopadhyay",
+      "email": "39518771+chttrjeankr@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "archit kaushal",
+      "email": "38643326+archu5@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

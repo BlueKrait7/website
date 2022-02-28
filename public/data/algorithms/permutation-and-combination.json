@@ -1,0 +1,28 @@
+{
+  "slug": "permutation-and-combination",
+  "name": "Permutation And Combination",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\test\\PermutationAndCombination.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\PermutationAndCombination.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { factorial, permutation, combination } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../PermutationAndCombination&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;Factorial&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;factorial(5)&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">factorial</span>(<span class=\"hljs-number\">5</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">120</span>)\r\n  })\r\n})\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;Permutation&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;permutation(5, 2)&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">permutation</span>(<span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">2</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">20</span>)\r\n  })\r\n})\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;Combination&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;combination(5, 2)&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">combination</span>(<span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">2</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">10</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Shreyas Sable",
+      "email": "72278840+Shreyas-OwO@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

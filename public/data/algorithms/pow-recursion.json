@@ -1,0 +1,28 @@
+{
+  "slug": "pow-recursion",
+  "name": "Pow Recursion",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\maths\\PowRecursion.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\maths\\PowRecursion.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.maths;\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">PowRecursion</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-keyword\">assert</span> Double.compare(pow(<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">0</span>), Math.pow(<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">0</span>)) == <span class=\"hljs-number\">0</span>;\r\n        <span class=\"hljs-keyword\">assert</span> Double.compare(pow(<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">2</span>), Math.pow(<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">2</span>)) == <span class=\"hljs-number\">0</span>;\r\n        <span class=\"hljs-keyword\">assert</span> Double.compare(pow(<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">10</span>), Math.pow(<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">10</span>)) == <span class=\"hljs-number\">0</span>;\r\n        <span class=\"hljs-keyword\">assert</span> Double.compare(pow(<span class=\"hljs-number\">10</span>, <span class=\"hljs-number\">2</span>), Math.pow(<span class=\"hljs-number\">10</span>, <span class=\"hljs-number\">2</span>)) == <span class=\"hljs-number\">0</span>;\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Returns the value of the first argument raised to the power of the second\r\n     * argument\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> a the base.\r\n     * <span class=\"hljs-doctag\">@param</span> b the exponent.\r\n     * <span class=\"hljs-doctag\">@return</span> the value {<span class=\"hljs-doctag\">@code</span> a}&lt;sup&gt;{<span class=\"hljs-doctag\">@code</span> b}&lt;/sup&gt;.\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">long</span> <span class=\"hljs-title function_\">pow</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> a, <span class=\"hljs-type\">int</span> b)</span> {\r\n        <span class=\"hljs-type\">return</span> <span class=\"hljs-variable\">b</span> <span class=\"hljs-operator\">=</span>= <span class=\"hljs-number\">0</span> ? <span class=\"hljs-number\">1</span> : a * pow(a, b - <span class=\"hljs-number\">1</span>);\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

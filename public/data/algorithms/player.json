@@ -1,0 +1,28 @@
+{
+  "slug": "player",
+  "name": "Player",
+  "categories": [
+    "ai",
+    "minimax",
+    "sources",
+    "minimaxplayground",
+    "sources",
+    "model"
+  ],
+  "body": {},
+  "implementations": {
+    "swift": {
+      "dir": "algorithms\\AI\\minimax\\Sources\\Minimax.playground\\Sources\\Model\\Player\\Player.swift",
+      "url": "https://github.com/TheAlgorithms/swift/tree/master/algorithms\\AI\\minimax\\Sources\\Minimax.playground\\Sources\\Model\\Player\\Player.swift",
+      "code": "<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title class_\">Player</span> {\r\n    <span class=\"hljs-comment\">// MARK: -- Public variable&#x27;s</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">var</span> type: <span class=\"hljs-type\">PlayerType</span>\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">var</span> symbol: <span class=\"hljs-type\">PlayerSymbol</span>\r\n\r\n    <span class=\"hljs-comment\">// MARK: -- Public function&#x27;s</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">init</span>(<span class=\"hljs-params\">type</span>: <span class=\"hljs-type\">PlayerType</span>, <span class=\"hljs-params\">symbol</span>: <span class=\"hljs-type\">PlayerSymbol</span>) {\r\n        <span class=\"hljs-keyword\">self</span>.type <span class=\"hljs-operator\">=</span> type\r\n        <span class=\"hljs-keyword\">self</span>.symbol <span class=\"hljs-operator\">=</span> symbol\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "michalnowak061",
+      "email": "michal.nowak061@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "pattern-matching",
+  "name": "Pattern Matching",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "String\\test\\PatternMatching.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/String\\test\\PatternMatching.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { checkIfPatternExists } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../PatternMatching&#x27;</span>\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;checkIfPatternExists&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to find a pattern with correct input&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> text = <span class=\"hljs-string\">&#x27;AABAACAADAABAAAABAA&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> pattern = <span class=\"hljs-string\">&#x27;AABA&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> <span class=\"hljs-variable constant_\">SUT</span> = <span class=\"hljs-title function_\">checkIfPatternExists</span>(text.<span class=\"hljs-title function_\">toLowerCase</span>(), pattern.<span class=\"hljs-title function_\">toLowerCase</span>())\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-variable constant_\">SUT</span>).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;Given pattern is found at index 0&#x27;</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return a message when there is no pattern&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> text = <span class=\"hljs-string\">&#x27;ABCDEFG&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> pattern = <span class=\"hljs-string\">&#x27;AEG&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> <span class=\"hljs-variable constant_\">SUT</span> = <span class=\"hljs-title function_\">checkIfPatternExists</span>(text.<span class=\"hljs-title function_\">toLowerCase</span>(), pattern.<span class=\"hljs-title function_\">toLowerCase</span>())\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-variable constant_\">SUT</span>).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">undefined</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to find a pattern independent of casing&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> text = <span class=\"hljs-string\">&#x27;AbCAAAAAAB&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> pattern = <span class=\"hljs-string\">&#x27;abc&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> <span class=\"hljs-variable constant_\">SUT</span> = <span class=\"hljs-title function_\">checkIfPatternExists</span>(text, pattern)\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-variable constant_\">SUT</span>).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">undefined</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to throw an error message when given input is not a string&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> text = <span class=\"hljs-number\">123444456</span>\r\n    <span class=\"hljs-keyword\">const</span> pattern = <span class=\"hljs-number\">123</span>\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> <span class=\"hljs-title function_\">checkIfPatternExists</span>(text, pattern)).<span class=\"hljs-title function_\">toThrow</span>(\r\n      <span class=\"hljs-string\">&#x27;Given input is not a string&#x27;</span>\r\n    )\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Keshav Bohra",
+      "email": "keshav2016@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Ephraim Atta-Duncan",
+      "email": "55143799+dephraiim@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Thivagar",
+      "email": "51501788+thivagar-manickam@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Alexandre Xavier",
+      "email": "ale.bxsantos@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,33 @@
+{
+  "slug": "palindrome-number",
+  "name": "Palindrome Number",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\maths\\PalindromeNumber.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\maths\\PalindromeNumber.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.maths;\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">PalindromeNumber</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">isPalindrome</span><span class=\"hljs-params\">(<span class=\"hljs-number\">12321</span>)</span>;\r\n        <span class=\"hljs-keyword\">assert</span> !isPalindrome(<span class=\"hljs-number\">1234</span>);\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">isPalindrome</span><span class=\"hljs-params\">(<span class=\"hljs-number\">1</span>)</span>;\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Check if {<span class=\"hljs-doctag\">@code</span> n} is palindrome number or not\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> number the number\r\n     * <span class=\"hljs-doctag\">@return</span> {<span class=\"hljs-doctag\">@code</span> true} if {<span class=\"hljs-doctag\">@code</span> n} is palindrome number, otherwise\r\n     * {<span class=\"hljs-doctag\">@code</span> false}\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">boolean</span> <span class=\"hljs-title function_\">isPalindrome</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> number)</span> {\r\n        <span class=\"hljs-keyword\">if</span> (number &lt; <span class=\"hljs-number\">0</span>) {\r\n            <span class=\"hljs-keyword\">throw</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">IllegalArgumentException</span>(number + <span class=\"hljs-string\">&quot;&quot;</span>);\r\n        }\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">numberCopy</span> <span class=\"hljs-operator\">=</span> number;\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">reverseNumber</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>;\r\n        <span class=\"hljs-keyword\">while</span> (numberCopy != <span class=\"hljs-number\">0</span>) {\r\n            <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">remainder</span> <span class=\"hljs-operator\">=</span> numberCopy % <span class=\"hljs-number\">10</span>;\r\n            reverseNumber = reverseNumber * <span class=\"hljs-number\">10</span> + remainder;\r\n            numberCopy /= <span class=\"hljs-number\">10</span>;\r\n        }\r\n        <span class=\"hljs-type\">return</span> <span class=\"hljs-variable\">number</span> <span class=\"hljs-operator\">=</span>= reverseNumber;\r\n    }\r\n}\r\n"
+    },
+    "dart": {
+      "dir": "maths\\palindrome_number.dart",
+      "url": "https://github.com/TheAlgorithms/dart/tree/master/maths\\palindrome_number.dart",
+      "code": "<span class=\"hljs-comment\">/* Driver */</span>\r\n<span class=\"hljs-keyword\">void</span> main() {\r\n  <span class=\"hljs-keyword\">assert</span>(isPalindrome(<span class=\"hljs-number\">12321</span>) == <span class=\"hljs-keyword\">true</span>);\r\n  <span class=\"hljs-keyword\">assert</span>(isPalindrome(<span class=\"hljs-number\">0</span>) == <span class=\"hljs-keyword\">true</span>);\r\n  <span class=\"hljs-keyword\">assert</span>(isPalindrome(<span class=\"hljs-number\">1</span>) == <span class=\"hljs-keyword\">true</span>);\r\n  <span class=\"hljs-keyword\">assert</span>(isPalindrome(<span class=\"hljs-number\">123322</span>) == <span class=\"hljs-keyword\">false</span>);\r\n}\r\n\r\n<span class=\"hljs-comment\"><span class=\"language-markdown\">/<span class=\"hljs-strong\">**\r\n <span class=\"hljs-emphasis\">*</span></span></span> Return true if <span class=\"language-markdown\"><span class=\"hljs-strong\"><span class=\"hljs-emphasis\">[n] is palindrome number, otherwise false\r\n *</span> Throws [ArgumentError] if [n] is negative\r\n <span class=\"hljs-emphasis\">*/</span></span></span></span>\r\n<span class=\"hljs-built_in\">bool</span> isPalindrome(<span class=\"hljs-built_in\">int</span> n) {\r\n  <span class=\"hljs-keyword\">if</span> (n &lt; <span class=\"hljs-number\">0</span>) {\r\n    <span class=\"hljs-keyword\">throw</span> <span class=\"hljs-keyword\">new</span> ArgumentError(<span class=\"hljs-string\">&quot;<span class=\"hljs-subst\">$n</span> is negative&quot;</span>);\r\n  }\r\n  <span class=\"hljs-keyword\">var</span> copy = n;\r\n  <span class=\"hljs-keyword\">var</span> reverseNumber = <span class=\"hljs-number\">0</span>;\r\n  <span class=\"hljs-keyword\">while</span> (n != <span class=\"hljs-number\">0</span>) {\r\n    reverseNumber = reverseNumber * <span class=\"hljs-number\">10</span> + n % <span class=\"hljs-number\">10</span>;\r\n    n = n ~/ <span class=\"hljs-number\">10</span>;\r\n  }\r\n\r\n  <span class=\"hljs-keyword\">return</span> copy == reverseNumber;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

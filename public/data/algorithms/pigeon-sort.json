@@ -1,0 +1,53 @@
+{
+  "slug": "pigeon-sort",
+  "name": "Pigeon Sort",
+  "categories": [
+    "sorts"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "sorts\\pigeon_sort.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/sorts\\pigeon_sort.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n    This is an implementation of Pigeon Hole Sort.\r\n    For doctests run following command:\r\n\r\n    python3 -m doctest -v pigeon_sort.py\r\n    or\r\n    python -m doctest -v pigeon_sort.py\r\n\r\n    For manual testing run:\r\n    python pigeon_sort.py\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">from</span> __future__ <span class=\"hljs-keyword\">import</span> annotations\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">pigeon_sort</span>(<span class=\"hljs-params\">array: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]</span>) -&gt; <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Implementation of pigeon hole sort algorithm\r\n    :param array: Collection of comparable items\r\n    :return: Collection sorted in ascending order\r\n    &gt;&gt;&gt; pigeon_sort([0, 5, 3, 2, 2])\r\n    [0, 2, 2, 3, 5]\r\n    &gt;&gt;&gt; pigeon_sort([])\r\n    []\r\n    &gt;&gt;&gt; pigeon_sort([-2, -5, -45])\r\n    [-45, -5, -2]\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> <span class=\"hljs-built_in\">len</span>(array) == <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">return</span> array\r\n\r\n    _<span class=\"hljs-built_in\">min</span>, _<span class=\"hljs-built_in\">max</span> = <span class=\"hljs-built_in\">min</span>(array), <span class=\"hljs-built_in\">max</span>(array)\r\n\r\n    <span class=\"hljs-comment\"># Compute the variables</span>\r\n    holes_range = _<span class=\"hljs-built_in\">max</span> - _<span class=\"hljs-built_in\">min</span> + <span class=\"hljs-number\">1</span>\r\n    holes, holes_repeat = [<span class=\"hljs-number\">0</span>] * holes_range, [<span class=\"hljs-number\">0</span>] * holes_range\r\n\r\n    <span class=\"hljs-comment\"># Make the sorting.</span>\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> array:\r\n        index = i - _<span class=\"hljs-built_in\">min</span>\r\n        holes[index] = i\r\n        holes_repeat[index] += <span class=\"hljs-number\">1</span>\r\n\r\n    <span class=\"hljs-comment\"># Makes the array back by replacing the numbers.</span>\r\n    index = <span class=\"hljs-number\">0</span>\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(holes_range):\r\n        <span class=\"hljs-keyword\">while</span> holes_repeat[i] &gt; <span class=\"hljs-number\">0</span>:\r\n            array[index] = holes[i]\r\n            index += <span class=\"hljs-number\">1</span>\r\n            holes_repeat[i] -= <span class=\"hljs-number\">1</span>\r\n\r\n    <span class=\"hljs-comment\"># Returns the sorted array.</span>\r\n    <span class=\"hljs-keyword\">return</span> array\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n    user_input = <span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Enter numbers separated by comma:\\n&quot;</span>)\r\n    unsorted = [<span class=\"hljs-built_in\">int</span>(x) <span class=\"hljs-keyword\">for</span> x <span class=\"hljs-keyword\">in</span> user_input.split(<span class=\"hljs-string\">&quot;,&quot;</span>)]\r\n    <span class=\"hljs-built_in\">print</span>(pigeon_sort(unsorted))\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Hiyabye",
+      "email": "jihoon7373@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Dhruv Manilawala",
+      "email": "dhruvmanila@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "wuyudi",
+      "email": "wuyudi1109@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Parth Paradkar",
+      "email": "parthparadkar3@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "José Henrique Ivanchechen",
+      "email": "joseivanchechen@outlook.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

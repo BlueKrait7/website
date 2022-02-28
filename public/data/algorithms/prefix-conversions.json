@@ -1,0 +1,33 @@
+{
+  "slug": "prefix-conversions",
+  "name": "Prefix Conversions",
+  "categories": [
+    "conversions"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "conversions\\prefix_conversions.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/conversions\\prefix_conversions.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nConvert International System of Units (SI) and Binary prefixes\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">from</span> __future__ <span class=\"hljs-keyword\">import</span> annotations\r\n\r\n<span class=\"hljs-keyword\">from</span> enum <span class=\"hljs-keyword\">import</span> Enum\r\n\r\n\r\n<span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">SI_Unit</span>(<span class=\"hljs-title class_ inherited__\">Enum</span>):\r\n    yotta = <span class=\"hljs-number\">24</span>\r\n    zetta = <span class=\"hljs-number\">21</span>\r\n    exa = <span class=\"hljs-number\">18</span>\r\n    peta = <span class=\"hljs-number\">15</span>\r\n    tera = <span class=\"hljs-number\">12</span>\r\n    giga = <span class=\"hljs-number\">9</span>\r\n    mega = <span class=\"hljs-number\">6</span>\r\n    kilo = <span class=\"hljs-number\">3</span>\r\n    hecto = <span class=\"hljs-number\">2</span>\r\n    deca = <span class=\"hljs-number\">1</span>\r\n    deci = -<span class=\"hljs-number\">1</span>\r\n    centi = -<span class=\"hljs-number\">2</span>\r\n    milli = -<span class=\"hljs-number\">3</span>\r\n    micro = -<span class=\"hljs-number\">6</span>\r\n    nano = -<span class=\"hljs-number\">9</span>\r\n    pico = -<span class=\"hljs-number\">12</span>\r\n    femto = -<span class=\"hljs-number\">15</span>\r\n    atto = -<span class=\"hljs-number\">18</span>\r\n    zepto = -<span class=\"hljs-number\">21</span>\r\n    yocto = -<span class=\"hljs-number\">24</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Binary_Unit</span>(<span class=\"hljs-title class_ inherited__\">Enum</span>):\r\n    yotta = <span class=\"hljs-number\">8</span>\r\n    zetta = <span class=\"hljs-number\">7</span>\r\n    exa = <span class=\"hljs-number\">6</span>\r\n    peta = <span class=\"hljs-number\">5</span>\r\n    tera = <span class=\"hljs-number\">4</span>\r\n    giga = <span class=\"hljs-number\">3</span>\r\n    mega = <span class=\"hljs-number\">2</span>\r\n    kilo = <span class=\"hljs-number\">1</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">convert_si_prefix</span>(<span class=\"hljs-params\">\r\n    known_amount: <span class=\"hljs-built_in\">float</span>,\r\n    known_prefix: <span class=\"hljs-built_in\">str</span> | SI_Unit,\r\n    unknown_prefix: <span class=\"hljs-built_in\">str</span> | SI_Unit,\r\n</span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Wikipedia reference: https://en.wikipedia.org/wiki/Binary_prefix\r\n    Wikipedia reference: https://en.wikipedia.org/wiki/International_System_of_Units\r\n    &gt;&gt;&gt; convert_si_prefix(1, SI_Unit.giga, SI_Unit.mega)\r\n    1000\r\n    &gt;&gt;&gt; convert_si_prefix(1, SI_Unit.mega, SI_Unit.giga)\r\n    0.001\r\n    &gt;&gt;&gt; convert_si_prefix(1, SI_Unit.kilo, SI_Unit.kilo)\r\n    1\r\n    &gt;&gt;&gt; convert_si_prefix(1, &#x27;giga&#x27;, &#x27;mega&#x27;)\r\n    1000\r\n    &gt;&gt;&gt; convert_si_prefix(1, &#x27;gIGa&#x27;, &#x27;mEGa&#x27;)\r\n    1000\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> <span class=\"hljs-built_in\">isinstance</span>(known_prefix, <span class=\"hljs-built_in\">str</span>):\r\n        known_prefix = SI_Unit[known_prefix.lower()]\r\n    <span class=\"hljs-keyword\">if</span> <span class=\"hljs-built_in\">isinstance</span>(unknown_prefix, <span class=\"hljs-built_in\">str</span>):\r\n        unknown_prefix = SI_Unit[unknown_prefix.lower()]\r\n    unknown_amount: <span class=\"hljs-built_in\">float</span> = known_amount * (\r\n        <span class=\"hljs-number\">10</span> ** (known_prefix.value - unknown_prefix.value)\r\n    )\r\n    <span class=\"hljs-keyword\">return</span> unknown_amount\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">convert_binary_prefix</span>(<span class=\"hljs-params\">\r\n    known_amount: <span class=\"hljs-built_in\">float</span>,\r\n    known_prefix: <span class=\"hljs-built_in\">str</span> | Binary_Unit,\r\n    unknown_prefix: <span class=\"hljs-built_in\">str</span> | Binary_Unit,\r\n</span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Wikipedia reference: https://en.wikipedia.org/wiki/Metric_prefix\r\n    &gt;&gt;&gt; convert_binary_prefix(1, Binary_Unit.giga, Binary_Unit.mega)\r\n    1024\r\n    &gt;&gt;&gt; convert_binary_prefix(1, Binary_Unit.mega, Binary_Unit.giga)\r\n    0.0009765625\r\n    &gt;&gt;&gt; convert_binary_prefix(1, Binary_Unit.kilo, Binary_Unit.kilo)\r\n    1\r\n    &gt;&gt;&gt; convert_binary_prefix(1, &#x27;giga&#x27;, &#x27;mega&#x27;)\r\n    1024\r\n    &gt;&gt;&gt; convert_binary_prefix(1, &#x27;gIGa&#x27;, &#x27;mEGa&#x27;)\r\n    1024\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> <span class=\"hljs-built_in\">isinstance</span>(known_prefix, <span class=\"hljs-built_in\">str</span>):\r\n        known_prefix = Binary_Unit[known_prefix.lower()]\r\n    <span class=\"hljs-keyword\">if</span> <span class=\"hljs-built_in\">isinstance</span>(unknown_prefix, <span class=\"hljs-built_in\">str</span>):\r\n        unknown_prefix = Binary_Unit[unknown_prefix.lower()]\r\n    unknown_amount: <span class=\"hljs-built_in\">float</span> = known_amount * (\r\n        <span class=\"hljs-number\">2</span> ** ((known_prefix.value - unknown_prefix.value) * <span class=\"hljs-number\">10</span>)\r\n    )\r\n    <span class=\"hljs-keyword\">return</span> unknown_amount\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "Dhruv Manilawala",
+      "email": "dhruvmanila@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "lance-pyles",
+      "email": "36748284+lance-pyles@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

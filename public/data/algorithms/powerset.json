@@ -1,0 +1,23 @@
+{
+  "slug": "powerset",
+  "name": "Powerset",
+  "categories": [
+    "others"
+  ],
+  "body": {},
+  "implementations": {
+    "haskell": {
+      "dir": "src\\Misc\\Powerset.hs",
+      "url": "https://github.com/TheAlgorithms/haskell/tree/master/src\\Misc\\Powerset.hs",
+      "code": "<span class=\"hljs-keyword\">module</span> Misc.Powerset <span class=\"hljs-keyword\">where</span>\r\n\r\n<span class=\"hljs-title\">powerset</span> :: [a] -&gt; [[a]]\r\n<span class=\"hljs-title\">powerset</span> [] = [[]]\r\n<span class=\"hljs-title\">powerset</span> (x:xs) = (powerset xs) ++ (map (\\ys -&gt; x:ys) (powerset xs)) \r\n\r\n<span class=\"hljs-title\">xs</span> = [<span class=\"hljs-number\">1</span>,<span class=\"hljs-number\">2</span>,<span class=\"hljs-number\">3</span>,<span class=\"hljs-number\">4</span>]\r\n\r\n<span class=\"hljs-title\">main</span> :: <span class=\"hljs-type\">IO</span> ()\r\n<span class=\"hljs-title\">main</span> = <span class=\"hljs-keyword\">do</span>\r\n    putStrLn (show (powerset xs))\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian James Welly",
+      "email": "chrisjwelly@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

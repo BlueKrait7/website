@@ -1,0 +1,43 @@
+{
+  "slug": "power-of-two-or-not",
+  "name": "Power Of Two Or Not",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\maths\\PowerOfTwoOrNot.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\maths\\PowerOfTwoOrNot.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.maths;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * A utility to check if a given number is power of two or not. For example 8,16\r\n * etc.\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">PowerOfTwoOrNot</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-keyword\">assert</span> !checkIfPowerOfTwoOrNot(<span class=\"hljs-number\">0</span>);\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">checkIfPowerOfTwoOrNot</span><span class=\"hljs-params\">(<span class=\"hljs-number\">1</span>)</span>;\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">checkIfPowerOfTwoOrNot</span><span class=\"hljs-params\">(<span class=\"hljs-number\">8</span>)</span>;\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">checkIfPowerOfTwoOrNot</span><span class=\"hljs-params\">(<span class=\"hljs-number\">16</span>)</span>;\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">checkIfPowerOfTwoOrNot</span><span class=\"hljs-params\">(<span class=\"hljs-number\">1024</span>)</span>;\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Checks whether given number is power of two or not.\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> number the number to check\r\n     * <span class=\"hljs-doctag\">@return</span> {<span class=\"hljs-doctag\">@code</span> true} if given number is power of two, otherwise\r\n     * {<span class=\"hljs-doctag\">@code</span> false}\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">boolean</span> <span class=\"hljs-title function_\">checkIfPowerOfTwoOrNot</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> number)</span> {\r\n        <span class=\"hljs-keyword\">return</span> number != <span class=\"hljs-number\">0</span> &amp;&amp; ((number &amp; (number - <span class=\"hljs-number\">1</span>)) == <span class=\"hljs-number\">0</span>);\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Hassan",
+      "email": "hassan.elseoudy@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Rachana040",
+      "email": "rachanasoma99@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

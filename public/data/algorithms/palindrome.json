@@ -1,0 +1,158 @@
+{
+  "slug": "palindrome",
+  "name": "Palindrome",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "strings\\palindrome.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/strings\\palindrome.py",
+      "code": "<span class=\"hljs-comment\"># Algorithms to determine if a string is palindrome</span>\r\n\r\ntest_data = {\r\n    <span class=\"hljs-string\">&quot;MALAYALAM&quot;</span>: <span class=\"hljs-literal\">True</span>,\r\n    <span class=\"hljs-string\">&quot;String&quot;</span>: <span class=\"hljs-literal\">False</span>,\r\n    <span class=\"hljs-string\">&quot;rotor&quot;</span>: <span class=\"hljs-literal\">True</span>,\r\n    <span class=\"hljs-string\">&quot;level&quot;</span>: <span class=\"hljs-literal\">True</span>,\r\n    <span class=\"hljs-string\">&quot;A&quot;</span>: <span class=\"hljs-literal\">True</span>,\r\n    <span class=\"hljs-string\">&quot;BB&quot;</span>: <span class=\"hljs-literal\">True</span>,\r\n    <span class=\"hljs-string\">&quot;ABC&quot;</span>: <span class=\"hljs-literal\">False</span>,\r\n    <span class=\"hljs-string\">&quot;amanaplanacanalpanama&quot;</span>: <span class=\"hljs-literal\">True</span>,  <span class=\"hljs-comment\"># &quot;a man a plan a canal panama&quot;</span>\r\n}\r\n<span class=\"hljs-comment\"># Ensure our test data is valid</span>\r\n<span class=\"hljs-keyword\">assert</span> <span class=\"hljs-built_in\">all</span>((key == key[::-<span class=\"hljs-number\">1</span>]) <span class=\"hljs-keyword\">is</span> value <span class=\"hljs-keyword\">for</span> key, value <span class=\"hljs-keyword\">in</span> test_data.items())\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">is_palindrome</span>(<span class=\"hljs-params\">s: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-built_in\">bool</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Return True if s is a palindrome otherwise return False.\r\n\r\n    &gt;&gt;&gt; all(is_palindrome(key) is value for key, value in test_data.items())\r\n    True\r\n    &quot;&quot;&quot;</span>\r\n\r\n    start_i = <span class=\"hljs-number\">0</span>\r\n    end_i = <span class=\"hljs-built_in\">len</span>(s) - <span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">while</span> start_i &lt; end_i:\r\n        <span class=\"hljs-keyword\">if</span> s[start_i] == s[end_i]:\r\n            start_i += <span class=\"hljs-number\">1</span>\r\n            end_i -= <span class=\"hljs-number\">1</span>\r\n        <span class=\"hljs-keyword\">else</span>:\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">False</span>\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">True</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">is_palindrome_recursive</span>(<span class=\"hljs-params\">s: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-built_in\">bool</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Return True if s is a palindrome otherwise return False.\r\n\r\n    &gt;&gt;&gt; all(is_palindrome_recursive(key) is value for key, value in test_data.items())\r\n    True\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> <span class=\"hljs-built_in\">len</span>(s) &lt;= <span class=\"hljs-number\">1</span>:\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">True</span>\r\n    <span class=\"hljs-keyword\">if</span> s[<span class=\"hljs-number\">0</span>] == s[<span class=\"hljs-built_in\">len</span>(s) - <span class=\"hljs-number\">1</span>]:\r\n        <span class=\"hljs-keyword\">return</span> is_palindrome_recursive(s[<span class=\"hljs-number\">1</span>:-<span class=\"hljs-number\">1</span>])\r\n    <span class=\"hljs-keyword\">else</span>:\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">False</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">is_palindrome_slice</span>(<span class=\"hljs-params\">s: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-built_in\">bool</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Return True if s is a palindrome otherwise return False.\r\n\r\n    &gt;&gt;&gt; all(is_palindrome_slice(key) is value for key, value in test_data.items())\r\n    True\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">return</span> s == s[::-<span class=\"hljs-number\">1</span>]\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">for</span> key, value <span class=\"hljs-keyword\">in</span> test_data.items():\r\n        <span class=\"hljs-keyword\">assert</span> is_palindrome(key) <span class=\"hljs-keyword\">is</span> is_palindrome_recursive(key)\r\n        <span class=\"hljs-keyword\">assert</span> is_palindrome(key) <span class=\"hljs-keyword\">is</span> is_palindrome_slice(key)\r\n        <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f&quot;<span class=\"hljs-subst\">{key:<span class=\"hljs-number\">21</span>}</span> <span class=\"hljs-subst\">{value}</span>&quot;</span>)\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;a man a plan a canal panama&quot;</span>)\r\n"
+    },
+    "javascript": {
+      "dir": "Recursive\\test\\palindrome.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Recursive\\test\\palindrome.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { palindrome } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../Palindrome&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;Palindrome&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return true for palindrome string&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> isPalindrome = <span class=\"hljs-title function_\">palindrome</span>(<span class=\"hljs-string\">&#x27;madam&#x27;</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(isPalindrome).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">true</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return true for Empty String&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> isPalindrome = <span class=\"hljs-title function_\">palindrome</span>(<span class=\"hljs-string\">&#x27;&#x27;</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(isPalindrome).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">true</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return false for non-palindrome string&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> isPalindrome = <span class=\"hljs-title function_\">palindrome</span>(<span class=\"hljs-string\">&#x27;foobar&#x27;</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(isPalindrome).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">false</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;Throw Error for Invalid Input&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> <span class=\"hljs-title function_\">palindrome</span>(<span class=\"hljs-number\">123</span>)).<span class=\"hljs-title function_\">toThrow</span>(<span class=\"hljs-string\">&#x27;Invalid Input&#x27;</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> <span class=\"hljs-title function_\">palindrome</span>(<span class=\"hljs-literal\">null</span>)).<span class=\"hljs-title function_\">toThrow</span>(<span class=\"hljs-string\">&#x27;Invalid Input&#x27;</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> <span class=\"hljs-title function_\">palindrome</span>(<span class=\"hljs-literal\">undefined</span>)).<span class=\"hljs-title function_\">toThrow</span>(<span class=\"hljs-string\">&#x27;Invalid Input&#x27;</span>)\r\n  })\r\n})\r\n"
+    },
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\strings\\Palindrome.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\strings\\Palindrome.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.strings;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Wikipedia: https://en.wikipedia.org/wiki/Palindrome\r\n */</span>\r\n<span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Palindrome</span> {\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Driver Code\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        String[] palindromes = {<span class=\"hljs-literal\">null</span>, <span class=\"hljs-string\">&quot;&quot;</span>, <span class=\"hljs-string\">&quot;aba&quot;</span>, <span class=\"hljs-string\">&quot;123321&quot;</span>};\r\n        <span class=\"hljs-keyword\">for</span> (String s : palindromes) {\r\n            <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">isPalindrome</span><span class=\"hljs-params\">(s)</span> &amp;&amp; isPalindromeRecursion(s) &amp;&amp; isPalindrome1(s);\r\n        }\r\n\r\n        String[] notPalindromes = {<span class=\"hljs-string\">&quot;abb&quot;</span>, <span class=\"hljs-string\">&quot;abc&quot;</span>, <span class=\"hljs-string\">&quot;abc123&quot;</span>};\r\n        <span class=\"hljs-keyword\">for</span> (String s : notPalindromes) {\r\n            <span class=\"hljs-keyword\">assert</span> !isPalindrome(s) &amp;&amp; !isPalindromeRecursion(s) &amp;&amp; !isPalindrome1(s);\r\n        }\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Check if a string is palindrome string or not\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> s a string to check\r\n     * <span class=\"hljs-doctag\">@return</span> {<span class=\"hljs-doctag\">@code</span> true} if given string is palindrome, otherwise\r\n     * {<span class=\"hljs-doctag\">@code</span> false}\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">boolean</span> <span class=\"hljs-title function_\">isPalindrome</span><span class=\"hljs-params\">(String s)</span> {\r\n        <span class=\"hljs-keyword\">return</span> (s == <span class=\"hljs-literal\">null</span> || s.length() &lt;= <span class=\"hljs-number\">1</span>) || s.equals(<span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">StringBuilder</span>(s).reverse().toString());\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Check if a string is palindrome string or not using recursion\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> s a string to check\r\n     * <span class=\"hljs-doctag\">@return</span> {<span class=\"hljs-doctag\">@code</span> true} if given string is palindrome, otherwise\r\n     * {<span class=\"hljs-doctag\">@code</span> false}\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">boolean</span> <span class=\"hljs-title function_\">isPalindromeRecursion</span><span class=\"hljs-params\">(String s)</span> {\r\n        <span class=\"hljs-keyword\">if</span> (s == <span class=\"hljs-literal\">null</span> || s.length() &lt;= <span class=\"hljs-number\">1</span>) {\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">true</span>;\r\n        }\r\n\r\n        <span class=\"hljs-keyword\">if</span> (s.charAt(<span class=\"hljs-number\">0</span>) != s.charAt(s.length() - <span class=\"hljs-number\">1</span>)) {\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>;\r\n        }\r\n\r\n        <span class=\"hljs-keyword\">return</span> isPalindrome(s.substring(<span class=\"hljs-number\">1</span>, s.length() - <span class=\"hljs-number\">1</span>));\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Check if a string is palindrome string or not another way\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> s a string to check\r\n     * <span class=\"hljs-doctag\">@return</span> {<span class=\"hljs-doctag\">@code</span> true} if given string is palindrome, otherwise\r\n     * {<span class=\"hljs-doctag\">@code</span> false}\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">boolean</span> <span class=\"hljs-title function_\">isPalindrome1</span><span class=\"hljs-params\">(String s)</span> {\r\n        <span class=\"hljs-keyword\">if</span> (s == <span class=\"hljs-literal\">null</span> || s.length() &lt;= <span class=\"hljs-number\">1</span>) {\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">true</span>;\r\n        }\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>, j = s.length() - <span class=\"hljs-number\">1</span>; i &lt; j; ++i, --j) {\r\n            <span class=\"hljs-keyword\">if</span> (s.charAt(i) != s.charAt(j)) {\r\n                <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>;\r\n            }\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">true</span>;\r\n    }\r\n}\r\n"
+    },
+    "c": {
+      "dir": "misc\\palindrome.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/misc\\palindrome.c",
+      "code": "<span class=\"hljs-comment\">/**\r\n * @file\r\n * @brief Program to identify if a number is [palindrome\r\n * number](https://en.wikipedia.org/wiki/Palindrome) or not.\r\n * @see project_euler/problem_4/sol1.c\r\n */</span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;assert.h&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;stdbool.h&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;stdio.h&gt;</span></span>\r\n\r\n<span class=\"hljs-type\">bool</span> <span class=\"hljs-title function_\">isPalindrome</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> number)</span>;\r\n\r\n<span class=\"hljs-comment\">/** Driver Code */</span>\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">()</span>\r\n{\r\n    assert(isPalindrome(<span class=\"hljs-number\">0</span>));\r\n    assert(isPalindrome(<span class=\"hljs-number\">1</span>));\r\n    assert(isPalindrome(<span class=\"hljs-number\">12321</span>));\r\n    assert(!isPalindrome(<span class=\"hljs-number\">1234</span>));\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Check given number whether is palindrome number or not\r\n * @param number number to check\r\n * @return `true` if given number is palindrome number\r\n * @return `false` if number is not a palindrome number\r\n */</span>\r\n<span class=\"hljs-type\">bool</span> <span class=\"hljs-title function_\">isPalindrome</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> number)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> reversedNumber = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-type\">int</span> originalNumber = number;\r\n    <span class=\"hljs-keyword\">while</span> (number != <span class=\"hljs-number\">0</span>)\r\n    {\r\n        <span class=\"hljs-type\">int</span> remainder = number % <span class=\"hljs-number\">10</span>;\r\n        reversedNumber = reversedNumber * <span class=\"hljs-number\">10</span> + remainder;\r\n        number /= <span class=\"hljs-number\">10</span>;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> originalNumber == reversedNumber;\r\n}\r\n"
+    },
+    "haskell": {
+      "dir": "src\\Maths\\Palindrome.hs",
+      "url": "https://github.com/TheAlgorithms/haskell/tree/master/src\\Maths\\Palindrome.hs",
+      "code": "<span class=\"hljs-keyword\">module</span> Maths.Palindrome <span class=\"hljs-keyword\">where</span>\r\n\r\n<span class=\"hljs-title\">palinedrome</span> :: <span class=\"hljs-type\">Eq</span> a =&gt; [a] -&gt; <span class=\"hljs-type\">Bool</span>\r\n<span class=\"hljs-title\">palinedrome</span> xs = (xs == reverse xs)\r\n\r\n<span class=\"hljs-title\">main</span> :: <span class=\"hljs-type\">IO</span> ()\r\n<span class=\"hljs-title\">main</span> = <span class=\"hljs-keyword\">do</span>\r\n  print (palinedrome [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">1</span>])"
+    },
+    "ruby": {
+      "dir": "data_structures\\arrays\\strings\\palindrome.rb",
+      "url": "https://github.com/TheAlgorithms/ruby/tree/master/data_structures\\arrays\\strings\\palindrome.rb",
+      "code": "<span class=\"hljs-comment\"># Challenge name: Valid Palindrome</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Given a string s, determine if it is a palindrome,</span>\r\n<span class=\"hljs-comment\"># considering only alphanumeric characters and ignoring cases.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Example 1:</span>\r\n<span class=\"hljs-comment\"># Input: s = &quot;A man, a plan, a canal: Panama&quot;</span>\r\n<span class=\"hljs-comment\"># Output: true</span>\r\n<span class=\"hljs-comment\"># Explanation: &quot;amanaplanacanalpanama&quot; is a palindrome.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Example 2:</span>\r\n<span class=\"hljs-comment\"># Input: s = &quot;race a car&quot;</span>\r\n<span class=\"hljs-comment\"># Output: false</span>\r\n<span class=\"hljs-comment\"># Explanation: &quot;raceacar&quot; is not a palindrome.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Constraints:</span>\r\n<span class=\"hljs-comment\"># 1 &lt;= s.length &lt;= 2 * 105</span>\r\n<span class=\"hljs-comment\"># s consists only of printable ASCII characters.</span>\r\n<span class=\"hljs-comment\"># <span class=\"hljs-doctag\">@param</span> {String} s</span>\r\n<span class=\"hljs-comment\"># <span class=\"hljs-doctag\">@return</span> {Boolean}</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Approach 1: Using Ruby method .reverse</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Time Complexity: O(n)</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">is_palindrome</span><span class=\"hljs-params\">(s)</span></span>\r\n  letters_only = s.downcase.gsub(<span class=\"hljs-regexp\">/[^0-9a-z]/i</span>, <span class=\"hljs-string\">&#x27;&#x27;</span>)\r\n  letters_only.reverse == letters_only\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\ns = <span class=\"hljs-string\">&#x27;A man, a plan, a canal: Panama&#x27;</span>\r\nputs is_palindrome(s)\r\n<span class=\"hljs-comment\"># Output: true</span>\r\n<span class=\"hljs-comment\"># Explanation: &quot;amanaplanacanalpanama&quot; is a palindrome.</span>\r\n\r\ns = <span class=\"hljs-string\">&#x27;race a car&#x27;</span>\r\nputs is_palindrome(s)\r\n<span class=\"hljs-comment\"># Output: false</span>\r\n<span class=\"hljs-comment\"># Explanation: &quot;raceacar&quot; is not a palindrome.</span>\r\n\r\ns = <span class=\"hljs-string\">&#x27;ab_a&#x27;</span>\r\nputs is_palindrome(s)\r\n<span class=\"hljs-comment\"># Output: true</span>\r\n<span class=\"hljs-comment\"># Explanation: &quot;aba&quot; is a palindrome.</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Approach 2: Reversed array</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Complexity Analysis:</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Time Complexity: O(n), in length n of the string.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># We need to iterate through the string: When we filter out non-alphanumeric characters and convert the remaining</span>\r\n<span class=\"hljs-comment\"># characters to lower-case. When we reverse the string. When we compare the original and the reversed strings.</span>\r\n<span class=\"hljs-comment\"># Each iteration runs linearly in time (since each character operation completes in constant time).</span>\r\n<span class=\"hljs-comment\"># Thus, the effective run-time complexity is linear.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Space Complexity: O(n), in length n of the string. We need O(n) additional</span>\r\n<span class=\"hljs-comment\"># space to store the filtered string and the reversed string.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">is_palindrome</span><span class=\"hljs-params\">(s)</span></span>\r\n  letters_only_array = s.downcase.gsub(<span class=\"hljs-regexp\">/[^0-9a-z]/i</span>, <span class=\"hljs-string\">&#x27;&#x27;</span>).split(<span class=\"hljs-string\">&#x27;&#x27;</span>)\r\n  reversed_array = []\r\n  letters_only_array.each <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|letter|</span>\r\n    reversed_array.unshift(letter)\r\n  <span class=\"hljs-keyword\">end</span>\r\n  letters_only_array == reversed_array\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\ns = <span class=\"hljs-string\">&#x27;A man, a plan, a canal: Panama&#x27;</span>\r\nputs is_palindrome(s)\r\n<span class=\"hljs-comment\"># Output: true</span>\r\n<span class=\"hljs-comment\"># Explanation: &quot;amanaplanacanalpanama&quot; is a palindrome.</span>\r\n\r\ns = <span class=\"hljs-string\">&#x27;race a car&#x27;</span>\r\nputs is_palindrome(s)\r\n<span class=\"hljs-comment\"># Output: false</span>\r\n<span class=\"hljs-comment\"># Explanation: &quot;raceacar&quot; is not a palindrome.</span>\r\n\r\ns = <span class=\"hljs-string\">&#x27;ab_a&#x27;</span>\r\nputs is_palindrome(s)\r\n<span class=\"hljs-comment\"># Output: true</span>\r\n<span class=\"hljs-comment\"># Explanation: &quot;aba&quot; is a palindrome.</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Approach 2: Two Pointers</span>\r\n<span class=\"hljs-comment\">#</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Complexity Analysis:</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Time Complexity: O(n), in length n of the string. We traverse over each</span>\r\n<span class=\"hljs-comment\"># character at most once until the two pointers meet in the middle, or when</span>\r\n<span class=\"hljs-comment\"># we break and return early.</span>\r\n<span class=\"hljs-comment\"># Space Complexity: O(1). No extra space required, at all.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">is_palindrome</span><span class=\"hljs-params\">(s)</span></span>\r\n  letters_only = s.downcase.gsub(<span class=\"hljs-regexp\">/[^0-9a-z]/i</span>, <span class=\"hljs-string\">&#x27;&#x27;</span>)\r\n  p1 = <span class=\"hljs-number\">0</span>\r\n  p2 = letters_only.length - <span class=\"hljs-number\">1</span>\r\n\r\n  <span class=\"hljs-keyword\">while</span> p1 &lt; p2\r\n    <span class=\"hljs-keyword\">if</span> letters_only[p1] == letters_only[p2]\r\n      p1 += <span class=\"hljs-number\">1</span>\r\n      p2 -= <span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">else</span>\r\n      <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>\r\n    <span class=\"hljs-keyword\">end</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n  <span class=\"hljs-literal\">true</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\ns = <span class=\"hljs-string\">&#x27;A man, a plan, a canal: Panama&#x27;</span>\r\nputs is_palindrome(s)\r\n<span class=\"hljs-comment\"># Output: true</span>\r\n<span class=\"hljs-comment\"># Explanation: &quot;amanaplanacanalpanama&quot; is a palindrome.</span>\r\n\r\ns = <span class=\"hljs-string\">&#x27;race a car&#x27;</span>\r\nputs is_palindrome(s)\r\n<span class=\"hljs-comment\"># Output: false</span>\r\n<span class=\"hljs-comment\"># Explanation: &quot;raceacar&quot; is not a palindrome.</span>\r\n\r\ns = <span class=\"hljs-string\">&#x27;ab_a&#x27;</span>\r\nputs is_palindrome(s)\r\n<span class=\"hljs-comment\"># Output: true</span>\r\n<span class=\"hljs-comment\"># Explanation: &quot;aba&quot; is a palindrome.</span>\r\n"
+    },
+    "kotlin": {
+      "dir": "src\\main\\kotlin\\other\\Palindrome.kt",
+      "url": "https://github.com/TheAlgorithms/kotlin/tree/master/src\\main\\kotlin\\other\\Palindrome.kt",
+      "code": "<span class=\"hljs-keyword\">package</span> other\r\n\r\n<span class=\"hljs-keyword\">import</span> java.text.Normalizer\r\n<span class=\"hljs-keyword\">import</span> java.util.regex.Pattern\r\n\r\n<span class=\"hljs-comment\">/**\r\n * A palindrome is a word, number, phrase, or other sequence\r\n * of characters which reads the same backward as forward,\r\n * such as madam, racecar. There are also numeric palindromes,\r\n * particularly date/time stamps using short digits 11/11/11 11:11\r\n * and long digits 02/02/2020\r\n *\r\n * This function\r\n * <span class=\"hljs-doctag\">@param</span> text The text to be checked if it is a palindrome\r\n * <span class=\"hljs-doctag\">@return</span> return true if the text is a Palindrome\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">fun</span> <span class=\"hljs-title\">isPalindrome</span><span class=\"hljs-params\">(text: <span class=\"hljs-type\">String</span>)</span></span>: <span class=\"hljs-built_in\">Boolean</span> {\r\n\r\n    <span class=\"hljs-keyword\">val</span> normalizedText = text.normalize()\r\n    <span class=\"hljs-keyword\">for</span>(i <span class=\"hljs-keyword\">in</span> normalizedText.indices)\r\n        <span class=\"hljs-keyword\">if</span>(normalizedText[i] != normalizedText[normalizedText.length - (i + <span class=\"hljs-number\">1</span>)])\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">true</span>;\r\n}\r\n\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">fun</span> String.<span class=\"hljs-title\">normalize</span><span class=\"hljs-params\">()</span></span>: String {\r\n    <span class=\"hljs-keyword\">val</span> nfdNormalizedString = Normalizer.normalize(<span class=\"hljs-keyword\">this</span>, Normalizer.Form.NFD)\r\n    <span class=\"hljs-keyword\">return</span> Pattern\r\n        .compile(<span class=\"hljs-string\">&quot;\\\\p{InCombiningDiacriticalMarks}+&quot;</span>)\r\n        .matcher(nfdNormalizedString)\r\n        .replaceAll(<span class=\"hljs-string\">&quot;&quot;</span>)\r\n        .toLowerCase()\r\n        .replace(<span class=\"hljs-string\">&quot; &quot;</span>, <span class=\"hljs-string\">&quot;&quot;</span>)\r\n\r\n}"
+    }
+  },
+  "contributors": [
+    {
+      "name": "1fisedi",
+      "email": "51143882+1fisedi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "najtmarr",
+      "email": "najtmarr@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Ali Hassan",
+      "email": "malihassan20@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Nour B",
+      "email": "56294154+nourrrrrrrr@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Furaha Damién",
+      "email": "furaha.damien@mail.mcgill.ca",
+      "commits": 1
+    },
+    {
+      "name": "jasonptong",
+      "email": "43040084+jasonptong@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Prasoon",
+      "email": "prasoonpandey06@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "percy07",
+      "email": "56677891+percy07@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Shivam Arora",
+      "email": "shivam.arora@inficold.com",
+      "commits": 1
+    },
+    {
+      "name": "alessandro_gsantos",
+      "email": "alessandro.santos@bemobi.com.br",
+      "commits": 2
+    },
+    {
+      "name": "liamdp",
+      "email": "liam.pickering@outlook.com",
+      "commits": 2
+    },
+    {
+      "name": "Gerasimos Alexiou",
+      "email": "jerrak0s@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "YATIN KATHURIA",
+      "email": "47096348+Yatin-kathuria@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "Ephraim Atta-Duncan",
+      "email": "55143799+dephraiim@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 3
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 3
+    },
+    {
+      "name": "Andrii Siriak",
+      "email": "siryaka@gmail.com",
+      "commits": 4
+    },
+    {
+      "name": "Jessica Kwok",
+      "email": "jessicatckwok@gmail.com",
+      "commits": 4
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "pangram",
+  "name": "Pangram",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\strings\\Pangram.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\strings\\Pangram.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.strings;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Wikipedia: https://en.wikipedia.org/wiki/Pangram\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Pangram</span> {\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Driver Code\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">isPangram</span><span class=\"hljs-params\">(<span class=\"hljs-string\">&quot;The quick brown fox jumps over the lazy dog&quot;</span>)</span>;\r\n        <span class=\"hljs-keyword\">assert</span> !isPangram(<span class=\"hljs-string\">&quot;The quick brown fox jumps over the azy dog&quot;</span>);\r\n        <span class=\"hljs-comment\">/* not exists l character */</span>\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Check if a string is a pangram string or not\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> s string to check\r\n     * <span class=\"hljs-doctag\">@return</span> {<span class=\"hljs-doctag\">@code</span> true} if given string is pangram, otherwise {<span class=\"hljs-doctag\">@code</span> false}\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">boolean</span> <span class=\"hljs-title function_\">isPangram</span><span class=\"hljs-params\">(String s)</span> {\r\n        <span class=\"hljs-type\">boolean</span>[] marked = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">boolean</span>[<span class=\"hljs-number\">26</span>];\r\n        <span class=\"hljs-comment\">/* by default all letters don&#x27;t exists */</span>\r\n        <span class=\"hljs-type\">char</span>[] values = s.toCharArray();\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">char</span> value : values) {\r\n            <span class=\"hljs-keyword\">if</span> (Character.isLetter(value)) {\r\n                <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">index</span> <span class=\"hljs-operator\">=</span> Character.isUpperCase(value) ? value - <span class=\"hljs-string\">&#x27;A&#x27;</span> : value - <span class=\"hljs-string\">&#x27;a&#x27;</span>;\r\n                marked[index] = <span class=\"hljs-literal\">true</span>;\r\n                <span class=\"hljs-comment\">/* mark current character exists */</span>\r\n            }\r\n        }\r\n\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">boolean</span> b : marked) {\r\n            <span class=\"hljs-keyword\">if</span> (!b) {\r\n                <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>;\r\n            }\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">true</span>;\r\n    }\r\n}\r\n"
+    },
+    "julia": {
+      "dir": "src\\strings\\pangram.jl",
+      "url": "https://github.com/TheAlgorithms/julia/tree/master/src\\strings\\pangram.jl",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nispangram(input)\r\n\r\nProgram to determine the sentence is pangram or not.The program will return true if it is pangram and false if it is not.A full description of the algorithm can be found on [exercism](https://exercism.org/tracks/julia/exercises/pangram)\r\n\r\n# Arguments:\r\n- `input`: The sentence to find if its pangram or not.\r\n\r\n# Examples/Tests \r\n```julia\r\njulia&gt; ispangram(Pack my box with five dozen liquor jugs)\r\ntrue\r\n\r\njulia&gt; ispangram(The quick brown fox jumps over the lazy dog)\r\ntrue\r\n\r\njulia&gt; wordcount(hello world!!!)\r\nfalse\r\n\r\n```\r\n\r\n# Algorithm: \r\n\r\n```julia\r\n\r\nfor letter in input\r\n    if &#x27;A&#x27; &lt;= letter &lt;= &#x27;Z&#x27;\r\n        x &amp;= ~(1&lt;&lt;(letter-&#x27;A&#x27;))\r\n    elseif &#x27;a&#x27; &lt;= letter &lt;= &#x27;z&#x27;\r\n        x &amp;= ~(1&lt;&lt;(letter-&#x27;a&#x27;))\r\n    end\r\n    x == 0 &amp;&amp; return true\r\nend\r\n\r\n```\r\n\r\n# References:\r\n(https://exercism.org/tracks/julia/exercises/pangram)\r\n\r\n```\r\n\r\n# Contributed by:- [Ihjass Thasbekha](https://github.com/Ihjass)\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">function</span> ispangram(input)\r\n    x = <span class=\"hljs-number\">2</span>^<span class=\"hljs-number\">26</span>-<span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">for</span> letter <span class=\"hljs-keyword\">in</span> input\r\n        <span class=\"hljs-keyword\">if</span> <span class=\"hljs-string\">&#x27;A&#x27;</span> &lt;= letter &lt;= <span class=\"hljs-string\">&#x27;Z&#x27;</span>\r\n            x &amp;= ~(<span class=\"hljs-number\">1</span>&lt;&lt;(letter-<span class=\"hljs-string\">&#x27;A&#x27;</span>))\r\n        <span class=\"hljs-keyword\">elseif</span> <span class=\"hljs-string\">&#x27;a&#x27;</span> &lt;= letter &lt;= <span class=\"hljs-string\">&#x27;z&#x27;</span>\r\n            x &amp;= ~(<span class=\"hljs-number\">1</span>&lt;&lt;(letter-<span class=\"hljs-string\">&#x27;a&#x27;</span>))\r\n        <span class=\"hljs-keyword\">end</span>\r\n        x == <span class=\"hljs-number\">0</span> &amp;&amp; <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">true</span>\r\n    <span class=\"hljs-keyword\">end</span>\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Ihjass Thasbekha",
+      "email": "44056715+Ihjass@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "palindrome-of-number",
+  "name": "Palindrome of Number",
+  "categories": [
+    "others"
+  ],
+  "body": {},
+  "implementations": {
+    "c-plus-plus": {
+      "dir": "others\\palindrome_of_number.cpp",
+      "url": "https://github.com/TheAlgorithms/c-plus-plus/tree/master/others\\palindrome_of_number.cpp",
+      "code": "<span class=\"hljs-comment\">/**\r\n * @file\r\n * @brief Check if a number is\r\n * [palindrome](https://en.wikipedia.org/wiki/Palindrome) or not.\r\n *\r\n * This program cheats by using the STL library&#x27;s std::reverse function.\r\n */</span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;algorithm&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;iostream&gt;</span></span>\r\n\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">ifdef</span> _MSC_VER</span>\r\n<span class=\"hljs-comment\">// Required to compile std::toString function using MSVC</span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;string&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">else</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;cstring&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">endif</span></span>\r\n\r\n<span class=\"hljs-comment\">/** Main function */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">int</span> <span class=\"hljs-title\">main</span><span class=\"hljs-params\">()</span> </span>{\r\n    <span class=\"hljs-type\">int</span> num;\r\n    std::cout &lt;&lt; <span class=\"hljs-string\">&quot;Enter number = &quot;</span>;\r\n    std::cin &gt;&gt; num;\r\n\r\n    std::string s1 = std::<span class=\"hljs-built_in\">to_string</span>(num);  <span class=\"hljs-comment\">// convert number to string</span>\r\n    std::string s2 = s1;\r\n\r\n    std::<span class=\"hljs-built_in\">reverse</span>(s1.<span class=\"hljs-built_in\">begin</span>(), s1.<span class=\"hljs-built_in\">end</span>());  <span class=\"hljs-comment\">// reverse the string</span>\r\n\r\n    <span class=\"hljs-keyword\">if</span> (s1 == s2)  <span class=\"hljs-comment\">// check if reverse and original string are identical</span>\r\n        std::cout &lt;&lt; <span class=\"hljs-string\">&quot;true&quot;</span>;\r\n    <span class=\"hljs-keyword\">else</span>\r\n        std::cout &lt;&lt; <span class=\"hljs-string\">&quot;false&quot;</span>;\r\n\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Krishna Vedala",
+      "email": "7001608+kvedala@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "palindrome-prime",
+  "name": "Palindrome Prime",
+  "categories": [
+    "others"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\misc\\PalindromePrime.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\misc\\PalindromePrime.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.misc;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.Scanner;\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">PalindromePrime</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> { <span class=\"hljs-comment\">// Main funtion</span>\r\n        <span class=\"hljs-type\">Scanner</span> <span class=\"hljs-variable\">in</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Scanner</span>(System.in);\r\n        System.out.println(<span class=\"hljs-string\">&quot;Enter the quantity of First Palindromic Primes you want&quot;</span>);\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">n</span> <span class=\"hljs-operator\">=</span> in.nextInt(); <span class=\"hljs-comment\">// Input of how many first palindromic prime we want</span>\r\n        functioning(n); <span class=\"hljs-comment\">// calling function - functioning</span>\r\n        in.close();\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">boolean</span> <span class=\"hljs-title function_\">prime</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> num)</span> { <span class=\"hljs-comment\">// checking if number is prime or not</span>\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">divisor</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">3</span>; divisor &lt;= Math.sqrt(num); divisor += <span class=\"hljs-number\">2</span>) {\r\n            <span class=\"hljs-keyword\">if</span> (num % divisor == <span class=\"hljs-number\">0</span>) {\r\n                <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>; <span class=\"hljs-comment\">//  false if not prime</span>\r\n            }\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">true</span>; <span class=\"hljs-comment\">// True if prime</span>\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">reverse</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> n)</span> { <span class=\"hljs-comment\">//  Returns  the reverse of the number</span>\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">reverse</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>;\r\n        <span class=\"hljs-keyword\">while</span> (n != <span class=\"hljs-number\">0</span>) {\r\n            reverse *= <span class=\"hljs-number\">10</span>;\r\n            reverse += n % <span class=\"hljs-number\">10</span>;\r\n            n /= <span class=\"hljs-number\">10</span>;\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> reverse;\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">functioning</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> y)</span> {\r\n        <span class=\"hljs-keyword\">if</span> (y == <span class=\"hljs-number\">0</span>) {\r\n            <span class=\"hljs-keyword\">return</span>;\r\n        }\r\n        System.out.print(<span class=\"hljs-number\">2</span> + <span class=\"hljs-string\">&quot;\\n&quot;</span>); <span class=\"hljs-comment\">// print the first Palindromic Prime</span>\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">count</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">1</span>;\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">num</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">3</span>;\r\n        <span class=\"hljs-keyword\">while</span> (count &lt; y) {\r\n            <span class=\"hljs-keyword\">if</span> (num == reverse(num) &amp;&amp; prime(num)) { <span class=\"hljs-comment\">// number is prime and it&#x27;s reverse is same</span>\r\n                count++; <span class=\"hljs-comment\">// counts check when to terminate while loop</span>\r\n                System.out.print(num + <span class=\"hljs-string\">&quot;\\n&quot;</span>); <span class=\"hljs-comment\">// print the Palindromic Prime</span>\r\n            }\r\n            num += <span class=\"hljs-number\">2</span>; <span class=\"hljs-comment\">// inrease iterator value by two</span>\r\n        }\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

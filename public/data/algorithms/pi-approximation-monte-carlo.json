@@ -1,0 +1,33 @@
+{
+  "slug": "pi-approximation-monte-carlo",
+  "name": "Pi Approximation Monte Carlo",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\test\\PiApproximationMonteCarlo.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\PiApproximationMonteCarlo.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { piEstimation } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../PiApproximationMonteCarlo&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;PiApproximationMonteCarlo&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should be between the range of 2 to 4&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> pi = <span class=\"hljs-title function_\">piEstimation</span>()\r\n    <span class=\"hljs-keyword\">const</span> piRange = pi &gt;= <span class=\"hljs-number\">2</span> &amp;&amp; pi &lt;= <span class=\"hljs-number\">4</span>\r\n    <span class=\"hljs-title function_\">expect</span>(piRange).<span class=\"hljs-title function_\">toBeTruthy</span>()\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Keshav Bohra",
+      "email": "keshav2016@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Tapajyoti Bose",
+      "email": "44058757+ruppysuppy@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Ephraim Atta-Duncan",
+      "email": "55143799+dephraiim@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

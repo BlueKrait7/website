@@ -1,0 +1,23 @@
+{
+  "slug": "permute-string",
+  "name": "Permute String",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\strings\\PermuteString.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\strings\\PermuteString.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.strings;\r\n\r\n<span class=\"hljs-comment\">/*\r\nBacktracking algorithm used in the program:-\r\n\r\n&gt;&gt;Fix a character in the first position and swap the rest of the character with the first character.\r\n  Like in ABC, in the first iteration three strings are formed: ABC, BAC, and CBA by swapping A with\r\n  A, B and C respectively.\r\n&gt;&gt;Repeat step 1 for the rest of the characters like fixing second character B and so on.\r\n&gt;&gt;Now swap again to go back to the previous position. E.g., from ABC, we formed ABC by fixing B again,\r\n  and we backtrack to the previous position and swap B with C. So, now we got ABC and ACB.\r\n&gt;&gt;Repeat these steps for BAC and CBA, to get all the permutations.\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">PermuteString</span> {\r\n\r\n    <span class=\"hljs-comment\">//Function for swapping the characters at position I with character at position j    </span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> String <span class=\"hljs-title function_\">swapString</span><span class=\"hljs-params\">(String a, <span class=\"hljs-type\">int</span> i, <span class=\"hljs-type\">int</span> j)</span> {\r\n        <span class=\"hljs-type\">char</span>[] b = a.toCharArray();\r\n        <span class=\"hljs-type\">char</span> ch;\r\n        ch = b[i];\r\n        b[i] = b[j];\r\n        b[j] = ch;\r\n        <span class=\"hljs-keyword\">return</span> String.valueOf(b);\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-type\">String</span> <span class=\"hljs-variable\">str</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-string\">&quot;ABC&quot;</span>;\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">len</span> <span class=\"hljs-operator\">=</span> str.length();\r\n        System.out.println(<span class=\"hljs-string\">&quot;All the permutations of the string are: &quot;</span>);\r\n        generatePermutation(str, <span class=\"hljs-number\">0</span>, len);\r\n    }\r\n\r\n    <span class=\"hljs-comment\">//Function for generating different permutations of the string    </span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">generatePermutation</span><span class=\"hljs-params\">(String str, <span class=\"hljs-type\">int</span> start, <span class=\"hljs-type\">int</span> end)</span> {\r\n        <span class=\"hljs-comment\">//Prints the permutations    </span>\r\n        <span class=\"hljs-keyword\">if</span> (start == end - <span class=\"hljs-number\">1</span>) {\r\n            System.out.println(str);\r\n        } <span class=\"hljs-keyword\">else</span> {\r\n            <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> start; i &lt; end; i++) {\r\n                <span class=\"hljs-comment\">//Swapping the string by fixing a character    </span>\r\n                str = swapString(str, start, i);\r\n                <span class=\"hljs-comment\">//Recursively calling function generatePermutation() for rest of the characters     </span>\r\n                generatePermutation(str, start + <span class=\"hljs-number\">1</span>, end);\r\n                <span class=\"hljs-comment\">//Backtracking and swapping the characters again.    </span>\r\n                str = swapString(str, start, i);\r\n            }\r\n        }\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Abhinav Rajput",
+      "email": "80591258+AbhinavRajputEXE@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

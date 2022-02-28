@@ -1,0 +1,38 @@
+{
+  "slug": "permutation",
+  "name": "Permutation",
+  "categories": [
+    "backtracking"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\backtracking\\Permutation.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\backtracking\\Permutation.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.backtracking;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.Arrays;\r\n<span class=\"hljs-keyword\">import</span> java.util.LinkedList;\r\n<span class=\"hljs-keyword\">import</span> java.util.List;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Finds all permutations of given array\r\n * <span class=\"hljs-doctag\">@author</span> Alan Piao (https://github.com/cpiao3)\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Permutation</span> {\r\n    <span class=\"hljs-comment\">/**\r\n     * Find all permutations of given array using backtracking\r\n     * <span class=\"hljs-doctag\">@param</span> arr the array.\r\n     * <span class=\"hljs-doctag\">@param</span> &lt;T&gt; the type of elements in the array.\r\n     * <span class=\"hljs-doctag\">@return</span> a list of all permutations.\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> &lt;T&gt; List&lt;T[]&gt; permutation(T[] arr) {\r\n        T[] array = arr.clone();\r\n        List&lt;T[]&gt; result = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">LinkedList</span>&lt;&gt;();\r\n        backtracking(array, <span class=\"hljs-number\">0</span>, result);\r\n        <span class=\"hljs-keyword\">return</span> result;\r\n    }\r\n    <span class=\"hljs-comment\">/**\r\n     * Backtrack all possible orders of a given array\r\n     * <span class=\"hljs-doctag\">@param</span> arr the array.\r\n     * <span class=\"hljs-doctag\">@param</span> index the starting index.\r\n     * <span class=\"hljs-doctag\">@param</span> result the list contains all permutations.\r\n     * <span class=\"hljs-doctag\">@param</span> &lt;T&gt; the type of elements in the array.\r\n     */</span>\r\n    <span class=\"hljs-keyword\">private</span> <span class=\"hljs-keyword\">static</span> &lt;T&gt; <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">backtracking</span><span class=\"hljs-params\">(T[] arr, <span class=\"hljs-type\">int</span> index, List&lt;T[]&gt; result)</span> {\r\n        <span class=\"hljs-keyword\">if</span> (index == arr.length) {\r\n            result.add(arr.clone());\r\n        }\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> index; i &lt; arr.length; i++) {\r\n            swap(index, i, arr);\r\n            backtracking(arr, index + <span class=\"hljs-number\">1</span>, result);\r\n            swap(index, i, arr);\r\n        }\r\n    }\r\n    <span class=\"hljs-comment\">/**\r\n     * Swap two element for a given array\r\n     * <span class=\"hljs-doctag\">@param</span> a first index\r\n     * <span class=\"hljs-doctag\">@param</span> b second index\r\n     * <span class=\"hljs-doctag\">@param</span> arr the array.\r\n     * <span class=\"hljs-doctag\">@param</span> &lt;T&gt; the type of elements in the array.\r\n     */</span>\r\n    <span class=\"hljs-keyword\">private</span> <span class=\"hljs-keyword\">static</span> &lt;T&gt; <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">swap</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> a, <span class=\"hljs-type\">int</span> b, T[] arr)</span> {\r\n        <span class=\"hljs-type\">T</span> <span class=\"hljs-variable\">temp</span> <span class=\"hljs-operator\">=</span> arr[a];\r\n        arr[a] = arr[b];\r\n        arr[b] = temp;\r\n    }\r\n}\r\n"
+    },
+    "julia": {
+      "dir": "src\\math\\permutation.jl",
+      "url": "https://github.com/TheAlgorithms/julia/tree/master/src\\math\\permutation.jl",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n    permutation(n, r)\r\n        \r\n    returns the number of ways to choose r items from n items\r\n    with order and without repetition\r\n\r\n# Arguments:\r\n- `n`: Positive integers of items to choose from\r\n- &#x27;r&#x27;: Positive integers of items to choose\r\n\r\nContributed By:- [Mayur Dahibhate](https://github.com/mayurdahibhate)\r\n&quot;&quot;&quot;</span>\r\n\r\n<span class=\"hljs-keyword\">function</span> permutation(n, r)\r\n\r\n    <span class=\"hljs-keyword\">function</span> factorial(n)        \r\n        fact = <span class=\"hljs-number\">1</span>\r\n        \r\n        <span class=\"hljs-keyword\">if</span> n == <span class=\"hljs-number\">0</span> || n == <span class=\"hljs-number\">1</span>\r\n            <span class=\"hljs-keyword\">return</span> fact\r\n        <span class=\"hljs-keyword\">end</span>\r\n         \r\n        <span class=\"hljs-keyword\">for</span> i = <span class=\"hljs-number\">1</span>:n\r\n            fact = fact * i\r\n        <span class=\"hljs-keyword\">end</span> \r\n        \r\n        <span class=\"hljs-keyword\">return</span> fact\r\n    <span class=\"hljs-keyword\">end</span>\r\n    \r\n    perm = factorial(n) / factorial(n - r) \r\n\r\n    <span class=\"hljs-keyword\">return</span> convert(<span class=\"hljs-built_in\">Int64</span>, perm)\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Ashot Janibekyan",
+      "email": "31385299+ashotjanibekyan@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Mayur Dahibhate",
+      "email": "52608503+mayurdahibhate@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "cpiao3",
+      "email": "72165966+cpiao3@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

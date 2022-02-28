@@ -1,0 +1,33 @@
+{
+  "slug": "peak-signal-to-noise-ratio",
+  "name": "Peak Signal to Noise Ratio",
+  "categories": [
+    "compression"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "compression\\peak_signal_to_noise_ratio.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/compression\\peak_signal_to_noise_ratio.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nPeak signal-to-noise ratio - PSNR\r\n    https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio\r\nSource:\r\nhttps://tutorials.techonical.com/how-to-calculate-psnr-value-of-two-images-using-python\r\n&quot;&quot;&quot;</span>\r\n\r\n<span class=\"hljs-keyword\">import</span> math\r\n<span class=\"hljs-keyword\">import</span> os\r\n\r\n<span class=\"hljs-keyword\">import</span> cv2\r\n<span class=\"hljs-keyword\">import</span> numpy <span class=\"hljs-keyword\">as</span> np\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">psnr</span>(<span class=\"hljs-params\">original: <span class=\"hljs-built_in\">float</span>, contrast: <span class=\"hljs-built_in\">float</span></span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n    mse = np.mean((original - contrast) ** <span class=\"hljs-number\">2</span>)\r\n    <span class=\"hljs-keyword\">if</span> mse == <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">100</span>\r\n    PIXEL_MAX = <span class=\"hljs-number\">255.0</span>\r\n    PSNR = <span class=\"hljs-number\">20</span> * math.log10(PIXEL_MAX / math.sqrt(mse))\r\n    <span class=\"hljs-keyword\">return</span> PSNR\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">main</span>() -&gt; <span class=\"hljs-literal\">None</span>:\r\n    dir_path = os.path.dirname(os.path.realpath(__file__))\r\n    <span class=\"hljs-comment\"># Loading images (original image and compressed image)</span>\r\n    original = cv2.imread(os.path.join(dir_path, <span class=\"hljs-string\">&quot;image_data/original_image.png&quot;</span>))\r\n    contrast = cv2.imread(os.path.join(dir_path, <span class=\"hljs-string\">&quot;image_data/compressed_image.png&quot;</span>), <span class=\"hljs-number\">1</span>)\r\n\r\n    original2 = cv2.imread(os.path.join(dir_path, <span class=\"hljs-string\">&quot;image_data/PSNR-example-base.png&quot;</span>))\r\n    contrast2 = cv2.imread(\r\n        os.path.join(dir_path, <span class=\"hljs-string\">&quot;image_data/PSNR-example-comp-10.jpg&quot;</span>), <span class=\"hljs-number\">1</span>\r\n    )\r\n\r\n    <span class=\"hljs-comment\"># Value expected: 29.73dB</span>\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;-- First Test --&quot;</span>)\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f&quot;PSNR value is <span class=\"hljs-subst\">{psnr(original, contrast)}</span> dB&quot;</span>)\r\n\r\n    <span class=\"hljs-comment\"># # Value expected: 31.53dB (Wikipedia Example)</span>\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;\\n-- Second Test --&quot;</span>)\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f&quot;PSNR value is <span class=\"hljs-subst\">{psnr(original2, contrast2)}</span> dB&quot;</span>)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    main()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Erwin Junge",
+      "email": "erwin@junge.nl",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "pi-monte-carlo",
+  "name": "Pi Monte Carlo",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "r": {
+      "dir": "Mathematics\\PiMonteCarlo.R",
+      "url": "https://github.com/TheAlgorithms/r/tree/master/Mathematics\\PiMonteCarlo.R",
+      "code": "estimatePi <span class=\"hljs-operator\">&lt;-</span> <span class=\"hljs-keyword\">function</span><span class=\"hljs-punctuation\">(</span>numSims<span class=\"hljs-punctuation\">)</span><span class=\"hljs-punctuation\">{</span>\r\n    x <span class=\"hljs-operator\">&lt;-</span> runif<span class=\"hljs-punctuation\">(</span>numSims<span class=\"hljs-punctuation\">)</span>\r\n    y <span class=\"hljs-operator\">&lt;-</span> runif<span class=\"hljs-punctuation\">(</span>numSims<span class=\"hljs-punctuation\">)</span>\r\n    inUnitCircle <span class=\"hljs-operator\">&lt;-</span> <span class=\"hljs-built_in\">as.integer</span><span class=\"hljs-punctuation\">(</span>x<span class=\"hljs-operator\">^</span><span class=\"hljs-number\">2</span> <span class=\"hljs-operator\">+</span> y<span class=\"hljs-operator\">^</span><span class=\"hljs-number\">2</span> <span class=\"hljs-operator\">&lt;=</span> <span class=\"hljs-number\">1</span><span class=\"hljs-punctuation\">)</span>\r\n    <span class=\"hljs-built_in\">return</span><span class=\"hljs-punctuation\">(</span><span class=\"hljs-number\">4</span> <span class=\"hljs-operator\">*</span> <span class=\"hljs-built_in\">sum</span><span class=\"hljs-punctuation\">(</span>inUnitCircle<span class=\"hljs-punctuation\">)</span> <span class=\"hljs-operator\">/</span> numSims<span class=\"hljs-punctuation\">)</span>\r\n<span class=\"hljs-punctuation\">}</span>\r\n\r\nset.seed<span class=\"hljs-punctuation\">(</span><span class=\"hljs-number\">1</span><span class=\"hljs-punctuation\">)</span>\r\nestimatePi<span class=\"hljs-punctuation\">(</span><span class=\"hljs-number\">3000</span><span class=\"hljs-punctuation\">)</span>\r\nestimatePi<span class=\"hljs-punctuation\">(</span><span class=\"hljs-number\">30000</span><span class=\"hljs-punctuation\">)</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Alex Garland",
+      "email": "alex@numinar.com",
+      "commits": 1
+    },
+    {
+      "name": "Erez Shomron",
+      "email": "48328872+eshom@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "power-using-recursion",
+  "name": "Power Using Recursion",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\power_using_recursion.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\power_using_recursion.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n== Raise base to the power of exponent using recursion ==\r\n    Input --&gt;\r\n        Enter the base: 3\r\n        Enter the exponent: 4\r\n    Output  --&gt;\r\n        3 to the power of 4 is 81\r\n    Input --&gt;\r\n        Enter the base: 2\r\n        Enter the exponent: 0\r\n    Output --&gt;\r\n        2 to the power of 0 is 1\r\n&quot;&quot;&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">power</span>(<span class=\"hljs-params\">base: <span class=\"hljs-built_in\">int</span>, exponent: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    power(3, 4)\r\n    81\r\n    &gt;&gt;&gt; power(2, 0)\r\n    1\r\n    &gt;&gt;&gt; all(power(base, exponent) == pow(base, exponent)\r\n    ...     for base in range(-10, 10) for exponent in range(10))\r\n    True\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">return</span> base * power(base, (exponent - <span class=\"hljs-number\">1</span>)) <span class=\"hljs-keyword\">if</span> exponent <span class=\"hljs-keyword\">else</span> <span class=\"hljs-number\">1</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;Raise base to the power of exponent using recursion...&quot;</span>)\r\n    base = <span class=\"hljs-built_in\">int</span>(<span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Enter the base: &quot;</span>).strip())\r\n    exponent = <span class=\"hljs-built_in\">int</span>(<span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Enter the exponent: &quot;</span>).strip())\r\n    result = power(base, <span class=\"hljs-built_in\">abs</span>(exponent))\r\n    <span class=\"hljs-keyword\">if</span> exponent &lt; <span class=\"hljs-number\">0</span>:  <span class=\"hljs-comment\"># power() does not properly deal w/ negative exponents</span>\r\n        result = <span class=\"hljs-number\">1</span> / result\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f&quot;<span class=\"hljs-subst\">{base}</span> to the power of <span class=\"hljs-subst\">{exponent}</span> is <span class=\"hljs-subst\">{result}</span>&quot;</span>)\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Utsav1999",
+      "email": "utsavakash123@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "powvialogarithm",
+  "name": "Powvialogarithm",
+  "categories": [
+    "math",
+    "power"
+  ],
+  "body": {},
+  "implementations": {
+    "go": {
+      "dir": "math\\power\\powvialogarithm.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/math\\power\\powvialogarithm.go",
+      "code": "<span class=\"hljs-comment\">// powvialogarithm.go</span>\r\n<span class=\"hljs-comment\">// description: Powers in terms of logarithms</span>\r\n<span class=\"hljs-comment\">// details:</span>\r\n<span class=\"hljs-comment\">// implementation of exponentiation using exponent and logarithm, without using loops  - [Powers via logarithms wiki](https://en.wikipedia.org/wiki/Exponentiation#Powers_via_logarithms)</span>\r\n<span class=\"hljs-comment\">// author(s) [red_byte](https://github.com/i-redbyte)</span>\r\n<span class=\"hljs-comment\">// see powvialogarithm_test.go</span>\r\n\r\n<span class=\"hljs-keyword\">package</span> power\r\n\r\n<span class=\"hljs-keyword\">import</span> (\r\n\t<span class=\"hljs-string\">&quot;math&quot;</span>\r\n)\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">UsingLog</span><span class=\"hljs-params\">(a <span class=\"hljs-type\">float64</span>, b <span class=\"hljs-type\">float64</span>)</span></span> <span class=\"hljs-type\">float64</span> {\r\n\t<span class=\"hljs-keyword\">var</span> p <span class=\"hljs-type\">float64</span>\r\n\tp = <span class=\"hljs-number\">1</span>\r\n\t<span class=\"hljs-keyword\">if</span> a &lt; <span class=\"hljs-number\">0</span> &amp;&amp; <span class=\"hljs-type\">int</span>(b)&amp;<span class=\"hljs-number\">1</span> != <span class=\"hljs-number\">0</span> {\r\n\t\tp = <span class=\"hljs-number\">-1</span>\r\n\t}\r\n\tlog := math.Log(math.Abs(a))\r\n\texp := math.Exp(b * log)\r\n\tresult := exp * p\r\n\t<span class=\"hljs-keyword\">return</span> math.Round(result)\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Ilya Sokolov",
+      "email": "developer.sokolov@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

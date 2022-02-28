@@ -1,0 +1,24 @@
+{
+  "slug": "plotdecisionboundary",
+  "name": "Plotdecisionboundary",
+  "categories": [
+    "machinelearning",
+    "logisticregression"
+  ],
+  "body": {},
+  "implementations": {
+    "matlab-octave": {
+      "dir": "algorithms\\machine_learning\\Logistic-Regression\\plotdecisionboundary.m",
+      "url": "https://github.com/TheAlgorithms/matlab-octave/tree/master/algorithms\\machine_learning\\Logistic-Regression\\plotdecisionboundary.m",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">plotdecisionboundary</span><span class=\"hljs-params\">(Theta, X, Y)</span></span>\r\n\r\nplotdata(X(:,<span class=\"hljs-number\">2</span>:<span class=\"hljs-number\">3</span>), Y);\r\n\r\n<span class=\"hljs-built_in\">hold</span> on;\r\n\r\n<span class=\"hljs-keyword\">if</span> <span class=\"hljs-built_in\">size</span>(X, <span class=\"hljs-number\">2</span>) &lt;= <span class=\"hljs-number\">3</span>\r\n    \r\n    plot_X = [<span class=\"hljs-built_in\">min</span>(X(:,<span class=\"hljs-number\">2</span>))<span class=\"hljs-number\">-2</span>,  <span class=\"hljs-built_in\">max</span>(X(:,<span class=\"hljs-number\">2</span>))+<span class=\"hljs-number\">2</span>];\r\n\r\n    plot_Y = (<span class=\"hljs-number\">-1.</span>/Theta(<span class=\"hljs-number\">3</span>)).*(Theta(<span class=\"hljs-number\">2</span>).*plot_X + Theta(<span class=\"hljs-number\">1</span>));\r\n\r\n    <span class=\"hljs-built_in\">plot</span>(plot_X, plot_Y);\r\n    \r\n    <span class=\"hljs-built_in\">legend</span>(<span class=\"hljs-string\">&#x27;Admitted&#x27;</span>, <span class=\"hljs-string\">&#x27;Not admitted&#x27;</span>, <span class=\"hljs-string\">&#x27;Decision Boundary&#x27;</span>);\r\n    \r\n    axis([<span class=\"hljs-number\">30</span>, <span class=\"hljs-number\">100</span>, <span class=\"hljs-number\">30</span>, <span class=\"hljs-number\">100</span>]);\r\n\r\n<span class=\"hljs-keyword\">else</span>\r\n    \r\n    U = <span class=\"hljs-built_in\">linspace</span>(<span class=\"hljs-number\">-1</span>, <span class=\"hljs-number\">1.5</span>, <span class=\"hljs-number\">50</span>);\r\n    \r\n    V = <span class=\"hljs-built_in\">linspace</span>(<span class=\"hljs-number\">-1</span>, <span class=\"hljs-number\">1.5</span>, <span class=\"hljs-number\">50</span>);\r\n\r\n    Z = <span class=\"hljs-built_in\">zeros</span>(<span class=\"hljs-built_in\">length</span>(U), <span class=\"hljs-built_in\">length</span>(V));\r\n    \r\n    <span class=\"hljs-keyword\">for</span> <span class=\"hljs-built_in\">i</span> = <span class=\"hljs-number\">1</span>:<span class=\"hljs-built_in\">length</span>(U)\r\n        \r\n        <span class=\"hljs-keyword\">for</span> <span class=\"hljs-built_in\">j</span> = <span class=\"hljs-number\">1</span>:<span class=\"hljs-built_in\">length</span>(V)\r\n            \r\n            Z(<span class=\"hljs-built_in\">i</span>,<span class=\"hljs-built_in\">j</span>) = mapFeature(U(<span class=\"hljs-built_in\">i</span>), V(<span class=\"hljs-built_in\">j</span>))*Theta;\r\n        \r\n        <span class=\"hljs-keyword\">end</span>\r\n    \r\n    <span class=\"hljs-keyword\">end</span>\r\n    \r\n    Z = Z&#x27;; \r\n\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\n<span class=\"hljs-built_in\">hold</span> off;\r\n\r\n<span class=\"hljs-keyword\">end</span>"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Anesh Kaul",
+      "email": "aneshkaul@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}
