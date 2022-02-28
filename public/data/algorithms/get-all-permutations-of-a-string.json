@@ -1,0 +1,17 @@
+{
+  "slug": "get-all-permutations-of-a-string",
+  "name": "Get all permutations of a string",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "c-sharp": {
+      "dir": "./Algorithms/Strings/Permutation.cs",
+      "url": "https:\\github.com\\TheAlgorithms\\C-Sharp\\tree\\master\\Algorithms\\Strings\\Permutation.cs",
+      "code": "﻿<span class=\"hljs-keyword\">using</span> System.Collections.Generic;\r\n<span class=\"hljs-keyword\">using</span> System.Linq;\r\n\r\n<span class=\"hljs-keyword\">namespace</span> <span class=\"hljs-title\">Algorithms.Strings</span>\r\n{\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">Permutation</span>\r\n    {\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;summary&gt;</span></span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> Returns every anagram of a given word.</span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;/summary&gt;</span></span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;returns&gt;</span>List of anagrams.<span class=\"hljs-doctag\">&lt;/returns&gt;</span></span>\r\n        <span class=\"hljs-function\"><span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> List&lt;<span class=\"hljs-built_in\">string</span>&gt; <span class=\"hljs-title\">GetEveryUniquePermutation</span>(<span class=\"hljs-params\"><span class=\"hljs-built_in\">string</span> word</span>)</span>\r\n        {\r\n            <span class=\"hljs-keyword\">if</span> (word.Length &lt; <span class=\"hljs-number\">2</span>)\r\n            {\r\n                <span class=\"hljs-keyword\">return</span> <span class=\"hljs-keyword\">new</span> List&lt;<span class=\"hljs-built_in\">string</span>&gt;\r\n                {\r\n                    word,\r\n                };\r\n            }\r\n\r\n            <span class=\"hljs-keyword\">var</span> result = <span class=\"hljs-keyword\">new</span> HashSet&lt;<span class=\"hljs-built_in\">string</span>&gt;();\r\n\r\n            <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">var</span> i = <span class=\"hljs-number\">0</span>; i &lt; word.Length; i++)\r\n            {\r\n                <span class=\"hljs-keyword\">var</span> temp = GetEveryUniquePermutation(word.Remove(i, <span class=\"hljs-number\">1</span>));\r\n\r\n                result.UnionWith(temp.Select(subPerm =&gt; word[i] + subPerm));\r\n            }\r\n\r\n            <span class=\"hljs-keyword\">return</span> result.ToList();\r\n        }\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [],
+  "explanationUrl": {}
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "gale-shapley",
+  "name": "Gale-Shapley",
+  "categories": [
+    "problems",
+    "stablemarriage"
+  ],
+  "body": {},
+  "implementations": {
+    "c-sharp": {
+      "dir": "./Algorithms/Problems/StableMarriage/GaleShapley.cs",
+      "url": "https:\\github.com\\TheAlgorithms\\C-Sharp\\tree\\master\\Algorithms\\Problems\\StableMarriage\\GaleShapley.cs",
+      "code": "﻿<span class=\"hljs-keyword\">using</span> System;\r\n<span class=\"hljs-keyword\">using</span> System.Collections.Generic;\r\n<span class=\"hljs-keyword\">using</span> System.Linq;\r\n\r\n<span class=\"hljs-keyword\">namespace</span> <span class=\"hljs-title\">Algorithms.Problems.StableMarriage</span>\r\n{\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">GaleShapley</span>\r\n    {\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;summary&gt;</span></span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>     Finds a stable matching between two equal sets of elements (fills EngagedTo properties).</span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>     time complexity: O(n^2), where n - array size.</span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>     Guarantees:</span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>     - Everyone is matched</span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>     - Matches are stable (there is no better accepter, for any given proposer, which would accept a new match).</span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>     Presented and proven by David Gale and Lloyd Shapley in 1962.</span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;/summary&gt;</span></span>\r\n        <span class=\"hljs-function\"><span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title\">Match</span>(<span class=\"hljs-params\">Proposer[] proposers, Accepter[] accepters</span>)</span>\r\n        {\r\n            <span class=\"hljs-keyword\">if</span> (proposers.Length != accepters.Length)\r\n            {\r\n                <span class=\"hljs-keyword\">throw</span> <span class=\"hljs-keyword\">new</span> ArgumentException(<span class=\"hljs-string\">&quot;Collections must have equal count&quot;</span>);\r\n            }\r\n\r\n            <span class=\"hljs-keyword\">while</span> (proposers.Any(m =&gt; !IsEngaged(m)))\r\n            {\r\n                DoSingleMatchingRound(proposers.Where(m =&gt; !IsEngaged(m)));\r\n            }\r\n        }\r\n\r\n        <span class=\"hljs-function\"><span class=\"hljs-keyword\">private</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-built_in\">bool</span> <span class=\"hljs-title\">IsEngaged</span>(<span class=\"hljs-params\">Proposer proposer</span>)</span> =&gt; proposer.EngagedTo <span class=\"hljs-keyword\">is</span> <span class=\"hljs-keyword\">not</span> <span class=\"hljs-literal\">null</span>;\r\n\r\n        <span class=\"hljs-function\"><span class=\"hljs-keyword\">private</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title\">DoSingleMatchingRound</span>(<span class=\"hljs-params\">IEnumerable&lt;Proposer&gt; proposers</span>)</span>\r\n        {\r\n            <span class=\"hljs-keyword\">foreach</span> (<span class=\"hljs-keyword\">var</span> newProposer <span class=\"hljs-keyword\">in</span> proposers)\r\n            {\r\n                <span class=\"hljs-keyword\">var</span> accepter = newProposer.PreferenceOrder.First!.Value;\r\n\r\n                <span class=\"hljs-keyword\">if</span> (accepter.EngagedTo <span class=\"hljs-keyword\">is</span> <span class=\"hljs-literal\">null</span>)\r\n                {\r\n                    Engage(newProposer, accepter);\r\n                }\r\n                <span class=\"hljs-keyword\">else</span>\r\n                {\r\n                    <span class=\"hljs-keyword\">if</span> (accepter.PrefersOverCurrent(newProposer))\r\n                    {\r\n                        Free(accepter.EngagedTo);\r\n                        Engage(newProposer, accepter);\r\n                    }\r\n                }\r\n\r\n                newProposer.PreferenceOrder.RemoveFirst();\r\n            }\r\n        }\r\n\r\n        <span class=\"hljs-function\"><span class=\"hljs-keyword\">private</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title\">Free</span>(<span class=\"hljs-params\">Proposer proposer</span>)</span>\r\n        {\r\n            proposer.EngagedTo = <span class=\"hljs-literal\">null</span>;\r\n        }\r\n\r\n        <span class=\"hljs-function\"><span class=\"hljs-keyword\">private</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title\">Engage</span>(<span class=\"hljs-params\">Proposer proposer, Accepter accepter</span>)</span>\r\n        {\r\n            proposer.EngagedTo = accepter;\r\n            accepter.EngagedTo = proposer;\r\n        }\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Bartłomiej Rogowski",
+      "email": "brogowski@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Andrii Siriak",
+      "email": "siryaka@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

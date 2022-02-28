@@ -1,0 +1,28 @@
+{
+  "slug": "get-month-days",
+  "name": "Get Month Days",
+  "categories": [
+    "timingfunctions"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Timing-Functions\\test\\GetMonthDays.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Timing-Functions\\test\\GetMonthDays.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { getMonthDays } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../GetMonthDays&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;Get the Days of a Month&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return 28&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">getMonthDays</span>(<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">2018</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">28</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return 30&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">getMonthDays</span>(<span class=\"hljs-number\">6</span>, <span class=\"hljs-number\">254</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">30</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return 29&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">getMonthDays</span>(<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">2024</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">29</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to throw a type error&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> { <span class=\"hljs-title function_\">getMonthDays</span>(<span class=\"hljs-number\">13</span>, <span class=\"hljs-number\">2020</span>) }).<span class=\"hljs-title function_\">toThrow</span>(<span class=\"hljs-string\">&#x27;Invalid Month Number.&#x27;</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Mahfoudh Arous",
+      "email": "mahfoudh.arous@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Rak Laptudirm",
+      "email": "68542775+raklaptudirm@users.noreply.github.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

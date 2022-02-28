@@ -1,0 +1,23 @@
+{
+  "slug": "get-top-hn-posts",
+  "name": "Get Top Hn Posts",
+  "categories": [
+    "webprogramming"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "web_programming\\get_top_hn_posts.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/web_programming\\get_top_hn_posts.py",
+      "code": "<span class=\"hljs-keyword\">from</span> __future__ <span class=\"hljs-keyword\">import</span> annotations\r\n\r\n<span class=\"hljs-keyword\">import</span> requests\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">get_hackernews_story</span>(<span class=\"hljs-params\">story_id: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-built_in\">dict</span>:\r\n    url = <span class=\"hljs-string\">f&quot;https://hacker-news.firebaseio.com/v0/item/<span class=\"hljs-subst\">{story_id}</span>.json?print=pretty&quot;</span>\r\n    <span class=\"hljs-keyword\">return</span> requests.get(url).json()\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">hackernews_top_stories</span>(<span class=\"hljs-params\">max_stories: <span class=\"hljs-built_in\">int</span> = <span class=\"hljs-number\">10</span></span>) -&gt; <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">dict</span>]:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Get the top max_stories posts from HackerNews - https://news.ycombinator.com/\r\n    &quot;&quot;&quot;</span>\r\n    url = <span class=\"hljs-string\">&quot;https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty&quot;</span>\r\n    story_ids = requests.get(url).json()[:max_stories]\r\n    <span class=\"hljs-keyword\">return</span> [get_hackernews_story(story_id) <span class=\"hljs-keyword\">for</span> story_id <span class=\"hljs-keyword\">in</span> story_ids]\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">hackernews_top_stories_as_markdown</span>(<span class=\"hljs-params\">max_stories: <span class=\"hljs-built_in\">int</span> = <span class=\"hljs-number\">10</span></span>) -&gt; <span class=\"hljs-built_in\">str</span>:\r\n    stories = hackernews_top_stories(max_stories)\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">&quot;\\n&quot;</span>.join(<span class=\"hljs-string\">&quot;* [{title}]({url})&quot;</span>.<span class=\"hljs-built_in\">format</span>(**story) <span class=\"hljs-keyword\">for</span> story <span class=\"hljs-keyword\">in</span> stories)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-built_in\">print</span>(hackernews_top_stories_as_markdown())\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Prakhar Gurunani",
+      "email": "prakhargurunani@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

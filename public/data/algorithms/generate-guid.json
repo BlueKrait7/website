@@ -1,0 +1,28 @@
+{
+  "slug": "generate-guid",
+  "name": "Generate GUID",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "String\\GenerateGUID.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/String\\GenerateGUID.js",
+      "code": "<span class=\"hljs-comment\">/*\r\nGenerates a UUID/GUID in Node.Js.\r\nThe script uses `Math.random` in combination with the timestamp for better randomness.\r\nThe function generate an RFC4122 (https://www.ietf.org/rfc/rfc4122.txt) version 4 UUID/GUID\r\n*/</span>\r\n\r\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">const</span> <span class=\"hljs-title function_\">Guid</span> = (<span class=\"hljs-params\"></span>) =&gt; {\r\n  <span class=\"hljs-keyword\">const</span> pattern = <span class=\"hljs-string\">&#x27;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#x27;</span>\r\n  <span class=\"hljs-keyword\">let</span> currentDateMilliseconds = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Date</span>().<span class=\"hljs-title function_\">getTime</span>()\r\n  <span class=\"hljs-keyword\">return</span> pattern.<span class=\"hljs-title function_\">replace</span>(<span class=\"hljs-regexp\">/[xy]/g</span>, <span class=\"hljs-function\"><span class=\"hljs-params\">currentChar</span> =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> randomChar = (currentDateMilliseconds + <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">random</span>() * <span class=\"hljs-number\">16</span>) % <span class=\"hljs-number\">16</span> | <span class=\"hljs-number\">0</span>\r\n    currentDateMilliseconds = <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">floor</span>(currentDateMilliseconds / <span class=\"hljs-number\">16</span>)\r\n    <span class=\"hljs-keyword\">return</span> (currentChar === <span class=\"hljs-string\">&#x27;x&#x27;</span> ? randomChar : (randomChar &amp; <span class=\"hljs-number\">0x7</span> | <span class=\"hljs-number\">0x8</span>)).<span class=\"hljs-title function_\">toString</span>(<span class=\"hljs-number\">16</span>)\r\n  })\r\n}\r\n\r\n<span class=\"hljs-comment\">// &gt; Guid()</span>\r\n<span class=\"hljs-comment\">// &#x27;edc848db-3478-1760-8b55-7986003d895f&#x27;</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Lukas Kleybolte",
+      "email": "lukas.kleybolte@hs-augsburg.de",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

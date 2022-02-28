@@ -1,0 +1,28 @@
+{
+  "slug": "get-user-tweets",
+  "name": "Get User Tweets",
+  "categories": [
+    "webprogramming"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "web_programming\\get_user_tweets.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/web_programming\\get_user_tweets.py",
+      "code": "<span class=\"hljs-keyword\">import</span> csv\r\n\r\n<span class=\"hljs-keyword\">import</span> tweepy\r\n\r\n<span class=\"hljs-comment\"># Twitter API credentials</span>\r\nconsumer_key = <span class=\"hljs-string\">&quot;&quot;</span>\r\nconsumer_secret = <span class=\"hljs-string\">&quot;&quot;</span>\r\naccess_key = <span class=\"hljs-string\">&quot;&quot;</span>\r\naccess_secret = <span class=\"hljs-string\">&quot;&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">get_all_tweets</span>(<span class=\"hljs-params\">screen_name: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-literal\">None</span>:\r\n\r\n    <span class=\"hljs-comment\"># authorize twitter, initialize tweepy</span>\r\n    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)\r\n    auth.set_access_token(access_key, access_secret)\r\n    api = tweepy.API(auth)\r\n\r\n    <span class=\"hljs-comment\"># initialize a list to hold all the tweepy Tweets</span>\r\n    alltweets = []\r\n\r\n    <span class=\"hljs-comment\"># make initial request for most recent tweets (200 is the maximum allowed count)</span>\r\n    new_tweets = api.user_timeline(screen_name=screen_name, count=<span class=\"hljs-number\">200</span>)\r\n\r\n    <span class=\"hljs-comment\"># save most recent tweets</span>\r\n    alltweets.extend(new_tweets)\r\n\r\n    <span class=\"hljs-comment\"># save the id of the oldest tweet less one</span>\r\n    oldest = alltweets[-<span class=\"hljs-number\">1</span>].<span class=\"hljs-built_in\">id</span> - <span class=\"hljs-number\">1</span>\r\n\r\n    <span class=\"hljs-comment\"># keep grabbing tweets until there are no tweets left to grab</span>\r\n    <span class=\"hljs-keyword\">while</span> <span class=\"hljs-built_in\">len</span>(new_tweets) &gt; <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f&quot;getting tweets before <span class=\"hljs-subst\">{oldest}</span>&quot;</span>)\r\n\r\n        <span class=\"hljs-comment\"># all subsequent requests use the max_id param to prevent duplicates</span>\r\n        new_tweets = api.user_timeline(\r\n            screen_name=screen_name, count=<span class=\"hljs-number\">200</span>, max_id=oldest\r\n        )\r\n\r\n        <span class=\"hljs-comment\"># save most recent tweets</span>\r\n        alltweets.extend(new_tweets)\r\n\r\n        <span class=\"hljs-comment\"># update the id of the oldest tweet less one</span>\r\n        oldest = alltweets[-<span class=\"hljs-number\">1</span>].<span class=\"hljs-built_in\">id</span> - <span class=\"hljs-number\">1</span>\r\n\r\n        <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f&quot;...<span class=\"hljs-subst\">{<span class=\"hljs-built_in\">len</span>(alltweets)}</span> tweets downloaded so far&quot;</span>)\r\n\r\n    <span class=\"hljs-comment\"># transform the tweepy tweets into a 2D array that will populate the csv</span>\r\n    outtweets = [[tweet.id_str, tweet.created_at, tweet.text] <span class=\"hljs-keyword\">for</span> tweet <span class=\"hljs-keyword\">in</span> alltweets]\r\n\r\n    <span class=\"hljs-comment\"># write the csv</span>\r\n    <span class=\"hljs-keyword\">with</span> <span class=\"hljs-built_in\">open</span>(<span class=\"hljs-string\">f&quot;new_<span class=\"hljs-subst\">{screen_name}</span>_tweets.csv&quot;</span>, <span class=\"hljs-string\">&quot;w&quot;</span>) <span class=\"hljs-keyword\">as</span> f:\r\n        writer = csv.writer(f)\r\n        writer.writerow([<span class=\"hljs-string\">&quot;id&quot;</span>, <span class=\"hljs-string\">&quot;created_at&quot;</span>, <span class=\"hljs-string\">&quot;text&quot;</span>])\r\n        writer.writerows(outtweets)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-comment\"># pass in the username of the account you want to download</span>\r\n    get_all_tweets(<span class=\"hljs-string\">&quot;FirePing32&quot;</span>)\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Leoriem-code",
+      "email": "73761711+Leoriem-code@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Prakhar Gurunani",
+      "email": "prakhargurunani@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

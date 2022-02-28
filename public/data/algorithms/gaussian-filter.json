@@ -1,0 +1,39 @@
+{
+  "slug": "gaussian-filter",
+  "name": "Gaussian Filter",
+  "categories": [
+    "digitalimageprocessing",
+    "filters"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "digital_image_processing\\filters\\gaussian_filter.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/digital_image_processing\\filters\\gaussian_filter.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nImplementation of gaussian filter algorithm\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">from</span> itertools <span class=\"hljs-keyword\">import</span> product\r\n\r\n<span class=\"hljs-keyword\">from</span> cv2 <span class=\"hljs-keyword\">import</span> COLOR_BGR2GRAY, cvtColor, imread, imshow, waitKey\r\n<span class=\"hljs-keyword\">from</span> numpy <span class=\"hljs-keyword\">import</span> dot, exp, mgrid, pi, ravel, square, uint8, zeros\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">gen_gaussian_kernel</span>(<span class=\"hljs-params\">k_size, sigma</span>):\r\n    center = k_size // <span class=\"hljs-number\">2</span>\r\n    x, y = mgrid[<span class=\"hljs-number\">0</span> - center : k_size - center, <span class=\"hljs-number\">0</span> - center : k_size - center]\r\n    g = <span class=\"hljs-number\">1</span> / (<span class=\"hljs-number\">2</span> * pi * sigma) * exp(-(square(x) + square(y)) / (<span class=\"hljs-number\">2</span> * square(sigma)))\r\n    <span class=\"hljs-keyword\">return</span> g\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">gaussian_filter</span>(<span class=\"hljs-params\">image, k_size, sigma</span>):\r\n    height, width = image.shape[<span class=\"hljs-number\">0</span>], image.shape[<span class=\"hljs-number\">1</span>]\r\n    <span class=\"hljs-comment\"># dst image height and width</span>\r\n    dst_height = height - k_size + <span class=\"hljs-number\">1</span>\r\n    dst_width = width - k_size + <span class=\"hljs-number\">1</span>\r\n\r\n    <span class=\"hljs-comment\"># im2col, turn the k_size*k_size pixels into a row and np.vstack all rows</span>\r\n    image_array = zeros((dst_height * dst_width, k_size * k_size))\r\n    row = <span class=\"hljs-number\">0</span>\r\n    <span class=\"hljs-keyword\">for</span> i, j <span class=\"hljs-keyword\">in</span> product(<span class=\"hljs-built_in\">range</span>(dst_height), <span class=\"hljs-built_in\">range</span>(dst_width)):\r\n        window = ravel(image[i : i + k_size, j : j + k_size])\r\n        image_array[row, :] = window\r\n        row += <span class=\"hljs-number\">1</span>\r\n\r\n    <span class=\"hljs-comment\">#  turn the kernel into shape(k*k, 1)</span>\r\n    gaussian_kernel = gen_gaussian_kernel(k_size, sigma)\r\n    filter_array = ravel(gaussian_kernel)\r\n\r\n    <span class=\"hljs-comment\"># reshape and get the dst image</span>\r\n    dst = dot(image_array, filter_array).reshape(dst_height, dst_width).astype(uint8)\r\n\r\n    <span class=\"hljs-keyword\">return</span> dst\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-comment\"># read original image</span>\r\n    img = imread(<span class=\"hljs-string\">r&quot;../image_data/lena.jpg&quot;</span>)\r\n    <span class=\"hljs-comment\"># turn image in gray scale value</span>\r\n    gray = cvtColor(img, COLOR_BGR2GRAY)\r\n\r\n    <span class=\"hljs-comment\"># get values with two different mask size</span>\r\n    gaussian3x3 = gaussian_filter(gray, <span class=\"hljs-number\">3</span>, sigma=<span class=\"hljs-number\">1</span>)\r\n    gaussian5x5 = gaussian_filter(gray, <span class=\"hljs-number\">5</span>, sigma=<span class=\"hljs-number\">0.8</span>)\r\n\r\n    <span class=\"hljs-comment\"># show result images</span>\r\n    imshow(<span class=\"hljs-string\">&quot;gaussian filter with 3x3 mask&quot;</span>, gaussian3x3)\r\n    imshow(<span class=\"hljs-string\">&quot;gaussian filter with 5x5 mask&quot;</span>, gaussian5x5)\r\n    waitKey()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Fakher Mokadem",
+      "email": "fmokadem@umich.edu",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Shoujue Xu",
+      "email": "lightxusj@126.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

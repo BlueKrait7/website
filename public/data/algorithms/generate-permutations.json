@@ -1,0 +1,28 @@
+{
+  "slug": "generate-permutations",
+  "name": "Generate Permutations",
+  "categories": [
+    "backtracking"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Backtracking\\tests\\GeneratePermutations.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Backtracking\\tests\\GeneratePermutations.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { permutations } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../GeneratePermutations&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;Permutations&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;Permutations of [1, 2, 3]&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">permutations</span>([<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>])).<span class=\"hljs-title function_\">toEqual</span>([\r\n      [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>],\r\n      [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">2</span>],\r\n      [<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">3</span>],\r\n      [<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">1</span>],\r\n      [<span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>],\r\n      [<span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">1</span>]\r\n    ])\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Chiranjeev",
+      "email": "6258860@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 5
+    }
+  ],
+  "explanationUrl": {}
+}

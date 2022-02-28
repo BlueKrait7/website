@@ -1,0 +1,29 @@
+{
+  "slug": "geometric-series",
+  "name": "Geometric Series",
+  "categories": [
+    "math",
+    "series"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\series\\geometric_series.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\series\\geometric_series.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nThis is a pure Python implementation of the Geometric Series algorithm\r\nhttps://en.wikipedia.org/wiki/Geometric_series\r\nRun the doctests with the following command:\r\npython3 -m doctest -v geometric_series.py\r\nor\r\npython -m doctest -v geometric_series.py\r\nFor manual testing run:\r\npython3 geometric_series.py\r\n&quot;&quot;&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">from</span> __future__ <span class=\"hljs-keyword\">import</span> annotations\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">geometric_series</span>(<span class=\"hljs-params\">\r\n    nth_term: <span class=\"hljs-built_in\">float</span> | <span class=\"hljs-built_in\">int</span>,\r\n    start_term_a: <span class=\"hljs-built_in\">float</span> | <span class=\"hljs-built_in\">int</span>,\r\n    common_ratio_r: <span class=\"hljs-built_in\">float</span> | <span class=\"hljs-built_in\">int</span>,\r\n</span>) -&gt; <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">float</span> | <span class=\"hljs-built_in\">int</span>]:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Pure Python implementation of Geometric Series algorithm\r\n\r\n    :param nth_term: The last term (nth term of Geometric Series)\r\n    :param start_term_a : The first term of Geometric Series\r\n    :param common_ratio_r : The common ratio between all the terms\r\n    :return: The Geometric Series starting from first term a and multiple of common\r\n        ration with first term with increase in power till last term (nth term)\r\n    Examples:\r\n    &gt;&gt;&gt; geometric_series(4, 2, 2)\r\n    [2, 4.0, 8.0, 16.0]\r\n    &gt;&gt;&gt; geometric_series(4.0, 2.0, 2.0)\r\n    [2.0, 4.0, 8.0, 16.0]\r\n    &gt;&gt;&gt; geometric_series(4.1, 2.1, 2.1)\r\n    [2.1, 4.41, 9.261000000000001, 19.448100000000004]\r\n    &gt;&gt;&gt; geometric_series(4, 2, -2)\r\n    [2, -4.0, 8.0, -16.0]\r\n    &gt;&gt;&gt; geometric_series(4, -2, 2)\r\n    [-2, -4.0, -8.0, -16.0]\r\n    &gt;&gt;&gt; geometric_series(-4, 2, 2)\r\n    []\r\n    &gt;&gt;&gt; geometric_series(0, 100, 500)\r\n    []\r\n    &gt;&gt;&gt; geometric_series(1, 1, 1)\r\n    [1]\r\n    &gt;&gt;&gt; geometric_series(0, 0, 0)\r\n    []\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> <span class=\"hljs-keyword\">not</span> <span class=\"hljs-built_in\">all</span>((nth_term, start_term_a, common_ratio_r)):\r\n        <span class=\"hljs-keyword\">return</span> []\r\n    series: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">float</span> | <span class=\"hljs-built_in\">int</span>] = []\r\n    power = <span class=\"hljs-number\">1</span>\r\n    multiple = common_ratio_r\r\n    <span class=\"hljs-keyword\">for</span> _ <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-built_in\">int</span>(nth_term)):\r\n        <span class=\"hljs-keyword\">if</span> series == []:\r\n            series.append(start_term_a)\r\n        <span class=\"hljs-keyword\">else</span>:\r\n            power += <span class=\"hljs-number\">1</span>\r\n            series.append(<span class=\"hljs-built_in\">float</span>(start_term_a * multiple))\r\n            multiple = <span class=\"hljs-built_in\">pow</span>(<span class=\"hljs-built_in\">float</span>(common_ratio_r), power)\r\n    <span class=\"hljs-keyword\">return</span> series\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n\r\n    nth_term = <span class=\"hljs-built_in\">float</span>(<span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Enter the last number (n term) of the Geometric Series&quot;</span>))\r\n    start_term_a = <span class=\"hljs-built_in\">float</span>(<span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Enter the starting term (a) of the Geometric Series&quot;</span>))\r\n    common_ratio_r = <span class=\"hljs-built_in\">float</span>(\r\n        <span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Enter the common ratio between two terms (r) of the Geometric Series&quot;</span>)\r\n    )\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;Formula of Geometric Series =&gt; a + ar + ar^2 ... +ar^n&quot;</span>)\r\n    <span class=\"hljs-built_in\">print</span>(geometric_series(nth_term, start_term_a, common_ratio_r))\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Rohan R Bharadwaj",
+      "email": "rohanrbharadwaj@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Muhammad Ibtihaj Naeem",
+      "email": "i.ibtihajnaeem@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

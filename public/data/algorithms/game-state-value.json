@@ -1,0 +1,29 @@
+{
+  "slug": "game-state-value",
+  "name": "Game State Value",
+  "categories": [
+    "ai",
+    "minimax",
+    "sources",
+    "minimaxplayground",
+    "sources",
+    "model",
+    "minimax"
+  ],
+  "body": {},
+  "implementations": {
+    "swift": {
+      "dir": "algorithms\\AI\\minimax\\Sources\\Minimax.playground\\Sources\\Model\\Minimax\\GameStateValue.swift",
+      "url": "https://github.com/TheAlgorithms/swift/tree/master/algorithms\\AI\\minimax\\Sources\\Minimax.playground\\Sources\\Model\\Minimax\\GameStateValue.swift",
+      "code": "<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">enum</span> <span class=\"hljs-title class_\">GameStateValue</span>: <span class=\"hljs-title class_\">Int</span> {\r\n\r\n    <span class=\"hljs-keyword\">case</span> min <span class=\"hljs-operator\">=</span> <span class=\"hljs-operator\">-</span><span class=\"hljs-number\">1</span>\r\n\r\n    <span class=\"hljs-keyword\">case</span> null <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>\r\n\r\n    <span class=\"hljs-keyword\">case</span> max <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">1</span>\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "michalnowak061",
+      "email": "michal.nowak061@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,33 @@
+{
+  "slug": "get-imdbtop",
+  "name": "Get Imdbtop",
+  "categories": [
+    "webprogramming"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "web_programming\\get_imdbtop.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/web_programming\\get_imdbtop.py",
+      "code": "<span class=\"hljs-keyword\">import</span> bs4\r\n<span class=\"hljs-keyword\">import</span> requests\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">get_movie_data_from_soup</span>(<span class=\"hljs-params\">soup: bs4.element.ResultSet</span>) -&gt; <span class=\"hljs-built_in\">dict</span>[<span class=\"hljs-built_in\">str</span>, <span class=\"hljs-built_in\">str</span>]:\r\n    <span class=\"hljs-keyword\">return</span> {\r\n        <span class=\"hljs-string\">&quot;name&quot;</span>: soup.h3.a.text,\r\n        <span class=\"hljs-string\">&quot;genre&quot;</span>: soup.find(<span class=\"hljs-string\">&quot;span&quot;</span>, class_=<span class=\"hljs-string\">&quot;genre&quot;</span>).text.strip(),\r\n        <span class=\"hljs-string\">&quot;rating&quot;</span>: soup.strong.text,\r\n        <span class=\"hljs-string\">&quot;page_link&quot;</span>: <span class=\"hljs-string\">f&quot;https://www.imdb.com<span class=\"hljs-subst\">{soup.a.get(<span class=\"hljs-string\">&#x27;href&#x27;</span>)}</span>&quot;</span>,\r\n    }\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">get_imdb_top_movies</span>(<span class=\"hljs-params\">num_movies: <span class=\"hljs-built_in\">int</span> = <span class=\"hljs-number\">5</span></span>) -&gt; <span class=\"hljs-built_in\">tuple</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;Get the top num_movies most highly rated movies from IMDB and\r\n    return a tuple of dicts describing each movie&#x27;s name, genre, rating, and URL.\r\n\r\n    Args:\r\n        num_movies: The number of movies to get. Defaults to 5.\r\n\r\n    Returns:\r\n        A list of tuples containing information about the top n movies.\r\n\r\n    &gt;&gt;&gt; len(get_imdb_top_movies(5))\r\n    5\r\n    &gt;&gt;&gt; len(get_imdb_top_movies(-3))\r\n    0\r\n    &gt;&gt;&gt; len(get_imdb_top_movies(4.99999))\r\n    4\r\n    &quot;&quot;&quot;</span>\r\n    num_movies = <span class=\"hljs-built_in\">int</span>(<span class=\"hljs-built_in\">float</span>(num_movies))\r\n    <span class=\"hljs-keyword\">if</span> num_movies &lt; <span class=\"hljs-number\">1</span>:\r\n        <span class=\"hljs-keyword\">return</span> ()\r\n    base_url = (\r\n        <span class=\"hljs-string\">&quot;https://www.imdb.com/search/title?title_type=&quot;</span>\r\n        <span class=\"hljs-string\">f&quot;feature&amp;sort=num_votes,desc&amp;count=<span class=\"hljs-subst\">{num_movies}</span>&quot;</span>\r\n    )\r\n    source = bs4.BeautifulSoup(requests.get(base_url).content, <span class=\"hljs-string\">&quot;html.parser&quot;</span>)\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-built_in\">tuple</span>(\r\n        get_movie_data_from_soup(movie)\r\n        <span class=\"hljs-keyword\">for</span> movie <span class=\"hljs-keyword\">in</span> source.find_all(<span class=\"hljs-string\">&quot;div&quot;</span>, class_=<span class=\"hljs-string\">&quot;lister-item mode-advanced&quot;</span>)\r\n    )\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> json\r\n\r\n    num_movies = <span class=\"hljs-built_in\">int</span>(<span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;How many movies would you like to see? &quot;</span>))\r\n    <span class=\"hljs-built_in\">print</span>(\r\n        <span class=\"hljs-string\">&quot;, &quot;</span>.join(\r\n            json.dumps(movie, indent=<span class=\"hljs-number\">4</span>) <span class=\"hljs-keyword\">for</span> movie <span class=\"hljs-keyword\">in</span> get_imdb_top_movies(num_movies)\r\n        )\r\n    )\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Appledora",
+      "email": "nazia89@student.sust.edu",
+      "commits": 1
+    },
+    {
+      "name": "Orkun İncili",
+      "email": "orkunincili0@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

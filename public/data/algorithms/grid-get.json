@@ -1,0 +1,28 @@
+{
+  "slug": "grid-get",
+  "name": "Grid Get",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\test\\GridGet.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\GridGet.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { gridGetX, gridGetY } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../GridGet&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;GridGet&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should have a value of x for the 27th element if the square array has 400 elements&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">gridGetX</span>(<span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">sqrt</span>(<span class=\"hljs-number\">400</span>), <span class=\"hljs-number\">27</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">8</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should have a value of x for the 11th element if the square array has 7 columns and 3 rows&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">gridGetX</span>(<span class=\"hljs-number\">7</span>, <span class=\"hljs-number\">11</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">5</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should have a value of y for the 27th element if the square array has 400 elements&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">gridGetY</span>(<span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">sqrt</span>(<span class=\"hljs-number\">400</span>), <span class=\"hljs-number\">27</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">2</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should have a value of y for the 11th element if the square array has 7 columns and 3 rows &#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">gridGetX</span>(<span class=\"hljs-number\">7</span>, <span class=\"hljs-number\">11</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">5</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Rob Hicks",
+      "email": "darclan28@yahoo.com",
+      "commits": 1
+    },
+    {
+      "name": "Ephraim Atta-Duncan",
+      "email": "55143799+dephraiim@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

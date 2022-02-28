@@ -1,0 +1,28 @@
+{
+  "slug": "guass-legendre",
+  "name": "Guass Legendre",
+  "categories": [
+    "others"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\others\\GuassLegendre.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\others\\GuassLegendre.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.others;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Guass Legendre Algorithm ref\r\n * https://en.wikipedia.org/wiki/Gauss–Legendre_algorithm\r\n *\r\n * <span class=\"hljs-doctag\">@author</span> AKS1996\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">GuassLegendre</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">1</span>; i &lt;= <span class=\"hljs-number\">3</span>; ++i) {\r\n            System.out.println(pi(i));\r\n        }\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">double</span> <span class=\"hljs-title function_\">pi</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> l)</span> {\r\n        <span class=\"hljs-comment\">/*\r\n     * l: No of loops to run\r\n         */</span>\r\n\r\n        <span class=\"hljs-type\">double</span> <span class=\"hljs-variable\">a</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">1</span>, b = Math.pow(<span class=\"hljs-number\">2</span>, -<span class=\"hljs-number\">0.5</span>), t = <span class=\"hljs-number\">0.25</span>, p = <span class=\"hljs-number\">1</span>;\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>; i &lt; l; ++i) {\r\n            <span class=\"hljs-type\">double</span> temp[] = update(a, b, t, p);\r\n            a = temp[<span class=\"hljs-number\">0</span>];\r\n            b = temp[<span class=\"hljs-number\">1</span>];\r\n            t = temp[<span class=\"hljs-number\">2</span>];\r\n            p = temp[<span class=\"hljs-number\">3</span>];\r\n        }\r\n\r\n        <span class=\"hljs-keyword\">return</span> Math.pow(a + b, <span class=\"hljs-number\">2</span>) / (<span class=\"hljs-number\">4</span> * t);\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">double</span>[] update(<span class=\"hljs-type\">double</span> a, <span class=\"hljs-type\">double</span> b, <span class=\"hljs-type\">double</span> t, <span class=\"hljs-type\">double</span> p) {\r\n        <span class=\"hljs-type\">double</span> values[] = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">double</span>[<span class=\"hljs-number\">4</span>];\r\n        values[<span class=\"hljs-number\">0</span>] = (a + b) / <span class=\"hljs-number\">2</span>;\r\n        values[<span class=\"hljs-number\">1</span>] = Math.sqrt(a * b);\r\n        values[<span class=\"hljs-number\">2</span>] = t - p * Math.pow(a - values[<span class=\"hljs-number\">0</span>], <span class=\"hljs-number\">2</span>);\r\n        values[<span class=\"hljs-number\">3</span>] = <span class=\"hljs-number\">2</span> * p;\r\n\r\n        <span class=\"hljs-keyword\">return</span> values;\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

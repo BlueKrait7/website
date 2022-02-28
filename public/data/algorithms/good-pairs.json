@@ -1,0 +1,29 @@
+{
+  "slug": "good-pairs",
+  "name": "Good Pairs",
+  "categories": [
+    "datastructures",
+    "array"
+  ],
+  "body": {},
+  "implementations": {
+    "ruby": {
+      "dir": "data_structures\\hash_table\\good_pairs.rb",
+      "url": "https://github.com/TheAlgorithms/ruby/tree/master/data_structures\\hash_table\\good_pairs.rb",
+      "code": "<span class=\"hljs-comment\"># Challenge name: Number of good pairs</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Given an array of integers nums.</span>\r\n<span class=\"hljs-comment\"># A pair (i,j) is called good if nums[i] == nums[j] and i &lt; j.</span>\r\n<span class=\"hljs-comment\"># Return the number of good pairs.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># <span class=\"hljs-doctag\">@param</span> {Integer[]} nums</span>\r\n<span class=\"hljs-comment\"># <span class=\"hljs-doctag\">@return</span> {Integer}</span>\r\n<span class=\"hljs-comment\">#</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Approach 1: Hash</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Time Complexity: O(n)</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">num_identical_pairs</span><span class=\"hljs-params\">(nums)</span></span>\r\n  hash = Hash.new(<span class=\"hljs-number\">0</span>)\r\n\r\n  nums.each <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|num|</span>\r\n    hash[num] = hash[num] + <span class=\"hljs-number\">1</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n\r\n  counter = <span class=\"hljs-number\">0</span>\r\n  <span class=\"hljs-comment\"># Count how many times each number appears.</span>\r\n  <span class=\"hljs-comment\"># If a number appears n times, then n * (n – 1) / 2 good pairs</span>\r\n  <span class=\"hljs-comment\"># can be made with this number.</span>\r\n  hash.values.each <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|val|</span>\r\n    counter += (val * (val - <span class=\"hljs-number\">1</span>) / <span class=\"hljs-number\">2</span>)\r\n  <span class=\"hljs-keyword\">end</span>\r\n\r\n  counter\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\nnums = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">3</span>]\r\nputs(num_identical_pairs(nums))\r\n<span class=\"hljs-comment\"># Output: 4</span>\r\n\r\nnums = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">1</span>]\r\nputs(num_identical_pairs(nums))\r\n<span class=\"hljs-comment\"># Output: 6</span>\r\n\r\nnums = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>]\r\nputs(num_identical_pairs(nums))\r\n<span class=\"hljs-comment\"># Output: 0</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 3
+    },
+    {
+      "name": "Jessica Kwok",
+      "email": "jessicatckwok@gmail.com",
+      "commits": 5
+    }
+  ],
+  "explanationUrl": {}
+}

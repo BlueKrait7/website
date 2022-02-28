@@ -1,0 +1,57 @@
+{
+  "slug": "fractional-knapsack",
+  "name": "Fractional Knapsack",
+  "categories": [
+    "dynamicprogramming"
+  ],
+  "body": {
+    "en": "<h4>Problem Statement</h4>\n<p>Given a set of items, each with weight and a value, determine the number of each item included in a collection so that the total weight is less than or equal to the given limit and the total value is as large as possible.</p>\n<h5>Greedy method will always provide an optimal solution with fractional knapsack problem.</h5>\n<h4>Time Complexity</h4>\n<p>O(nlog n) Worst Case</p>\n<h4>Example</h4>\n<pre><code class=\"hljs language-basic\">Lets assume the capacity of knapsack, W = <span class=\"hljs-number\">60</span>\r\nvalue = [<span class=\"hljs-number\">280</span>, <span class=\"hljs-number\">100</span>, <span class=\"hljs-number\">120</span>, <span class=\"hljs-number\">120</span>]  \r\nweight = [<span class=\"hljs-number\">40</span>, <span class=\"hljs-number\">10</span>, <span class=\"hljs-number\">20</span>, <span class=\"hljs-number\">24</span>]\r\n\r\nRatio(V/W) = <span class=\"hljs-number\">7</span>,<span class=\"hljs-number\">10</span>,<span class=\"hljs-number\">6</span>,<span class=\"hljs-number\">5</span>\r\nSay those items as A,B,C,D\r\n<span class=\"hljs-keyword\">next</span>, the items should be sorted in descending order based <span class=\"hljs-keyword\">on</span> the ratio of value by weight <span class=\"hljs-keyword\">to</span> <span class=\"hljs-keyword\">get</span> maximum profit\r\nFirst <span class=\"hljs-keyword\">and</span> fo<span class=\"hljs-comment\">remost, B was picked since its weight is smaller than the knapsack's capacity. The next item, A, is chosen since the knapsack's available capacity is more than A's weight. C is now the next item on the list. However, the entire item cannot be chosen because the knapsack's remaining capacity is less than C's weight.</span>\r\nAs a result, the C proportion (<span class=\"hljs-number\">60</span>–<span class=\"hljs-number\">50</span>)/<span class=\"hljs-number\">20</span>)\r\nThe knapsack<span class=\"hljs-comment\">'s capacity is now equal to the specified items.</span>\r\nAs a result, no more items can be chosen.\r\n\r\n<span class=\"hljs-symbol\">10 </span>+ <span class=\"hljs-number\">40</span> + <span class=\"hljs-number\">20</span>*(<span class=\"hljs-number\">10</span>/<span class=\"hljs-number\">20</span>) = <span class=\"hljs-number\">60</span> is the total weight of the chosen goods.\r\n\r\n<span class=\"hljs-number\">100</span>+<span class=\"hljs-number\">280</span>+<span class=\"hljs-number\">120</span>*(<span class=\"hljs-number\">10</span>/<span class=\"hljs-number\">20</span>)=<span class=\"hljs-number\">380</span>+<span class=\"hljs-number\">60</span>=<span class=\"hljs-number\">440</span> is the total profit.\r\n\r\nThis is the most suitable <span class=\"hljs-keyword\">option</span>.\r\n\r\nWe won<span class=\"hljs-comment\">'t be able to make more money by combining diverse things.</span>\r\n\n</code></pre>\n<h4>Code Implementation Links</h4>\n<ul>\n<li><a href=\"https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/greedy_algorithms/knapsack.cpp\">C++</a></li>\n<li><a href=\"https://github.com/TheAlgorithms/Python/tree/master/knapsack\">Python</a></li>\n<li><a href=\"https://github.com/TheAlgorithms/C-Sharp/tree/master/Algorithms/Knapsack\">C-Sharp</a></li>\n</ul>\n<h4>Video Explanation</h4>\n<p><a href=\"https://www.youtube.com/watch?v=Ou9OA0yQCYA\">A CS50 video explaining the Greedy Algorithm</a></p>"
+  },
+  "implementations": {
+    "python": {
+      "dir": "dynamic_programming\\fractional_knapsack.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/dynamic_programming\\fractional_knapsack.py",
+      "code": "<span class=\"hljs-keyword\">from</span> bisect <span class=\"hljs-keyword\">import</span> bisect\r\n<span class=\"hljs-keyword\">from</span> itertools <span class=\"hljs-keyword\">import</span> accumulate\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">fracKnapsack</span>(<span class=\"hljs-params\">vl, wt, W, n</span>):\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    &gt;&gt;&gt; fracKnapsack([60, 100, 120], [10, 20, 30], 50, 3)\r\n    240.0\r\n    &quot;&quot;&quot;</span>\r\n\r\n    r = <span class=\"hljs-built_in\">list</span>(<span class=\"hljs-built_in\">sorted</span>(<span class=\"hljs-built_in\">zip</span>(vl, wt), key=<span class=\"hljs-keyword\">lambda</span> x: x[<span class=\"hljs-number\">0</span>] / x[<span class=\"hljs-number\">1</span>], reverse=<span class=\"hljs-literal\">True</span>))\r\n    vl, wt = [i[<span class=\"hljs-number\">0</span>] <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> r], [i[<span class=\"hljs-number\">1</span>] <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> r]\r\n    acc = <span class=\"hljs-built_in\">list</span>(accumulate(wt))\r\n    k = bisect(acc, W)\r\n    <span class=\"hljs-keyword\">return</span> (\r\n        <span class=\"hljs-number\">0</span>\r\n        <span class=\"hljs-keyword\">if</span> k == <span class=\"hljs-number\">0</span>\r\n        <span class=\"hljs-keyword\">else</span> <span class=\"hljs-built_in\">sum</span>(vl[:k]) + (W - acc[k - <span class=\"hljs-number\">1</span>]) * (vl[k]) / (wt[k])\r\n        <span class=\"hljs-keyword\">if</span> k != n\r\n        <span class=\"hljs-keyword\">else</span> <span class=\"hljs-built_in\">sum</span>(vl[:k])\r\n    )\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    },
+    "lua": {
+      "dir": "src\\knapsack\\fractional_knapsack.lua",
+      "url": "https://github.com/TheAlgorithms/lua/tree/master/src\\knapsack\\fractional_knapsack.lua",
+      "code": "<span class=\"hljs-keyword\">return</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span><span class=\"hljs-params\">(items)</span></span>\r\n\t<span class=\"hljs-comment\">-- Sort descending by efficiency (profit / weight)</span>\r\n\t<span class=\"hljs-built_in\">table</span>.<span class=\"hljs-built_in\">sort</span>(items, <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span><span class=\"hljs-params\">(a, b)</span></span>\r\n\t\t<span class=\"hljs-keyword\">return</span> (a.profit / a.weight) &gt; (b.profit / b.weight)\r\n\t<span class=\"hljs-keyword\">end</span>)\r\n\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span><span class=\"hljs-params\">(capacity)</span></span>\r\n\t\t<span class=\"hljs-keyword\">local</span> capacity_left = capacity\r\n\t\t<span class=\"hljs-keyword\">local</span> total_profit = <span class=\"hljs-number\">0</span>\r\n\t\t<span class=\"hljs-keyword\">local</span> chosen_items = {}\r\n\t\t<span class=\"hljs-keyword\">local</span> index = <span class=\"hljs-number\">1</span>\r\n\t\t<span class=\"hljs-keyword\">while</span> index &lt;= #items <span class=\"hljs-keyword\">and</span> capacity_left &gt; <span class=\"hljs-number\">0</span> <span class=\"hljs-keyword\">do</span>\r\n\t\t\t<span class=\"hljs-keyword\">local</span> item = items[index]\r\n\t\t\t<span class=\"hljs-keyword\">local</span> portion = <span class=\"hljs-built_in\">math</span>.<span class=\"hljs-built_in\">min</span>(<span class=\"hljs-number\">1</span>, capacity_left / item.weight)\r\n\t\t\t<span class=\"hljs-built_in\">table</span>.<span class=\"hljs-built_in\">insert</span>(chosen_items, { item = item, portion = portion })\r\n\t\t\ttotal_profit = total_profit + item.profit * portion\r\n\t\t\tcapacity_left = capacity_left - item.weight * portion\r\n\t\t\tindex = index + <span class=\"hljs-number\">1</span>\r\n\t\t<span class=\"hljs-keyword\">end</span>\r\n\t\t<span class=\"hljs-keyword\">return</span> total_profit, chosen_items\r\n\t<span class=\"hljs-keyword\">end</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "Lars Mueller",
+      "email": "appgurulars@gmx.de",
+      "commits": 1
+    },
+    {
+      "name": "Ankur Chattopadhyay",
+      "email": "39518771+chttrjeankr@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Jigyasa G",
+      "email": "jigsgandhi97@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Srikumar Sastry",
+      "email": "srikumarsastry1997@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {
+    "en": "https://github.com/TheAlgorithms/Algorithms-Explanation/tree/master/en\\Greedy Algorithms\\Fractional Knapsack.md"
+  }
+}

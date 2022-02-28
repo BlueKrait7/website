@@ -1,0 +1,53 @@
+{
+  "slug": "gaussian",
+  "name": "Gaussian",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\gaussian.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\gaussian.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nReference: https://en.wikipedia.org/wiki/Gaussian_function\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">from</span> numpy <span class=\"hljs-keyword\">import</span> exp, pi, sqrt\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">gaussian</span>(<span class=\"hljs-params\">x, mu: <span class=\"hljs-built_in\">float</span> = <span class=\"hljs-number\">0.0</span>, sigma: <span class=\"hljs-built_in\">float</span> = <span class=\"hljs-number\">1.0</span></span>) -&gt; <span class=\"hljs-built_in\">int</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    &gt;&gt;&gt; gaussian(1)\r\n    0.24197072451914337\r\n\r\n    &gt;&gt;&gt; gaussian(24)\r\n    3.342714441794458e-126\r\n\r\n    &gt;&gt;&gt; gaussian(1, 4, 2)\r\n    0.06475879783294587\r\n\r\n    &gt;&gt;&gt; gaussian(1, 5, 3)\r\n    0.05467002489199788\r\n\r\n    Supports NumPy Arrays\r\n    Use numpy.meshgrid with this to generate gaussian blur on images.\r\n    &gt;&gt;&gt; import numpy as np\r\n    &gt;&gt;&gt; x = np.arange(15)\r\n    &gt;&gt;&gt; gaussian(x)\r\n    array([3.98942280e-01, 2.41970725e-01, 5.39909665e-02, 4.43184841e-03,\r\n           1.33830226e-04, 1.48671951e-06, 6.07588285e-09, 9.13472041e-12,\r\n           5.05227108e-15, 1.02797736e-18, 7.69459863e-23, 2.11881925e-27,\r\n           2.14638374e-32, 7.99882776e-38, 1.09660656e-43])\r\n\r\n    &gt;&gt;&gt; gaussian(15)\r\n    5.530709549844416e-50\r\n\r\n    &gt;&gt;&gt; gaussian([1,2, &#x27;string&#x27;])\r\n    Traceback (most recent call last):\r\n        ...\r\n    TypeError: unsupported operand type(s) for -: &#x27;list&#x27; and &#x27;float&#x27;\r\n\r\n    &gt;&gt;&gt; gaussian(&#x27;hello world&#x27;)\r\n    Traceback (most recent call last):\r\n        ...\r\n    TypeError: unsupported operand type(s) for -: &#x27;str&#x27; and &#x27;float&#x27;\r\n\r\n    &gt;&gt;&gt; gaussian(10**234) # doctest: +IGNORE_EXCEPTION_DETAIL\r\n    Traceback (most recent call last):\r\n        ...\r\n    OverflowError: (34, &#x27;Result too large&#x27;)\r\n\r\n    &gt;&gt;&gt; gaussian(10**-326)\r\n    0.3989422804014327\r\n\r\n    &gt;&gt;&gt; gaussian(2523, mu=234234, sigma=3425)\r\n    0.0\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span> / sqrt(<span class=\"hljs-number\">2</span> * pi * sigma**<span class=\"hljs-number\">2</span>) * exp(-((x - mu) ** <span class=\"hljs-number\">2</span>) / (<span class=\"hljs-number\">2</span> * sigma**<span class=\"hljs-number\">2</span>))\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    },
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\maths\\Gaussian.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\maths\\Gaussian.java",
+      "code": "<span class=\"hljs-comment\">/**\r\n * \\file\r\n * \\brief [Gaussian elimination\r\n * method](https://en.wikipedia.org/wiki/Gaussian_elimination)\r\n * <span class=\"hljs-doctag\">@author</span> [Sachwin Kohli](https://github.com/Sachwin-Kohli)\r\n */</span>\r\n<span class=\"hljs-keyword\">package</span> com.thealgorithms.maths;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.*;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Main function\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Gaussian</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-type\">int</span> mat_size, i, j, step;\r\n        <span class=\"hljs-type\">Scanner</span> <span class=\"hljs-variable\">sc</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Scanner</span>(System.in);\r\n\r\n        System.out.println(<span class=\"hljs-string\">&quot;Matrix Size : &quot;</span>);\r\n        mat_size = sc.nextInt();\r\n\r\n        <span class=\"hljs-type\">double</span>[][] mat = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">double</span>[mat_size + <span class=\"hljs-number\">1</span>][mat_size + <span class=\"hljs-number\">1</span>];\r\n        <span class=\"hljs-type\">double</span>[][] x = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">double</span>[mat_size][mat_size + <span class=\"hljs-number\">1</span>];\r\n\r\n        System.out.println(<span class=\"hljs-string\">&quot;Enter value of the matrix&quot;</span>);\r\n        System.out.println(<span class=\"hljs-string\">&#x27; &#x27;</span>);\r\n        <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; mat_size; i++) {\r\n            <span class=\"hljs-keyword\">for</span> (j = <span class=\"hljs-number\">0</span>; j &lt;= mat_size; j++) {\r\n                mat[i][j] = sc.nextInt();\r\n            }\r\n        }\r\n\r\n        <span class=\"hljs-comment\">// perform Gaussian elimination</span>\r\n        <span class=\"hljs-keyword\">for</span> (step = <span class=\"hljs-number\">0</span>; step &lt; mat_size - <span class=\"hljs-number\">1</span>; step++) {\r\n            <span class=\"hljs-keyword\">for</span> (i = step; i &lt; mat_size - <span class=\"hljs-number\">1</span>; i++) {\r\n                <span class=\"hljs-type\">double</span> <span class=\"hljs-variable\">a</span> <span class=\"hljs-operator\">=</span> (mat[i + <span class=\"hljs-number\">1</span>][step] / mat[step][step]);\r\n\r\n                <span class=\"hljs-keyword\">for</span> (j = step; j &lt;= mat_size; j++) {\r\n                    mat[i + <span class=\"hljs-number\">1</span>][j] = mat[i + <span class=\"hljs-number\">1</span>][j] - (a * mat[step][j]);\r\n                }\r\n            }\r\n        }\r\n\r\n        System.out.println(<span class=\"hljs-string\">&quot;Matrix using Gaussian Elimination method: &quot;</span>);\r\n        System.out.println(<span class=\"hljs-string\">&quot; &quot;</span>);\r\n        <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; mat_size; i++) {\r\n            <span class=\"hljs-keyword\">for</span> (j = <span class=\"hljs-number\">0</span>; j &lt;= mat_size; j++) {\r\n                x[i][j] = mat[i][j];\r\n                System.out.print(mat[i][j] + <span class=\"hljs-string\">&quot; &quot;</span>);\r\n            }\r\n            System.out.println();\r\n        }\r\n        System.out.println(<span class=\"hljs-string\">&quot;Value of the Gaussian Elimination method: &quot;</span>);\r\n        System.out.println(<span class=\"hljs-string\">&quot; &quot;</span>);\r\n\r\n        <span class=\"hljs-keyword\">for</span> (i = mat_size - <span class=\"hljs-number\">1</span>; i &gt;= <span class=\"hljs-number\">0</span>; i--) {\r\n            <span class=\"hljs-type\">double</span> <span class=\"hljs-variable\">sum</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>;\r\n            <span class=\"hljs-keyword\">for</span> (j = mat_size - <span class=\"hljs-number\">1</span>; j &gt; i; j--) {\r\n                x[i][j] = x[j][j] * x[i][j];\r\n                sum = x[i][j] + sum;\r\n            }\r\n            <span class=\"hljs-keyword\">if</span> (x[i][i] == <span class=\"hljs-number\">0</span>) {\r\n                x[i][i] = <span class=\"hljs-number\">0</span>;\r\n            } <span class=\"hljs-keyword\">else</span> {\r\n                x[i][i] = (x[i][mat_size] - sum) / (x[i][i]);\r\n            }\r\n            System.out.print(<span class=\"hljs-string\">&quot;x&quot;</span> + i + <span class=\"hljs-string\">&quot;=&quot;</span> + x[i][i]);\r\n            System.out.println(<span class=\"hljs-string\">&quot; &quot;</span>);\r\n        }\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "aryan26roy",
+      "email": "50577809+aryan26roy@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "QuantumNovice",
+      "email": "43876848+QuantumNovice@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "Sachwin Kohli",
+      "email": "sachwin.kohli@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 4
+    }
+  ],
+  "explanationUrl": {}
+}

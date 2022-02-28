@@ -1,0 +1,23 @@
+{
+  "slug": "giphy",
+  "name": "Giphy",
+  "categories": [
+    "webprogramming"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "web_programming\\giphy.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/web_programming\\giphy.py",
+      "code": "<span class=\"hljs-comment\">#!/usr/bin/env python3</span>\r\n<span class=\"hljs-keyword\">import</span> requests\r\n\r\ngiphy_api_key = <span class=\"hljs-string\">&quot;YOUR API KEY&quot;</span>\r\n<span class=\"hljs-comment\"># Can be fetched from https://developers.giphy.com/dashboard/</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">get_gifs</span>(<span class=\"hljs-params\">query: <span class=\"hljs-built_in\">str</span>, api_key: <span class=\"hljs-built_in\">str</span> = giphy_api_key</span>) -&gt; <span class=\"hljs-built_in\">list</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Get a list of URLs of GIFs based on a given query..\r\n    &quot;&quot;&quot;</span>\r\n    formatted_query = <span class=\"hljs-string\">&quot;+&quot;</span>.join(query.split())\r\n    url = <span class=\"hljs-string\">f&quot;http://api.giphy.com/v1/gifs/search?q=<span class=\"hljs-subst\">{formatted_query}</span>&amp;api_key=<span class=\"hljs-subst\">{api_key}</span>&quot;</span>\r\n    gifs = requests.get(url).json()[<span class=\"hljs-string\">&quot;data&quot;</span>]\r\n    <span class=\"hljs-keyword\">return</span> [gif[<span class=\"hljs-string\">&quot;url&quot;</span>] <span class=\"hljs-keyword\">for</span> gif <span class=\"hljs-keyword\">in</span> gifs]\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;\\n&quot;</span>.join(get_gifs(<span class=\"hljs-string\">&quot;space ship&quot;</span>)))\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Jaydeep Das",
+      "email": "jaydeepjd.1125@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

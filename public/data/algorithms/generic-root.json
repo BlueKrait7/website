@@ -1,0 +1,28 @@
+{
+  "slug": "generic-root",
+  "name": "Generic Root",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\maths\\GenericRoot.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\maths\\GenericRoot.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.maths;\r\n\r\n<span class=\"hljs-comment\">/*\r\n * Algorithm explanation: https://technotip.com/6774/c-program-to-find-generic-root-of-a-number/#:~:text=Generic%20Root%3A%20of%20a%20number,get%20a%20single%2Ddigit%20output.&amp;text=For%20Example%3A%20If%20user%20input,%2B%204%20%2B%205%20%3D%2015.\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">GenericRoot</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">number1</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">1234</span>;\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">number2</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">12345</span>;\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">result1</span> <span class=\"hljs-operator\">=</span> genericRoot(number1);\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">result2</span> <span class=\"hljs-operator\">=</span> genericRoot(number2);\r\n        System.out.println(<span class=\"hljs-string\">&quot;Generic root of &quot;</span> + number1 + <span class=\"hljs-string\">&quot; is: &quot;</span> + result1);\r\n        System.out.println(<span class=\"hljs-string\">&quot;Generic root of &quot;</span> + number2 + <span class=\"hljs-string\">&quot; is: &quot;</span> + result2);\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">private</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">genericRoot</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> n)</span> {\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">root</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>;\r\n        <span class=\"hljs-keyword\">while</span> (n &gt; <span class=\"hljs-number\">0</span> || root &gt; <span class=\"hljs-number\">9</span>) {\r\n            <span class=\"hljs-keyword\">if</span> (n == <span class=\"hljs-number\">0</span>) {\r\n                n = root;\r\n                root = <span class=\"hljs-number\">0</span>;\r\n            }\r\n            root += n % <span class=\"hljs-number\">10</span>;\r\n            n /= <span class=\"hljs-number\">10</span>;\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> root;\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Kush Sharma",
+      "email": "kushsharma1001@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

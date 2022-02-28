@@ -1,0 +1,33 @@
+{
+  "slug": "gauss-jordan-elim",
+  "name": "Gauss Jordan Elim",
+  "categories": [
+    "matrix"
+  ],
+  "body": {},
+  "implementations": {
+    "julia": {
+      "dir": "src\\matrix\\gauss_jordan_elim.jl",
+      "url": "https://github.com/TheAlgorithms/julia/tree/master/src\\matrix\\gauss_jordan_elim.jl",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n    gauss_jordan(A::AbstractMatrix{T}) where T&lt;:Number\r\n\r\nGaussian elimination, also known as row reduction, is an algorithm for solving systems of linear equations. \r\nIt consists of a sequence of operations performed on the corresponding matrix of coefficients. \r\nThis method can also be used to compute the rank of a matrix, the determinant of a square matrix, and the inverse of an invertible matrix.\r\nhttps://en.wikipedia.org/wiki/Gaussian_elimination\r\n\r\n# Examples/Tests\r\n```julia\r\njulia&gt; M1 = [1 2 3; 4 5 6];\r\njulia&gt; M2 = [1 2 3; 4 8 12];\r\n\r\njulia&gt; @test gauss_jordan(M1) == [1 0 -1; 0 1 2]        # Test Passed\r\njulia&gt; @test_throws AssertionError gauss_jordan(M2)     # Test Passed - Thrown: AssertionError\r\n```     \r\n\r\n# Contributed By:- [AugustoCL](https://github.com/AugustoCL)\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">function</span> gauss_jordan(A::<span class=\"hljs-built_in\">AbstractMatrix</span>{T}) <span class=\"hljs-keyword\">where</span> {T&lt;:<span class=\"hljs-built_in\">Number</span>}\r\n\r\n    <span class=\"hljs-comment\"># check if matrix is singular</span>\r\n    m, n = size(A)\r\n    <span class=\"hljs-keyword\">if</span> m == n\r\n        <span class=\"hljs-meta\">@assert</span> det(A) ≠ <span class=\"hljs-number\">0.0</span> <span class=\"hljs-string\">&quot;Must insert a non-singular matrix&quot;</span>\r\n    <span class=\"hljs-keyword\">else</span>\r\n        <span class=\"hljs-meta\">@assert</span> det(A[:, <span class=\"hljs-number\">1</span>:<span class=\"hljs-keyword\">end</span>-<span class=\"hljs-number\">1</span>]) ≠ <span class=\"hljs-number\">0.0</span> <span class=\"hljs-string\">&quot;Must insert a non-singular matrix or a system matrix [A b]&quot;</span>\r\n    <span class=\"hljs-keyword\">end</span>\r\n\r\n    <span class=\"hljs-comment\"># execute the gauss-jordan elimination</span>\r\n    <span class=\"hljs-keyword\">for</span> i ∈ axes(A, <span class=\"hljs-number\">1</span>)\r\n\r\n        <span class=\"hljs-keyword\">if</span> A[i, i] == <span class=\"hljs-number\">0.0</span>\r\n            <span class=\"hljs-keyword\">for</span> n ∈ (i + <span class=\"hljs-number\">1</span>):m                           <span class=\"hljs-comment\"># iterate in lines below to check if could be swap</span>\r\n                <span class=\"hljs-keyword\">if</span> A[n, i] ≠ <span class=\"hljs-number\">0.0</span>                        <span class=\"hljs-comment\"># condition to swap row</span>\r\n                    L = copy(A[i, :])                   <span class=\"hljs-comment\"># copy line to swap</span>\r\n                    A[i, :] = A[n, :]                   <span class=\"hljs-comment\"># swap occur</span>\r\n                    A[n, :] = L\r\n                    <span class=\"hljs-keyword\">break</span>\r\n                <span class=\"hljs-keyword\">end</span>\r\n            <span class=\"hljs-keyword\">end</span>\r\n        <span class=\"hljs-keyword\">end</span>\r\n\r\n        @. A[i, :] = A[i, :] ./ A[i, i]                  <span class=\"hljs-comment\"># divide pivot line by pivot element</span>\r\n\r\n        <span class=\"hljs-keyword\">for</span> j ∈ axes(A, <span class=\"hljs-number\">1</span>)                               <span class=\"hljs-comment\"># iterate each line for each pivot column, except pivot line</span>\r\n            <span class=\"hljs-keyword\">if</span> j ≠ i                                     <span class=\"hljs-comment\"># jump pivot line</span>\r\n                @. A[j, :] = A[j, :] - A[i, :]*A[j, i]   <span class=\"hljs-comment\"># apply gauss jordan in each line</span>\r\n            <span class=\"hljs-keyword\">end</span>\r\n        <span class=\"hljs-keyword\">end</span>\r\n    <span class=\"hljs-keyword\">end</span>\r\n\r\n    <span class=\"hljs-keyword\">return</span> A\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\n<span class=\"hljs-comment\"># using multiple dispatch to avoid InexactError with Integers</span>\r\ngauss_jordan(A::<span class=\"hljs-built_in\">AbstractMatrix</span>{T}) <span class=\"hljs-keyword\">where</span> {T&lt;:<span class=\"hljs-built_in\">Integer</span>} = gauss_jordan(convert(<span class=\"hljs-built_in\">Matrix</span>{<span class=\"hljs-built_in\">Float64</span>}, A))\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "eliascarv",
+      "email": "73039601+eliascarv@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Soc Virnyl S. Estela",
+      "email": "socvirnyl.estela@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Augusto C. Leal",
+      "email": "leal.augusto@unifesp.br",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

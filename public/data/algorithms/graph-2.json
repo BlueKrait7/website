@@ -1,0 +1,24 @@
+{
+  "slug": "graph-2",
+  "name": "Graph 2",
+  "categories": [
+    "datastructures",
+    "graphs"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Data-Structures\\Graph\\test\\Graph2.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Data-Structures\\Graph\\test\\Graph2.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { <span class=\"hljs-title class_\">Graph</span> } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../Graph2&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;Test Graph2&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-keyword\">const</span> vertices = [<span class=\"hljs-string\">&#x27;A&#x27;</span>, <span class=\"hljs-string\">&#x27;B&#x27;</span>, <span class=\"hljs-string\">&#x27;C&#x27;</span>, <span class=\"hljs-string\">&#x27;D&#x27;</span>, <span class=\"hljs-string\">&#x27;E&#x27;</span>, <span class=\"hljs-string\">&#x27;F&#x27;</span>]\r\n  <span class=\"hljs-keyword\">const</span> graph = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Graph</span>(vertices.<span class=\"hljs-property\">length</span>)\r\n\r\n  <span class=\"hljs-comment\">// adding vertices</span>\r\n  <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> i = <span class=\"hljs-number\">0</span>; i &lt; vertices.<span class=\"hljs-property\">length</span>; i++) {\r\n    graph.<span class=\"hljs-title function_\">addVertex</span>(vertices[i])\r\n  }\r\n\r\n  <span class=\"hljs-comment\">// adding edges</span>\r\n  graph.<span class=\"hljs-title function_\">addEdge</span>(<span class=\"hljs-string\">&#x27;A&#x27;</span>, <span class=\"hljs-string\">&#x27;B&#x27;</span>)\r\n  graph.<span class=\"hljs-title function_\">addEdge</span>(<span class=\"hljs-string\">&#x27;A&#x27;</span>, <span class=\"hljs-string\">&#x27;D&#x27;</span>)\r\n  graph.<span class=\"hljs-title function_\">addEdge</span>(<span class=\"hljs-string\">&#x27;A&#x27;</span>, <span class=\"hljs-string\">&#x27;E&#x27;</span>)\r\n  graph.<span class=\"hljs-title function_\">addEdge</span>(<span class=\"hljs-string\">&#x27;B&#x27;</span>, <span class=\"hljs-string\">&#x27;C&#x27;</span>)\r\n  graph.<span class=\"hljs-title function_\">addEdge</span>(<span class=\"hljs-string\">&#x27;D&#x27;</span>, <span class=\"hljs-string\">&#x27;E&#x27;</span>)\r\n  graph.<span class=\"hljs-title function_\">addEdge</span>(<span class=\"hljs-string\">&#x27;E&#x27;</span>, <span class=\"hljs-string\">&#x27;F&#x27;</span>)\r\n  graph.<span class=\"hljs-title function_\">addEdge</span>(<span class=\"hljs-string\">&#x27;E&#x27;</span>, <span class=\"hljs-string\">&#x27;C&#x27;</span>)\r\n  graph.<span class=\"hljs-title function_\">addEdge</span>(<span class=\"hljs-string\">&#x27;C&#x27;</span>, <span class=\"hljs-string\">&#x27;F&#x27;</span>)\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;Check adjacency lists&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> mockFn = jest.<span class=\"hljs-title function_\">fn</span>()\r\n    graph.<span class=\"hljs-title function_\">printGraph</span>(mockFn)\r\n\r\n    <span class=\"hljs-comment\">// Expect one call per vertex</span>\r\n    <span class=\"hljs-title function_\">expect</span>(mockFn.<span class=\"hljs-property\">mock</span>.<span class=\"hljs-property\">calls</span>.<span class=\"hljs-property\">length</span>).<span class=\"hljs-title function_\">toBe</span>(vertices.<span class=\"hljs-property\">length</span>)\r\n\r\n    <span class=\"hljs-comment\">// Collect adjacency lists from output (call args)</span>\r\n    <span class=\"hljs-keyword\">const</span> adjListArr = mockFn.<span class=\"hljs-property\">mock</span>.<span class=\"hljs-property\">calls</span>.<span class=\"hljs-title function_\">map</span>(<span class=\"hljs-function\"><span class=\"hljs-params\">v</span> =&gt;</span> v[<span class=\"hljs-number\">0</span>])\r\n\r\n    <span class=\"hljs-title function_\">expect</span>(adjListArr).<span class=\"hljs-title function_\">toEqual</span>([\r\n      <span class=\"hljs-string\">&#x27;A -&gt; B D E &#x27;</span>,\r\n      <span class=\"hljs-string\">&#x27;B -&gt; A C &#x27;</span>,\r\n      <span class=\"hljs-string\">&#x27;C -&gt; B E F &#x27;</span>,\r\n      <span class=\"hljs-string\">&#x27;D -&gt; A E &#x27;</span>,\r\n      <span class=\"hljs-string\">&#x27;E -&gt; A D F C &#x27;</span>,\r\n      <span class=\"hljs-string\">&#x27;F -&gt; E C &#x27;</span>\r\n    ])\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

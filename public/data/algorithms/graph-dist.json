@@ -1,0 +1,23 @@
+{
+  "slug": "graph-dist",
+  "name": "Graph Dist",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "haskell": {
+      "dir": "src\\Maths\\GraphDist.hs",
+      "url": "https://github.com/TheAlgorithms/haskell/tree/master/src\\Maths\\GraphDist.hs",
+      "code": "<span class=\"hljs-keyword\">module</span> Maths.GraphDist <span class=\"hljs-keyword\">where</span>\r\n\r\n<span class=\"hljs-comment\">-- calculates the distance from the origin</span>\r\n<span class=\"hljs-title\">calcDistOrigin</span> :: <span class=\"hljs-type\">Floating</span> a =&gt; a -&gt; a -&gt; a -&gt; a\r\n<span class=\"hljs-title\">calcDistOrigin</span> x y z = sqrt ((x ** <span class=\"hljs-number\">2</span>) + (y ** <span class=\"hljs-number\">2</span>) + (z ** <span class=\"hljs-number\">2</span>))\r\n\r\n<span class=\"hljs-comment\">-- calculates the distance between two points</span>\r\n<span class=\"hljs-title\">calcDist</span> :: <span class=\"hljs-type\">Floating</span> a =&gt; a -&gt; a -&gt; a -&gt; a -&gt; a -&gt; a -&gt; a\r\n<span class=\"hljs-title\">calcDist</span> x1 x2 y1 y2 z1 z2 = sqrt ((x2 - x1) ** <span class=\"hljs-number\">2</span> + (y2 - y1) ** <span class=\"hljs-number\">2</span> + (z2 - z1) ** <span class=\"hljs-number\">2</span>)\r\n\r\n<span class=\"hljs-title\">main</span> :: <span class=\"hljs-type\">IO</span> ()\r\n<span class=\"hljs-title\">main</span> = <span class=\"hljs-keyword\">do</span>\r\n  print (calcDistOrigin <span class=\"hljs-number\">4</span> <span class=\"hljs-number\">5</span> <span class=\"hljs-number\">6</span>)\r\n  print (calcDist <span class=\"hljs-number\">4</span> <span class=\"hljs-number\">6</span> <span class=\"hljs-number\">5</span> <span class=\"hljs-number\">9</span> <span class=\"hljs-number\">6</span> <span class=\"hljs-number\">10</span>)"
+    }
+  },
+  "contributors": [
+    {
+      "name": "liamdp",
+      "email": "liam.pickering@outlook.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

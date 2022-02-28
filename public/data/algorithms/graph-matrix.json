@@ -1,0 +1,48 @@
+{
+  "slug": "graph-matrix",
+  "name": "Graph Matrix",
+  "categories": [
+    "graphs"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "graphs\\graph_matrix.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/graphs\\graph_matrix.py",
+      "code": "<span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Graph</span>:\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">__init__</span>(<span class=\"hljs-params\">self, vertex</span>):\r\n        self.vertex = vertex\r\n        self.graph = [[<span class=\"hljs-number\">0</span>] * vertex <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(vertex)]\r\n\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">add_edge</span>(<span class=\"hljs-params\">self, u, v</span>):\r\n        self.graph[u - <span class=\"hljs-number\">1</span>][v - <span class=\"hljs-number\">1</span>] = <span class=\"hljs-number\">1</span>\r\n        self.graph[v - <span class=\"hljs-number\">1</span>][u - <span class=\"hljs-number\">1</span>] = <span class=\"hljs-number\">1</span>\r\n\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">show</span>(<span class=\"hljs-params\">self</span>):\r\n\r\n        <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> self.graph:\r\n            <span class=\"hljs-keyword\">for</span> j <span class=\"hljs-keyword\">in</span> i:\r\n                <span class=\"hljs-built_in\">print</span>(j, end=<span class=\"hljs-string\">&quot; &quot;</span>)\r\n            <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot; &quot;</span>)\r\n\r\n\r\ng = Graph(<span class=\"hljs-number\">100</span>)\r\n\r\ng.add_edge(<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">4</span>)\r\ng.add_edge(<span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">2</span>)\r\ng.add_edge(<span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>)\r\ng.add_edge(<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">5</span>)\r\ng.add_edge(<span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">3</span>)\r\ng.show()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "AlexDvorak",
+      "email": "opti.jawsome@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "cclauss",
+      "email": "cclauss@bluewin.ch",
+      "commits": 1
+    },
+    {
+      "name": "97arushisharma",
+      "email": "97arushisharma@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Francisco Matias",
+      "email": "franciscomatias@alu.ufc.br",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

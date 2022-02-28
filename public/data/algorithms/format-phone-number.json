@@ -1,0 +1,23 @@
+{
+  "slug": "format-phone-number",
+  "name": "Format Phone Number",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "String\\test\\FormatPhoneNumber.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/String\\test\\FormatPhoneNumber.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { formatPhoneNumber } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../FormatPhoneNumber&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;PhoneNumberFormatting&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return the formatted phone number&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">formatPhoneNumber</span>(<span class=\"hljs-string\">&#x27;1234567890&#x27;</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-string\">&#x27;(123) 456-7890&#x27;</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return the formatted phone number&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">formatPhoneNumber</span>(<span class=\"hljs-number\">1234567890</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-string\">&#x27;(123) 456-7890&#x27;</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to throw a type error&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> { <span class=\"hljs-title function_\">formatPhoneNumber</span>(<span class=\"hljs-string\">&#x27;1234567&#x27;</span>) }).<span class=\"hljs-title function_\">toThrow</span>(<span class=\"hljs-string\">&#x27;Invalid phone number.&#x27;</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to throw a type error&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> { <span class=\"hljs-title function_\">formatPhoneNumber</span>(<span class=\"hljs-string\">&#x27;123456text&#x27;</span>) }).<span class=\"hljs-title function_\">toThrow</span>(<span class=\"hljs-string\">&#x27;Invalid phone number.&#x27;</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to throw a type error&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> { <span class=\"hljs-title function_\">formatPhoneNumber</span>(<span class=\"hljs-number\">12345</span>) }).<span class=\"hljs-title function_\">toThrow</span>(<span class=\"hljs-string\">&#x27;Invalid phone number.&#x27;</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Mahfoudh Arous",
+      "email": "mahfoudh.arous@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

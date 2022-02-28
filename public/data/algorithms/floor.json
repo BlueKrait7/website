@@ -1,0 +1,38 @@
+{
+  "slug": "floor",
+  "name": "Floor",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\floor.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\floor.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nhttps://en.wikipedia.org/wiki/Floor_and_ceiling_functions\r\n&quot;&quot;&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">floor</span>(<span class=\"hljs-params\">x</span>) -&gt; <span class=\"hljs-built_in\">int</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Return the floor of x as an Integral.\r\n    :param x: the number\r\n    :return: the largest integer &lt;= x.\r\n    &gt;&gt;&gt; import math\r\n    &gt;&gt;&gt; all(floor(n) == math.floor(n) for n\r\n    ...     in (1, -1, 0, -0, 1.1, -1.1, 1.0, -1.0, 1_000_000_000))\r\n    True\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-built_in\">int</span>(x) <span class=\"hljs-keyword\">if</span> x - <span class=\"hljs-built_in\">int</span>(x) &gt;= <span class=\"hljs-number\">0</span> <span class=\"hljs-keyword\">else</span> <span class=\"hljs-built_in\">int</span>(x) - <span class=\"hljs-number\">1</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    },
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\maths\\Floor.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\maths\\Floor.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.maths;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.Random;\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Floor</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-type\">Random</span> <span class=\"hljs-variable\">random</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Random</span>();\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">1</span>; i &lt;= <span class=\"hljs-number\">1000</span>; ++i) {\r\n            <span class=\"hljs-type\">double</span> <span class=\"hljs-variable\">randomNumber</span> <span class=\"hljs-operator\">=</span> random.nextDouble();\r\n            <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">floor</span><span class=\"hljs-params\">(randomNumber)</span> == Math.floor(randomNumber);\r\n        }\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Returns the largest (closest to positive infinity)\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> number the number\r\n     * <span class=\"hljs-doctag\">@return</span> the largest (closest to positive infinity) of given\r\n     * {<span class=\"hljs-doctag\">@code</span> number}\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">double</span> <span class=\"hljs-title function_\">floor</span><span class=\"hljs-params\">(<span class=\"hljs-type\">double</span> number)</span> {\r\n        <span class=\"hljs-keyword\">if</span> (number - (<span class=\"hljs-type\">int</span>) number == <span class=\"hljs-number\">0</span>) {\r\n            <span class=\"hljs-keyword\">return</span> number;\r\n        } <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span> (number - (<span class=\"hljs-type\">int</span>) number &gt; <span class=\"hljs-number\">0</span>) {\r\n            <span class=\"hljs-keyword\">return</span> (<span class=\"hljs-type\">int</span>) number;\r\n        } <span class=\"hljs-keyword\">else</span> {\r\n            <span class=\"hljs-keyword\">return</span> (<span class=\"hljs-type\">int</span>) number - <span class=\"hljs-number\">1</span>;\r\n        }\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 2
+    },
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 4
+    }
+  ],
+  "explanationUrl": {}
+}

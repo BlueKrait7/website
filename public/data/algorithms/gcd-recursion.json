@@ -1,0 +1,28 @@
+{
+  "slug": "gcd-recursion",
+  "name": "GCD Recursion",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\maths\\GCDRecursion.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\maths\\GCDRecursion.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.maths;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * <span class=\"hljs-doctag\">@author</span> https://github.com/shellhub/\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">GCDRecursion</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        System.out.println(gcd(<span class=\"hljs-number\">20</span>, <span class=\"hljs-number\">15</span>));\r\n        <span class=\"hljs-comment\">/* output: 5 */</span>\r\n        System.out.println(gcd(<span class=\"hljs-number\">10</span>, <span class=\"hljs-number\">8</span>));\r\n        <span class=\"hljs-comment\">/* output: 2 */</span>\r\n        System.out.println(gcd(gcd(<span class=\"hljs-number\">10</span>, <span class=\"hljs-number\">5</span>), gcd(<span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">10</span>)));\r\n        <span class=\"hljs-comment\">/* output: 5 */</span>\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * get greatest common divisor\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> a the first number\r\n     * <span class=\"hljs-doctag\">@param</span> b the second number\r\n     * <span class=\"hljs-doctag\">@return</span> gcd\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">gcd</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> a, <span class=\"hljs-type\">int</span> b)</span> {\r\n\r\n        <span class=\"hljs-keyword\">if</span> (a &lt; <span class=\"hljs-number\">0</span> || b &lt; <span class=\"hljs-number\">0</span>) {\r\n            <span class=\"hljs-keyword\">throw</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">ArithmeticException</span>();\r\n        }\r\n\r\n        <span class=\"hljs-keyword\">if</span> (a == <span class=\"hljs-number\">0</span> || b == <span class=\"hljs-number\">0</span>) {\r\n            <span class=\"hljs-keyword\">return</span> Math.abs(a - b);\r\n        }\r\n\r\n        <span class=\"hljs-keyword\">if</span> (a % b == <span class=\"hljs-number\">0</span>) {\r\n            <span class=\"hljs-keyword\">return</span> b;\r\n        } <span class=\"hljs-keyword\">else</span> {\r\n            <span class=\"hljs-keyword\">return</span> gcd(b, a % b);\r\n        }\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

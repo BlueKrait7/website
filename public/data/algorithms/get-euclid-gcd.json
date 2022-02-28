@@ -1,0 +1,28 @@
+{
+  "slug": "get-euclid-gcd",
+  "name": "Get Euclid GCD",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\GetEuclidGCD.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\GetEuclidGCD.js",
+      "code": "<span class=\"hljs-comment\">/*\r\n    Problem statement and Explanation : https://en.wikipedia.org/wiki/Euclidean_algorithm\r\n\r\n    In this method, we have followed the iterative approach to first\r\n    find a minimum of both numbers and go to the next step.\r\n*/</span>\r\n\r\n<span class=\"hljs-comment\">/**\r\n * GetEuclidGCD return the gcd of two numbers using Euclidean algorithm.\r\n * <span class=\"hljs-doctag\">@param</span> {<span class=\"hljs-type\">Number</span>} arg1 first argument for gcd\r\n * <span class=\"hljs-doctag\">@param</span> {<span class=\"hljs-type\">Number</span>} arg2 second argument for gcd\r\n * <span class=\"hljs-doctag\">@returns</span> return a `gcd` value of both number.\r\n */</span>\r\n<span class=\"hljs-keyword\">const</span> <span class=\"hljs-title function_\">GetEuclidGCD</span> = (<span class=\"hljs-params\">arg1, arg2</span>) =&gt; {\r\n  <span class=\"hljs-comment\">// firstly, check that input is a number or not.</span>\r\n  <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-keyword\">typeof</span> arg1 !== <span class=\"hljs-string\">&#x27;number&#x27;</span> || <span class=\"hljs-keyword\">typeof</span> arg2 !== <span class=\"hljs-string\">&#x27;number&#x27;</span>) {\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">TypeError</span>(<span class=\"hljs-string\">&#x27;Argument is not a number.&#x27;</span>)\r\n  }\r\n  <span class=\"hljs-comment\">// check that the input number is not a negative value.</span>\r\n  <span class=\"hljs-keyword\">if</span> (arg1 &lt; <span class=\"hljs-number\">1</span> || arg2 &lt; <span class=\"hljs-number\">1</span>) {\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">TypeError</span>(<span class=\"hljs-string\">&#x27;Argument is a negative number.&#x27;</span>)\r\n  }\r\n  <span class=\"hljs-comment\">// Find a minimum of both numbers.</span>\r\n  <span class=\"hljs-keyword\">let</span> less = arg1 &gt; arg2 ? arg2 : arg1\r\n  <span class=\"hljs-comment\">// Iterate the number and find the gcd of the number using the above explanation.</span>\r\n  <span class=\"hljs-keyword\">for</span> (less; less &gt;= <span class=\"hljs-number\">2</span>; less--) {\r\n    <span class=\"hljs-keyword\">if</span> ((arg1 % less === <span class=\"hljs-number\">0</span>) &amp;&amp; (arg2 % less === <span class=\"hljs-number\">0</span>)) <span class=\"hljs-keyword\">return</span> (less)\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> (less)\r\n}\r\n\r\n<span class=\"hljs-keyword\">export</span> { <span class=\"hljs-title class_\">GetEuclidGCD</span> }\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Suryapratap Singh",
+      "email": "suryprtaps@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

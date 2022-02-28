@@ -1,0 +1,33 @@
+{
+  "slug": "gale-shapley-bigraph",
+  "name": "Gale Shapley Bigraph",
+  "categories": [
+    "graphs"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "graphs\\gale_shapley_bigraph.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/graphs\\gale_shapley_bigraph.py",
+      "code": "<span class=\"hljs-keyword\">from</span> __future__ <span class=\"hljs-keyword\">import</span> annotations\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">stable_matching</span>(<span class=\"hljs-params\">\r\n    donor_pref: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]], recipient_pref: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]]\r\n</span>) -&gt; <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Finds the stable match in any bipartite graph, i.e a pairing where no 2 objects\r\n    prefer each other over their partner.  The function accepts the preferences of\r\n    oegan donors and recipients (where both are assigned numbers from 0 to n-1) and\r\n    returns a list where the index position corresponds to the donor and value at the\r\n    index is the organ recipient.\r\n\r\n    To better understand the algorithm, see also:\r\n    https://github.com/akashvshroff/Gale_Shapley_Stable_Matching (README).\r\n    https://www.youtube.com/watch?v=Qcv1IqHWAzg&amp;t=13s (Numberphile YouTube).\r\n\r\n    &gt;&gt;&gt; donor_pref = [[0, 1, 3, 2], [0, 2, 3, 1], [1, 0, 2, 3], [0, 3, 1, 2]]\r\n    &gt;&gt;&gt; recipient_pref = [[3, 1, 2, 0], [3, 1, 0, 2], [0, 3, 1, 2], [1, 0, 3, 2]]\r\n    &gt;&gt;&gt; print(stable_matching(donor_pref, recipient_pref))\r\n    [1, 2, 3, 0]\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-built_in\">len</span>(donor_pref) == <span class=\"hljs-built_in\">len</span>(recipient_pref)\r\n\r\n    n = <span class=\"hljs-built_in\">len</span>(donor_pref)\r\n    unmatched_donors = <span class=\"hljs-built_in\">list</span>(<span class=\"hljs-built_in\">range</span>(n))\r\n    donor_record = [-<span class=\"hljs-number\">1</span>] * n  <span class=\"hljs-comment\"># who the donor has donated to</span>\r\n    rec_record = [-<span class=\"hljs-number\">1</span>] * n  <span class=\"hljs-comment\"># who the recipient has received from</span>\r\n    num_donations = [<span class=\"hljs-number\">0</span>] * n\r\n\r\n    <span class=\"hljs-keyword\">while</span> unmatched_donors:\r\n        donor = unmatched_donors[<span class=\"hljs-number\">0</span>]\r\n        donor_preference = donor_pref[donor]\r\n        recipient = donor_preference[num_donations[donor]]\r\n        num_donations[donor] += <span class=\"hljs-number\">1</span>\r\n        rec_preference = recipient_pref[recipient]\r\n        prev_donor = rec_record[recipient]\r\n\r\n        <span class=\"hljs-keyword\">if</span> prev_donor != -<span class=\"hljs-number\">1</span>:\r\n            <span class=\"hljs-keyword\">if</span> rec_preference.index(prev_donor) &gt; rec_preference.index(donor):\r\n                rec_record[recipient] = donor\r\n                donor_record[donor] = recipient\r\n                unmatched_donors.append(prev_donor)\r\n                unmatched_donors.remove(donor)\r\n        <span class=\"hljs-keyword\">else</span>:\r\n            rec_record[recipient] = donor\r\n            donor_record[donor] = recipient\r\n            unmatched_donors.remove(donor)\r\n    <span class=\"hljs-keyword\">return</span> donor_record\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "hasan",
+      "email": "hasanuli10@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Akash Shroff",
+      "email": "63399889+akashvshroff@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

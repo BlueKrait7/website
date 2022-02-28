@@ -1,0 +1,28 @@
+{
+  "slug": "gamma-recursive",
+  "name": "Gamma Recursive",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\gamma_recursive.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\gamma_recursive.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nGamma function is a very useful tool in math and physics.\r\nIt helps calculating complex integral in a convenient way.\r\nfor more info: https://en.wikipedia.org/wiki/Gamma_function\r\nPython&#x27;s Standard Library math.gamma() function overflows around gamma(171.624).\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">from</span> math <span class=\"hljs-keyword\">import</span> pi, sqrt\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">gamma</span>(<span class=\"hljs-params\">num: <span class=\"hljs-built_in\">float</span></span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Calculates the value of Gamma function of num\r\n    where num is either an integer (1, 2, 3..) or a half-integer (0.5, 1.5, 2.5 ...).\r\n    Implemented using recursion\r\n    Examples:\r\n    &gt;&gt;&gt; from math import isclose, gamma as math_gamma\r\n    &gt;&gt;&gt; gamma(0.5)\r\n    1.7724538509055159\r\n    &gt;&gt;&gt; gamma(2)\r\n    1.0\r\n    &gt;&gt;&gt; gamma(3.5)\r\n    3.3233509704478426\r\n    &gt;&gt;&gt; gamma(171.5)\r\n    9.483367566824795e+307\r\n    &gt;&gt;&gt; all(isclose(gamma(num), math_gamma(num)) for num in (0.5, 2, 3.5, 171.5))\r\n    True\r\n    &gt;&gt;&gt; gamma(0)\r\n    Traceback (most recent call last):\r\n        ...\r\n    ValueError: math domain error\r\n    &gt;&gt;&gt; gamma(-1.1)\r\n    Traceback (most recent call last):\r\n        ...\r\n    ValueError: math domain error\r\n    &gt;&gt;&gt; gamma(-4)\r\n    Traceback (most recent call last):\r\n        ...\r\n    ValueError: math domain error\r\n    &gt;&gt;&gt; gamma(172)\r\n    Traceback (most recent call last):\r\n        ...\r\n    OverflowError: math range error\r\n    &gt;&gt;&gt; gamma(1.1)\r\n    Traceback (most recent call last):\r\n        ...\r\n    NotImplementedError: num must be an integer or a half-integer\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> num &lt;= <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;math domain error&quot;</span>)\r\n    <span class=\"hljs-keyword\">if</span> num &gt; <span class=\"hljs-number\">171.5</span>:\r\n        <span class=\"hljs-keyword\">raise</span> OverflowError(<span class=\"hljs-string\">&quot;math range error&quot;</span>)\r\n    <span class=\"hljs-keyword\">elif</span> num - <span class=\"hljs-built_in\">int</span>(num) <span class=\"hljs-keyword\">not</span> <span class=\"hljs-keyword\">in</span> (<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">0.5</span>):\r\n        <span class=\"hljs-keyword\">raise</span> NotImplementedError(<span class=\"hljs-string\">&quot;num must be an integer or a half-integer&quot;</span>)\r\n    <span class=\"hljs-keyword\">elif</span> num == <span class=\"hljs-number\">0.5</span>:\r\n        <span class=\"hljs-keyword\">return</span> sqrt(pi)\r\n    <span class=\"hljs-keyword\">else</span>:\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1.0</span> <span class=\"hljs-keyword\">if</span> num == <span class=\"hljs-number\">1</span> <span class=\"hljs-keyword\">else</span> (num - <span class=\"hljs-number\">1</span>) * gamma(num - <span class=\"hljs-number\">1</span>)\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">test_gamma</span>() -&gt; <span class=\"hljs-literal\">None</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    &gt;&gt;&gt; test_gamma()\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">assert</span> gamma(<span class=\"hljs-number\">0.5</span>) == sqrt(pi)\r\n    <span class=\"hljs-keyword\">assert</span> gamma(<span class=\"hljs-number\">1</span>) == <span class=\"hljs-number\">1.0</span>\r\n    <span class=\"hljs-keyword\">assert</span> gamma(<span class=\"hljs-number\">2</span>) == <span class=\"hljs-number\">1.0</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">from</span> doctest <span class=\"hljs-keyword\">import</span> testmod\r\n\r\n    testmod()\r\n    num = <span class=\"hljs-number\">1.0</span>\r\n    <span class=\"hljs-keyword\">while</span> num:\r\n        num = <span class=\"hljs-built_in\">float</span>(<span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Gamma of: &quot;</span>))\r\n        <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f&quot;gamma(<span class=\"hljs-subst\">{num}</span>) = <span class=\"hljs-subst\">{gamma(num)}</span>&quot;</span>)\r\n        <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;\\nEnter 0 to exit...&quot;</span>)\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Rohan R Bharadwaj",
+      "email": "rohanrbharadwaj@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Aviv Faraj",
+      "email": "73610201+avivfaraj@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}
