@@ -1,0 +1,29 @@
+{
+  "slug": "merge-sorted-array-list",
+  "name": "Merge Sorted Array List",
+  "categories": [
+    "datastructures",
+    "list"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\datastructures\\lists\\MergeSortedArrayList.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\datastructures\\lists\\MergeSortedArrayList.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.datastructures.lists;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.ArrayList;\r\n<span class=\"hljs-keyword\">import</span> java.util.List;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * <span class=\"hljs-doctag\">@author</span> https://github.com/shellhub\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">MergeSortedArrayList</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        List&lt;Integer&gt; listA = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">ArrayList</span>&lt;&gt;();\r\n        List&lt;Integer&gt; listB = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">ArrayList</span>&lt;&gt;();\r\n        List&lt;Integer&gt; listC = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">ArrayList</span>&lt;&gt;();\r\n\r\n        <span class=\"hljs-comment\">/* init ListA and List B */</span>\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">1</span>; i &lt;= <span class=\"hljs-number\">10</span>; i += <span class=\"hljs-number\">2</span>) {\r\n            listA.add(i);\r\n            <span class=\"hljs-comment\">/* listA: [1, 3, 5, 7, 9]  */</span>\r\n            listB.add(i + <span class=\"hljs-number\">1</span>);\r\n            <span class=\"hljs-comment\">/* listB: [2, 4, 6, 8, 10] */</span>\r\n        }\r\n\r\n        <span class=\"hljs-comment\">/* merge listA and listB to listC */</span>\r\n        merge(listA, listB, listC);\r\n\r\n        System.out.println(<span class=\"hljs-string\">&quot;listA: &quot;</span> + listA);\r\n        System.out.println(<span class=\"hljs-string\">&quot;listB: &quot;</span> + listB);\r\n        System.out.println(<span class=\"hljs-string\">&quot;listC: &quot;</span> + listC);\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * merge two sorted ArrayList\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> listA the first list to merge\r\n     * <span class=\"hljs-doctag\">@param</span> listB the second list to merge\r\n     * <span class=\"hljs-doctag\">@param</span> listC the result list after merging\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">merge</span><span class=\"hljs-params\">(List&lt;Integer&gt; listA, List&lt;Integer&gt; listB, List&lt;Integer&gt; listC)</span> {\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">pa</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>;\r\n        <span class=\"hljs-comment\">/* the index of listA */</span>\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">pb</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>;\r\n        <span class=\"hljs-comment\">/* the index of listB */</span>\r\n\r\n        <span class=\"hljs-keyword\">while</span> (pa &lt; listA.size() &amp;&amp; pb &lt; listB.size()) {\r\n            <span class=\"hljs-keyword\">if</span> (listA.get(pa) &lt;= listB.get(pb)) {\r\n                listC.add(listA.get(pa++));\r\n            } <span class=\"hljs-keyword\">else</span> {\r\n                listC.add(listB.get(pb++));\r\n            }\r\n        }\r\n\r\n        <span class=\"hljs-comment\">/* copy left element of listA to listC */</span>\r\n        <span class=\"hljs-keyword\">while</span> (pa &lt; listA.size()) {\r\n            listC.add(listA.get(pa++));\r\n        }\r\n\r\n        <span class=\"hljs-comment\">/* copy left element of listB to listC */</span>\r\n        <span class=\"hljs-keyword\">while</span> (pb &lt; listB.size()) {\r\n            listC.add(listB.get(pb++));\r\n        }\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

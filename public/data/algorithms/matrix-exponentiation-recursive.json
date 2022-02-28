@@ -1,0 +1,33 @@
+{
+  "slug": "matrix-exponentiation-recursive",
+  "name": "Matrix Exponentiation Recursive",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\MatrixExponentiationRecursive.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\MatrixExponentiationRecursive.js",
+      "code": "<span class=\"hljs-comment\">/*\r\n  Source:\r\n    https://en.wikipedia.org/wiki/Exponentiation_by_squaring\r\n\r\n  Complexity:\r\n    O(d^3 log n)\r\n    where: d is the dimension of the square matrix\r\n           n is the power the matrix is raised to\r\n*/</span>\r\n\r\n<span class=\"hljs-keyword\">const</span> <span class=\"hljs-title function_\">Identity</span> = (<span class=\"hljs-params\">n</span>) =&gt; {\r\n  <span class=\"hljs-comment\">// Input: n: int</span>\r\n  <span class=\"hljs-comment\">// Output: res: Identity matrix of size n x n</span>\r\n  <span class=\"hljs-comment\">// Complexity: O(n^2)</span>\r\n  <span class=\"hljs-keyword\">const</span> res = []\r\n  <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> i = <span class=\"hljs-number\">0</span>; i &lt; n; i++) {\r\n    res[i] = []\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> j = <span class=\"hljs-number\">0</span>; j &lt; n; j++) {\r\n      res[i][j] = i === j ? <span class=\"hljs-number\">1</span> : <span class=\"hljs-number\">0</span>\r\n    }\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> res\r\n}\r\n\r\n<span class=\"hljs-keyword\">const</span> <span class=\"hljs-title function_\">MatMult</span> = (<span class=\"hljs-params\">matrixA, matrixB</span>) =&gt; {\r\n  <span class=\"hljs-comment\">// Input: matrixA: 2D Array of Numbers of size n x n</span>\r\n  <span class=\"hljs-comment\">//        matrixB: 2D Array of Numbers of size n x n</span>\r\n  <span class=\"hljs-comment\">// Output: matrixA x matrixB: 2D Array of Numbers of size n x n</span>\r\n  <span class=\"hljs-comment\">// Complexity: O(n^3)</span>\r\n  <span class=\"hljs-keyword\">const</span> n = matrixA.<span class=\"hljs-property\">length</span>\r\n  <span class=\"hljs-keyword\">const</span> matrixC = []\r\n  <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> i = <span class=\"hljs-number\">0</span>; i &lt; n; i++) {\r\n    matrixC[i] = []\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> j = <span class=\"hljs-number\">0</span>; j &lt; n; j++) {\r\n      matrixC[i][j] = <span class=\"hljs-number\">0</span>\r\n    }\r\n  }\r\n  <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> i = <span class=\"hljs-number\">0</span>; i &lt; n; i++) {\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> j = <span class=\"hljs-number\">0</span>; j &lt; n; j++) {\r\n      <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> k = <span class=\"hljs-number\">0</span>; k &lt; n; k++) {\r\n        matrixC[i][j] += matrixA[i][k] * matrixB[k][j]\r\n      }\r\n    }\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> matrixC\r\n}\r\n\r\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">const</span> <span class=\"hljs-title function_\">MatrixExponentiationRecursive</span> = (<span class=\"hljs-params\">mat, m</span>) =&gt; {\r\n  <span class=\"hljs-comment\">// Input: mat: 2D Array of Numbers of size n x n</span>\r\n  <span class=\"hljs-comment\">// Output: mat^n: 2D Array of Numbers of size n x n</span>\r\n  <span class=\"hljs-comment\">// Complexity: O(n^3 log m)</span>\r\n  <span class=\"hljs-keyword\">if</span> (m === <span class=\"hljs-number\">0</span>) {\r\n    <span class=\"hljs-comment\">// return identity matrix of size n x n</span>\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-title class_\">Identity</span>(mat.<span class=\"hljs-property\">length</span>)\r\n  } <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span> (m % <span class=\"hljs-number\">2</span> === <span class=\"hljs-number\">1</span>) {\r\n    <span class=\"hljs-comment\">// tmp = mat ^ m-1</span>\r\n    <span class=\"hljs-keyword\">const</span> tmp = <span class=\"hljs-title class_\">MatrixExponentiationRecursive</span>(mat, m - <span class=\"hljs-number\">1</span>)\r\n    <span class=\"hljs-comment\">/// return tmp * mat = (mat ^ m-1) * mat = mat ^ m</span>\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-title class_\">MatMult</span>(tmp, mat)\r\n  } <span class=\"hljs-keyword\">else</span> {\r\n    <span class=\"hljs-comment\">// tmp = mat ^ m/2</span>\r\n    <span class=\"hljs-keyword\">const</span> tmp = <span class=\"hljs-title class_\">MatrixExponentiationRecursive</span>(mat, m &gt;&gt; <span class=\"hljs-number\">1</span>)\r\n    <span class=\"hljs-comment\">// return tmp * tmp = (mat ^ m/2) ^ 2 = mat ^ m</span>\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-title class_\">MatMult</span>(tmp, tmp)\r\n  }\r\n}\r\n\r\n<span class=\"hljs-comment\">// const mat = [[1, 0, 2], [2, 1, 0], [0, 2, 1]]</span>\r\n\r\n<span class=\"hljs-comment\">// // mat ^ 0 = [ [ 1, 0, 0 ], [ 0, 1, 0 ], [ 0, 0, 1 ] ]</span>\r\n<span class=\"hljs-comment\">// MatrixExponentiationRecursive(mat, 0)</span>\r\n\r\n<span class=\"hljs-comment\">// // mat ^ 1 = [ [ 1, 0, 2 ], [ 2, 1, 0 ], [ 0, 2, 1 ] ]</span>\r\n<span class=\"hljs-comment\">// MatrixExponentiationRecursive(mat, 1)</span>\r\n\r\n<span class=\"hljs-comment\">// // mat ^ 2 = [ [ 1, 4, 4 ], [ 4, 1, 4 ], [ 4, 4, 1 ] ]</span>\r\n<span class=\"hljs-comment\">// MatrixExponentiationRecursive(mat, 2)</span>\r\n\r\n<span class=\"hljs-comment\">// // mat ^ 5 = [ [ 1, 4, 4 ], [ 4, 1, 4 ], [ 4, 4, 1 ] ]</span>\r\n<span class=\"hljs-comment\">// MatrixExponentiationRecursive(mat, 5)</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "utkarsh",
+      "email": "ucponia@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Rak Laptudirm",
+      "email": "raklaptudirm@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

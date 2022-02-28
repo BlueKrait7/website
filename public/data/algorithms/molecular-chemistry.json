@@ -1,0 +1,28 @@
+{
+  "slug": "molecular-chemistry",
+  "name": "Molecular Chemistry",
+  "categories": [
+    "conversions"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "conversions\\molecular_chemistry.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/conversions\\molecular_chemistry.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nFunctions useful for doing molecular chemistry:\r\n* molarity_to_normality\r\n* moles_to_pressure\r\n* moles_to_volume\r\n* pressure_and_volume_to_temperature\r\n&quot;&quot;&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">molarity_to_normality</span>(<span class=\"hljs-params\">nfactor: <span class=\"hljs-built_in\">int</span>, moles: <span class=\"hljs-built_in\">float</span>, volume: <span class=\"hljs-built_in\">float</span></span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Convert molarity to normality.\r\n      Volume is taken in litres.\r\n\r\n      Wikipedia reference: https://en.wikipedia.org/wiki/Equivalent_concentration\r\n      Wikipedia reference: https://en.wikipedia.org/wiki/Molar_concentration\r\n\r\n      &gt;&gt;&gt; molarity_to_normality(2, 3.1, 0.31)\r\n      20\r\n      &gt;&gt;&gt; molarity_to_normality(4, 11.4, 5.7)\r\n      8\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-built_in\">round</span>(<span class=\"hljs-built_in\">float</span>(moles / volume) * nfactor)\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">moles_to_pressure</span>(<span class=\"hljs-params\">volume: <span class=\"hljs-built_in\">float</span>, moles: <span class=\"hljs-built_in\">float</span>, temperature: <span class=\"hljs-built_in\">float</span></span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Convert moles to pressure.\r\n      Ideal gas laws are used.\r\n      Temperature is taken in kelvin.\r\n      Volume is taken in litres.\r\n      Pressure has atm as SI unit.\r\n\r\n      Wikipedia reference: https://en.wikipedia.org/wiki/Gas_laws\r\n      Wikipedia reference: https://en.wikipedia.org/wiki/Pressure\r\n      Wikipedia reference: https://en.wikipedia.org/wiki/Temperature\r\n\r\n      &gt;&gt;&gt; moles_to_pressure(0.82, 3, 300)\r\n      90\r\n      &gt;&gt;&gt; moles_to_pressure(8.2, 5, 200)\r\n      10\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-built_in\">round</span>(<span class=\"hljs-built_in\">float</span>((moles * <span class=\"hljs-number\">0.0821</span> * temperature) / (volume)))\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">moles_to_volume</span>(<span class=\"hljs-params\">pressure: <span class=\"hljs-built_in\">float</span>, moles: <span class=\"hljs-built_in\">float</span>, temperature: <span class=\"hljs-built_in\">float</span></span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Convert moles to volume.\r\n      Ideal gas laws are used.\r\n      Temperature is taken in kelvin.\r\n      Volume is taken in litres.\r\n      Pressure has atm as SI unit.\r\n\r\n      Wikipedia reference: https://en.wikipedia.org/wiki/Gas_laws\r\n      Wikipedia reference: https://en.wikipedia.org/wiki/Pressure\r\n      Wikipedia reference: https://en.wikipedia.org/wiki/Temperature\r\n\r\n      &gt;&gt;&gt; moles_to_volume(0.82, 3, 300)\r\n      90\r\n      &gt;&gt;&gt; moles_to_volume(8.2, 5, 200)\r\n      10\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-built_in\">round</span>(<span class=\"hljs-built_in\">float</span>((moles * <span class=\"hljs-number\">0.0821</span> * temperature) / (pressure)))\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">pressure_and_volume_to_temperature</span>(<span class=\"hljs-params\">\r\n    pressure: <span class=\"hljs-built_in\">float</span>, moles: <span class=\"hljs-built_in\">float</span>, volume: <span class=\"hljs-built_in\">float</span>\r\n</span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Convert pressure and volume to temperature.\r\n      Ideal gas laws are used.\r\n      Temperature is taken in kelvin.\r\n      Volume is taken in litres.\r\n      Pressure has atm as SI unit.\r\n\r\n      Wikipedia reference: https://en.wikipedia.org/wiki/Gas_laws\r\n      Wikipedia reference: https://en.wikipedia.org/wiki/Pressure\r\n      Wikipedia reference: https://en.wikipedia.org/wiki/Temperature\r\n\r\n      &gt;&gt;&gt; pressure_and_volume_to_temperature(0.82, 1, 2)\r\n      20\r\n      &gt;&gt;&gt; pressure_and_volume_to_temperature(8.2, 5, 3)\r\n      60\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-built_in\">round</span>(<span class=\"hljs-built_in\">float</span>((pressure * volume) / (<span class=\"hljs-number\">0.0821</span> * moles)))\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "Prakhar Gurunani",
+      "email": "prakhargurunani@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

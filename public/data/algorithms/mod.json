@@ -1,0 +1,318 @@
+{
+  "slug": "mod",
+  "name": "Mod",
+  "categories": [
+    "ciphers"
+  ],
+  "body": {},
+  "implementations": {
+    "rust": {
+      "dir": "src\\string\\mod.rs",
+      "url": "https://github.com/TheAlgorithms/rust/tree/master/src\\string\\mod.rs",
+      "code": "<span class=\"hljs-keyword\">mod</span> aho_corasick;\r\n<span class=\"hljs-keyword\">mod</span> burrows_wheeler_transform;\r\n<span class=\"hljs-keyword\">mod</span> knuth_morris_pratt;\r\n<span class=\"hljs-keyword\">mod</span> manacher;\r\n<span class=\"hljs-keyword\">mod</span> rabin_karp;\r\n<span class=\"hljs-keyword\">mod</span> reverse;\r\n\r\n<span class=\"hljs-keyword\">pub</span> <span class=\"hljs-keyword\">use</span> self::aho_corasick::AhoCorasick;\r\n<span class=\"hljs-keyword\">pub</span> <span class=\"hljs-keyword\">use</span> self::burrows_wheeler_transform::{\r\n    burrows_wheeler_transform, inv_burrows_wheeler_transform,\r\n};\r\n<span class=\"hljs-keyword\">pub</span> <span class=\"hljs-keyword\">use</span> self::knuth_morris_pratt::knuth_morris_pratt;\r\n<span class=\"hljs-keyword\">pub</span> <span class=\"hljs-keyword\">use</span> self::manacher::manacher;\r\n<span class=\"hljs-keyword\">pub</span> <span class=\"hljs-keyword\">use</span> self::rabin_karp::rabin_karp;\r\n<span class=\"hljs-keyword\">pub</span> <span class=\"hljs-keyword\">use</span> self::reverse::reverse;\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Dimitri Belopopsky",
+      "email": "ShadowMitia@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Andrii Siriak",
+      "email": "siryaka@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "fffzlfk",
+      "email": "44939690+fffzlfk@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Hossein Dindar",
+      "email": "72156162+hosseind88@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Kenneth Marinas",
+      "email": "gabrielkennethmarinas@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "skdltmxn",
+      "email": "supershop@naver.com",
+      "commits": 1
+    },
+    {
+      "name": "Zelu Deng",
+      "email": "72188499+zeludeng@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "James Nash",
+      "email": "37304960+NashJames@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "scturtle",
+      "email": "scturtle@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Aisuko",
+      "email": "urakiny@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Joshua Ford",
+      "email": "joshua.ford@protonmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Thanh",
+      "email": "quang.thanh.ta@pr1meti.de",
+      "commits": 1
+    },
+    {
+      "name": "Matheus Muriel",
+      "email": "matheus.muriel@outlook.com",
+      "commits": 1
+    },
+    {
+      "name": "biabeb",
+      "email": "83602984+biabeb@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Giovanni Dejan",
+      "email": "giovanni.dejan@binus.ac.id",
+      "commits": 1
+    },
+    {
+      "name": "Wafelack",
+      "email": "wafelack@riseup.net",
+      "commits": 1
+    },
+    {
+      "name": "Torben Lehmann",
+      "email": "rabiet@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Leonardo Freua",
+      "email": "leonardo.batista.freua@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Cole Severson",
+      "email": "40706895+ColeSeverson@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Haraman Johal",
+      "email": "haraman.johal@oxfordni.com",
+      "commits": 1
+    },
+    {
+      "name": "ulwlu",
+      "email": "ooulwluoo@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Aalekh Patel",
+      "email": "aalekh.gwpeck.7998@icloud.com",
+      "commits": 1
+    },
+    {
+      "name": "InverMN",
+      "email": "31947630+InverMN@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "kevinburchfield",
+      "email": "kevinburchfi@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "kebo",
+      "email": "kebo2021@qq.com",
+      "commits": 1
+    },
+    {
+      "name": "Daniel Sullivan",
+      "email": "dsul@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Egor Bronnikov",
+      "email": "52889537+endygamedev@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Nathan Moreau",
+      "email": "nathan.moreau@m4x.org",
+      "commits": 1
+    },
+    {
+      "name": "Subroto",
+      "email": "shub1493biswas@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Carlo Federico Vescovo",
+      "email": "vescovocarlofederico@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Nitin Bhojwani",
+      "email": "nitinbhojwani1993@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Vivek Yadav",
+      "email": "mail@vivek.nl",
+      "commits": 1
+    },
+    {
+      "name": "Mat Wood",
+      "email": "thepacketgeek@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Alicia Jasmine Miedl",
+      "email": "alicia@addile.dev",
+      "commits": 1
+    },
+    {
+      "name": "gfabrizi",
+      "email": "5486679+gfabrizi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Jake Curran",
+      "email": "jake@jakecurran.com",
+      "commits": 1
+    },
+    {
+      "name": "Arnav Borborah",
+      "email": "arnavborborah11@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Shrutikhare180",
+      "email": "43774461+Shrutikhare180@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "lukabavdaz",
+      "email": "lukabavdaz@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Norbert Melzer",
+      "email": "timmelzer@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Ivan Tham",
+      "email": "pickfire@riseup.net",
+      "commits": 1
+    },
+    {
+      "name": "Baxter Eaves",
+      "email": "baxyjr@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Jan Teske",
+      "email": "jteske@posteo.net",
+      "commits": 1
+    },
+    {
+      "name": "Yashwanth Reddy Gondi",
+      "email": "yashwanthreddy.g@live.com",
+      "commits": 1
+    },
+    {
+      "name": "Ankit Goel",
+      "email": "ankitgoel616@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Ryan Lowe",
+      "email": "rlowe13@me.com",
+      "commits": 2
+    },
+    {
+      "name": "DaveAxiom",
+      "email": "dmakray@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "DONSIMON92",
+      "email": "47272787+DONSIMON92@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "GeistInDerSH",
+      "email": "39086811+GeistInDerSH@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "Matthias Gilch",
+      "email": "matthias.gilch.mg@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Emilien Fugier",
+      "email": "mail@emilienfugier.xyz",
+      "commits": 2
+    },
+    {
+      "name": "Sebastian Andersson",
+      "email": "sebastian@bittr.nu",
+      "commits": 2
+    },
+    {
+      "name": "Arthur Kurbidaev",
+      "email": "artkurbidaev@gmail.com",
+      "commits": 3
+    },
+    {
+      "name": "Anshul",
+      "email": "malikanshul29@gmail.com",
+      "commits": 3
+    },
+    {
+      "name": "imp",
+      "email": "imp07@qq.com",
+      "commits": 4
+    },
+    {
+      "name": "duy quang",
+      "email": "hyouka266@gmail.com",
+      "commits": 4
+    },
+    {
+      "name": "Sutthinart Khunvadhana",
+      "email": "iakgoog@gmail.com",
+      "commits": 4
+    },
+    {
+      "name": "JarredAllen",
+      "email": "jarredallen73@gmail.com",
+      "commits": 4
+    },
+    {
+      "name": "Jerrit Gläsker",
+      "email": "50867655+cherrysrc@users.noreply.github.com",
+      "commits": 5
+    },
+    {
+      "name": "Pierre Gimalac",
+      "email": "pierre.gimalac@gmail.com",
+      "commits": 6
+    }
+  ],
+  "explanationUrl": {}
+}

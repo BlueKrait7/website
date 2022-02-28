@@ -1,0 +1,28 @@
+{
+  "slug": "min",
+  "name": "Min",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "go": {
+      "dir": "math\\min\\min.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/math\\min\\min.go",
+      "code": "<span class=\"hljs-keyword\">package</span> min\r\n\r\n<span class=\"hljs-comment\">// Int is a function which returns the minimum of all the integers provided as arguments.</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">Int</span><span class=\"hljs-params\">(values ...<span class=\"hljs-type\">int</span>)</span></span> <span class=\"hljs-type\">int</span> {\r\n\tmin := values[<span class=\"hljs-number\">0</span>]\r\n\t<span class=\"hljs-keyword\">for</span> _, value := <span class=\"hljs-keyword\">range</span> values {\r\n\t\t<span class=\"hljs-keyword\">if</span> value &lt; min {\r\n\t\t\tmin = value\r\n\t\t}\r\n\t}\r\n\t<span class=\"hljs-keyword\">return</span> min\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Michele Caci",
+      "email": "michele.caci@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Meet Valani",
+      "email": "40715819+meetvalani@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

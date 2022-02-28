@@ -1,0 +1,43 @@
+{
+  "slug": "max-non-adjacent-sum",
+  "name": "Max Non Adjacent Sum",
+  "categories": [
+    "dynamicprogramming"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "dynamic_programming\\max_non_adjacent_sum.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/dynamic_programming\\max_non_adjacent_sum.py",
+      "code": "<span class=\"hljs-comment\"># Video Explanation: https://www.youtube.com/watch?v=6w60Zi1NtL8&amp;feature=emb_logo</span>\r\n\r\n<span class=\"hljs-keyword\">from</span> __future__ <span class=\"hljs-keyword\">import</span> annotations\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">maximum_non_adjacent_sum</span>(<span class=\"hljs-params\">nums: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]</span>) -&gt; <span class=\"hljs-built_in\">int</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Find the maximum non-adjacent sum of the integers in the nums input list\r\n\r\n    &gt;&gt;&gt; print(maximum_non_adjacent_sum([1, 2, 3]))\r\n    4\r\n    &gt;&gt;&gt; maximum_non_adjacent_sum([1, 5, 3, 7, 2, 2, 6])\r\n    18\r\n    &gt;&gt;&gt; maximum_non_adjacent_sum([-1, -5, -3, -7, -2, -2, -6])\r\n    0\r\n    &gt;&gt;&gt; maximum_non_adjacent_sum([499, 500, -3, -7, -2, -2, -6])\r\n    500\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> <span class=\"hljs-keyword\">not</span> nums:\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>\r\n    max_including = nums[<span class=\"hljs-number\">0</span>]\r\n    max_excluding = <span class=\"hljs-number\">0</span>\r\n    <span class=\"hljs-keyword\">for</span> num <span class=\"hljs-keyword\">in</span> nums[<span class=\"hljs-number\">1</span>:]:\r\n        max_including, max_excluding = (\r\n            max_excluding + num,\r\n            <span class=\"hljs-built_in\">max</span>(max_including, max_excluding),\r\n        )\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-built_in\">max</span>(max_excluding, max_including)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    },
+    "javascript": {
+      "dir": "Dynamic-Programming\\MaxNonAdjacentSum.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Dynamic-Programming\\MaxNonAdjacentSum.js",
+      "code": "<span class=\"hljs-keyword\">function</span> <span class=\"hljs-title function_\">maximumNonAdjacentSum</span> (nums) {\r\n  <span class=\"hljs-comment\">/*\r\n         * Find the maximum non-adjacent sum of the integers in the nums input list\r\n         * :param nums: Array of Numbers\r\n         * :return: The maximum non-adjacent sum\r\n    */</span>\r\n\r\n  <span class=\"hljs-keyword\">if</span> (nums.<span class=\"hljs-property\">length</span> &lt; <span class=\"hljs-number\">0</span>) <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>\r\n\r\n  <span class=\"hljs-keyword\">let</span> maxIncluding = nums[<span class=\"hljs-number\">0</span>]\r\n  <span class=\"hljs-keyword\">let</span> maxExcluding = <span class=\"hljs-number\">0</span>\r\n\r\n  <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">const</span> num <span class=\"hljs-keyword\">of</span> nums.<span class=\"hljs-title function_\">slice</span>(<span class=\"hljs-number\">1</span>)) {\r\n    <span class=\"hljs-keyword\">const</span> temp = maxIncluding\r\n    maxIncluding = maxExcluding + num\r\n    maxExcluding = <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">max</span>(temp, maxExcluding)\r\n  }\r\n\r\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">max</span>(maxExcluding, maxIncluding)\r\n}\r\n\r\n<span class=\"hljs-comment\">// Example</span>\r\n\r\n<span class=\"hljs-comment\">// maximumNonAdjacentSum([1, 2, 3]))</span>\r\n<span class=\"hljs-comment\">// maximumNonAdjacentSum([1, 5, 3, 7, 2, 2, 6]))</span>\r\n<span class=\"hljs-comment\">// maximumNonAdjacentSum([-1, -5, -3, -7, -2, -2, -6]))</span>\r\n<span class=\"hljs-comment\">// maximumNonAdjacentSum([499, 500, -3, -7, -2, -2, -6]))</span>\r\n\r\n<span class=\"hljs-keyword\">export</span> { maximumNonAdjacentSum }\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Rak Laptudirm",
+      "email": "raklaptudirm@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Tapajyoti Bose",
+      "email": "44058757+ruppysuppy@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

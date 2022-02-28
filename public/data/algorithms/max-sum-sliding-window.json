@@ -1,0 +1,28 @@
+{
+  "slug": "max-sum-sliding-window",
+  "name": "Max Sum Sliding Window",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\max_sum_sliding_window.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\max_sum_sliding_window.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nGiven an array of integer elements and an integer &#x27;k&#x27;, we are required to find the\r\nmaximum sum of &#x27;k&#x27; consecutive elements in the array.\r\n\r\nInstead of using a nested for loop, in a Brute force approach we will use a technique\r\ncalled &#x27;Window sliding technique&#x27; where the nested loops can be converted to a single\r\nloop to reduce time complexity.\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">from</span> __future__ <span class=\"hljs-keyword\">import</span> annotations\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">max_sum_in_array</span>(<span class=\"hljs-params\">array: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>], k: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">int</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Returns the maximum sum of k consecutive elements\r\n    &gt;&gt;&gt; arr = [1, 4, 2, 10, 2, 3, 1, 0, 20]\r\n    &gt;&gt;&gt; k = 4\r\n    &gt;&gt;&gt; max_sum_in_array(arr, k)\r\n    24\r\n    &gt;&gt;&gt; k = 10\r\n    &gt;&gt;&gt; max_sum_in_array(arr,k)\r\n    Traceback (most recent call last):\r\n        ...\r\n    ValueError: Invalid Input\r\n    &gt;&gt;&gt; arr = [1, 4, 2, 10, 2, 13, 1, 0, 2]\r\n    &gt;&gt;&gt; k = 4\r\n    &gt;&gt;&gt; max_sum_in_array(arr, k)\r\n    27\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> <span class=\"hljs-built_in\">len</span>(array) &lt; k <span class=\"hljs-keyword\">or</span> k &lt; <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;Invalid Input&quot;</span>)\r\n    max_sum = current_sum = <span class=\"hljs-built_in\">sum</span>(array[:k])\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-built_in\">len</span>(array) - k):\r\n        current_sum = current_sum - array[i] + array[i + k]\r\n        max_sum = <span class=\"hljs-built_in\">max</span>(max_sum, current_sum)\r\n    <span class=\"hljs-keyword\">return</span> max_sum\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">from</span> doctest <span class=\"hljs-keyword\">import</span> testmod\r\n    <span class=\"hljs-keyword\">from</span> random <span class=\"hljs-keyword\">import</span> randint\r\n\r\n    testmod()\r\n    array = [randint(-<span class=\"hljs-number\">1000</span>, <span class=\"hljs-number\">1000</span>) <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-number\">100</span>)]\r\n    k = randint(<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">110</span>)\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f&quot;The maximum sum of <span class=\"hljs-subst\">{k}</span> consecutive elements is <span class=\"hljs-subst\">{max_sum_in_array(array,k)}</span>&quot;</span>)\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "Kushagra Bansal",
+      "email": "kushagrabansalajmer@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

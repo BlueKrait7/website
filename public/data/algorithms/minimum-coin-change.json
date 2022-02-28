@@ -1,0 +1,17 @@
+{
+  "slug": "minimum-coin-change",
+  "name": "Minimum Coin Change",
+  "categories": [
+    "dynamicprogramming"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "dynamic_programming\\minimum_coin_change.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/dynamic_programming\\minimum_coin_change.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nYou have m types of coins available in infinite quantities\r\nwhere the value of each coins is given in the array S=[S0,... Sm-1]\r\nCan you determine number of ways of making change for n units using\r\nthe given types of coins?\r\nhttps://www.hackerrank.com/challenges/coin-change/problem\r\n&quot;&quot;&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">dp_count</span>(<span class=\"hljs-params\">S, n</span>):\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    &gt;&gt;&gt; dp_count([1, 2, 3], 4)\r\n    4\r\n    &gt;&gt;&gt; dp_count([1, 2, 3], 7)\r\n    8\r\n    &gt;&gt;&gt; dp_count([2, 5, 3, 6], 10)\r\n    5\r\n    &gt;&gt;&gt; dp_count([10], 99)\r\n    0\r\n    &gt;&gt;&gt; dp_count([4, 5, 6], 0)\r\n    1\r\n    &gt;&gt;&gt; dp_count([1, 2, 3], -5)\r\n    0\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> n &lt; <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>\r\n    <span class=\"hljs-comment\"># table[i] represents the number of ways to get to amount i</span>\r\n    table = [<span class=\"hljs-number\">0</span>] * (n + <span class=\"hljs-number\">1</span>)\r\n\r\n    <span class=\"hljs-comment\"># There is exactly 1 way to get to zero(You pick no coins).</span>\r\n    table[<span class=\"hljs-number\">0</span>] = <span class=\"hljs-number\">1</span>\r\n\r\n    <span class=\"hljs-comment\"># Pick all coins one by one and update table[] values</span>\r\n    <span class=\"hljs-comment\"># after the index greater than or equal to the value of the</span>\r\n    <span class=\"hljs-comment\"># picked coin</span>\r\n    <span class=\"hljs-keyword\">for</span> coin_val <span class=\"hljs-keyword\">in</span> S:\r\n        <span class=\"hljs-keyword\">for</span> j <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(coin_val, n + <span class=\"hljs-number\">1</span>):\r\n            table[j] += table[j - coin_val]\r\n\r\n    <span class=\"hljs-keyword\">return</span> table[n]\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    }
+  },
+  "contributors": [],
+  "explanationUrl": {}
+}

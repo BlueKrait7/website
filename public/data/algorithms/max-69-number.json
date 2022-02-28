@@ -1,0 +1,29 @@
+{
+  "slug": "max-69-number",
+  "name": "Max 69 Number",
+  "categories": [
+    "datastructures",
+    "array"
+  ],
+  "body": {},
+  "implementations": {
+    "ruby": {
+      "dir": "data_structures\\arrays\\max_69_number.rb",
+      "url": "https://github.com/TheAlgorithms/ruby/tree/master/data_structures\\arrays\\max_69_number.rb",
+      "code": "<span class=\"hljs-comment\"># Challenge name: Maximum 69 number</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Given a positive integer num consisting only of digits 6 and 9.</span>\r\n<span class=\"hljs-comment\"># Return the maximum number you can get by changing at most one digit (6 becomes 9, and 9 becomes 6).</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Example 1:</span>\r\n<span class=\"hljs-comment\"># Input: num = 9669</span>\r\n<span class=\"hljs-comment\"># Output: 9969</span>\r\n<span class=\"hljs-comment\"># Explanation:</span>\r\n<span class=\"hljs-comment\"># Changing the first digit results in 6669.</span>\r\n<span class=\"hljs-comment\"># Changing the second digit results in 9969.</span>\r\n<span class=\"hljs-comment\"># Changing the third digit results in 9699.</span>\r\n<span class=\"hljs-comment\"># Changing the fourth digit results in 9666.</span>\r\n<span class=\"hljs-comment\"># The maximum number is 9969.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Example 2:</span>\r\n<span class=\"hljs-comment\"># Input: num = 9996</span>\r\n<span class=\"hljs-comment\"># Output: 9999</span>\r\n<span class=\"hljs-comment\"># Explanation: Changing the last digit 6 to 9 results in the maximum number.</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Approach 1: Logical Approach</span>\r\n<span class=\"hljs-comment\"># Explanation: Changing the first available 6 to a 9 will give the max number</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">max_number</span><span class=\"hljs-params\">(num)</span></span>\r\n  arr = num.to_s.split(<span class=\"hljs-string\">&#x27;&#x27;</span>)\r\n\r\n  arr.each_with_index <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|num, i|</span>\r\n    <span class=\"hljs-keyword\">if</span> num == <span class=\"hljs-string\">&#x27;6&#x27;</span>\r\n      arr[i] = <span class=\"hljs-string\">&#x27;9&#x27;</span>\r\n      <span class=\"hljs-keyword\">return</span> arr.join.to_i\r\n    <span class=\"hljs-keyword\">end</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\nputs max_number(<span class=\"hljs-number\">9669</span>)\r\n<span class=\"hljs-comment\"># =&gt; 9969</span>\r\n\r\nputs max_number(<span class=\"hljs-number\">9996</span>)\r\n<span class=\"hljs-comment\"># =&gt; 9999</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Jessica Kwok",
+      "email": "jessicatckwok@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

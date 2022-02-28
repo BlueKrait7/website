@@ -1,0 +1,33 @@
+{
+  "slug": "max-value",
+  "name": "Max Value",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\maths\\MaxValue.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\maths\\MaxValue.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.maths;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.Random;\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">MaxValue</span> {\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Driver Code\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-type\">Random</span> <span class=\"hljs-variable\">rand</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Random</span>();\r\n\r\n        <span class=\"hljs-comment\">/* test 100 times using rand numbers */</span>\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">1</span>; i &lt;= <span class=\"hljs-number\">100</span>; ++i) {\r\n            <span class=\"hljs-comment\">/* generate number from -50 to 49 */</span>\r\n            <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">a</span> <span class=\"hljs-operator\">=</span> rand.nextInt(<span class=\"hljs-number\">100</span>) - <span class=\"hljs-number\">50</span>;\r\n            <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">b</span> <span class=\"hljs-operator\">=</span> rand.nextInt(<span class=\"hljs-number\">100</span>) - <span class=\"hljs-number\">50</span>;\r\n            <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">max</span><span class=\"hljs-params\">(a, b)</span> == Math.max(a, b);\r\n        }\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Returns the greater of two {<span class=\"hljs-doctag\">@code</span> int} values. That is, the result is the\r\n     * argument closer to the value of {<span class=\"hljs-doctag\">@link</span> Integer#MAX_VALUE}. If the\r\n     * arguments have the same value, the result is that same value.\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> a an argument.\r\n     * <span class=\"hljs-doctag\">@param</span> b another argument.\r\n     * <span class=\"hljs-doctag\">@return</span> the larger of {<span class=\"hljs-doctag\">@code</span> a} and {<span class=\"hljs-doctag\">@code</span> b}.\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">max</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> a, <span class=\"hljs-type\">int</span> b)</span> {\r\n        <span class=\"hljs-keyword\">return</span> a &gt;= b ? a : b;\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Ray",
+      "email": "rbshealy@live.unc.edu",
+      "commits": 1
+    },
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

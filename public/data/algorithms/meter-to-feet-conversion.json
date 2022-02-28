@@ -1,0 +1,28 @@
+{
+  "slug": "meter-to-feet-conversion",
+  "name": "Meter To Feet Conversion",
+  "categories": [
+    "conversions"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Conversions\\test\\MeterToFeetConversion.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Conversions\\test\\MeterToFeetConversion.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { meterToFeet, feetToMeter } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../MeterToFeetConversion&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;Testing conversion of Meter to Feet&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;with feet value&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">meterToFeet</span>(<span class=\"hljs-number\">30.48</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">100</span>)\r\n  })\r\n})\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;Testing conversion of Feet to Meter&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;with feet value&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">feetToMeter</span>(<span class=\"hljs-number\">10</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">3.048</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Gustavo Seiji Kamihara",
+      "email": "gustavo.kamihara@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "VinWare",
+      "email": "28603906+VinWare@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

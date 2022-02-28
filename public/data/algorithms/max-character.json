@@ -1,0 +1,38 @@
+{
+  "slug": "max-character",
+  "name": "Max Character",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "String\\test\\MaxCharacter.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/String\\test\\MaxCharacter.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { maxCharacter } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../MaxCharacter&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;Testing the maxCharacter function&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;Expect throw with wrong arg&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> <span class=\"hljs-title function_\">maxCharacter</span>(<span class=\"hljs-number\">123</span>)).<span class=\"hljs-title function_\">toThrow</span>()\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;Check the max character in string&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> theString = <span class=\"hljs-string\">&#x27;I can\\&#x27;t do that&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> maxChar = <span class=\"hljs-title function_\">maxCharacter</span>(theString)\r\n    <span class=\"hljs-title function_\">expect</span>(maxChar).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;t&#x27;</span>)\r\n  })\r\n})\r\n"
+    },
+    "php": {
+      "dir": "String\\MaxCharacter.php",
+      "url": "https://github.com/TheAlgorithms/php/tree/master/String\\MaxCharacter.php",
+      "code": "<span class=\"hljs-meta\">&lt;?php</span>\r\n<span class=\"hljs-comment\">/**\r\n * This function returns\r\n * the character which is\r\n * repeated maximum no. of\r\n * times in the given string.\r\n *\r\n * <span class=\"hljs-doctag\">@param</span> string $string\r\n * <span class=\"hljs-doctag\">@return</span> string\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">maxCharacter</span>(<span class=\"hljs-params\"><span class=\"hljs-keyword\">string</span> <span class=\"hljs-variable\">$string</span></span>)\r\n</span>{\r\n    <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-keyword\">empty</span>(<span class=\"hljs-variable\">$string</span>)) {\r\n        <span class=\"hljs-keyword\">throw</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">\\Exception</span>(<span class=\"hljs-string\">&#x27;Please pass a non-empty string value&#x27;</span>);\r\n    }\r\n\r\n    <span class=\"hljs-variable\">$characterCountTable</span> = []; <span class=\"hljs-comment\">// A variable to maintain the character counts</span>\r\n    <span class=\"hljs-variable\">$string</span>              = <span class=\"hljs-title function_ invoke__\">strtolower</span>(<span class=\"hljs-variable\">$string</span>); <span class=\"hljs-comment\">// For case-insensitive checking</span>\r\n    <span class=\"hljs-variable\">$characters</span>          = <span class=\"hljs-title function_ invoke__\">str_split</span>(<span class=\"hljs-variable\">$string</span>); <span class=\"hljs-comment\">// Splitting the string to a Character Array.</span>\r\n\r\n    <span class=\"hljs-keyword\">foreach</span> (<span class=\"hljs-variable\">$characters</span> <span class=\"hljs-keyword\">as</span> <span class=\"hljs-variable\">$character</span>) {\r\n        <span class=\"hljs-variable\">$currentCharacterCount</span> = <span class=\"hljs-number\">1</span>;\r\n        <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-keyword\">isset</span>(<span class=\"hljs-variable\">$characterCountTable</span>[<span class=\"hljs-variable\">$character</span>])) {\r\n            <span class=\"hljs-variable\">$currentCharacterCount</span> = <span class=\"hljs-variable\">$characterCountTable</span>[<span class=\"hljs-variable\">$character</span>] + <span class=\"hljs-number\">1</span>;\r\n        }\r\n        <span class=\"hljs-variable\">$characterCountTable</span>[<span class=\"hljs-variable\">$character</span>] = <span class=\"hljs-variable\">$currentCharacterCount</span>;\r\n    }\r\n\r\n    <span class=\"hljs-title function_ invoke__\">arsort</span>(<span class=\"hljs-variable\">$characterCountTable</span>);\r\n\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-title function_ invoke__\">array_keys</span>(<span class=\"hljs-variable\">$characterCountTable</span>)[<span class=\"hljs-number\">0</span>];\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Akshay Khale",
+      "email": "khale.akshay@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Akshay Khale",
+      "email": "khaleakshay@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Carlos Carvalho",
+      "email": "jcarloss.carvalho@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

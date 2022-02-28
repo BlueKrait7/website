@@ -1,0 +1,28 @@
+{
+  "slug": "max-product-of-three",
+  "name": "Max Product Of Three",
+  "categories": [
+    "dynamicprogramming"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Dynamic-Programming\\tests\\MaxProductOfThree.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Dynamic-Programming\\tests\\MaxProductOfThree.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { maxProductOfThree } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../MaxProductOfThree&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;MaxProductOfThree&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to throw error for array with only 2 numbers&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> {\r\n      <span class=\"hljs-title function_\">maxProductOfThree</span>([<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">3</span>])\r\n    }).<span class=\"hljs-title function_\">toThrow</span>(<span class=\"hljs-string\">&#x27;Triplet cannot exist with the given array&#x27;</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return 300 as the maximum product&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">maxProductOfThree</span>([<span class=\"hljs-number\">10</span>, <span class=\"hljs-number\">6</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">1</span>, -<span class=\"hljs-number\">10</span>])).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">300</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return 300 as the maximum product&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">maxProductOfThree</span>([<span class=\"hljs-number\">10</span>, -<span class=\"hljs-number\">6</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">1</span>, -<span class=\"hljs-number\">10</span>])).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">600</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "VinWare",
+      "email": "28603906+VinWare@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "devcer",
+      "email": "viswanathamsantosh@gmail.com",
+      "commits": 5
+    }
+  ],
+  "explanationUrl": {}
+}

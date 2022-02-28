@@ -1,0 +1,33 @@
+{
+  "slug": "modular-binary-exponentiation-recursive",
+  "name": "Modular Binary Exponentiation Recursive",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\test\\ModularBinaryExponentiationRecursive.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\ModularBinaryExponentiationRecursive.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { modularBinaryExponentiation } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../ModularBinaryExponentiationRecursive&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;modularBinaryExponentiation&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return the binary exponentiation&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">modularBinaryExponentiation</span>(<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">10</span>, <span class=\"hljs-number\">17</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">4</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Keshav Bohra",
+      "email": "keshav2016@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Utkarsh Chaudhary",
+      "email": "f2016303@pilani.bits-pilani.ac.in",
+      "commits": 1
+    },
+    {
+      "name": "Ephraim Atta-Duncan",
+      "email": "55143799+dephraiim@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

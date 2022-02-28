@@ -1,0 +1,23 @@
+{
+  "slug": "memoize",
+  "name": "Memoize",
+  "categories": [
+    "cache"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Cache\\test\\Memoize.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Cache\\test\\Memoize.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { memoize } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../Memoize&#x27;</span>\r\n\r\n<span class=\"hljs-keyword\">const</span> <span class=\"hljs-title function_\">fibonacci</span> = (<span class=\"hljs-params\">n</span>) =&gt; {\r\n  <span class=\"hljs-keyword\">if</span> (n &lt; <span class=\"hljs-number\">2</span>) {\r\n    <span class=\"hljs-keyword\">return</span> n\r\n  }\r\n\r\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-title function_\">fibonacci</span>(n - <span class=\"hljs-number\">2</span>) + <span class=\"hljs-title function_\">fibonacci</span>(n - <span class=\"hljs-number\">1</span>)\r\n}\r\n\r\n<span class=\"hljs-keyword\">const</span> <span class=\"hljs-title function_\">factorial</span> = (<span class=\"hljs-params\">n</span>) =&gt; {\r\n  <span class=\"hljs-keyword\">if</span> (n === <span class=\"hljs-number\">0</span>) {\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>\r\n  }\r\n\r\n  <span class=\"hljs-keyword\">return</span> n * <span class=\"hljs-title function_\">factorial</span>(n - <span class=\"hljs-number\">1</span>)\r\n}\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;Memoize&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects the fibonacci function to use the cache on the second call&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> memoFibonacci = <span class=\"hljs-title function_\">memoize</span>(fibonacci)\r\n\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">memoFibonacci</span>(<span class=\"hljs-number\">5</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-title function_\">fibonacci</span>(<span class=\"hljs-number\">5</span>))\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">memoFibonacci</span>(<span class=\"hljs-number\">5</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">5</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">memoFibonacci</span>(<span class=\"hljs-number\">10</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-title function_\">fibonacci</span>(<span class=\"hljs-number\">10</span>))\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">memoFibonacci</span>(<span class=\"hljs-number\">10</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">55</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects the factorial function to use the cache on the second call&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> memoFactorial = <span class=\"hljs-title function_\">memoize</span>(factorial)\r\n\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">memoFactorial</span>(<span class=\"hljs-number\">5</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-title function_\">factorial</span>(<span class=\"hljs-number\">5</span>))\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">memoFactorial</span>(<span class=\"hljs-number\">5</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">120</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">memoFactorial</span>(<span class=\"hljs-number\">10</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-title function_\">factorial</span>(<span class=\"hljs-number\">10</span>))\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">memoFactorial</span>(<span class=\"hljs-number\">10</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">3628800</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Damien Chazoule",
+      "email": "damien.chazoule@gmail.com",
+      "commits": 5
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "max",
+  "name": "Max",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "go": {
+      "dir": "math\\max\\max.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/math\\max\\max.go",
+      "code": "<span class=\"hljs-keyword\">package</span> max\r\n\r\n<span class=\"hljs-comment\">// Int is a function which returns the maximum of all the integers provided as arguments.</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">Int</span><span class=\"hljs-params\">(values ...<span class=\"hljs-type\">int</span>)</span></span> <span class=\"hljs-type\">int</span> {\r\n\tmax := values[<span class=\"hljs-number\">0</span>]\r\n\t<span class=\"hljs-keyword\">for</span> _, value := <span class=\"hljs-keyword\">range</span> values {\r\n\t\t<span class=\"hljs-keyword\">if</span> value &gt; max {\r\n\t\t\tmax = value\r\n\t\t}\r\n\t}\r\n\t<span class=\"hljs-keyword\">return</span> max\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Taj",
+      "email": "tjgurwara99@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Meet Valani",
+      "email": "40715819+meetvalani@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

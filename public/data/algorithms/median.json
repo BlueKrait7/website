@@ -1,0 +1,58 @@
+{
+  "slug": "median",
+  "name": "Median",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\maths\\Median.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\maths\\Median.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.maths;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.Arrays;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Wikipedia: https://en.wikipedia.org/wiki/Median\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Median</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">median</span><span class=\"hljs-params\">(new <span class=\"hljs-type\">int</span>[]{<span class=\"hljs-number\">0</span>})</span> == <span class=\"hljs-number\">0</span>;\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">median</span><span class=\"hljs-params\">(new <span class=\"hljs-type\">int</span>[]{<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>})</span> == <span class=\"hljs-number\">1.5</span>;\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">median</span><span class=\"hljs-params\">(new <span class=\"hljs-type\">int</span>[]{<span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">2</span>})</span> == <span class=\"hljs-number\">2.5</span>;\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">median</span><span class=\"hljs-params\">(new <span class=\"hljs-type\">int</span>[]{<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">6</span>, <span class=\"hljs-number\">7</span>, <span class=\"hljs-number\">8</span>, <span class=\"hljs-number\">9</span>})</span> == <span class=\"hljs-number\">6</span>;\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">median</span><span class=\"hljs-params\">(new <span class=\"hljs-type\">int</span>[]{<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">6</span>, <span class=\"hljs-number\">8</span>, <span class=\"hljs-number\">9</span>})</span> == <span class=\"hljs-number\">4.5</span>;\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Calculate average median\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> values number series\r\n     * <span class=\"hljs-doctag\">@return</span> median of given {<span class=\"hljs-doctag\">@code</span> values}\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">double</span> <span class=\"hljs-title function_\">median</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span>[] values)</span> {\r\n        Arrays.sort(values);\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">length</span> <span class=\"hljs-operator\">=</span> values.length;\r\n        <span class=\"hljs-keyword\">return</span> length % <span class=\"hljs-number\">2</span> == <span class=\"hljs-number\">0</span>\r\n                ? (values[length / <span class=\"hljs-number\">2</span>] + values[length / <span class=\"hljs-number\">2</span> - <span class=\"hljs-number\">1</span>]) / <span class=\"hljs-number\">2.0</span>\r\n                : values[length / <span class=\"hljs-number\">2</span>];\r\n    }\r\n}\r\n"
+    },
+    "c": {
+      "dir": "numerical_methods\\median.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/numerical_methods\\median.c",
+      "code": "<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;math.h&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;stdio.h&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;stdlib.h&gt;</span></span>\r\n\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">()</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> a[<span class=\"hljs-number\">10</span>], n, i, j, temp;\r\n    <span class=\"hljs-type\">float</span> mean, median;\r\n\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;Enter no. for Random Numbers :&quot;</span>);\r\n    <span class=\"hljs-built_in\">scanf</span>(<span class=\"hljs-string\">&quot;%d&quot;</span>, &amp;n);\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; n; i++)\r\n    {\r\n        a[i] = rand() % <span class=\"hljs-number\">100</span>;\r\n    }\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;Random Numbers Generated are :\\n&quot;</span>);\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; n; i++)\r\n    {\r\n        <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;\\n%d&quot;</span>, a[i]);\r\n    }\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;\\n&quot;</span>);\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;\\nSorted Data:&quot;</span>);\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; n; i++)\r\n    {\r\n        <span class=\"hljs-keyword\">for</span> (j = <span class=\"hljs-number\">0</span>; j &lt; n; j++)\r\n        {\r\n            <span class=\"hljs-keyword\">if</span> (a[i] &lt; a[j])\r\n            {\r\n                temp = a[i];\r\n                a[i] = a[j];\r\n                a[j] = temp;\r\n            }\r\n        }\r\n    }\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; n; i++)\r\n    {\r\n        <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;\\n%d&quot;</span>, a[i]);\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">if</span> (n % <span class=\"hljs-number\">2</span> == <span class=\"hljs-number\">0</span>)\r\n    {\r\n        median = (a[n / <span class=\"hljs-number\">2</span>] + a[(n / <span class=\"hljs-number\">2</span>) - <span class=\"hljs-number\">1</span>]) / <span class=\"hljs-number\">2</span>;\r\n    }\r\n    <span class=\"hljs-keyword\">else</span>\r\n    {\r\n        median = a[n / <span class=\"hljs-number\">2</span>];\r\n    }\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;\\nMedian is : %f&quot;</span>, median);\r\n\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n"
+    },
+    "kotlin": {
+      "dir": "src\\main\\kotlin\\math\\Median.kt",
+      "url": "https://github.com/TheAlgorithms/kotlin/tree/master/src\\main\\kotlin\\math\\Median.kt",
+      "code": "<span class=\"hljs-keyword\">package</span> math\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.Arrays.sort\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Calculates the median of an array of Int\r\n *\r\n * <span class=\"hljs-doctag\">@param</span> values is an array of Int\r\n * <span class=\"hljs-doctag\">@return</span> the middle number of the array\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">fun</span> <span class=\"hljs-title\">median</span><span class=\"hljs-params\">(values: <span class=\"hljs-type\">IntArray</span>)</span></span>: <span class=\"hljs-built_in\">Double</span> {\r\n    sort(values)\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-keyword\">when</span> {\r\n        values.size % <span class=\"hljs-number\">2</span> == <span class=\"hljs-number\">0</span> -&gt; getHalfwayBetweenMiddleValues(values)\r\n        <span class=\"hljs-keyword\">else</span> -&gt; getMiddleValue(values)\r\n    }\r\n}\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Calculates the middle number of an array when the size is an even number\r\n *\r\n * <span class=\"hljs-doctag\">@param</span> values is an array of Int\r\n * <span class=\"hljs-doctag\">@return</span> the middle number of the array\r\n */</span>\r\n<span class=\"hljs-keyword\">private</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">fun</span> <span class=\"hljs-title\">getHalfwayBetweenMiddleValues</span><span class=\"hljs-params\">(values: <span class=\"hljs-type\">IntArray</span>)</span></span>: <span class=\"hljs-built_in\">Double</span> {\r\n    <span class=\"hljs-keyword\">val</span> arraySize = values.size\r\n    <span class=\"hljs-keyword\">val</span> sumOfMiddleValues = (values[arraySize / <span class=\"hljs-number\">2</span>] + values[(arraySize / <span class=\"hljs-number\">2</span>) - <span class=\"hljs-number\">1</span> ])\r\n    <span class=\"hljs-keyword\">return</span> sumOfMiddleValues / <span class=\"hljs-number\">2.0</span>\r\n}\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Calculates the middle number of an array when the size is an odd number\r\n *\r\n * <span class=\"hljs-doctag\">@param</span> values is an array of Int\r\n * <span class=\"hljs-doctag\">@return</span> the middle number of the array\r\n */</span>\r\n<span class=\"hljs-keyword\">private</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">fun</span> <span class=\"hljs-title\">getMiddleValue</span><span class=\"hljs-params\">(values: <span class=\"hljs-type\">IntArray</span>)</span></span>: <span class=\"hljs-built_in\">Double</span> {\r\n    <span class=\"hljs-keyword\">return</span> values[values.size / <span class=\"hljs-number\">2</span>].toDouble()\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Harshil Darji",
+      "email": "darjiharshil2994@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "KylerSmith",
+      "email": "Kyler@macBookAir.local",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Krishna Vedala",
+      "email": "krishna.vedala@ieee.org",
+      "commits": 2
+    },
+    {
+      "name": "laurelr2020",
+      "email": "reganlaurell@gmail.com",
+      "commits": 4
+    }
+  ],
+  "explanationUrl": {}
+}

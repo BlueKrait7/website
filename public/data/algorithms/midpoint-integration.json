@@ -1,0 +1,23 @@
+{
+  "slug": "midpoint-integration",
+  "name": "Midpoint Integration",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\test\\MidpointIntegration.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\MidpointIntegration.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { integralEvaluation } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../MidpointIntegration&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;Should return the integral of f(x) = sqrt(x) in [1, 3] to be equal 2.797434&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-keyword\">const</span> result = <span class=\"hljs-title function_\">integralEvaluation</span>(<span class=\"hljs-number\">10000</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-function\">(<span class=\"hljs-params\">x</span>) =&gt;</span> { <span class=\"hljs-keyword\">return</span> <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">sqrt</span>(x) })\r\n  <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">Number</span>(result.<span class=\"hljs-title function_\">toPrecision</span>(<span class=\"hljs-number\">6</span>))).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">2.79743</span>)\r\n})\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;Should return the integral of f(x) = sqrt(x) + x^2 in [1, 3] to be equal 11.46410161&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-keyword\">const</span> result = <span class=\"hljs-title function_\">integralEvaluation</span>(<span class=\"hljs-number\">10000</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-function\">(<span class=\"hljs-params\">x</span>) =&gt;</span> { <span class=\"hljs-keyword\">return</span> <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">sqrt</span>(x) + <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">pow</span>(x, <span class=\"hljs-number\">2</span>) })\r\n  <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">Number</span>(result.<span class=\"hljs-title function_\">toPrecision</span>(<span class=\"hljs-number\">10</span>))).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">11.46410161</span>)\r\n})\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;Should return the integral of f(x) = log(x) + Pi*x^3 in [5, 12] to be equal 15809.9141543&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-keyword\">const</span> result = <span class=\"hljs-title function_\">integralEvaluation</span>(<span class=\"hljs-number\">20000</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">12</span>, <span class=\"hljs-function\">(<span class=\"hljs-params\">x</span>) =&gt;</span> { <span class=\"hljs-keyword\">return</span> <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">log</span>(x) + <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-property\">PI</span> * <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">pow</span>(x, <span class=\"hljs-number\">3</span>) })\r\n  <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">Number</span>(result.<span class=\"hljs-title function_\">toPrecision</span>(<span class=\"hljs-number\">10</span>))).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">15809.91415</span>)\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "ggkogkou",
+      "email": "76820848+ggkogkou@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

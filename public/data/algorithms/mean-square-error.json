@@ -1,0 +1,28 @@
+{
+  "slug": "mean-square-error",
+  "name": "Mean Square Error",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\test\\MeanSquareError.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\MeanSquareError.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { meanSquaredError } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../MeanSquareError&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;meanSquareError&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should throw an error on non-array arguments&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> <span class=\"hljs-title function_\">meanSquaredError</span>(<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">4</span>)).<span class=\"hljs-title function_\">toThrow</span>(<span class=\"hljs-string\">&#x27;Argument must be an Array&#x27;</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should throw an error on non equal length &#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> firstArr = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>]\r\n    <span class=\"hljs-keyword\">const</span> secondArr = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>]\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> <span class=\"hljs-title function_\">meanSquaredError</span>(firstArr, secondArr)).<span class=\"hljs-title function_\">toThrow</span>(\r\n      <span class=\"hljs-string\">&#x27;The two lists must be of equal length&#x27;</span>\r\n    )\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return the mean square error of two equal length arrays&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> firstArr = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>]\r\n    <span class=\"hljs-keyword\">const</span> secondArr = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">6</span>, <span class=\"hljs-number\">7</span>]\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">meanSquaredError</span>(firstArr, secondArr)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">2.6</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Stas",
+      "email": "real.peha@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Ephraim Atta-Duncan",
+      "email": "55143799+dephraiim@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

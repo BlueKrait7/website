@@ -1,0 +1,44 @@
+{
+  "slug": "median-filter",
+  "name": "Median Filter",
+  "categories": [
+    "digitalimageprocessing",
+    "filters"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "digital_image_processing\\filters\\median_filter.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/digital_image_processing\\filters\\median_filter.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nImplementation of median filter algorithm\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">from</span> cv2 <span class=\"hljs-keyword\">import</span> COLOR_BGR2GRAY, cvtColor, imread, imshow, waitKey\r\n<span class=\"hljs-keyword\">from</span> numpy <span class=\"hljs-keyword\">import</span> divide, int8, multiply, ravel, sort, zeros_like\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">median_filter</span>(<span class=\"hljs-params\">gray_img, mask=<span class=\"hljs-number\">3</span></span>):\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    :param gray_img: gray image\r\n    :param mask: mask size\r\n    :return: image with median filter\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-comment\"># set image borders</span>\r\n    bd = <span class=\"hljs-built_in\">int</span>(mask / <span class=\"hljs-number\">2</span>)\r\n    <span class=\"hljs-comment\"># copy image size</span>\r\n    median_img = zeros_like(gray_img)\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(bd, gray_img.shape[<span class=\"hljs-number\">0</span>] - bd):\r\n        <span class=\"hljs-keyword\">for</span> j <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(bd, gray_img.shape[<span class=\"hljs-number\">1</span>] - bd):\r\n            <span class=\"hljs-comment\"># get mask according with mask</span>\r\n            kernel = ravel(gray_img[i - bd : i + bd + <span class=\"hljs-number\">1</span>, j - bd : j + bd + <span class=\"hljs-number\">1</span>])\r\n            <span class=\"hljs-comment\"># calculate mask median</span>\r\n            median = sort(kernel)[int8(divide((multiply(mask, mask)), <span class=\"hljs-number\">2</span>) + <span class=\"hljs-number\">1</span>)]\r\n            median_img[i, j] = median\r\n    <span class=\"hljs-keyword\">return</span> median_img\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-comment\"># read original image</span>\r\n    img = imread(<span class=\"hljs-string\">&quot;../image_data/lena.jpg&quot;</span>)\r\n    <span class=\"hljs-comment\"># turn image in gray scale value</span>\r\n    gray = cvtColor(img, COLOR_BGR2GRAY)\r\n\r\n    <span class=\"hljs-comment\"># get values with two different mask size</span>\r\n    median3x3 = median_filter(gray, <span class=\"hljs-number\">3</span>)\r\n    median5x5 = median_filter(gray, <span class=\"hljs-number\">5</span>)\r\n\r\n    <span class=\"hljs-comment\"># show result images</span>\r\n    imshow(<span class=\"hljs-string\">&quot;median filter with 3x3 mask&quot;</span>, median3x3)\r\n    imshow(<span class=\"hljs-string\">&quot;median filter with 5x5 mask&quot;</span>, median5x5)\r\n    waitKey(<span class=\"hljs-number\">0</span>)\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "Matheus T. Guimarães",
+      "email": "matheusguimr@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Marvin M. Michum",
+      "email": "mrvnmchm@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Shoujue Xu",
+      "email": "lightxusj@126.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

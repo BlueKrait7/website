@@ -1,0 +1,18 @@
+{
+  "slug": "middle-point-pivot",
+  "name": "Middle point pivot",
+  "categories": [
+    "sorts",
+    "comparison"
+  ],
+  "body": {},
+  "implementations": {
+    "c-sharp": {
+      "dir": "./Algorithms/Sorters/Comparison/MiddlePointQuickSorter.cs",
+      "url": "https:\\github.com\\TheAlgorithms\\C-Sharp\\tree\\master\\Algorithms\\Sorters\\Comparison\\MiddlePointQuickSorter.cs",
+      "code": "﻿<span class=\"hljs-keyword\">using</span> System.Collections.Generic;\r\n\r\n<span class=\"hljs-keyword\">namespace</span> <span class=\"hljs-title\">Algorithms.Sorters.Comparison</span>\r\n{\r\n    <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;summary&gt;</span></span>\r\n    <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>     Sorts arrays using quicksort (selecting middle point as a pivot).</span>\r\n    <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;/summary&gt;</span></span>\r\n    <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;typeparam name=&quot;T&quot;&gt;</span>Type of array element.<span class=\"hljs-doctag\">&lt;/typeparam&gt;</span></span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">sealed</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">MiddlePointQuickSorter</span>&lt;<span class=\"hljs-title\">T</span>&gt; : <span class=\"hljs-title\">QuickSorter</span>&lt;<span class=\"hljs-title\">T</span>&gt;\r\n    {\r\n        <span class=\"hljs-function\"><span class=\"hljs-keyword\">protected</span> <span class=\"hljs-keyword\">override</span> T <span class=\"hljs-title\">SelectPivot</span>(<span class=\"hljs-params\">T[] array, IComparer&lt;T&gt; comparer, <span class=\"hljs-built_in\">int</span> left, <span class=\"hljs-built_in\">int</span> right</span>)</span> =&gt;\r\n            array[left + (right - left) / <span class=\"hljs-number\">2</span>];\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [],
+  "explanationUrl": {}
+}

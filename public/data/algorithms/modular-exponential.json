@@ -1,0 +1,48 @@
+{
+  "slug": "modular-exponential",
+  "name": "Modular Exponential",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\modular_exponential.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\modular_exponential.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Modular Exponential.\r\n    Modular exponentiation is a type of exponentiation performed over a modulus.\r\n    For more explanation, please check\r\n    https://en.wikipedia.org/wiki/Modular_exponentiation\r\n&quot;&quot;&quot;</span>\r\n\r\n<span class=\"hljs-string\">&quot;&quot;&quot;Calculate Modular Exponential.&quot;&quot;&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">modular_exponential</span>(<span class=\"hljs-params\">base: <span class=\"hljs-built_in\">int</span>, power: <span class=\"hljs-built_in\">int</span>, mod: <span class=\"hljs-built_in\">int</span></span>):\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    &gt;&gt;&gt; modular_exponential(5, 0, 10)\r\n    1\r\n    &gt;&gt;&gt; modular_exponential(2, 8, 7)\r\n    4\r\n    &gt;&gt;&gt; modular_exponential(3, -2, 9)\r\n    -1\r\n    &quot;&quot;&quot;</span>\r\n\r\n    <span class=\"hljs-keyword\">if</span> power &lt; <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">return</span> -<span class=\"hljs-number\">1</span>\r\n    base %= mod\r\n    result = <span class=\"hljs-number\">1</span>\r\n\r\n    <span class=\"hljs-keyword\">while</span> power &gt; <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">if</span> power &amp; <span class=\"hljs-number\">1</span>:\r\n            result = (result * base) % mod\r\n        power = power &gt;&gt; <span class=\"hljs-number\">1</span>\r\n        base = (base * base) % mod\r\n\r\n    <span class=\"hljs-keyword\">return</span> result\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">main</span>():\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;Call Modular Exponential Function.&quot;&quot;&quot;</span>\r\n    <span class=\"hljs-built_in\">print</span>(modular_exponential(<span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">200</span>, <span class=\"hljs-number\">13</span>))\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n\r\n    main()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "AlexDvorak",
+      "email": "opti.jawsome@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "PatOnTheBack",
+      "email": "51241310+PatOnTheBack@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Iqrar Agalosi Nureyza",
+      "email": "misteriqrar@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "PiyushPawar17",
+      "email": "piyushpawar25@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

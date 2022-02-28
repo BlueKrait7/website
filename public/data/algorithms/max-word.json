@@ -1,0 +1,33 @@
+{
+  "slug": "max-word",
+  "name": "Max Word",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "String\\test\\MaxWord.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/String\\test\\MaxWord.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { maxWord } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../MaxWord&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;Testing the maxWord function&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;Expect throw with non string argument&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-function\">() =&gt;</span> <span class=\"hljs-title function_\">maxWord</span>(<span class=\"hljs-number\">10</span>)).<span class=\"hljs-title function_\">toThrow</span>()\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;get the max word&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> string = <span class=\"hljs-string\">&#x27;be be be be a a banana&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> mostOccurringWord = <span class=\"hljs-title function_\">maxWord</span>(string)\r\n    <span class=\"hljs-title function_\">expect</span>(mostOccurringWord).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;be&#x27;</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Rak Laptudirm",
+      "email": "raklaptudirm@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Keshav Bohra",
+      "email": "keshav2016@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "farharamadhan2",
+      "email": "farharamadhan2@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}
