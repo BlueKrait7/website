@@ -1,0 +1,38 @@
+{
+  "slug": "enigma-machine",
+  "name": "Enigma Machine",
+  "categories": [
+    "hashing"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "hashes\\enigma_machine.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/hashes\\enigma_machine.py",
+      "code": "alphabets = [<span class=\"hljs-built_in\">chr</span>(i) <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-number\">32</span>, <span class=\"hljs-number\">126</span>)]\r\ngear_one = [i <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-built_in\">len</span>(alphabets))]\r\ngear_two = [i <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-built_in\">len</span>(alphabets))]\r\ngear_three = [i <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-built_in\">len</span>(alphabets))]\r\nreflector = [i <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">reversed</span>(<span class=\"hljs-built_in\">range</span>(<span class=\"hljs-built_in\">len</span>(alphabets)))]\r\ncode = []\r\ngear_one_pos = gear_two_pos = gear_three_pos = <span class=\"hljs-number\">0</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">rotator</span>():\r\n    <span class=\"hljs-keyword\">global</span> gear_one_pos\r\n    <span class=\"hljs-keyword\">global</span> gear_two_pos\r\n    <span class=\"hljs-keyword\">global</span> gear_three_pos\r\n    i = gear_one[<span class=\"hljs-number\">0</span>]\r\n    gear_one.append(i)\r\n    <span class=\"hljs-keyword\">del</span> gear_one[<span class=\"hljs-number\">0</span>]\r\n    gear_one_pos += <span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">if</span> gear_one_pos % <span class=\"hljs-built_in\">int</span>(<span class=\"hljs-built_in\">len</span>(alphabets)) == <span class=\"hljs-number\">0</span>:\r\n        i = gear_two[<span class=\"hljs-number\">0</span>]\r\n        gear_two.append(i)\r\n        <span class=\"hljs-keyword\">del</span> gear_two[<span class=\"hljs-number\">0</span>]\r\n        gear_two_pos += <span class=\"hljs-number\">1</span>\r\n        <span class=\"hljs-keyword\">if</span> gear_two_pos % <span class=\"hljs-built_in\">int</span>(<span class=\"hljs-built_in\">len</span>(alphabets)) == <span class=\"hljs-number\">0</span>:\r\n            i = gear_three[<span class=\"hljs-number\">0</span>]\r\n            gear_three.append(i)\r\n            <span class=\"hljs-keyword\">del</span> gear_three[<span class=\"hljs-number\">0</span>]\r\n            gear_three_pos += <span class=\"hljs-number\">1</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">engine</span>(<span class=\"hljs-params\">input_character</span>):\r\n    target = alphabets.index(input_character)\r\n    target = gear_one[target]\r\n    target = gear_two[target]\r\n    target = gear_three[target]\r\n    target = reflector[target]\r\n    target = gear_three.index(target)\r\n    target = gear_two.index(target)\r\n    target = gear_one.index(target)\r\n    code.append(alphabets[target])\r\n    rotator()\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    decode = <span class=\"hljs-built_in\">list</span>(<span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Type your message:\\n&quot;</span>))\r\n    <span class=\"hljs-keyword\">while</span> <span class=\"hljs-literal\">True</span>:\r\n        <span class=\"hljs-keyword\">try</span>:\r\n            token = <span class=\"hljs-built_in\">int</span>(<span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Please set token:(must be only digits)\\n&quot;</span>))\r\n            <span class=\"hljs-keyword\">break</span>\r\n        <span class=\"hljs-keyword\">except</span> Exception <span class=\"hljs-keyword\">as</span> error:\r\n            <span class=\"hljs-built_in\">print</span>(error)\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(token):\r\n        rotator()\r\n    <span class=\"hljs-keyword\">for</span> j <span class=\"hljs-keyword\">in</span> decode:\r\n        engine(j)\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;\\n&quot;</span> + <span class=\"hljs-string\">&quot;&quot;</span>.join(code))\r\n    <span class=\"hljs-built_in\">print</span>(\r\n        <span class=\"hljs-string\">f&quot;\\nYour Token is <span class=\"hljs-subst\">{token}</span> please write it down.\\nIf you want to decode &quot;</span>\r\n        <span class=\"hljs-string\">f&quot;this message again you should input same digits as token!&quot;</span>\r\n    )\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "algobytewise",
+      "email": "algobytewise@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Shahabaldin Mohammadi",
+      "email": "45038855+stevelex-elex@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

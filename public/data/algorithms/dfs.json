@@ -1,0 +1,109 @@
+{
+  "slug": "dfs",
+  "name": "Dfs",
+  "categories": [
+    "datastructures",
+    "graphs"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "data_structures\\graphs\\dfs.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/data_structures\\graphs\\dfs.c",
+      "code": "<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;stdio.h&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;stdlib.h&gt;</span></span>\r\n\r\n<span class=\"hljs-comment\">// A vertex of the graph</span>\r\n<span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">node</span>\r\n{</span>\r\n    <span class=\"hljs-type\">int</span> vertex;\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">node</span> *<span class=\"hljs-title\">next</span>;</span>\r\n};\r\n<span class=\"hljs-comment\">// Some declarations</span>\r\n<span class=\"hljs-keyword\">struct</span> node *<span class=\"hljs-title function_\">createNode</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> v)</span>;\r\n<span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">Graph</span>\r\n{</span>\r\n    <span class=\"hljs-type\">int</span> numVertices;\r\n    <span class=\"hljs-type\">int</span> *visited;\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">node</span> *\r\n        *<span class=\"hljs-title\">adjLists</span>;</span>  <span class=\"hljs-comment\">// we need int** to store a two dimensional array. Similary,</span>\r\n                    <span class=\"hljs-comment\">// we need struct node** to store an array of Linked lists</span>\r\n};\r\n<span class=\"hljs-keyword\">struct</span> Graph *<span class=\"hljs-title function_\">createGraph</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span>)</span>;\r\n<span class=\"hljs-type\">void</span> <span class=\"hljs-title function_\">addEdge</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> Graph *, <span class=\"hljs-type\">int</span>, <span class=\"hljs-type\">int</span>)</span>;\r\n<span class=\"hljs-type\">void</span> <span class=\"hljs-title function_\">printGraph</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> Graph *)</span>;\r\n<span class=\"hljs-type\">void</span> <span class=\"hljs-title function_\">dfs</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> Graph *, <span class=\"hljs-type\">int</span>)</span>;\r\n\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">()</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> vertices, edges, source, i, src, dst;\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;Enter the number of vertices\\n&quot;</span>);\r\n    <span class=\"hljs-built_in\">scanf</span>(<span class=\"hljs-string\">&quot;%d&quot;</span>, &amp;vertices);\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">Graph</span> *<span class=\"hljs-title\">graph</span> =</span> createGraph(vertices);\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;Enter the number of edges\\n&quot;</span>);\r\n    <span class=\"hljs-built_in\">scanf</span>(<span class=\"hljs-string\">&quot;%d&quot;</span>, &amp;edges);\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; edges; i++)\r\n    {\r\n        <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;Edge %d \\nEnter source: &quot;</span>, i + <span class=\"hljs-number\">1</span>);\r\n        <span class=\"hljs-built_in\">scanf</span>(<span class=\"hljs-string\">&quot;%d&quot;</span>, &amp;src);\r\n        <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;Enter destination: &quot;</span>);\r\n        <span class=\"hljs-built_in\">scanf</span>(<span class=\"hljs-string\">&quot;%d&quot;</span>, &amp;dst);\r\n        addEdge(graph, src, dst);\r\n    }\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;Enter source of DFS\\n&quot;</span>);\r\n    <span class=\"hljs-built_in\">scanf</span>(<span class=\"hljs-string\">&quot;%d&quot;</span>, &amp;source);\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;DFS from %d is:\\n&quot;</span>, source);\r\n    dfs(graph, source);\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;\\n&quot;</span>);\r\n\r\n    <span class=\"hljs-comment\">// Uncomment below part to get a ready-made example</span>\r\n    <span class=\"hljs-comment\">/*struct Graph* graph = createGraph(4);\r\n    addEdge(graph, 0, 1);\r\n    addEdge(graph, 0, 2);\r\n    addEdge(graph, 1, 2);\r\n    addEdge(graph, 2, 3);\r\n    printf(&quot;DFS from 0 is:\\n&quot;);\r\n    dfs(graph,0);\r\n    printf(&quot;\\n&quot;);*/</span>\r\n\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n<span class=\"hljs-comment\">// Recursive dfs approach</span>\r\n<span class=\"hljs-type\">void</span> <span class=\"hljs-title function_\">dfs</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> Graph *graph, <span class=\"hljs-type\">int</span> vertex)</span>\r\n{\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">node</span> *<span class=\"hljs-title\">adjList</span> =</span> graph-&gt;adjLists[vertex];\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">node</span> *<span class=\"hljs-title\">temp</span> =</span> adjList;\r\n\r\n    <span class=\"hljs-comment\">// Add vertex to visited list and print it</span>\r\n    graph-&gt;visited[vertex] = <span class=\"hljs-number\">1</span>;\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;%d &quot;</span>, vertex);\r\n\r\n    <span class=\"hljs-comment\">// Recursively call the dfs function on all unvisited neighbours</span>\r\n    <span class=\"hljs-keyword\">while</span> (temp != <span class=\"hljs-literal\">NULL</span>)\r\n    {\r\n        <span class=\"hljs-type\">int</span> connectedVertex = temp-&gt;vertex;\r\n        <span class=\"hljs-keyword\">if</span> (graph-&gt;visited[connectedVertex] == <span class=\"hljs-number\">0</span>)\r\n        {\r\n            dfs(graph, connectedVertex);\r\n        }\r\n        temp = temp-&gt;next;\r\n    }\r\n}\r\n<span class=\"hljs-comment\">// Allocate memory for a node</span>\r\n<span class=\"hljs-keyword\">struct</span> node *<span class=\"hljs-title function_\">createNode</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> v)</span>\r\n{\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">node</span> *<span class=\"hljs-title\">newNode</span> =</span> <span class=\"hljs-built_in\">malloc</span>(<span class=\"hljs-keyword\">sizeof</span>(<span class=\"hljs-keyword\">struct</span> node));\r\n    newNode-&gt;vertex = v;\r\n    newNode-&gt;next = <span class=\"hljs-literal\">NULL</span>;\r\n    <span class=\"hljs-keyword\">return</span> newNode;\r\n}\r\n<span class=\"hljs-comment\">// Allocate memory for the entire graph structure</span>\r\n<span class=\"hljs-keyword\">struct</span> Graph *<span class=\"hljs-title function_\">createGraph</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> vertices)</span>\r\n{\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">Graph</span> *<span class=\"hljs-title\">graph</span> =</span> <span class=\"hljs-built_in\">malloc</span>(<span class=\"hljs-keyword\">sizeof</span>(<span class=\"hljs-keyword\">struct</span> Graph));\r\n    graph-&gt;numVertices = vertices;\r\n\r\n    graph-&gt;adjLists = <span class=\"hljs-built_in\">malloc</span>(vertices * <span class=\"hljs-keyword\">sizeof</span>(<span class=\"hljs-keyword\">struct</span> node *));\r\n\r\n    graph-&gt;visited = <span class=\"hljs-built_in\">malloc</span>(vertices * <span class=\"hljs-keyword\">sizeof</span>(<span class=\"hljs-type\">int</span>));\r\n\r\n    <span class=\"hljs-type\">int</span> i;\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; vertices; i++)\r\n    {\r\n        graph-&gt;adjLists[i] = <span class=\"hljs-literal\">NULL</span>;\r\n        graph-&gt;visited[i] = <span class=\"hljs-number\">0</span>;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> graph;\r\n}\r\n<span class=\"hljs-comment\">// Creates a bidirectional graph</span>\r\n<span class=\"hljs-type\">void</span> <span class=\"hljs-title function_\">addEdge</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> Graph *graph, <span class=\"hljs-type\">int</span> src, <span class=\"hljs-type\">int</span> dest)</span>\r\n{\r\n    <span class=\"hljs-comment\">// Add edge from src to dest</span>\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">node</span> *<span class=\"hljs-title\">newNode</span> =</span> createNode(dest);\r\n    newNode-&gt;next = graph-&gt;adjLists[src];\r\n    graph-&gt;adjLists[src] = newNode;\r\n\r\n    <span class=\"hljs-comment\">// Add edge from dest to src</span>\r\n    newNode = createNode(src);\r\n    newNode-&gt;next = graph-&gt;adjLists[dest];\r\n    graph-&gt;adjLists[dest] = newNode;\r\n}\r\n<span class=\"hljs-comment\">// Utility function to see state of graph at a given time</span>\r\n<span class=\"hljs-type\">void</span> <span class=\"hljs-title function_\">printGraph</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> Graph *graph)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> v;\r\n    <span class=\"hljs-keyword\">for</span> (v = <span class=\"hljs-number\">0</span>; v &lt; graph-&gt;numVertices; v++)\r\n    {\r\n        <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">node</span> *<span class=\"hljs-title\">temp</span> =</span> graph-&gt;adjLists[v];\r\n        <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;\\n Adjacency list of vertex %d\\n &quot;</span>, v);\r\n        <span class=\"hljs-keyword\">while</span> (temp)\r\n        {\r\n            <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;%d -&gt; &quot;</span>, temp-&gt;vertex);\r\n            temp = temp-&gt;next;\r\n        }\r\n        <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;\\n&quot;</span>);\r\n    }\r\n}\r\n"
+    },
+    "haskell": {
+      "dir": "src\\Graph\\Dfs.hs",
+      "url": "https://github.com/TheAlgorithms/haskell/tree/master/src\\Graph\\Dfs.hs",
+      "code": "<span class=\"hljs-keyword\">module</span> Graph.Dfs <span class=\"hljs-keyword\">where</span>\r\n\r\n<span class=\"hljs-keyword\">import</span> Data.List\r\n\r\n<span class=\"hljs-class\"><span class=\"hljs-keyword\">type</span> <span class=\"hljs-type\">Node</span> = <span class=\"hljs-type\">Int</span></span>\r\n<span class=\"hljs-class\"><span class=\"hljs-keyword\">type</span> <span class=\"hljs-type\">Edge</span> = (<span class=\"hljs-type\">Node</span>,<span class=\"hljs-type\">Node</span>)</span>\r\n<span class=\"hljs-class\"><span class=\"hljs-keyword\">type</span> <span class=\"hljs-type\">Graph</span> = ([<span class=\"hljs-type\">Node</span>],[<span class=\"hljs-type\">Edge</span>])</span>\r\n\r\n<span class=\"hljs-title\">depthfirst</span> :: <span class=\"hljs-type\">Graph</span> -&gt; <span class=\"hljs-type\">Node</span> -&gt; [<span class=\"hljs-type\">Node</span>]\r\n<span class=\"hljs-title\">depthfirst</span> (v,e) n\r\n    | [x|x&lt;-v,x==n] == [] = []\r\n    | otherwise = dfrecursive (v,e) [n]\r\n    \r\n<span class=\"hljs-title\">dfrecursive</span> :: <span class=\"hljs-type\">Graph</span> -&gt; [<span class=\"hljs-type\">Node</span>] -&gt; [<span class=\"hljs-type\">Node</span>]\r\n<span class=\"hljs-title\">dfrecursive</span> ([],_) _ = []\r\n<span class=\"hljs-title\">dfrecursive</span> (_,_) [] = []\r\n<span class=\"hljs-title\">dfrecursive</span> (v,e) (top:stack)\r\n    | [x|x&lt;-v,x==top] == [] = dfrecursive (newv, e) stack\r\n    | otherwise = top : dfrecursive (newv, e) (adjacent ++ stack)\r\n    <span class=\"hljs-keyword\">where</span>\r\n        adjacent = [x | (x,y)&lt;-e,y==top] ++ [x | (y,x)&lt;-e,y==top]\r\n        newv = [x|x&lt;-v,x/=top]\r\n        \r\n<span class=\"hljs-title\">connectedcomponents</span> :: <span class=\"hljs-type\">Graph</span> -&gt; [[<span class=\"hljs-type\">Node</span>]]\r\n<span class=\"hljs-title\">connectedcomponents</span> ([],_) = []\r\n<span class=\"hljs-title\">connectedcomponents</span> (top:v,e) \r\n    | remaining == [] = [connected]\r\n    | otherwise = connected : connectedcomponents (remaining, e)\r\n    <span class=\"hljs-keyword\">where</span>\r\n        connected = depthfirst (top:v,e) top\r\n        remaining = (top:v) \\\\ connected\r\n        \r\n        \r\n<span class=\"hljs-title\">dfsbipartite</span> :: <span class=\"hljs-type\">Graph</span> -&gt; [(<span class=\"hljs-type\">Node</span>, <span class=\"hljs-type\">Int</span>)] -&gt; [<span class=\"hljs-type\">Node</span>] -&gt; [<span class=\"hljs-type\">Node</span>] -&gt; <span class=\"hljs-type\">Bool</span>\r\n<span class=\"hljs-title\">dfsbipartite</span> ([],_) _ _ _ = <span class=\"hljs-type\">True</span>\r\n<span class=\"hljs-title\">dfsbipartite</span> (_,_) [] _ _ = <span class=\"hljs-type\">True</span>\r\n<span class=\"hljs-title\">dfsbipartite</span> (v,e) ((nv, <span class=\"hljs-number\">0</span>):stack) odd even\r\n    | [x|x&lt;-v,x==nv] == [] = dfsbipartite (v, e) stack odd even\r\n    | [] == intersect adjacent even = dfsbipartite (newv, e) ([(x,<span class=\"hljs-number\">1</span>)|x&lt;-adjacent] ++ stack) odd (nv : even)\r\n    | otherwise = <span class=\"hljs-type\">False</span>\r\n    <span class=\"hljs-keyword\">where</span>\r\n        adjacent = [x | (x,y)&lt;-e,y==nv] ++ [x | (y,x)&lt;-e,y==nv]\r\n        newv = [x|x&lt;-v,x/=nv]\r\n<span class=\"hljs-title\">dfsbipartite</span> (v,e) ((nv, <span class=\"hljs-number\">1</span>):stack) odd even\r\n    | [x|x&lt;-v,x==nv] == [] = dfsbipartite (v, e) stack odd even    \r\n    | [] == intersect adjacent odd = dfsbipartite (newv, e) ([(x,<span class=\"hljs-number\">0</span>)|x&lt;-adjacent] ++ stack) (nv : odd) even\r\n    | otherwise = <span class=\"hljs-type\">False</span>\r\n    <span class=\"hljs-keyword\">where</span>\r\n        adjacent = [x | (x,y)&lt;-e,y==nv] ++ [x | (y,x)&lt;-e,y==nv]\r\n        newv = [x|x&lt;-v,x/=nv]\r\n\r\n<span class=\"hljs-title\">bipartite</span> :: <span class=\"hljs-type\">Graph</span> -&gt; <span class=\"hljs-type\">Bool</span>\r\n<span class=\"hljs-title\">bipartite</span> ([],_) = <span class=\"hljs-type\">True</span>\r\n<span class=\"hljs-title\">bipartite</span> (top:v,e) = dfsbipartite (top:v, e) [(top,<span class=\"hljs-number\">0</span>)] [] []\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "PalAditya",
+      "email": "adityapal.nghss@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Ashwin Narayan",
+      "email": "ashwinnarayan1994@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "KAUSHAL DEVRARI",
+      "email": "71590645+KaushalDevrari@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "stepfencurryxiao",
+      "email": "stepfencurryxiao@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Krishna Vedala",
+      "email": "7001608+kvedala@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 1
+    },
+    {
+      "name": "Surendra Kumar",
+      "email": "32401892+comradesurendra@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Ayaan Khan",
+      "email": "ayaankhan98@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "khalil2535",
+      "email": "khalil2535@localhost",
+      "commits": 1
+    },
+    {
+      "name": "unknown",
+      "email": "cnddhks846@naver.com",
+      "commits": 1
+    },
+    {
+      "name": "sangjun2",
+      "email": "sj27294626@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Filip Hlasek",
+      "email": "fhlasek@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "pkdism",
+      "email": "pawan.dwivedi94@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "zachzhu2016",
+      "email": "48337051+zachzhu2016@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Guo",
+      "email": "msn4399@163.com",
+      "commits": 1
+    },
+    {
+      "name": "Harshit Kumar",
+      "email": "kumar_harshit@outlook.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "double-factorial-recursive",
+  "name": "Double Factorial Recursive",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\double_factorial_recursive.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\double_factorial_recursive.py",
+      "code": "<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">double_factorial</span>(<span class=\"hljs-params\">n: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">int</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Compute double factorial using recursive method.\r\n    Recursion can be costly for large numbers.\r\n\r\n    To learn about the theory behind this algorithm:\r\n    https://en.wikipedia.org/wiki/Double_factorial\r\n\r\n    &gt;&gt;&gt; import math\r\n    &gt;&gt;&gt; all(double_factorial(i) == math.prod(range(i, 0, -2)) for i in range(20))\r\n    True\r\n    &gt;&gt;&gt; double_factorial(0.1)\r\n    Traceback (most recent call last):\r\n        ...\r\n    ValueError: double_factorial() only accepts integral values\r\n    &gt;&gt;&gt; double_factorial(-1)\r\n    Traceback (most recent call last):\r\n        ...\r\n    ValueError: double_factorial() not defined for negative values\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> <span class=\"hljs-keyword\">not</span> <span class=\"hljs-built_in\">isinstance</span>(n, <span class=\"hljs-built_in\">int</span>):\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;double_factorial() only accepts integral values&quot;</span>)\r\n    <span class=\"hljs-keyword\">if</span> n &lt; <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;double_factorial() not defined for negative values&quot;</span>)\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span> <span class=\"hljs-keyword\">if</span> n &lt;= <span class=\"hljs-number\">1</span> <span class=\"hljs-keyword\">else</span> n * double_factorial(n - <span class=\"hljs-number\">2</span>)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "jonabtc",
+      "email": "39396756+jonabtc@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

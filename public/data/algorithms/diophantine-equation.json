@@ -1,0 +1,48 @@
+{
+  "slug": "diophantine-equation",
+  "name": "Diophantine Equation",
+  "categories": [
+    "blockchain"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "blockchain\\diophantine_equation.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/blockchain\\diophantine_equation.py",
+      "code": "<span class=\"hljs-keyword\">from</span> __future__ <span class=\"hljs-keyword\">import</span> annotations\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">diophantine</span>(<span class=\"hljs-params\">a: <span class=\"hljs-built_in\">int</span>, b: <span class=\"hljs-built_in\">int</span>, c: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">tuple</span>[<span class=\"hljs-built_in\">float</span>, <span class=\"hljs-built_in\">float</span>]:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Diophantine Equation : Given integers a,b,c ( at least one of a and b != 0), the\r\n    diophantine equation a*x + b*y = c has a solution (where x and y are integers)\r\n    iff gcd(a,b) divides c.\r\n\r\n    GCD ( Greatest Common Divisor ) or HCF ( Highest Common Factor )\r\n\r\n    &gt;&gt;&gt; diophantine(10,6,14)\r\n    (-7.0, 14.0)\r\n\r\n    &gt;&gt;&gt; diophantine(391,299,-69)\r\n    (9.0, -12.0)\r\n\r\n    But above equation has one more solution i.e., x = -4, y = 5.\r\n    That&#x27;s why we need diophantine all solution function.\r\n\r\n    &quot;&quot;&quot;</span>\r\n\r\n    <span class=\"hljs-keyword\">assert</span> (\r\n        c % greatest_common_divisor(a, b) == <span class=\"hljs-number\">0</span>\r\n    )  <span class=\"hljs-comment\"># greatest_common_divisor(a,b) function implemented below</span>\r\n    (d, x, y) = extended_gcd(a, b)  <span class=\"hljs-comment\"># extended_gcd(a,b) function implemented below</span>\r\n    r = c / d\r\n    <span class=\"hljs-keyword\">return</span> (r * x, r * y)\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">diophantine_all_soln</span>(<span class=\"hljs-params\">a: <span class=\"hljs-built_in\">int</span>, b: <span class=\"hljs-built_in\">int</span>, c: <span class=\"hljs-built_in\">int</span>, n: <span class=\"hljs-built_in\">int</span> = <span class=\"hljs-number\">2</span></span>) -&gt; <span class=\"hljs-literal\">None</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Lemma : if n|ab and gcd(a,n) = 1, then n|b.\r\n\r\n    Finding All solutions of Diophantine Equations:\r\n\r\n    Theorem : Let gcd(a,b) = d, a = d*p, b = d*q. If (x0,y0) is a solution of\r\n    Diophantine Equation a*x + b*y = c.  a*x0 + b*y0 = c, then all the\r\n    solutions have the form a(x0 + t*q) + b(y0 - t*p) = c,\r\n    where t is an arbitrary integer.\r\n\r\n    n is the number of solution you want, n = 2 by default\r\n\r\n    &gt;&gt;&gt; diophantine_all_soln(10, 6, 14)\r\n    -7.0 14.0\r\n    -4.0 9.0\r\n\r\n    &gt;&gt;&gt; diophantine_all_soln(10, 6, 14, 4)\r\n    -7.0 14.0\r\n    -4.0 9.0\r\n    -1.0 4.0\r\n    2.0 -1.0\r\n\r\n    &gt;&gt;&gt; diophantine_all_soln(391, 299, -69, n = 4)\r\n    9.0 -12.0\r\n    22.0 -29.0\r\n    35.0 -46.0\r\n    48.0 -63.0\r\n\r\n    &quot;&quot;&quot;</span>\r\n    (x0, y0) = diophantine(a, b, c)  <span class=\"hljs-comment\"># Initial value</span>\r\n    d = greatest_common_divisor(a, b)\r\n    p = a // d\r\n    q = b // d\r\n\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(n):\r\n        x = x0 + i * q\r\n        y = y0 - i * p\r\n        <span class=\"hljs-built_in\">print</span>(x, y)\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">greatest_common_divisor</span>(<span class=\"hljs-params\">a: <span class=\"hljs-built_in\">int</span>, b: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">int</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Euclid&#x27;s Lemma :  d divides a and b, if and only if d divides a-b and b\r\n\r\n    Euclid&#x27;s Algorithm\r\n\r\n    &gt;&gt;&gt; greatest_common_divisor(7,5)\r\n    1\r\n\r\n    Note : In number theory, two integers a and b are said to be relatively prime,\r\n           mutually prime, or co-prime if the only positive integer (factor) that\r\n           divides both of them is 1  i.e., gcd(a,b) = 1.\r\n\r\n    &gt;&gt;&gt; greatest_common_divisor(121, 11)\r\n    11\r\n\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> a &lt; b:\r\n        a, b = b, a\r\n\r\n    <span class=\"hljs-keyword\">while</span> a % b != <span class=\"hljs-number\">0</span>:\r\n        a, b = b, a % b\r\n\r\n    <span class=\"hljs-keyword\">return</span> b\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">extended_gcd</span>(<span class=\"hljs-params\">a: <span class=\"hljs-built_in\">int</span>, b: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">tuple</span>[<span class=\"hljs-built_in\">int</span>, <span class=\"hljs-built_in\">int</span>, <span class=\"hljs-built_in\">int</span>]:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Extended Euclid&#x27;s Algorithm : If d divides a and b and d = a*x + b*y for integers\r\n    x and y, then d = gcd(a,b)\r\n\r\n    &gt;&gt;&gt; extended_gcd(10, 6)\r\n    (2, -1, 2)\r\n\r\n    &gt;&gt;&gt; extended_gcd(7, 5)\r\n    (1, -2, 3)\r\n\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">assert</span> a &gt;= <span class=\"hljs-number\">0</span> <span class=\"hljs-keyword\">and</span> b &gt;= <span class=\"hljs-number\">0</span>\r\n\r\n    <span class=\"hljs-keyword\">if</span> b == <span class=\"hljs-number\">0</span>:\r\n        d, x, y = a, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">0</span>\r\n    <span class=\"hljs-keyword\">else</span>:\r\n        (d, p, q) = extended_gcd(b, a % b)\r\n        x = q\r\n        y = p - q * (a // b)\r\n\r\n    <span class=\"hljs-keyword\">assert</span> a % d == <span class=\"hljs-number\">0</span> <span class=\"hljs-keyword\">and</span> b % d == <span class=\"hljs-number\">0</span>\r\n    <span class=\"hljs-keyword\">assert</span> d == a * x + b * y\r\n\r\n    <span class=\"hljs-keyword\">return</span> (d, x, y)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">from</span> doctest <span class=\"hljs-keyword\">import</span> testmod\r\n\r\n    testmod(name=<span class=\"hljs-string\">&quot;diophantine&quot;</span>, verbose=<span class=\"hljs-literal\">True</span>)\r\n    testmod(name=<span class=\"hljs-string\">&quot;diophantine_all_soln&quot;</span>, verbose=<span class=\"hljs-literal\">True</span>)\r\n    testmod(name=<span class=\"hljs-string\">&quot;extended_gcd&quot;</span>, verbose=<span class=\"hljs-literal\">True</span>)\r\n    testmod(name=<span class=\"hljs-string\">&quot;greatest_common_divisor&quot;</span>, verbose=<span class=\"hljs-literal\">True</span>)\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "John Law",
+      "email": "johnlaw.po@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Jenia Dysin",
+      "email": "jenia90@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Jie Han",
+      "email": "jay.cn@outlook.com",
+      "commits": 1
+    },
+    {
+      "name": "Phyllipe Bezerra",
+      "email": "32442929+pmba@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Sushil Singh",
+      "email": "36241112+OddExtension5@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

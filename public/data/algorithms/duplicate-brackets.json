@@ -1,0 +1,24 @@
+{
+  "slug": "duplicate-brackets",
+  "name": "Duplicate Brackets",
+  "categories": [
+    "datastructures",
+    "stacks"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\datastructures\\stacks\\DuplicateBrackets.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\datastructures\\stacks\\DuplicateBrackets.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.datastructures.stacks;\r\n\r\n<span class=\"hljs-comment\">//  1. You are given a string exp representing an expression.</span>\r\n<span class=\"hljs-comment\">// 2. Assume that the expression is balanced  i.e. the opening and closing brackets match with each other.</span>\r\n<span class=\"hljs-comment\">// 3. But, some of the pair of brackets maybe extra/needless. </span>\r\n<span class=\"hljs-comment\">// 4. You are required to print true if you detect extra brackets and false otherwise.</span>\r\n<span class=\"hljs-comment\">// e.g.&#x27;</span>\r\n<span class=\"hljs-comment\">// ((a + b) + (c + d)) -&gt; false</span>\r\n<span class=\"hljs-comment\">// (a + b) + ((c + d)) -&gt; true</span>\r\n<span class=\"hljs-keyword\">import</span> java.util.*;\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">DuplicateBrackets</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">boolean</span> <span class=\"hljs-title function_\">check</span><span class=\"hljs-params\">(String str)</span> {\r\n        Stack&lt;Character&gt; st = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Stack</span>&lt;&gt;();\r\n\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>; i &lt; str.length(); i++) {\r\n            <span class=\"hljs-type\">char</span> <span class=\"hljs-variable\">ch</span> <span class=\"hljs-operator\">=</span> str.charAt(i);\r\n            <span class=\"hljs-keyword\">if</span> (ch == <span class=\"hljs-string\">&#x27;)&#x27;</span>) {\r\n                <span class=\"hljs-keyword\">if</span> (st.peek() == <span class=\"hljs-string\">&#x27;(&#x27;</span>) {\r\n                    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">true</span>;\r\n                } <span class=\"hljs-keyword\">else</span> {\r\n                    <span class=\"hljs-keyword\">while</span> (st.size() &gt; <span class=\"hljs-number\">0</span> &amp;&amp; st.peek() != <span class=\"hljs-string\">&#x27;(&#x27;</span>) {\r\n                        st.pop();\r\n                    }\r\n                    st.pop();\r\n                }\r\n\r\n            } <span class=\"hljs-keyword\">else</span> {\r\n                st.push(ch);\r\n            }\r\n            <span class=\"hljs-comment\">// System.out.println(st);</span>\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>;\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> <span class=\"hljs-keyword\">throws</span> Exception {\r\n        <span class=\"hljs-type\">Scanner</span> <span class=\"hljs-variable\">sc</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Scanner</span>(System.in);\r\n        <span class=\"hljs-type\">String</span> <span class=\"hljs-variable\">str</span> <span class=\"hljs-operator\">=</span> sc.nextLine();\r\n        System.out.println(check(str));\r\n    }\r\n\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Shardul Negi",
+      "email": "shardulnegi12@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

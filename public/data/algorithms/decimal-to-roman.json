@@ -1,0 +1,28 @@
+{
+  "slug": "decimal-to-roman",
+  "name": "Decimal To Roman",
+  "categories": [
+    "conversions"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Conversions\\test\\DecimalToRoman.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Conversions\\test\\DecimalToRoman.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { decimalToRoman } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../DecimalToRoman&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;decimalToRoman&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return correct roman numeral of given number&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">decimalToRoman</span>(<span class=\"hljs-number\">34</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;XXXIV&#x27;</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return correct roman numeral of given number&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">decimalToRoman</span>(<span class=\"hljs-number\">28</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;XXVIII&#x27;</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return correct roman numeral of given number&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">decimalToRoman</span>(<span class=\"hljs-number\">2021</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;MMXXI&#x27;</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Rak Laptudirm",
+      "email": "raklaptudirm@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Meehoi",
+      "email": "beam_baimon@hotmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "detect-anagrams",
+  "name": "Detect Anagrams",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "julia": {
+      "dir": "src\\strings\\detect_anagrams.jl",
+      "url": "https://github.com/TheAlgorithms/julia/tree/master/src\\strings\\detect_anagrams.jl",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n    detect_anagrams(subject, candidates)\r\nA function that checks if a list of words\r\nis an [Anagram](https://en.wikipedia.org/wiki/Anagram) or not of a subject word.\r\n\r\nis the original word = subject\r\nis list of words to be compared if they are an anagram of `subject` = candidates\r\n\r\n```\r\njulia&gt; subject = &quot;listen&quot;\r\njulia&gt; candidates = [&quot;inlets&quot;, &quot;enlists&quot;, &quot;google&quot;, &quot;banana&quot;]\r\njulia&gt; detect_anagrams(subject, candidates)\r\n1-element Vector{String}:\r\n &quot;inlets&quot;\r\n```\r\n\r\nContributed By:- [Soc V. E.](https://github.com/ReneganRonin)\r\nBased on my exercism&#x27;s Julia track problem solution on [Anagrams](https://exercism.io/my/solutions/0a1d39faa5694624b7750be3ebf6c974).\r\n\r\nInstructions:\r\n\r\nAn anagram is a rearrangement of letters to form a new word. Given a word and a list of candidates, select the sublist of anagrams of the given word.\r\nGiven &quot;listen&quot; and a list of candidates like &quot;enlists&quot; &quot;google&quot; &quot;inlets&quot; &quot;banana&quot; the program should return a list containing &quot;inlets&quot;.\r\n\r\nInspired by the [Extreme Startup game](https://github.com/rchatley/extreme_startup)\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">function</span> detect_anagrams(subject, candidates)\r\n    condition(i) = sort(collect(lowercase(subject))) == sort(collect(lowercase(i)))\r\n    collection = collect(\r\n        word <span class=\"hljs-keyword\">for</span> word <span class=\"hljs-keyword\">in</span> candidates <span class=\"hljs-keyword\">if</span> lowercase(word) != lowercase(subject)\r\n    )\r\n    <span class=\"hljs-keyword\">return</span> filter(condition, collection)\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Soc Virnyl S. Estela",
+      "email": "66054069+ReneganRonin@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

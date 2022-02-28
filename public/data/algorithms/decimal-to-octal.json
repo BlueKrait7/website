@@ -1,0 +1,98 @@
+{
+  "slug": "decimal-to-octal",
+  "name": "Decimal to Octal",
+  "categories": [
+    "conversions"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "conversions\\decimal_to_octal.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/conversions\\decimal_to_octal.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;Convert a Decimal Number to an Octal Number.&quot;&quot;&quot;</span>\r\n\r\n<span class=\"hljs-keyword\">import</span> math\r\n\r\n<span class=\"hljs-comment\"># Modified from:</span>\r\n<span class=\"hljs-comment\"># https://github.com/TheAlgorithms/Javascript/blob/master/Conversions/DecimalToOctal.js</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">decimal_to_octal</span>(<span class=\"hljs-params\">num: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">str</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;Convert a Decimal Number to an Octal Number.\r\n\r\n    &gt;&gt;&gt; all(decimal_to_octal(i) == oct(i) for i\r\n    ...     in (0, 2, 8, 64, 65, 216, 255, 256, 512))\r\n    True\r\n    &quot;&quot;&quot;</span>\r\n    octal = <span class=\"hljs-number\">0</span>\r\n    counter = <span class=\"hljs-number\">0</span>\r\n    <span class=\"hljs-keyword\">while</span> num &gt; <span class=\"hljs-number\">0</span>:\r\n        remainder = num % <span class=\"hljs-number\">8</span>\r\n        octal = octal + (remainder * math.floor(math.<span class=\"hljs-built_in\">pow</span>(<span class=\"hljs-number\">10</span>, counter)))\r\n        counter += <span class=\"hljs-number\">1</span>\r\n        num = math.floor(num / <span class=\"hljs-number\">8</span>)  <span class=\"hljs-comment\"># basically /= 8 without remainder if any</span>\r\n        <span class=\"hljs-comment\"># This formatting removes trailing &#x27;.0&#x27; from `octal`.</span>\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">f&quot;0o<span class=\"hljs-subst\">{<span class=\"hljs-built_in\">int</span>(octal)}</span>&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">main</span>() -&gt; <span class=\"hljs-literal\">None</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;Print octal equivalents of decimal numbers.&quot;&quot;&quot;</span>\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;\\n2 in octal is:&quot;</span>)\r\n    <span class=\"hljs-built_in\">print</span>(decimal_to_octal(<span class=\"hljs-number\">2</span>))  <span class=\"hljs-comment\"># = 2</span>\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;\\n8 in octal is:&quot;</span>)\r\n    <span class=\"hljs-built_in\">print</span>(decimal_to_octal(<span class=\"hljs-number\">8</span>))  <span class=\"hljs-comment\"># = 10</span>\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;\\n65 in octal is:&quot;</span>)\r\n    <span class=\"hljs-built_in\">print</span>(decimal_to_octal(<span class=\"hljs-number\">65</span>))  <span class=\"hljs-comment\"># = 101</span>\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;\\n216 in octal is:&quot;</span>)\r\n    <span class=\"hljs-built_in\">print</span>(decimal_to_octal(<span class=\"hljs-number\">216</span>))  <span class=\"hljs-comment\"># = 330</span>\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;\\n512 in octal is:&quot;</span>)\r\n    <span class=\"hljs-built_in\">print</span>(decimal_to_octal(<span class=\"hljs-number\">512</span>))  <span class=\"hljs-comment\"># = 1000</span>\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;\\n&quot;</span>)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    main()\r\n"
+    },
+    "javascript": {
+      "dir": "Conversions\\DecimalToOctal.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Conversions\\DecimalToOctal.js",
+      "code": "<span class=\"hljs-keyword\">function</span> <span class=\"hljs-title function_\">decimalToOctal</span> (num) {\r\n  <span class=\"hljs-keyword\">let</span> oct = <span class=\"hljs-number\">0</span>\r\n  <span class=\"hljs-keyword\">let</span> c = <span class=\"hljs-number\">0</span>\r\n  <span class=\"hljs-keyword\">while</span> (num &gt; <span class=\"hljs-number\">0</span>) {\r\n    <span class=\"hljs-keyword\">const</span> r = num % <span class=\"hljs-number\">8</span>\r\n    oct = oct + (r * <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">pow</span>(<span class=\"hljs-number\">10</span>, c++))\r\n    num = <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">floor</span>(num / <span class=\"hljs-number\">8</span>) <span class=\"hljs-comment\">// basically /= 8 without remainder if any</span>\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> oct\r\n}\r\n\r\n<span class=\"hljs-keyword\">export</span> { decimalToOctal }\r\n\r\n<span class=\"hljs-comment\">// &gt; decimalToOctal(2)</span>\r\n<span class=\"hljs-comment\">// 2</span>\r\n\r\n<span class=\"hljs-comment\">// &gt; decimalToOctal(8)</span>\r\n<span class=\"hljs-comment\">// 10</span>\r\n\r\n<span class=\"hljs-comment\">// &gt; decimalToOctal(65)</span>\r\n<span class=\"hljs-comment\">// 101</span>\r\n\r\n<span class=\"hljs-comment\">// &gt; decimalToOctal(216)</span>\r\n<span class=\"hljs-comment\">// 330</span>\r\n\r\n<span class=\"hljs-comment\">// &gt; decimalToOctal(512)</span>\r\n<span class=\"hljs-comment\">// 1000</span>\r\n"
+    },
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\conversions\\DecimalToOctal.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\conversions\\DecimalToOctal.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.conversions;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.Scanner;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * This class converts Decimal numbers to Octal Numbers\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">DecimalToOctal</span> {\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Main Method\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> args Command line Arguments\r\n     */</span>\r\n\r\n    <span class=\"hljs-comment\">// enter in a decimal value to get Octal output</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-type\">Scanner</span> <span class=\"hljs-variable\">sc</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Scanner</span>(System.in);\r\n        <span class=\"hljs-type\">int</span> n, k, d, s = <span class=\"hljs-number\">0</span>, c = <span class=\"hljs-number\">0</span>;\r\n        System.out.print(<span class=\"hljs-string\">&quot;Decimal number: &quot;</span>);\r\n        n = sc.nextInt();\r\n        k = n;\r\n        <span class=\"hljs-keyword\">while</span> (k != <span class=\"hljs-number\">0</span>) {\r\n            d = k % <span class=\"hljs-number\">8</span>;\r\n            s += d * (<span class=\"hljs-type\">int</span>) Math.pow(<span class=\"hljs-number\">10</span>, c++);\r\n            k /= <span class=\"hljs-number\">8</span>;\r\n        }\r\n\r\n        System.out.println(<span class=\"hljs-string\">&quot;Octal equivalent:&quot;</span> + s);\r\n        sc.close();\r\n    }\r\n}\r\n"
+    },
+    "c": {
+      "dir": "conversions\\decimal_to_octal.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/conversions\\decimal_to_octal.c",
+      "code": "<span class=\"hljs-comment\">/*****Decimal to octal conversion*******************/</span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;stdio.h&gt;</span></span>\r\n<span class=\"hljs-type\">void</span> <span class=\"hljs-title function_\">decimal2Octal</span><span class=\"hljs-params\">(<span class=\"hljs-type\">long</span> decimalnum)</span>;\r\n\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">()</span>\r\n{\r\n    <span class=\"hljs-type\">long</span> decimalnum;\r\n\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;Enter the decimal number: &quot;</span>);\r\n    <span class=\"hljs-built_in\">scanf</span>(<span class=\"hljs-string\">&quot;%ld&quot;</span>, &amp;decimalnum);\r\n\r\n    decimal2Octal(decimalnum);\r\n\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n\r\n<span class=\"hljs-comment\">/********function for convert decimal numbers to octal numbers************/</span>\r\n<span class=\"hljs-type\">void</span> <span class=\"hljs-title function_\">decimal2Octal</span><span class=\"hljs-params\">(<span class=\"hljs-type\">long</span> decimalnum)</span>\r\n{\r\n    <span class=\"hljs-type\">long</span> remainder, quotient;\r\n\r\n    <span class=\"hljs-type\">int</span> octalNumber[<span class=\"hljs-number\">100</span>], i = <span class=\"hljs-number\">1</span>, j;\r\n    quotient = decimalnum;\r\n\r\n    <span class=\"hljs-keyword\">while</span> (quotient != <span class=\"hljs-number\">0</span>)\r\n    {\r\n        octalNumber[i++] = quotient % <span class=\"hljs-number\">8</span>;\r\n\r\n        quotient = quotient / <span class=\"hljs-number\">8</span>;\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">for</span> (j = i - <span class=\"hljs-number\">1</span>; j &gt; <span class=\"hljs-number\">0</span>; j--) <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;%d&quot;</span>, octalNumber[j]);\r\n\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;\\n&quot;</span>);\r\n}\r\n"
+    },
+    "dart": {
+      "dir": "conversions\\Decimal_to_Octal.dart",
+      "url": "https://github.com/TheAlgorithms/dart/tree/master/conversions\\Decimal_to_Octal.dart",
+      "code": "<span class=\"hljs-keyword\">void</span> main() {\r\n  <span class=\"hljs-built_in\">print</span>(decimal_to_octal(<span class=\"hljs-number\">-123</span>));\r\n  <span class=\"hljs-built_in\">print</span>(decimal_to_octal(<span class=\"hljs-number\">0</span>));\r\n  <span class=\"hljs-built_in\">print</span>(decimal_to_octal(<span class=\"hljs-number\">404</span>));\r\n}\r\n\r\n<span class=\"hljs-built_in\">String</span> decimal_to_octal(<span class=\"hljs-built_in\">int</span> decimal_val) {\r\n  <span class=\"hljs-keyword\">if</span> (decimal_val == <span class=\"hljs-number\">0</span>) {\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">&quot;0&quot;</span>;\r\n  }\r\n  <span class=\"hljs-built_in\">bool</span> negative = <span class=\"hljs-keyword\">false</span>;\r\n  <span class=\"hljs-keyword\">if</span> (decimal_val &lt; <span class=\"hljs-number\">0</span>) {\r\n    negative = <span class=\"hljs-keyword\">true</span>;\r\n    decimal_val *= <span class=\"hljs-number\">-1</span>;\r\n  }\r\n  <span class=\"hljs-built_in\">String</span> oct_string = <span class=\"hljs-string\">&quot;&quot;</span>;\r\n  <span class=\"hljs-keyword\">while</span> (decimal_val &gt; <span class=\"hljs-number\">0</span>) {\r\n    <span class=\"hljs-built_in\">int</span> remainder = decimal_val % <span class=\"hljs-number\">8</span>;\r\n    decimal_val = decimal_val ~/ <span class=\"hljs-number\">8</span>;\r\n    oct_string = remainder.toString() + oct_string;\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> negative ? <span class=\"hljs-string\">&quot;-&quot;</span> + oct_string : oct_string;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "mohammadreza490",
+      "email": "47437328+mohammadreza490@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Armend",
+      "email": "armend.veseli@yahoo.com",
+      "commits": 1
+    },
+    {
+      "name": "PatOnTheBack",
+      "email": "51241310+PatOnTheBack@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Arogon1",
+      "email": "40372809+Arogon1@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Dhruv Manilawala",
+      "email": "dhruvmanila@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Jawpral",
+      "email": "34590600+Jawpral@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 2
+    },
+    {
+      "name": "Mohit Sharma",
+      "email": "mohit1532.cse16@chitkara.edu.in",
+      "commits": 2
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 5
+    }
+  ],
+  "explanationUrl": {}
+}

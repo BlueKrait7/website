@@ -1,0 +1,29 @@
+{
+  "slug": "difficult-level",
+  "name": "Difficult Level",
+  "categories": [
+    "ai",
+    "minimax",
+    "sources",
+    "minimaxplayground",
+    "sources",
+    "model",
+    "gamemodel"
+  ],
+  "body": {},
+  "implementations": {
+    "swift": {
+      "dir": "algorithms\\AI\\minimax\\Sources\\Minimax.playground\\Sources\\Model\\GameModel\\DifficultLevel.swift",
+      "url": "https://github.com/TheAlgorithms/swift/tree/master/algorithms\\AI\\minimax\\Sources\\Minimax.playground\\Sources\\Model\\GameModel\\DifficultLevel.swift",
+      "code": "<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">enum</span> <span class=\"hljs-title class_\">DifficultLevel</span>: <span class=\"hljs-title class_\">Int</span> {\r\n\r\n    <span class=\"hljs-keyword\">case</span> easy <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">2</span>\r\n\r\n    <span class=\"hljs-keyword\">case</span> medium <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">3</span>\r\n\r\n    <span class=\"hljs-keyword\">case</span> hard <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">5</span>\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "michalnowak061",
+      "email": "michal.nowak061@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

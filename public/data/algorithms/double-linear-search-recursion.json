@@ -1,0 +1,23 @@
+{
+  "slug": "double-linear-search-recursion",
+  "name": "Double Linear Search Recursion",
+  "categories": [
+    "searches"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "searches\\double_linear_search_recursion.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/searches\\double_linear_search_recursion.py",
+      "code": "<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">search</span>(<span class=\"hljs-params\">list_data: <span class=\"hljs-built_in\">list</span>, key: <span class=\"hljs-built_in\">int</span>, left: <span class=\"hljs-built_in\">int</span> = <span class=\"hljs-number\">0</span>, right: <span class=\"hljs-built_in\">int</span> = <span class=\"hljs-number\">0</span></span>) -&gt; <span class=\"hljs-built_in\">int</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Iterate through the array to find the index of key using recursion.\r\n    :param list_data: the list to be searched\r\n    :param key: the key to be searched\r\n    :param left: the index of first element\r\n    :param right: the index of last element\r\n    :return: the index of key value if found, -1 otherwise.\r\n\r\n    &gt;&gt;&gt; search(list(range(0, 11)), 5)\r\n    5\r\n    &gt;&gt;&gt; search([1, 2, 4, 5, 3], 4)\r\n    2\r\n    &gt;&gt;&gt; search([1, 2, 4, 5, 3], 6)\r\n    -1\r\n    &gt;&gt;&gt; search([5], 5)\r\n    0\r\n    &gt;&gt;&gt; search([], 1)\r\n    -1\r\n    &quot;&quot;&quot;</span>\r\n    right = right <span class=\"hljs-keyword\">or</span> <span class=\"hljs-built_in\">len</span>(list_data) - <span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">if</span> left &gt; right:\r\n        <span class=\"hljs-keyword\">return</span> -<span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">elif</span> list_data[left] == key:\r\n        <span class=\"hljs-keyword\">return</span> left\r\n    <span class=\"hljs-keyword\">elif</span> list_data[right] == key:\r\n        <span class=\"hljs-keyword\">return</span> right\r\n    <span class=\"hljs-keyword\">else</span>:\r\n        <span class=\"hljs-keyword\">return</span> search(list_data, key, left + <span class=\"hljs-number\">1</span>, right - <span class=\"hljs-number\">1</span>)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

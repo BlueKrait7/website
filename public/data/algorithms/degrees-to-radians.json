@@ -1,0 +1,22 @@
+{
+  "slug": "degrees-to-radians",
+  "name": "Degrees to Radians",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\radians.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\radians.py",
+      "code": "<span class=\"hljs-keyword\">from</span> math <span class=\"hljs-keyword\">import</span> pi\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">radians</span>(<span class=\"hljs-params\">degree: <span class=\"hljs-built_in\">float</span></span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Coverts the given angle from degrees to radians\r\n    https://en.wikipedia.org/wiki/Radian\r\n\r\n    &gt;&gt;&gt; radians(180)\r\n    3.141592653589793\r\n    &gt;&gt;&gt; radians(92)\r\n    1.6057029118347832\r\n    &gt;&gt;&gt; radians(274)\r\n    4.782202150464463\r\n    &gt;&gt;&gt; radians(109.82)\r\n    1.9167205845401725\r\n\r\n    &gt;&gt;&gt; from math import radians as math_radians\r\n    &gt;&gt;&gt; all(abs(radians(i)-math_radians(i)) &lt;= 0.00000001  for i in range(-2, 361))\r\n    True\r\n    &quot;&quot;&quot;</span>\r\n\r\n    <span class=\"hljs-keyword\">return</span> degree / (<span class=\"hljs-number\">180</span> / pi)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">from</span> doctest <span class=\"hljs-keyword\">import</span> testmod\r\n\r\n    testmod()\r\n"
+    },
+    "javascript": {
+      "dir": "Maths\\test\\DegreeToRadian.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\DegreeToRadian.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { degreeToRadian } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../DegreeToRadian&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;should convert degree to radian:&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-keyword\">const</span> radianEqual = <span class=\"hljs-title function_\">degreeToRadian</span>(<span class=\"hljs-number\">0</span>)\r\n  <span class=\"hljs-title function_\">expect</span>(radianEqual).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">0</span>)\r\n})\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;should convert degree to radian:&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-keyword\">const</span> radianEqual = <span class=\"hljs-title function_\">degreeToRadian</span>(<span class=\"hljs-number\">45</span>)\r\n  <span class=\"hljs-title function_\">expect</span>(radianEqual).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-property\">PI</span> / <span class=\"hljs-number\">4</span>)\r\n})\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;should convert degree to radian:&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-keyword\">const</span> radianEqual = <span class=\"hljs-title function_\">degreeToRadian</span>(<span class=\"hljs-number\">90</span>)\r\n  <span class=\"hljs-title function_\">expect</span>(radianEqual).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-property\">PI</span> / <span class=\"hljs-number\">2</span>)\r\n})\r\n\r\n<span class=\"hljs-title function_\">test</span>(<span class=\"hljs-string\">&#x27;should convert degree to radian:&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-keyword\">const</span> radianEqual = <span class=\"hljs-title function_\">degreeToRadian</span>(<span class=\"hljs-number\">180</span>)\r\n  <span class=\"hljs-title function_\">expect</span>(radianEqual).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-property\">PI</span>)\r\n})\r\n"
+    }
+  },
+  "contributors": [],
+  "explanationUrl": {}
+}

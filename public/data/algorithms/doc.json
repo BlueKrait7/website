@@ -1,0 +1,33 @@
+{
+  "slug": "doc",
+  "name": "Doc",
+  "categories": [
+    "ciphers"
+  ],
+  "body": {},
+  "implementations": {
+    "go": {
+      "dir": "structure\\linkedlist\\doc.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/structure\\linkedlist\\doc.go",
+      "code": "<span class=\"hljs-comment\">// Package linkedlist demonstates different implementations on linkedlists.</span>\r\n<span class=\"hljs-keyword\">package</span> linkedlist\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Paul Leydier",
+      "email": "75126792+paul-leydier@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Shivam Rathore",
+      "email": "shivam.rathore010@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Taj",
+      "email": "tjgurwara99@users.noreply.github.com",
+      "commits": 9
+    }
+  ],
+  "explanationUrl": {}
+}

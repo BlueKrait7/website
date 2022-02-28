@@ -1,0 +1,33 @@
+{
+  "slug": "dice-coefficient",
+  "name": "Dice Coefficient",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "String\\test\\DiceCoefficient.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/String\\test\\DiceCoefficient.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { diceCoefficient } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../DiceCoefficient&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;diceCoefficient&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should calculate edit distance between two strings&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-comment\">// equal strings return 1 (max possible value)</span>\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">diceCoefficient</span>(<span class=\"hljs-string\">&#x27;abc&#x27;</span>, <span class=\"hljs-string\">&#x27;abc&#x27;</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">1</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">diceCoefficient</span>(<span class=\"hljs-string\">&#x27;&#x27;</span>, <span class=\"hljs-string\">&#x27;&#x27;</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">1</span>)\r\n\r\n    <span class=\"hljs-comment\">// string length needs to be at least 2 (unless equal)</span>\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">diceCoefficient</span>(<span class=\"hljs-string\">&#x27;a&#x27;</span>, <span class=\"hljs-string\">&#x27;&#x27;</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">0</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">diceCoefficient</span>(<span class=\"hljs-string\">&#x27;&#x27;</span>, <span class=\"hljs-string\">&#x27;a&#x27;</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">0</span>)\r\n\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">diceCoefficient</span>(<span class=\"hljs-string\">&#x27;skate&#x27;</span>, <span class=\"hljs-string\">&#x27;ate&#x27;</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">0.66</span>)\r\n\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">diceCoefficient</span>(<span class=\"hljs-string\">&#x27;money&#x27;</span>, <span class=\"hljs-string\">&#x27;honey&#x27;</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">0.75</span>)\r\n\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">diceCoefficient</span>(<span class=\"hljs-string\">&#x27;love&#x27;</span>, <span class=\"hljs-string\">&#x27;hate&#x27;</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">0</span>)\r\n\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">diceCoefficient</span>(<span class=\"hljs-string\">&#x27;skilled&#x27;</span>, <span class=\"hljs-string\">&#x27;killed&#x27;</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">0.9</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Rak Laptudirm",
+      "email": "raklaptudirm@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Urcute",
+      "email": "75350256+itsUrcute@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

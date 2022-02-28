@@ -1,0 +1,24 @@
+{
+  "slug": "double-point-crossover",
+  "name": "Double Point Crossover",
+  "categories": [
+    "geneticalgorithm",
+    "minimizationofpolynomialfunction"
+  ],
+  "body": {},
+  "implementations": {
+    "matlab-octave": {
+      "dir": "algorithms\\Genetic-Algorithm\\Minimization of polynomial function\\DoublePointCrossover.m",
+      "url": "https://github.com/TheAlgorithms/matlab-octave/tree/master/algorithms\\Genetic-Algorithm\\Minimization of polynomial function\\DoublePointCrossover.m",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-params\">[y1,y2]</span> = <span class=\"hljs-title\">DoublePointCrossover</span><span class=\"hljs-params\">(x1,x2)</span></span>\r\n    nVar = <span class=\"hljs-built_in\">numel</span>(x1);\r\n    \r\n    q = randperm(nVar);\r\n    j1 = <span class=\"hljs-built_in\">min</span>(q(<span class=\"hljs-number\">1</span>),q(<span class=\"hljs-number\">2</span>));\r\n    j2 = <span class=\"hljs-built_in\">max</span>(q(<span class=\"hljs-number\">1</span>),q(<span class=\"hljs-number\">2</span>));\r\n    \r\n    y1 = [x1(<span class=\"hljs-number\">1</span>:j1) x2(j1+<span class=\"hljs-number\">1</span>:j2) x1(j2+<span class=\"hljs-number\">1</span>:<span class=\"hljs-keyword\">end</span>)];\r\n    y2 = [x2(<span class=\"hljs-number\">1</span>:j1) x1(j1+<span class=\"hljs-number\">1</span>:j2) x2(j2+<span class=\"hljs-number\">1</span>:<span class=\"hljs-keyword\">end</span>)];\r\n    \r\n<span class=\"hljs-keyword\">end</span>"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Abhishek Maletha",
+      "email": "67141747+Abhishek-photon@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

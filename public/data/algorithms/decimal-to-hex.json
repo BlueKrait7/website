@@ -1,0 +1,48 @@
+{
+  "slug": "decimal-to-hex",
+  "name": "Decimal To Hex",
+  "categories": [
+    "conversions"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Conversions\\test\\DecimalToHex.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Conversions\\test\\DecimalToHex.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { decimalToHex } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../DecimalToHex&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;DecimalToHex&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return correct hexadecimal value&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">decimalToHex</span>(<span class=\"hljs-number\">255</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;FF&#x27;</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return correct hexadecimal value, matching (num).toString(16)&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">decimalToHex</span>(<span class=\"hljs-number\">32768</span>)).<span class=\"hljs-title function_\">toBe</span>((<span class=\"hljs-number\">32768</span>).<span class=\"hljs-title function_\">toString</span>(<span class=\"hljs-number\">16</span>).<span class=\"hljs-title function_\">toUpperCase</span>())\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to not handle negative numbers&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">decimalToHex</span>(-<span class=\"hljs-number\">32768</span>)).<span class=\"hljs-property\">not</span>.<span class=\"hljs-title function_\">toBe</span>((-<span class=\"hljs-number\">32768</span>).<span class=\"hljs-title function_\">toString</span>(<span class=\"hljs-number\">16</span>).<span class=\"hljs-title function_\">toUpperCase</span>())\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "Omkarnath Parida",
+      "email": "pomkarnath98@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "fecqs",
+      "email": "466712071@qq.com",
+      "commits": 1
+    },
+    {
+      "name": "Juliano Nunes",
+      "email": "julianomarquesnunes@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "TrasherDK",
+      "email": "trasherdk@fumlersoft.dk",
+      "commits": 2
+    },
+    {
+      "name": "AlexDvorak",
+      "email": "opti.jawsome@gmail.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

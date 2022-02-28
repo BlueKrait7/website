@@ -1,0 +1,32 @@
+{
+  "slug": "determinant",
+  "name": "Determinant",
+  "categories": [
+    "matrix"
+  ],
+  "body": {
+    "fr": "<h2>Description</h2>\n<h3>Principe</h3>\n<ul>\n<li>Calculer le déterminant d'une matrice permet de savoir si elle est inversible ou non.</li>\n<li>Avoir cette information en elle-même ne sert pas à grand-chose, mais si cette matrice représente (par exemple) un système d'équation, cela permet de savoir si ce système possède une solution.</li>\n</ul>\n<h3>Complexités</h3>\n<ul>\n<li>L'algorithme possède une complexité temporelle de l'ordre de $n!$ (À vérifier).</li>\n<li>On utilise une fonction récursive, ce qui est gourmand en termes de mémoire.</li>\n</ul>\n<h3>Applications</h3>\n<ul>\n<li>Trouver le déterminant d'une matrice permet de savoir si on peut utiliser la méthode du pivot de Gauss ou pas.</li>\n</ul>\n<h2>Étapes</h2>\n<ul>\n<li>Puisque le déterminant n'est défini que pour les matrices carrées, il faut d'abord vérifier que la matrice est carré.</li>\n<li>Ensuite, nous développons la matrice par rapport à la première ligne.</li>\n<li>On répète ces étapes à la matrice ainsi développer jusqu'à tomber sur une matrice 2×2, où on applique la formule connue $\\bigg(\\begin{vmatrix}a&#x26;b\\c&#x26;d\\end{vmatrix}=ad-cb\\bigg)$.</li>\n<li>De là, on remonte la cascade d'appel en effectuant les calculs.</li>\n</ul>\n<h2>Exemple</h2>\n<p>Calculons le déterminant de la matrice $\\begin{bmatrix}1&#x26;2&#x26;3\\4&#x26;5&#x26;6\\7&#x26;8&#x26;9\\end{bmatrix}$.</p>\n<h3>Exemple en vidéo</h3>\n<ul>\n<li><a href=\"../Exemples/math/Determinant.mp4\">Déterminant</a></li>\n</ul>\n<h3>Conclusion</h3>\n<p>Le déterminant de $\\begin{bmatrix}1&#x26;2&#x26;3\\4&#x26;5&#x26;6\\7&#x26;8&#x26;9\\end{bmatrix}$ est $0$.</p>\n<h2>Implémentation</h2>\n<ul>\n<li><a href=\"https://github.com/TheAlgorithms/Python/blob/master/linear_algebra/src/lib.py\">Python</a></li>\n</ul>"
+  },
+  "implementations": {
+    "julia": {
+      "dir": "src\\matrix\\determinant.jl",
+      "url": "https://github.com/TheAlgorithms/julia/tree/master/src\\matrix\\determinant.jl",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n    determinant(mat)\r\n\r\nGiven a non singluar matrix, calculate its determinant using LU decomposition.\r\n\r\nL and U are lower triangular and upper triangular matrices respectively such that\r\n\r\nA = L*U\r\n\r\nIf we want to find the determinant, then\r\n\r\ndet(A) = det(LU) = det(L)*det(U)\r\n\r\nDeterminant of triangualar matrices is the product of their diagonal entries. Hence, makes finding the determinant easy.\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">function</span> determinant(mat)\r\n\tn, m = size(mat)\r\n\t<span class=\"hljs-keyword\">if</span> n != m\r\n\t\t<span class=\"hljs-built_in\">DomainError</span>(mat, <span class=\"hljs-string\">&quot;The matrix should be a square matrix.&quot;</span>)\r\n\t<span class=\"hljs-keyword\">end</span>\r\n\tL, U = lu_decompose(mat)\r\n\tl_prod = prod([L[i,i] <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-number\">1</span>:n])\r\n\tu_prod = prod([U[i,i] <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-number\">1</span>:n])\r\n\r\n\t<span class=\"hljs-keyword\">return</span> l_prod * u_prod\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Ved Mahajan",
+      "email": "74182892+Ved-Mahajan@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Azzaare",
+      "email": "jf@baffier.fr",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {
+    "fr": "https://github.com/TheAlgorithms/Algorithms-Explanation/tree/master/fr\\math\\Determinant.md"
+  }
+}

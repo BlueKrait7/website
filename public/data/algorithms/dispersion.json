@@ -1,0 +1,28 @@
+{
+  "slug": "dispersion",
+  "name": "Dispersion",
+  "categories": [
+    "statistics"
+  ],
+  "body": {},
+  "implementations": {
+    "haskell": {
+      "dir": "src\\Statistics\\Dispersion.hs",
+      "url": "https://github.com/TheAlgorithms/haskell/tree/master/src\\Statistics\\Dispersion.hs",
+      "code": "<span class=\"hljs-keyword\">module</span> Statistics.Dispersion <span class=\"hljs-keyword\">where</span>\r\n\r\n<span class=\"hljs-keyword\">import</span> Statistics.Center\r\n\r\n<span class=\"hljs-title\">variance</span> :: (<span class=\"hljs-type\">Foldable</span> t, <span class=\"hljs-type\">Functor</span> t, <span class=\"hljs-type\">Fractional</span> a) =&gt; t a -&gt; a\r\n<span class=\"hljs-title\">variance</span> vals = (sum $ fmap (\\x -&gt; x * x) deviations) / n\r\n    <span class=\"hljs-keyword\">where</span> n = (fromIntegral $ length vals)\r\n          mu = arithmeticMean vals\r\n          deviations = fmap (\\x -&gt; x-mu) vals\r\n\r\n<span class=\"hljs-title\">stdev</span> :: (<span class=\"hljs-type\">Foldable</span> t, <span class=\"hljs-type\">Functor</span> t, <span class=\"hljs-type\">Floating</span> a) =&gt; t a -&gt; a\r\n<span class=\"hljs-title\">stdev</span> vals = sqrt $ variance vals\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Ashwin Narayan",
+      "email": "ashwinnarayan1994@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Mihai Maruseac",
+      "email": "mihai.maruseac@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}
