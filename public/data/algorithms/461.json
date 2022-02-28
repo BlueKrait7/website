@@ -1,0 +1,28 @@
+{
+  "slug": "461",
+  "name": "461",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\461.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\461.c",
+      "code": "<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">hammingDistance</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> x, <span class=\"hljs-type\">int</span> y)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> difference =\r\n        x ^ y;  <span class=\"hljs-comment\">// The XOR operator generates the bitwise difference in the</span>\r\n                <span class=\"hljs-comment\">// binary representation of two numbers If bit in ith position</span>\r\n                <span class=\"hljs-comment\">// of both numbers is same, bit in difference is 0, otherwise 1</span>\r\n    <span class=\"hljs-type\">int</span> TotalBits = <span class=\"hljs-keyword\">sizeof</span>(difference) * <span class=\"hljs-number\">8</span>;  <span class=\"hljs-comment\">// total number of bits</span>\r\n    <span class=\"hljs-type\">int</span> i, distance = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; TotalBits; i++)\r\n    {\r\n        <span class=\"hljs-keyword\">if</span> (difference &amp;\r\n            (UINT32_C(<span class=\"hljs-number\">1</span>)\r\n             &lt;&lt; i))  <span class=\"hljs-comment\">// if the bit on the ith position of 32 bit input is 1,</span>\r\n                     <span class=\"hljs-comment\">// then proceed Further note the use of UINT32_C to convert</span>\r\n                     <span class=\"hljs-comment\">// 1 to unsigned 32 bit int, as just 1 is treated as int</span>\r\n                     <span class=\"hljs-comment\">// which cannot be shifted left more than 30 times</span>\r\n            distance += <span class=\"hljs-number\">1</span>;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> distance;\r\n}"
+    }
+  },
+  "contributors": [
+    {
+      "name": "leoperd",
+      "email": "56191198+leoperd@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "SaurusXI",
+      "email": "vermashantanu@hotmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "29",
+  "name": "29",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\29.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\29.c",
+      "code": "<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">divide</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> dividend, <span class=\"hljs-type\">int</span> divisor)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> sign = <span class=\"hljs-number\">1</span>;\r\n    <span class=\"hljs-type\">long</span> <span class=\"hljs-type\">int</span> output = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-keyword\">if</span> (dividend &lt; <span class=\"hljs-number\">0</span>)\r\n    {\r\n        sign *= <span class=\"hljs-number\">-1</span>;\r\n    }\r\n    <span class=\"hljs-keyword\">else</span>\r\n    {\r\n        dividend *= <span class=\"hljs-number\">-1</span>;\r\n    }\r\n    <span class=\"hljs-keyword\">if</span> (divisor &lt; <span class=\"hljs-number\">0</span>)\r\n    {\r\n        sign *= <span class=\"hljs-number\">-1</span>;\r\n    }\r\n    <span class=\"hljs-keyword\">else</span>\r\n    {\r\n        divisor *= <span class=\"hljs-number\">-1</span>;\r\n    }\r\n    <span class=\"hljs-keyword\">while</span> (dividend &lt;= divisor)\r\n    {\r\n        <span class=\"hljs-type\">long</span> <span class=\"hljs-type\">int</span> tmp = <span class=\"hljs-number\">0</span>;\r\n        <span class=\"hljs-type\">long</span> <span class=\"hljs-type\">int</span> div = divisor;\r\n        <span class=\"hljs-keyword\">while</span> (dividend &lt;= div)\r\n        {\r\n            tmp += (tmp + <span class=\"hljs-number\">1</span>);\r\n            dividend -= div;\r\n            div += div;\r\n        }\r\n        <span class=\"hljs-keyword\">if</span> (output &gt;= INT_MAX)\r\n        {\r\n            <span class=\"hljs-keyword\">if</span> (sign == <span class=\"hljs-number\">-1</span>)\r\n            {\r\n                <span class=\"hljs-keyword\">return</span> INT_MIN;\r\n            }\r\n            <span class=\"hljs-keyword\">else</span>\r\n            {\r\n                <span class=\"hljs-keyword\">return</span> INT_MAX;\r\n            }\r\n        }\r\n        output += tmp;\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">return</span> output * sign;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "dedsinQ",
+      "email": "alex.ruhl123@googlemail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

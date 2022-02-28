@@ -1,0 +1,23 @@
+{
+  "slug": "142",
+  "name": "142",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\142.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\142.c",
+      "code": "<span class=\"hljs-keyword\">struct</span> ListNode *<span class=\"hljs-title function_\">detectCycle</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> ListNode *head)</span>\r\n{\r\n    <span class=\"hljs-keyword\">if</span> (head == <span class=\"hljs-literal\">NULL</span> || head-&gt;next == <span class=\"hljs-literal\">NULL</span>)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">NULL</span>;\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">ListNode</span> *<span class=\"hljs-title\">slow</span>, *<span class=\"hljs-title\">fast</span>;</span>\r\n    slow = fast = head;\r\n    <span class=\"hljs-keyword\">while</span> (fast &amp;&amp; fast-&gt;next)\r\n    {\r\n        slow = slow-&gt;next;\r\n        fast = fast-&gt;next-&gt;next;\r\n        <span class=\"hljs-keyword\">if</span> (slow == fast)\r\n        {\r\n            <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">ListNode</span> *<span class=\"hljs-title\">entry</span> =</span> head;\r\n            <span class=\"hljs-keyword\">while</span> (slow != entry)\r\n            {\r\n                slow = slow-&gt;next;\r\n                entry = entry-&gt;next;\r\n            }\r\n            <span class=\"hljs-keyword\">return</span> entry;\r\n        }\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">NULL</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

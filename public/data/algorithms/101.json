@@ -1,0 +1,23 @@
+{
+  "slug": "101",
+  "name": "101",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\101.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\101.c",
+      "code": "<span class=\"hljs-comment\">/**\r\n * Definition for a binary tree node.\r\n * struct TreeNode {\r\n *     int val;\r\n *     struct TreeNode *left;\r\n *     struct TreeNode *right;\r\n * };\r\n */</span>\r\n\r\n<span class=\"hljs-type\">bool</span> <span class=\"hljs-title function_\">checkSymmetric</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> TreeNode *left, <span class=\"hljs-keyword\">struct</span> TreeNode *right)</span>\r\n{\r\n    <span class=\"hljs-keyword\">if</span> (!left || !right)\r\n        <span class=\"hljs-keyword\">return</span> left == right;\r\n    <span class=\"hljs-keyword\">if</span> (left-&gt;val != right-&gt;val)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-keyword\">return</span> checkSymmetric(left-&gt;left, right-&gt;right) &amp;&amp;\r\n           checkSymmetric(left-&gt;right, right-&gt;left);\r\n}\r\n\r\n<span class=\"hljs-type\">bool</span> <span class=\"hljs-title function_\">isSymmetric</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> TreeNode *root)</span>\r\n{\r\n    <span class=\"hljs-keyword\">return</span> root == <span class=\"hljs-literal\">NULL</span> || checkSymmetric(root-&gt;left, root-&gt;right);\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

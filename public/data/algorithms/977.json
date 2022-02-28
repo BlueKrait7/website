@@ -1,0 +1,33 @@
+{
+  "slug": "977",
+  "name": "977",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\977.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\977.c",
+      "code": "<span class=\"hljs-comment\">/* 1st way: Using 2 pointers */</span>\r\n<span class=\"hljs-type\">int</span> *<span class=\"hljs-title function_\">sortedSquares</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> *A, <span class=\"hljs-type\">int</span> ASize, <span class=\"hljs-type\">int</span> *returnSize)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> i, start = <span class=\"hljs-number\">0</span>, end = ASize - <span class=\"hljs-number\">1</span>;\r\n    <span class=\"hljs-type\">int</span> *res = <span class=\"hljs-built_in\">malloc</span>(ASize * <span class=\"hljs-keyword\">sizeof</span>(<span class=\"hljs-type\">int</span>));\r\n    *returnSize = ASize;\r\n    <span class=\"hljs-keyword\">for</span> (i = ASize - <span class=\"hljs-number\">1</span>; i &gt;= <span class=\"hljs-number\">0</span>; i--)\r\n    {\r\n        <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-built_in\">abs</span>(A[start]) &gt; A[end])\r\n        {\r\n            res[i] = A[start] * A[start];\r\n            start++;\r\n        }\r\n        <span class=\"hljs-keyword\">else</span>\r\n        {\r\n            res[i] = A[end] * A[end];\r\n            end--;\r\n        }\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> res;\r\n}\r\n\r\n<span class=\"hljs-comment\">/* 2nd way: Using qsort */</span>\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">cmpval</span><span class=\"hljs-params\">(<span class=\"hljs-type\">const</span> <span class=\"hljs-type\">void</span> *a, <span class=\"hljs-type\">const</span> <span class=\"hljs-type\">void</span> *b)</span> { <span class=\"hljs-keyword\">return</span> *(<span class=\"hljs-type\">int</span> *)a - *(<span class=\"hljs-type\">int</span> *)b; }\r\n\r\n<span class=\"hljs-type\">int</span> *<span class=\"hljs-title function_\">sortedSquares</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> *A, <span class=\"hljs-type\">int</span> ASize, <span class=\"hljs-type\">int</span> *returnSize)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> *res = <span class=\"hljs-built_in\">malloc</span>(ASize * <span class=\"hljs-keyword\">sizeof</span>(<span class=\"hljs-type\">int</span>));\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> i = <span class=\"hljs-number\">0</span>; i &lt; ASize; i++) res[i] = A[i] * A[i];\r\n    *returnSize = ASize;\r\n    qsort(res, ASize, <span class=\"hljs-keyword\">sizeof</span>(<span class=\"hljs-type\">int</span>), cmpval);\r\n    <span class=\"hljs-keyword\">return</span> res;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "leoperd",
+      "email": "56191198+leoperd@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "RJ Trujillo",
+      "email": "certifiedblyndguy@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

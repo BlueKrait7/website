@@ -1,0 +1,23 @@
+{
+  "slug": "234",
+  "name": "234",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\234.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\234.c",
+      "code": "<span class=\"hljs-comment\">/**\r\n * Definition for singly-linked list.\r\n * struct ListNode {\r\n *     int val;\r\n *     struct ListNode *next;\r\n * };\r\n */</span>\r\n\r\n<span class=\"hljs-keyword\">struct</span> ListNode *<span class=\"hljs-title function_\">reverse</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> ListNode *head)</span>\r\n{\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">ListNode</span> *<span class=\"hljs-title\">res</span> =</span> <span class=\"hljs-literal\">NULL</span>;\r\n    <span class=\"hljs-keyword\">while</span> (head)\r\n    {\r\n        <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">ListNode</span> *<span class=\"hljs-title\">pre_node</span> =</span> head;\r\n        head = head-&gt;next;\r\n        pre_node-&gt;next = res;\r\n        res = pre_node;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> res;\r\n}\r\n<span class=\"hljs-type\">bool</span> <span class=\"hljs-title function_\">isPalindrome</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> ListNode *head)</span>\r\n{\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">ListNode</span> *<span class=\"hljs-title\">slow</span> =</span> head;\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">ListNode</span> *<span class=\"hljs-title\">fast</span> =</span> head;\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">ListNode</span> *<span class=\"hljs-title\">last</span>;</span>\r\n    <span class=\"hljs-keyword\">while</span> (fast &amp;&amp; fast-&gt;next)\r\n    {\r\n        slow = slow-&gt;next;\r\n        fast = fast-&gt;next-&gt;next;\r\n    }\r\n    <span class=\"hljs-keyword\">if</span> (fast != <span class=\"hljs-literal\">NULL</span>)\r\n        slow = slow-&gt;next;\r\n    last = reverse(slow);\r\n    <span class=\"hljs-keyword\">while</span> (last)\r\n    {\r\n        <span class=\"hljs-keyword\">if</span> (head-&gt;val != last-&gt;val)\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n        head = head-&gt;next;\r\n        last = last-&gt;next;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "203",
+  "name": "203",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\203.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\203.c",
+      "code": "<span class=\"hljs-keyword\">struct</span> ListNode *<span class=\"hljs-title function_\">removeElements</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> ListNode *head, <span class=\"hljs-type\">int</span> val)</span>\r\n{\r\n    <span class=\"hljs-keyword\">if</span> (head == <span class=\"hljs-literal\">NULL</span>)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">NULL</span>;\r\n    <span class=\"hljs-keyword\">if</span> (head-&gt;val == val)\r\n    {\r\n        <span class=\"hljs-keyword\">return</span> removeElements(head-&gt;next, val);\r\n    }\r\n    <span class=\"hljs-keyword\">else</span>\r\n    {\r\n        head-&gt;next = removeElements(head-&gt;next, val);\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> head;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

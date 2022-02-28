@@ -1,0 +1,23 @@
+{
+  "slug": "169",
+  "name": "169",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\169.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\169.c",
+      "code": "<span class=\"hljs-comment\">/* Boyer-Moore Majority Vote Algorithm\r\n * http://www.cs.utexas.edu/~moore/best-ideas/mjrty/ */</span>\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">majorityElement</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> *nums, <span class=\"hljs-type\">int</span> numsSize)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> count = <span class=\"hljs-number\">1</span>;\r\n    <span class=\"hljs-type\">int</span> majorNum = nums[<span class=\"hljs-number\">0</span>];\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> i = <span class=\"hljs-number\">1</span>; i &lt; numsSize; i++)\r\n    {\r\n        <span class=\"hljs-keyword\">if</span> (count == <span class=\"hljs-number\">0</span>)\r\n        {\r\n            majorNum = nums[i];\r\n            count++;\r\n        }\r\n        <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span> (majorNum == nums[i])\r\n            count++;\r\n        <span class=\"hljs-keyword\">else</span>\r\n            count--;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> majorNum;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

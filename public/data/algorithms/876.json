@@ -1,0 +1,23 @@
+{
+  "slug": "876",
+  "name": "876",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\876.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\876.c",
+      "code": "<span class=\"hljs-comment\">/**\r\n * Definition for singly-linked list.\r\n * struct ListNode {\r\n *     int val;\r\n *     struct ListNode *next;\r\n * };\r\n */</span>\r\n\r\n<span class=\"hljs-keyword\">struct</span> ListNode *<span class=\"hljs-title function_\">middleNode</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> ListNode *head)</span>\r\n{\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">ListNode</span> *<span class=\"hljs-title\">fast</span>, *<span class=\"hljs-title\">slow</span>;</span>\r\n    fast = slow = head;\r\n    <span class=\"hljs-keyword\">while</span> (fast &amp;&amp; fast-&gt;next)\r\n    {\r\n        slow = slow-&gt;next;\r\n        fast = fast-&gt;next-&gt;next;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> slow;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

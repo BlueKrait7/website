@@ -1,0 +1,23 @@
+{
+  "slug": "965",
+  "name": "965",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\965.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\965.c",
+      "code": "<span class=\"hljs-type\">bool</span> <span class=\"hljs-title function_\">isUnivalTree</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> TreeNode *root)</span>\r\n{\r\n    <span class=\"hljs-keyword\">if</span> (root == <span class=\"hljs-literal\">NULL</span>)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>;\r\n    <span class=\"hljs-keyword\">if</span> (root-&gt;left)\r\n    {\r\n        <span class=\"hljs-keyword\">if</span> (root-&gt;left-&gt;val != root-&gt;val)\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n    }\r\n    <span class=\"hljs-keyword\">if</span> (root-&gt;right)\r\n    {\r\n        <span class=\"hljs-keyword\">if</span> (root-&gt;right-&gt;val != root-&gt;val)\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> isUnivalTree(root-&gt;left) &amp;&amp; isUnivalTree(root-&gt;right);\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

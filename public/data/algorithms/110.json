@@ -1,0 +1,23 @@
+{
+  "slug": "110",
+  "name": "110",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\110.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\110.c",
+      "code": "<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">max</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> a, <span class=\"hljs-type\">int</span> b)</span> { <span class=\"hljs-keyword\">return</span> a &gt;= b ? a : b; }\r\n\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">height</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> TreeNode *root)</span>\r\n{\r\n    <span class=\"hljs-keyword\">if</span> (root == <span class=\"hljs-literal\">NULL</span>)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-keyword\">else</span>\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span> + max(height(root-&gt;left), height(root-&gt;right));\r\n}\r\n\r\n<span class=\"hljs-type\">bool</span> <span class=\"hljs-title function_\">isBalanced</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> TreeNode *root)</span>\r\n{\r\n    <span class=\"hljs-keyword\">if</span> (root == <span class=\"hljs-literal\">NULL</span>)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>;\r\n    <span class=\"hljs-type\">int</span> left = height(root-&gt;left);\r\n    <span class=\"hljs-type\">int</span> right = height(root-&gt;right);\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-built_in\">abs</span>(left - right) &lt;= <span class=\"hljs-number\">1</span> &amp;&amp; isBalanced(root-&gt;left) &amp;&amp;\r\n           isBalanced(root-&gt;right);\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

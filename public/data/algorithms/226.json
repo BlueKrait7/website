@@ -1,0 +1,23 @@
+{
+  "slug": "226",
+  "name": "226",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\226.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\226.c",
+      "code": "<span class=\"hljs-keyword\">struct</span> TreeNode *<span class=\"hljs-title function_\">invertTree</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> TreeNode *root)</span>\r\n{\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">TreeNode</span> *<span class=\"hljs-title\">tmp</span>;</span>\r\n    <span class=\"hljs-keyword\">if</span> (root == <span class=\"hljs-literal\">NULL</span>)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">NULL</span>;\r\n    tmp = root-&gt;left;\r\n    root-&gt;left = root-&gt;right;\r\n    root-&gt;right = tmp;\r\n\r\n    invertTree(root-&gt;left);\r\n    invertTree(root-&gt;right);\r\n    <span class=\"hljs-keyword\">return</span> root;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

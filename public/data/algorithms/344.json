@@ -1,0 +1,23 @@
+{
+  "slug": "344",
+  "name": "344",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\344.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\344.c",
+      "code": "<span class=\"hljs-type\">void</span> <span class=\"hljs-title function_\">reverseString</span><span class=\"hljs-params\">(<span class=\"hljs-type\">char</span> *s, <span class=\"hljs-type\">int</span> sSize)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> last = sSize - <span class=\"hljs-number\">1</span>, i;\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; last; i++)\r\n    {\r\n        <span class=\"hljs-type\">char</span> tmp = s[i];\r\n        s[i] = s[last];\r\n        s[last] = tmp;\r\n        last--;\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

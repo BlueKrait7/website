@@ -1,0 +1,23 @@
+{
+  "slug": "520",
+  "name": "520",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\520.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\520.c",
+      "code": "<span class=\"hljs-type\">bool</span> <span class=\"hljs-title function_\">detectCapitalUse</span><span class=\"hljs-params\">(<span class=\"hljs-type\">char</span> *word)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> len = <span class=\"hljs-built_in\">strlen</span>(word);\r\n    <span class=\"hljs-keyword\">if</span> (len == <span class=\"hljs-number\">1</span>)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>;\r\n    <span class=\"hljs-type\">int</span> countUpper = <span class=\"hljs-number\">0</span>, i;\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; len; i++)\r\n    {\r\n        <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-built_in\">isupper</span>(word[i]))\r\n            countUpper++;\r\n    }\r\n    <span class=\"hljs-comment\">/* All lower case */</span>\r\n    <span class=\"hljs-keyword\">if</span> (countUpper == <span class=\"hljs-number\">0</span>)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>;\r\n    <span class=\"hljs-comment\">/* 1st character is upper, and the rest is lower case */</span>\r\n    <span class=\"hljs-keyword\">if</span> (countUpper == <span class=\"hljs-number\">1</span> &amp;&amp; <span class=\"hljs-built_in\">isupper</span>(word[<span class=\"hljs-number\">0</span>]))\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>;\r\n    <span class=\"hljs-comment\">/* Check all character is upper case? */</span>\r\n    <span class=\"hljs-keyword\">else</span>\r\n        <span class=\"hljs-keyword\">return</span> countUpper == len;\r\n}\r\n\r\n<span class=\"hljs-comment\">/* Another way */</span>\r\n<span class=\"hljs-type\">bool</span> <span class=\"hljs-title function_\">isAllUpper</span><span class=\"hljs-params\">(<span class=\"hljs-type\">char</span> *word)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> len = <span class=\"hljs-built_in\">strlen</span>(word);\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> i = <span class=\"hljs-number\">0</span>; i &lt; len; i++)\r\n    {\r\n        <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-built_in\">islower</span>(word[i]))\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>;\r\n}\r\n<span class=\"hljs-type\">bool</span> <span class=\"hljs-title function_\">detectCapitalUse</span><span class=\"hljs-params\">(<span class=\"hljs-type\">char</span> *word)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> len = <span class=\"hljs-built_in\">strlen</span>(word);\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> i = <span class=\"hljs-number\">1</span>; i &lt; len; i++)\r\n    {\r\n        <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-built_in\">isupper</span>(word[i]) &amp;&amp; !isAllUpper(word))\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

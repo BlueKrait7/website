@@ -1,0 +1,23 @@
+{
+  "slug": "206",
+  "name": "206",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\206.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\206.c",
+      "code": "<span class=\"hljs-comment\">/**\r\n * Definition for singly-linked list.\r\n * struct ListNode {\r\n *     int val;\r\n *     struct ListNode *next;\r\n * };\r\n */</span>\r\n\r\n<span class=\"hljs-keyword\">struct</span> ListNode *<span class=\"hljs-title function_\">reverseList</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> ListNode *head)</span>\r\n{\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">ListNode</span> *<span class=\"hljs-title\">res</span> =</span> <span class=\"hljs-literal\">NULL</span>;\r\n    <span class=\"hljs-keyword\">while</span> (head)\r\n    {\r\n        <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">ListNode</span> *<span class=\"hljs-title\">pre_node</span> =</span> head;\r\n        head = head-&gt;next;\r\n        pre_node-&gt;next = res;\r\n        res = pre_node;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> res;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

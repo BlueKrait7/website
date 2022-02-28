@@ -1,0 +1,23 @@
+{
+  "slug": "404",
+  "name": "404",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\404.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\404.c",
+      "code": "<span class=\"hljs-type\">bool</span> <span class=\"hljs-title function_\">isleaf</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> TreeNode *root)</span>\r\n{\r\n    <span class=\"hljs-keyword\">return</span> root-&gt;left == <span class=\"hljs-literal\">NULL</span> &amp;&amp; root-&gt;right == <span class=\"hljs-literal\">NULL</span>;\r\n}\r\n\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">sumOfLeftLeaves</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> TreeNode *root)</span>\r\n{\r\n    <span class=\"hljs-keyword\">if</span> (root == <span class=\"hljs-literal\">NULL</span>)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-keyword\">if</span> (root-&gt;left)\r\n    {\r\n        <span class=\"hljs-keyword\">if</span> (isleaf(root-&gt;left))\r\n            <span class=\"hljs-keyword\">return</span> root-&gt;left-&gt;val + sumOfLeftLeaves(root-&gt;right);\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> sumOfLeftLeaves(root-&gt;left) + sumOfLeftLeaves(root-&gt;right);\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

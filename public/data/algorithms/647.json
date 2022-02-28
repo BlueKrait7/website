@@ -1,0 +1,23 @@
+{
+  "slug": "647",
+  "name": "647",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\647.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\647.c",
+      "code": "\r\n<span class=\"hljs-comment\">/* Author : Saurav Dubey */</span>\r\n\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">countSubstrings</span><span class=\"hljs-params\">(<span class=\"hljs-type\">char</span> *s)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> len = <span class=\"hljs-built_in\">strlen</span>(s);\r\n    <span class=\"hljs-type\">int</span> i;\r\n    <span class=\"hljs-type\">int</span> count = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; len; i++)\r\n    {\r\n        <span class=\"hljs-comment\">// cases handled for both odd and even lenghted Palindrome</span>\r\n\r\n        count += countPalin(s, i, i, len);\r\n        <span class=\"hljs-keyword\">if</span> (i != len - <span class=\"hljs-number\">1</span>)\r\n            count += countPalin(s, i, i + <span class=\"hljs-number\">1</span>, len);\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> count;\r\n}\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">countPalin</span><span class=\"hljs-params\">(<span class=\"hljs-type\">char</span> *s, <span class=\"hljs-type\">int</span> head, <span class=\"hljs-type\">int</span> tail, <span class=\"hljs-type\">int</span> len)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> ret = (s[head] == s[tail]) ? <span class=\"hljs-number\">1</span> : <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-keyword\">if</span> (ret &amp;&amp; head - <span class=\"hljs-number\">1</span> &gt;= <span class=\"hljs-number\">0</span> &amp;&amp; tail + <span class=\"hljs-number\">1</span> &lt; len)\r\n        ret += countPalin(s, head - <span class=\"hljs-number\">1</span>, tail + <span class=\"hljs-number\">1</span>, len);\r\n    <span class=\"hljs-keyword\">return</span> ret;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Saurav Kumar Dubey",
+      "email": "37882053+sauravkdubey@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

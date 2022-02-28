@@ -1,0 +1,23 @@
+{
+  "slug": "109",
+  "name": "109",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\109.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\109.c",
+      "code": "<span class=\"hljs-keyword\">struct</span> TreeNode *<span class=\"hljs-title function_\">buildBST</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> ListNode *head, <span class=\"hljs-keyword\">struct</span> ListNode *tail)</span>\r\n{\r\n    <span class=\"hljs-keyword\">if</span> (head == tail)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">NULL</span>;\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">ListNode</span> *<span class=\"hljs-title\">slow</span> =</span> head, *fast = head;\r\n    <span class=\"hljs-keyword\">while</span> (fast != tail &amp;&amp; fast-&gt;next != tail)\r\n    {\r\n        fast = fast-&gt;next-&gt;next;\r\n        slow = slow-&gt;next;\r\n    }\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">TreeNode</span> *<span class=\"hljs-title\">node</span> =</span> <span class=\"hljs-built_in\">malloc</span>(<span class=\"hljs-keyword\">sizeof</span>(<span class=\"hljs-keyword\">struct</span> TreeNode));\r\n    node-&gt;val = slow-&gt;val;\r\n    node-&gt;left = buildBST(head, slow);\r\n    node-&gt;right = buildBST(slow-&gt;next, tail);\r\n    <span class=\"hljs-keyword\">return</span> node;\r\n}\r\n<span class=\"hljs-keyword\">struct</span> TreeNode *<span class=\"hljs-title function_\">sortedListToBST</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> ListNode *head)</span>\r\n{\r\n    <span class=\"hljs-keyword\">if</span> (!head)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">NULL</span>;\r\n    <span class=\"hljs-keyword\">else</span>\r\n        <span class=\"hljs-keyword\">return</span> buildBST(head, <span class=\"hljs-literal\">NULL</span>);\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

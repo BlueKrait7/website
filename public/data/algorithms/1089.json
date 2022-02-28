@@ -1,0 +1,23 @@
+{
+  "slug": "1089",
+  "name": "1089",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\1089.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\1089.c",
+      "code": "<span class=\"hljs-type\">void</span> <span class=\"hljs-title function_\">duplicateZeros</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> *arr, <span class=\"hljs-type\">int</span> arrSize)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> i, start = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-type\">int</span> *tmp = <span class=\"hljs-built_in\">malloc</span>(arrSize * <span class=\"hljs-keyword\">sizeof</span>(<span class=\"hljs-type\">int</span>));\r\n    <span class=\"hljs-comment\">/* Copy arr into tmp arr */</span>\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; arrSize; i++)\r\n    {\r\n        tmp[i] = arr[i];\r\n    }\r\n    i = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-keyword\">for</span> (start = <span class=\"hljs-number\">0</span>; start &lt; arrSize; start++)\r\n    {\r\n        arr[start] = tmp[i];\r\n        <span class=\"hljs-keyword\">if</span> (tmp[i] == <span class=\"hljs-number\">0</span>)\r\n        {\r\n            start++;\r\n            <span class=\"hljs-keyword\">if</span> (start &lt; arrSize)\r\n                arr[start] = <span class=\"hljs-number\">0</span>;\r\n        }\r\n        i++;\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

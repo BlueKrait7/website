@@ -1,0 +1,23 @@
+{
+  "slug": "278",
+  "name": "278",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\278.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\278.c",
+      "code": "<span class=\"hljs-comment\">// Forward declaration of isBadVersion API.</span>\r\n<span class=\"hljs-type\">bool</span> <span class=\"hljs-title function_\">isBadVersion</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> version)</span>;\r\n\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">firstBadVersion</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> n)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> low = <span class=\"hljs-number\">1</span>, high = n;\r\n    <span class=\"hljs-keyword\">while</span> (low &lt;= high)\r\n    {\r\n        <span class=\"hljs-type\">int</span> mid = low + (high - low) / <span class=\"hljs-number\">2</span>;\r\n        <span class=\"hljs-keyword\">if</span> (isBadVersion(mid))\r\n        {\r\n            high = mid - <span class=\"hljs-number\">1</span>;\r\n        }\r\n        <span class=\"hljs-keyword\">else</span>\r\n        {\r\n            low = mid + <span class=\"hljs-number\">1</span>;\r\n        }\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> low;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

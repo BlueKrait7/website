@@ -1,0 +1,23 @@
+{
+  "slug": "674",
+  "name": "674",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\674.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\674.c",
+      "code": "<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">findLengthOfLCIS</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> *nums, <span class=\"hljs-type\">int</span> numsSize)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> maxval = <span class=\"hljs-number\">1</span>, i, count = <span class=\"hljs-number\">1</span>;\r\n    <span class=\"hljs-keyword\">if</span> (numsSize == <span class=\"hljs-number\">0</span>)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">1</span>; i &lt; numsSize; i++)\r\n    {\r\n        <span class=\"hljs-keyword\">if</span> (nums[i] &gt; nums[i - <span class=\"hljs-number\">1</span>])\r\n        {\r\n            count++;\r\n            <span class=\"hljs-keyword\">if</span> (count &gt;= maxval)\r\n                maxval = count;\r\n        }\r\n        <span class=\"hljs-keyword\">else</span>\r\n        {\r\n            count = <span class=\"hljs-number\">1</span>;\r\n        }\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> maxval;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

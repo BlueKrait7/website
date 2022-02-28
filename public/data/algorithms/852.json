@@ -1,0 +1,23 @@
+{
+  "slug": "852",
+  "name": "852",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\852.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\852.c",
+      "code": "<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">peakIndexInMountainArray</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> *A, <span class=\"hljs-type\">int</span> ASize)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> low = <span class=\"hljs-number\">1</span>, high = ASize;\r\n    <span class=\"hljs-keyword\">while</span> (low &lt;= high)\r\n    {\r\n        <span class=\"hljs-type\">int</span> mid = low + (high - low) / <span class=\"hljs-number\">2</span>;\r\n        <span class=\"hljs-keyword\">if</span> (A[mid - <span class=\"hljs-number\">1</span>] &lt; A[mid] &amp;&amp; A[mid] &gt; A[mid + <span class=\"hljs-number\">1</span>])\r\n            <span class=\"hljs-keyword\">return</span> mid;\r\n        <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span> (A[mid - <span class=\"hljs-number\">1</span>] &lt; A[mid] &amp;&amp; A[mid] &lt; A[mid + <span class=\"hljs-number\">1</span>])\r\n            low = mid + <span class=\"hljs-number\">1</span>;\r\n        <span class=\"hljs-keyword\">else</span>\r\n            high = mid - <span class=\"hljs-number\">1</span>;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">-1</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

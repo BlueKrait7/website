@@ -1,0 +1,33 @@
+{
+  "slug": "704",
+  "name": "704",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\704.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\704.c",
+      "code": "<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">search</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> *nums, <span class=\"hljs-type\">int</span> numsSize, <span class=\"hljs-type\">int</span> target)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> low = <span class=\"hljs-number\">0</span>, high = numsSize - <span class=\"hljs-number\">1</span>;\r\n    <span class=\"hljs-keyword\">while</span> (low &lt;= high)\r\n    {\r\n        <span class=\"hljs-type\">int</span> mid = low + (high - low) / <span class=\"hljs-number\">2</span>;\r\n        <span class=\"hljs-keyword\">if</span> (target &gt; nums[mid])\r\n        {\r\n            low = mid + <span class=\"hljs-number\">1</span>;\r\n        }\r\n        <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span> (target &lt; nums[mid])\r\n        {\r\n            high = mid - <span class=\"hljs-number\">1</span>;\r\n        }\r\n        <span class=\"hljs-keyword\">else</span>\r\n        {\r\n            <span class=\"hljs-keyword\">return</span> mid;\r\n        }\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">-1</span>;\r\n}\r\n\r\n<span class=\"hljs-comment\">/* Another solution: Using bsearch() */</span>\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">cmpint</span><span class=\"hljs-params\">(<span class=\"hljs-type\">const</span> <span class=\"hljs-type\">void</span> *a, <span class=\"hljs-type\">const</span> <span class=\"hljs-type\">void</span> *b)</span> { <span class=\"hljs-keyword\">return</span> *(<span class=\"hljs-type\">int</span> *)a - *(<span class=\"hljs-type\">int</span> *)b; }\r\n\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">search</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> *nums, <span class=\"hljs-type\">int</span> numsSize, <span class=\"hljs-type\">int</span> target)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> *ret = bsearch(&amp;target, nums, numsSize, <span class=\"hljs-keyword\">sizeof</span>(<span class=\"hljs-type\">int</span>), cmpint);\r\n    <span class=\"hljs-keyword\">if</span> (ret)\r\n        <span class=\"hljs-keyword\">return</span> (ret - nums);\r\n    <span class=\"hljs-keyword\">else</span>\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">-1</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "leoperd",
+      "email": "56191198+leoperd@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "RJ Trujillo",
+      "email": "certifiedblyndguy@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

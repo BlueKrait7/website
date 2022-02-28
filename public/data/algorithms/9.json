@@ -1,0 +1,23 @@
+{
+  "slug": "9",
+  "name": "9",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\9.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\9.c",
+      "code": "<span class=\"hljs-type\">bool</span> <span class=\"hljs-title function_\">isPalindrome</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> x)</span>\r\n{\r\n    <span class=\"hljs-keyword\">if</span> (x &lt; <span class=\"hljs-number\">0</span> || (x % <span class=\"hljs-number\">10</span> == <span class=\"hljs-number\">0</span> &amp;&amp; x != <span class=\"hljs-number\">0</span>))\r\n    {\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>;\r\n    }\r\n\r\n    <span class=\"hljs-type\">int</span> revertedNumber = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-keyword\">while</span> (x &gt; revertedNumber)\r\n    {\r\n        revertedNumber = revertedNumber * <span class=\"hljs-number\">10</span> + x % <span class=\"hljs-number\">10</span>;\r\n        x /= <span class=\"hljs-number\">10</span>;\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">return</span> x == revertedNumber || x == revertedNumber / <span class=\"hljs-number\">10</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Keval",
+      "email": "keval@thechubbypanda.net",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

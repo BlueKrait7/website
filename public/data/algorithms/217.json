@@ -1,0 +1,23 @@
+{
+  "slug": "217",
+  "name": "217",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\217.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\217.c",
+      "code": "<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">numcmp</span><span class=\"hljs-params\">(<span class=\"hljs-type\">const</span> <span class=\"hljs-type\">void</span> *a, <span class=\"hljs-type\">const</span> <span class=\"hljs-type\">void</span> *b)</span> { <span class=\"hljs-keyword\">return</span> *(<span class=\"hljs-type\">int</span> *)a - *(<span class=\"hljs-type\">int</span> *)b; }\r\n\r\n<span class=\"hljs-type\">bool</span> <span class=\"hljs-title function_\">containsDuplicate</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> *nums, <span class=\"hljs-type\">int</span> numsSize)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> i;\r\n    qsort(nums, numsSize, <span class=\"hljs-keyword\">sizeof</span>(<span class=\"hljs-type\">int</span>), numcmp);\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; numsSize - <span class=\"hljs-number\">1</span>; i++)\r\n    {\r\n        <span class=\"hljs-keyword\">if</span> (nums[i] == nums[i + <span class=\"hljs-number\">1</span>])\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

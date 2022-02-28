@@ -1,0 +1,23 @@
+{
+  "slug": "561",
+  "name": "561",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\561.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\561.c",
+      "code": "<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">cmpval</span><span class=\"hljs-params\">(<span class=\"hljs-type\">const</span> <span class=\"hljs-type\">void</span> *a, <span class=\"hljs-type\">const</span> <span class=\"hljs-type\">void</span> *b)</span> { <span class=\"hljs-keyword\">return</span> *(<span class=\"hljs-type\">int</span> *)a - *(<span class=\"hljs-type\">int</span> *)b; }\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">arrayPairSum</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> *nums, <span class=\"hljs-type\">int</span> numsSize)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> sum = <span class=\"hljs-number\">0</span>, i;\r\n    qsort(nums, numsSize, <span class=\"hljs-keyword\">sizeof</span>(<span class=\"hljs-type\">int</span>), cmpval);\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; numsSize; i = i + <span class=\"hljs-number\">2</span>) sum = sum + nums[i];\r\n    <span class=\"hljs-keyword\">return</span> sum;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

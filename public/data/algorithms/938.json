@@ -1,0 +1,33 @@
+{
+  "slug": "938",
+  "name": "938",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\938.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\938.c",
+      "code": "<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">rangeSumBST</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> TreeNode *root, <span class=\"hljs-type\">int</span> L, <span class=\"hljs-type\">int</span> R)</span>\r\n{\r\n    <span class=\"hljs-keyword\">if</span> (root == <span class=\"hljs-literal\">NULL</span>)\r\n    {\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n    }\r\n    <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span> (root-&gt;val &gt;= L &amp;&amp; root-&gt;val &lt;= R)\r\n    {\r\n        <span class=\"hljs-keyword\">return</span> root-&gt;val + rangeSumBST(root-&gt;left, L, R) +\r\n               rangeSumBST(root-&gt;right, L, R);\r\n    }\r\n    <span class=\"hljs-keyword\">else</span>\r\n    {\r\n        <span class=\"hljs-keyword\">return</span> rangeSumBST(root-&gt;left, L, R) + rangeSumBST(root-&gt;right, L, R);\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "leoperd",
+      "email": "56191198+leoperd@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "RJ Trujillo",
+      "email": "certifiedblyndguy@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

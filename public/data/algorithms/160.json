@@ -1,0 +1,23 @@
+{
+  "slug": "160",
+  "name": "160",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\160.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\160.c",
+      "code": "<span class=\"hljs-keyword\">struct</span> ListNode *<span class=\"hljs-title function_\">getIntersectionNode</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> ListNode *headA,\r\n                                     <span class=\"hljs-keyword\">struct</span> ListNode *headB)</span>\r\n{\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">ListNode</span> *<span class=\"hljs-title\">cur1</span> =</span> headA, *cur2 = headB;\r\n    <span class=\"hljs-keyword\">if</span> (cur1 == <span class=\"hljs-literal\">NULL</span> || cur2 == <span class=\"hljs-literal\">NULL</span>)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">NULL</span>;\r\n    <span class=\"hljs-keyword\">while</span> (cur1 &amp;&amp; cur2 &amp;&amp; cur1 != cur2)\r\n    {\r\n        cur1 = cur1-&gt;next;\r\n        cur2 = cur2-&gt;next;\r\n        <span class=\"hljs-keyword\">if</span> (cur1 == cur2)\r\n            <span class=\"hljs-keyword\">return</span> cur1;\r\n        <span class=\"hljs-keyword\">if</span> (!cur1)\r\n            cur1 = headB;\r\n        <span class=\"hljs-keyword\">if</span> (!cur2)\r\n            cur2 = headA;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> cur1;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

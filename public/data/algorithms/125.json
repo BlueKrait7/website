@@ -1,0 +1,23 @@
+{
+  "slug": "125",
+  "name": "125",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\125.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\125.c",
+      "code": "<span class=\"hljs-type\">bool</span> <span class=\"hljs-title function_\">isPalindrome</span><span class=\"hljs-params\">(<span class=\"hljs-type\">char</span> *s)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> start = <span class=\"hljs-number\">0</span>, end = <span class=\"hljs-built_in\">strlen</span>(s) - <span class=\"hljs-number\">1</span>;\r\n    <span class=\"hljs-keyword\">while</span> (start &lt; end)\r\n    {\r\n        <span class=\"hljs-keyword\">if</span> (!<span class=\"hljs-built_in\">isalpha</span>(s[start]) &amp;&amp; !<span class=\"hljs-built_in\">isalnum</span>(s[start]))\r\n        {\r\n            start++;\r\n        }\r\n        <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span> (!<span class=\"hljs-built_in\">isalpha</span>(s[end]) &amp;&amp; !<span class=\"hljs-built_in\">isalnum</span>(s[end]))\r\n        {\r\n            end--;\r\n        }\r\n        <span class=\"hljs-keyword\">else</span>\r\n        {\r\n            <span class=\"hljs-type\">char</span> c1 = <span class=\"hljs-built_in\">tolower</span>(s[start]);\r\n            <span class=\"hljs-type\">char</span> c2 = <span class=\"hljs-built_in\">tolower</span>(s[end]);\r\n            <span class=\"hljs-keyword\">if</span> (c1 != c2)\r\n                <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n            start++;\r\n            end--;\r\n        }\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "108",
+  "name": "108",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\108.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\108.c",
+      "code": "<span class=\"hljs-comment\">/**\r\n * Definition for a binary tree node.\r\n * struct TreeNode {\r\n *     int val;\r\n *     struct TreeNode *left;\r\n *     struct TreeNode *right;\r\n * };\r\n */</span>\r\n\r\n<span class=\"hljs-keyword\">struct</span> TreeNode *<span class=\"hljs-title function_\">convertBST</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> *nums, <span class=\"hljs-type\">int</span> left, <span class=\"hljs-type\">int</span> right)</span>\r\n{\r\n    <span class=\"hljs-keyword\">if</span> (left &gt; right)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">NULL</span>;\r\n    <span class=\"hljs-keyword\">else</span>\r\n    {\r\n        <span class=\"hljs-type\">int</span> mid = (right + left) / <span class=\"hljs-number\">2</span>;\r\n        <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">TreeNode</span> *<span class=\"hljs-title\">new_val</span> =</span> <span class=\"hljs-built_in\">malloc</span>(<span class=\"hljs-keyword\">sizeof</span>(<span class=\"hljs-keyword\">struct</span> TreeNode));\r\n        new_val-&gt;val = nums[mid];\r\n        new_val-&gt;left = convertBST(nums, left, mid - <span class=\"hljs-number\">1</span>);\r\n        new_val-&gt;right = convertBST(nums, mid + <span class=\"hljs-number\">1</span>, right);\r\n        <span class=\"hljs-keyword\">return</span> new_val;\r\n    }\r\n}\r\n\r\n<span class=\"hljs-keyword\">struct</span> TreeNode *<span class=\"hljs-title function_\">sortedArrayToBST</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> *nums, <span class=\"hljs-type\">int</span> numsSize)</span>\r\n{\r\n    <span class=\"hljs-keyword\">if</span> (numsSize == <span class=\"hljs-number\">0</span>)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">NULL</span>;\r\n    <span class=\"hljs-keyword\">else</span>\r\n        <span class=\"hljs-keyword\">return</span> convertBST(nums, <span class=\"hljs-number\">0</span>, numsSize - <span class=\"hljs-number\">1</span>);\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

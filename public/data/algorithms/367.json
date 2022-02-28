@@ -1,0 +1,23 @@
+{
+  "slug": "367",
+  "name": "367",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\367.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\367.c",
+      "code": "<span class=\"hljs-type\">bool</span> <span class=\"hljs-title function_\">isPerfectSquare</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> num)</span>\r\n{\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">long</span> i = <span class=\"hljs-number\">1</span>; i * i &lt;= num; i++)\r\n        <span class=\"hljs-keyword\">if</span> (i * i == num)\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">true</span>;\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Evandro Nakayama Mota",
+      "email": "evandro.nmota5@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

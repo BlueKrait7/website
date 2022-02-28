@@ -1,0 +1,23 @@
+{
+  "slug": "24",
+  "name": "24",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\24.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\24.c",
+      "code": "<span class=\"hljs-keyword\">struct</span> ListNode *<span class=\"hljs-title function_\">swapPairs</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> ListNode *head)</span>\r\n{\r\n    <span class=\"hljs-keyword\">if</span> (!head || !head-&gt;next)\r\n        <span class=\"hljs-keyword\">return</span> head;\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">ListNode</span> *<span class=\"hljs-title\">tmp</span> =</span> head-&gt;next;\r\n    head-&gt;next = swapPairs(head-&gt;next-&gt;next);\r\n    tmp-&gt;next = head;\r\n    <span class=\"hljs-keyword\">return</span> tmp;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

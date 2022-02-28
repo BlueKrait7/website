@@ -1,0 +1,23 @@
+{
+  "slug": "268",
+  "name": "268",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\268.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\268.c",
+      "code": "<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">missingNumber</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> *nums, <span class=\"hljs-type\">int</span> numsSize)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> i, actual_sum = <span class=\"hljs-number\">0</span>, sum = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; numsSize; i++)\r\n    {\r\n        sum = sum + nums[i];\r\n        actual_sum = actual_sum + i;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> actual_sum + numsSize - sum;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

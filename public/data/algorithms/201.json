@@ -1,0 +1,23 @@
+{
+  "slug": "201",
+  "name": "201",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\201.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\201.c",
+      "code": "<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">rangeBitwiseAnd</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> m, <span class=\"hljs-type\">int</span> n)</span>\r\n{\r\n    <span class=\"hljs-keyword\">while</span> (m &lt; n)\r\n    {\r\n        n &amp;= n - <span class=\"hljs-number\">1</span>;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> n;\r\n}"
+    }
+  },
+  "contributors": [
+    {
+      "name": "dedsinQ",
+      "email": "alex.ruhl123@googlemail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

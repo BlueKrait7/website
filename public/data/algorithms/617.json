@@ -1,0 +1,33 @@
+{
+  "slug": "617",
+  "name": "617",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\617.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\617.c",
+      "code": "<span class=\"hljs-keyword\">struct</span> TreeNode *<span class=\"hljs-title function_\">newNode</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> item)</span>\r\n{\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">TreeNode</span> *<span class=\"hljs-title\">node</span> =</span> (<span class=\"hljs-keyword\">struct</span> TreeNode *)<span class=\"hljs-built_in\">malloc</span>(<span class=\"hljs-keyword\">sizeof</span>(<span class=\"hljs-keyword\">struct</span> TreeNode));\r\n    node-&gt;val = item;\r\n    node-&gt;left = node-&gt;right = <span class=\"hljs-literal\">NULL</span>;\r\n    <span class=\"hljs-keyword\">return</span> node;\r\n}\r\n\r\n<span class=\"hljs-keyword\">struct</span> TreeNode *<span class=\"hljs-title function_\">mergeTrees</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> TreeNode *t1, <span class=\"hljs-keyword\">struct</span> TreeNode *t2)</span>\r\n{\r\n    <span class=\"hljs-keyword\">if</span> (t1 == <span class=\"hljs-literal\">NULL</span> &amp;&amp; t2 == <span class=\"hljs-literal\">NULL</span>)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">NULL</span>;\r\n    <span class=\"hljs-type\">int</span> item = (t1 == <span class=\"hljs-literal\">NULL</span> ? <span class=\"hljs-number\">0</span> : t1-&gt;val) + (t2 == <span class=\"hljs-literal\">NULL</span> ? <span class=\"hljs-number\">0</span> : t2-&gt;val);\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">TreeNode</span> *<span class=\"hljs-title\">node</span> =</span> newNode(item);\r\n    node-&gt;left =\r\n        mergeTrees(t1 == <span class=\"hljs-literal\">NULL</span> ? <span class=\"hljs-literal\">NULL</span> : t1-&gt;left, t2 == <span class=\"hljs-literal\">NULL</span> ? <span class=\"hljs-literal\">NULL</span> : t2-&gt;left);\r\n    node-&gt;right = mergeTrees(t1 == <span class=\"hljs-literal\">NULL</span> ? <span class=\"hljs-literal\">NULL</span> : t1-&gt;right,\r\n                             t2 == <span class=\"hljs-literal\">NULL</span> ? <span class=\"hljs-literal\">NULL</span> : t2-&gt;right);\r\n    <span class=\"hljs-keyword\">return</span> node;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "leoperd",
+      "email": "56191198+leoperd@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "RJ Trujillo",
+      "email": "certifiedblyndguy@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

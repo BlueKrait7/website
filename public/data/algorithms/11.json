@@ -1,0 +1,23 @@
+{
+  "slug": "11",
+  "name": "11",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\11.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\11.c",
+      "code": "<span class=\"hljs-comment\">// Fucntion to calculate min of values a and b</span>\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">min</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> a, <span class=\"hljs-type\">int</span> b)</span> { <span class=\"hljs-keyword\">return</span> ((a &lt; b) ? a : b); }\r\n\r\n<span class=\"hljs-comment\">// Two pointer approach to find maximum container area</span>\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">maxArea</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> *height, <span class=\"hljs-type\">int</span> heightSize)</span>\r\n{\r\n    <span class=\"hljs-comment\">// Start with maximum container width</span>\r\n    <span class=\"hljs-type\">int</span> start = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-type\">int</span> end = heightSize - <span class=\"hljs-number\">1</span>;\r\n    <span class=\"hljs-type\">int</span> res = <span class=\"hljs-number\">0</span>;\r\n\r\n    <span class=\"hljs-keyword\">while</span> (start &lt; end)\r\n    {\r\n        <span class=\"hljs-comment\">// Calculate current area by taking minimum of two heights</span>\r\n        <span class=\"hljs-type\">int</span> currArea = (end - start) * min(height[start], height[end]);\r\n\r\n        <span class=\"hljs-keyword\">if</span> (currArea &gt; res)\r\n            res = currArea;\r\n\r\n        <span class=\"hljs-keyword\">if</span> (height[start] &lt; height[end])\r\n            start = start + <span class=\"hljs-number\">1</span>;\r\n        <span class=\"hljs-keyword\">else</span>\r\n            end = end - <span class=\"hljs-number\">1</span>;\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">return</span> res;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Jai Agarwal",
+      "email": "jai.bhageria@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

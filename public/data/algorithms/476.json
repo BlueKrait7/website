@@ -1,0 +1,23 @@
+{
+  "slug": "476",
+  "name": "476",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\476.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\476.c",
+      "code": "<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">findComplement</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> num)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> TotalBits = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-type\">int</span> temp = num;\r\n    <span class=\"hljs-keyword\">while</span> (temp)\r\n    {  <span class=\"hljs-comment\">// To find position of MSB in given num. Since num is represented as a</span>\r\n       <span class=\"hljs-comment\">// standard size in memory, we cannot rely on size for that information.</span>\r\n        TotalBits++;  <span class=\"hljs-comment\">// increment TotalBits till temp becomes 0</span>\r\n        temp &gt;&gt;= <span class=\"hljs-number\">1</span>;   <span class=\"hljs-comment\">// shift temp right by 1 bit every iteration; temp loses 1</span>\r\n                      <span class=\"hljs-comment\">// bit to underflow every iteration till it becomes 0</span>\r\n    }\r\n    <span class=\"hljs-type\">int</span> i,\r\n        flipNumber = <span class=\"hljs-number\">1</span>;  <span class=\"hljs-comment\">// Eg: 1&#x27;s complement of 101(binary) can be found as</span>\r\n                         <span class=\"hljs-comment\">// 101^111 (XOR with 111 flips all bits that are 1 to 0</span>\r\n                         <span class=\"hljs-comment\">// and flips 0 to 1)</span>\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">1</span>; i &lt; TotalBits; i++)\r\n    {\r\n        flipNumber += UINT32_C(<span class=\"hljs-number\">1</span>)\r\n                      &lt;&lt; i;  <span class=\"hljs-comment\">// Note the use of unsigned int to facilitate left</span>\r\n                             <span class=\"hljs-comment\">// shift more than 31 times, if needed</span>\r\n    }\r\n    num = num ^ flipNumber;\r\n    <span class=\"hljs-keyword\">return</span> num;\r\n}"
+    }
+  },
+  "contributors": [
+    {
+      "name": "SaurusXI",
+      "email": "vermashantanu@hotmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

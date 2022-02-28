@@ -1,0 +1,23 @@
+{
+  "slug": "141",
+  "name": "141",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\141.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\141.c",
+      "code": "<span class=\"hljs-comment\">/**\r\n * Definition for singly-linked list.\r\n * struct ListNode {\r\n *     int val;\r\n *     struct ListNode *next;\r\n * };\r\n */</span>\r\n<span class=\"hljs-type\">bool</span> <span class=\"hljs-title function_\">hasCycle</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> ListNode *head)</span>\r\n{\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">ListNode</span> *<span class=\"hljs-title\">fast</span> =</span> head, *slow = head;\r\n    <span class=\"hljs-keyword\">while</span> (slow &amp;&amp; fast &amp;&amp; fast-&gt;next)\r\n    {\r\n        fast = fast-&gt;next-&gt;next;\r\n        slow = slow-&gt;next;\r\n        <span class=\"hljs-keyword\">if</span> (fast == slow)\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">true</span>;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

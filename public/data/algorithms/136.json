@@ -1,0 +1,23 @@
+{
+  "slug": "136",
+  "name": "136",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\136.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\136.c",
+      "code": "<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">singleNumber</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> *nums, <span class=\"hljs-type\">int</span> numsSize)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> i, result = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; numsSize; i++) result = result ^ nums[i];\r\n    <span class=\"hljs-keyword\">return</span> result;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

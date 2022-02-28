@@ -1,0 +1,23 @@
+{
+  "slug": "20",
+  "name": "20",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\20.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\20.c",
+      "code": "<span class=\"hljs-type\">bool</span> <span class=\"hljs-title function_\">isValid</span><span class=\"hljs-params\">(<span class=\"hljs-type\">char</span> *s)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> i, k = <span class=\"hljs-number\">0</span>, len = <span class=\"hljs-built_in\">strlen</span>(s);\r\n    <span class=\"hljs-type\">char</span> *store = <span class=\"hljs-built_in\">calloc</span>(len, <span class=\"hljs-keyword\">sizeof</span>(<span class=\"hljs-type\">char</span>));\r\n\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; s[i] != <span class=\"hljs-string\">&#x27;\\0&#x27;</span>; i++)\r\n    {\r\n        <span class=\"hljs-keyword\">switch</span> (s[i])\r\n        {\r\n        <span class=\"hljs-keyword\">case</span> <span class=\"hljs-string\">&#x27;(&#x27;</span>:\r\n        <span class=\"hljs-keyword\">case</span> <span class=\"hljs-string\">&#x27;{&#x27;</span>:\r\n        <span class=\"hljs-keyword\">case</span> <span class=\"hljs-string\">&#x27;[&#x27;</span>:\r\n            store[k++] = s[i];\r\n            <span class=\"hljs-keyword\">break</span>;\r\n        <span class=\"hljs-keyword\">case</span> <span class=\"hljs-string\">&#x27;)&#x27;</span>:\r\n            <span class=\"hljs-keyword\">if</span> (k &lt; <span class=\"hljs-number\">1</span> || store[--k] != <span class=\"hljs-string\">&#x27;(&#x27;</span>)\r\n                <span class=\"hljs-keyword\">goto</span> out;\r\n            <span class=\"hljs-keyword\">break</span>;\r\n        <span class=\"hljs-keyword\">case</span> <span class=\"hljs-string\">&#x27;}&#x27;</span>:\r\n            <span class=\"hljs-keyword\">if</span> (k &lt; <span class=\"hljs-number\">1</span> || store[--k] != <span class=\"hljs-string\">&#x27;{&#x27;</span>)\r\n                <span class=\"hljs-keyword\">goto</span> out;\r\n            <span class=\"hljs-keyword\">break</span>;\r\n        <span class=\"hljs-keyword\">case</span> <span class=\"hljs-string\">&#x27;]&#x27;</span>:\r\n            <span class=\"hljs-keyword\">if</span> (k &lt; <span class=\"hljs-number\">1</span> || store[--k] != <span class=\"hljs-string\">&#x27;[&#x27;</span>)\r\n                <span class=\"hljs-keyword\">goto</span> out;\r\n            <span class=\"hljs-keyword\">break</span>;\r\n        }\r\n    }\r\nout:\r\n    <span class=\"hljs-built_in\">free</span>(store);\r\n    <span class=\"hljs-keyword\">return</span> s[i] == <span class=\"hljs-string\">&#x27;\\0&#x27;</span> &amp;&amp; k == <span class=\"hljs-number\">0</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

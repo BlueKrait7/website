@@ -1,0 +1,23 @@
+{
+  "slug": "21",
+  "name": "21",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\21.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\21.c",
+      "code": "<span class=\"hljs-comment\">/*\r\n * Iterative approach\r\n */</span>\r\n<span class=\"hljs-keyword\">struct</span> ListNode *<span class=\"hljs-title function_\">mergeTwoLists</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> ListNode *l1, <span class=\"hljs-keyword\">struct</span> ListNode *l2)</span>\r\n{\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">ListNode</span> *<span class=\"hljs-title\">list</span> =</span> <span class=\"hljs-literal\">NULL</span>;\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">ListNode</span> *<span class=\"hljs-title\">tmp</span> =</span> <span class=\"hljs-literal\">NULL</span>;\r\n\r\n    <span class=\"hljs-keyword\">if</span> (!l1)\r\n        <span class=\"hljs-keyword\">return</span> l2;\r\n    <span class=\"hljs-keyword\">if</span> (!l2)\r\n        <span class=\"hljs-keyword\">return</span> l1;\r\n\r\n    <span class=\"hljs-keyword\">if</span> (l1 &amp;&amp; l2)\r\n    {\r\n        <span class=\"hljs-keyword\">if</span> (l1-&gt;val &lt; l2-&gt;val)\r\n        {\r\n            <span class=\"hljs-built_in\">list</span> = tmp = l1;\r\n            l1 = l1-&gt;next;\r\n        }\r\n        <span class=\"hljs-keyword\">else</span>\r\n        {\r\n            <span class=\"hljs-built_in\">list</span> = tmp = l2;\r\n            l2 = l2-&gt;next;\r\n        }\r\n\r\n        <span class=\"hljs-keyword\">while</span> (l1 &amp;&amp; l2)\r\n        {\r\n            <span class=\"hljs-keyword\">if</span> (l1-&gt;val &lt; l2-&gt;val)\r\n            {\r\n                tmp-&gt;next = l1;\r\n                l1 = l1-&gt;next;\r\n            }\r\n            <span class=\"hljs-keyword\">else</span>\r\n            {\r\n                tmp-&gt;next = l2;\r\n                l2 = l2-&gt;next;\r\n            }\r\n            tmp = tmp-&gt;next;\r\n        }\r\n\r\n        <span class=\"hljs-keyword\">if</span> (l1)\r\n            tmp-&gt;next = l1;\r\n        <span class=\"hljs-keyword\">if</span> (l2)\r\n            tmp-&gt;next = l2;\r\n\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-built_in\">list</span>;\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">NULL</span>;\r\n}\r\n\r\n<span class=\"hljs-comment\">/*\r\n * Recursive approach\r\n */</span>\r\n<span class=\"hljs-keyword\">struct</span> ListNode *<span class=\"hljs-title function_\">mergeTwoLists</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> ListNode *l1, <span class=\"hljs-keyword\">struct</span> ListNode *l2)</span>\r\n{\r\n    <span class=\"hljs-keyword\">if</span> (!l1)\r\n        <span class=\"hljs-keyword\">return</span> l2;\r\n    <span class=\"hljs-keyword\">if</span> (!l2)\r\n        <span class=\"hljs-keyword\">return</span> l1;\r\n    <span class=\"hljs-keyword\">if</span> (l1-&gt;val &lt; l2-&gt;val)\r\n    {\r\n        l1-&gt;next = mergeTwoLists(l1-&gt;next, l2);\r\n        <span class=\"hljs-keyword\">return</span> l1;\r\n    }\r\n    <span class=\"hljs-keyword\">else</span>\r\n    {\r\n        l2-&gt;next = mergeTwoLists(l1, l2-&gt;next);\r\n        <span class=\"hljs-keyword\">return</span> l2;\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Shubham Patil",
+      "email": "shubhampatil.patil@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "104",
+  "name": "104",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\104.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\104.c",
+      "code": "<span class=\"hljs-comment\">/**\r\n * Definition for a binary tree node.\r\n * struct TreeNode {\r\n *     int val;\r\n *     struct TreeNode *left;\r\n *     struct TreeNode *right;\r\n * };\r\n */</span>\r\n\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">maxval</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> a, <span class=\"hljs-type\">int</span> b)</span>\r\n{\r\n    <span class=\"hljs-keyword\">if</span> (a &gt; b)\r\n        <span class=\"hljs-keyword\">return</span> a;\r\n    <span class=\"hljs-keyword\">else</span>\r\n        <span class=\"hljs-keyword\">return</span> b;\r\n}\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">maxDepth</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> TreeNode *root)</span>\r\n{\r\n    <span class=\"hljs-keyword\">if</span> (root == <span class=\"hljs-literal\">NULL</span>)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-keyword\">else</span>\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span> + maxval(maxDepth(root-&gt;left), maxDepth(root-&gt;right));\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "231",
+  "name": "231",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\231.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\231.c",
+      "code": "<span class=\"hljs-type\">bool</span> <span class=\"hljs-title function_\">isPowerOfTwo</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> n)</span>\r\n{\r\n    <span class=\"hljs-keyword\">if</span> (!n)\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>;\r\n    <span class=\"hljs-keyword\">while</span> (n % <span class=\"hljs-number\">2</span> == <span class=\"hljs-number\">0</span>) n /= <span class=\"hljs-number\">2</span>;\r\n    <span class=\"hljs-keyword\">return</span> n == <span class=\"hljs-number\">1</span>;\r\n}"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Evandro Nakayama Mota",
+      "email": "evandro.nmota5@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

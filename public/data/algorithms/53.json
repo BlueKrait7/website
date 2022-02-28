@@ -1,0 +1,23 @@
+{
+  "slug": "53",
+  "name": "53",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\53.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\53.c",
+      "code": "\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">maxcmp</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> a, <span class=\"hljs-type\">int</span> b)</span> { <span class=\"hljs-keyword\">return</span> a &gt;= b ? a : b; }\r\n\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">maxSubArray</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> *nums, <span class=\"hljs-type\">int</span> numsSize)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> maxSoFar = nums[<span class=\"hljs-number\">0</span>], maxEndingHere = nums[<span class=\"hljs-number\">0</span>];\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> i = <span class=\"hljs-number\">1</span>; i &lt; numsSize; i++)\r\n    {\r\n        maxEndingHere = maxcmp(maxEndingHere + nums[i], nums[i]);\r\n        maxSoFar = maxcmp(maxSoFar, maxEndingHere);\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> maxSoFar;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

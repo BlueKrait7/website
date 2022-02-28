@@ -1,0 +1,23 @@
+{
+  "slug": "917",
+  "name": "917",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\917.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\917.c",
+      "code": "<span class=\"hljs-type\">char</span> *<span class=\"hljs-title function_\">reverseOnlyLetters</span><span class=\"hljs-params\">(<span class=\"hljs-type\">char</span> *S)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> last = <span class=\"hljs-built_in\">strlen</span>(S) - <span class=\"hljs-number\">1</span>, i;\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; last;)\r\n    {\r\n        <span class=\"hljs-keyword\">if</span> (!<span class=\"hljs-built_in\">isalpha</span>(S[i]))\r\n        {\r\n            i++;\r\n            <span class=\"hljs-keyword\">continue</span>;\r\n        }\r\n        <span class=\"hljs-keyword\">if</span> (!<span class=\"hljs-built_in\">isalpha</span>(S[last]))\r\n        {\r\n            last--;\r\n            <span class=\"hljs-keyword\">continue</span>;\r\n        }\r\n        <span class=\"hljs-type\">char</span> tmp = S[i];\r\n        S[i] = S[last];\r\n        S[last] = tmp;\r\n        i++;\r\n        last--;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> S;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

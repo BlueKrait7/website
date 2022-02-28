@@ -1,0 +1,33 @@
+{
+  "slug": "905",
+  "name": "905",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\905.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\905.c",
+      "code": "<span class=\"hljs-comment\">/**\r\n * 905. Sort Array By Parity\r\n * Given an array A of non-negative integers, return an array consisting of\r\n * all the even elements of A, followed by all the odd elements of A.\r\n * You may return any answer array that satisfies this condition.\r\n * Example 1:\r\n * Input: [3,1,2,4]\r\n * Output: [2,4,3,1]\r\n * The outputs [4,2,3,1], [2,4,1,3], and [4,2,1,3] would also be accepted.\r\n *\r\n * Note: The returned array must be malloced, assume caller calls free().\r\n */</span>\r\n<span class=\"hljs-type\">int</span> *<span class=\"hljs-title function_\">sortArrayByParity</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> *A, <span class=\"hljs-type\">int</span> ASize, <span class=\"hljs-type\">int</span> *returnSize)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> *retArr = <span class=\"hljs-built_in\">malloc</span>(ASize * <span class=\"hljs-keyword\">sizeof</span>(<span class=\"hljs-type\">int</span>));\r\n    <span class=\"hljs-type\">int</span> oddIndex = ASize - <span class=\"hljs-number\">1</span>;\r\n    <span class=\"hljs-type\">int</span> evenIndex = <span class=\"hljs-number\">0</span>;\r\n    *returnSize = ASize;\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> i = <span class=\"hljs-number\">0</span>; i &lt; ASize; i++)\r\n    {\r\n        <span class=\"hljs-keyword\">if</span> (A[i] % <span class=\"hljs-number\">2</span> == <span class=\"hljs-number\">0</span>)\r\n        {\r\n            retArr[evenIndex] = A[i];\r\n            evenIndex++;\r\n        }\r\n        <span class=\"hljs-keyword\">else</span>\r\n        {\r\n            retArr[oddIndex] = A[i];\r\n            oddIndex--;\r\n        }\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">return</span> retArr;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "leoperd",
+      "email": "56191198+leoperd@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "RJ Trujillo",
+      "email": "certifiedblyndguy@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

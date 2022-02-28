@@ -1,0 +1,23 @@
+{
+  "slug": "83",
+  "name": "83",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\83.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\83.c",
+      "code": "\r\n<span class=\"hljs-keyword\">struct</span> ListNode *<span class=\"hljs-title function_\">deleteDuplicates</span><span class=\"hljs-params\">(<span class=\"hljs-keyword\">struct</span> ListNode *head)</span>\r\n{\r\n    <span class=\"hljs-class\"><span class=\"hljs-keyword\">struct</span> <span class=\"hljs-title\">ListNode</span> *<span class=\"hljs-title\">cur</span> =</span> head;\r\n    <span class=\"hljs-keyword\">while</span> (cur &amp;&amp; cur-&gt;next)\r\n    {\r\n        <span class=\"hljs-keyword\">if</span> (cur-&gt;val == cur-&gt;next-&gt;val)\r\n            cur-&gt;next = cur-&gt;next-&gt;next;\r\n        <span class=\"hljs-keyword\">else</span>\r\n            cur = cur-&gt;next;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> head;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

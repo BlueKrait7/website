@@ -1,0 +1,23 @@
+{
+  "slug": "387",
+  "name": "387",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\387.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\387.c",
+      "code": "<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">firstUniqChar</span><span class=\"hljs-params\">(<span class=\"hljs-type\">char</span> *s)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> *arr = <span class=\"hljs-built_in\">calloc</span>(<span class=\"hljs-number\">256</span>, <span class=\"hljs-keyword\">sizeof</span>(<span class=\"hljs-type\">int</span>));\r\n    <span class=\"hljs-type\">int</span> i;\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; <span class=\"hljs-built_in\">strlen</span>(s); i++) arr[s[i]] = arr[s[i]] + <span class=\"hljs-number\">1</span>;\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; <span class=\"hljs-built_in\">strlen</span>(s); i++)\r\n    {\r\n        <span class=\"hljs-keyword\">if</span> (arr[s[i]] == <span class=\"hljs-number\">1</span>)\r\n            <span class=\"hljs-keyword\">return</span> i;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">-1</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "hai dang",
+      "email": "haihoangdang91@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

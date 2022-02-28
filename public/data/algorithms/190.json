@@ -1,0 +1,23 @@
+{
+  "slug": "190",
+  "name": "190",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\190.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\190.c",
+      "code": "<span class=\"hljs-type\">uint32_t</span> <span class=\"hljs-title function_\">reverseBits</span><span class=\"hljs-params\">(<span class=\"hljs-type\">uint32_t</span> n)</span>\r\n{\r\n    uint TotalBits = <span class=\"hljs-number\">32</span>;\r\n    <span class=\"hljs-type\">uint32_t</span> reverse_int = <span class=\"hljs-number\">0</span>;  <span class=\"hljs-comment\">// stored in memory as 32 bits, each bit valued 0</span>\r\n    uint i;\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; TotalBits; i++)\r\n    {\r\n        <span class=\"hljs-keyword\">if</span> ((n &amp; (UINT32_C(<span class=\"hljs-number\">1</span>)\r\n                  &lt;&lt; i)))  <span class=\"hljs-comment\">// if the bit on the ith position of 32 bit input is</span>\r\n                           <span class=\"hljs-comment\">// 1, then proceed Further note the use of UINT32_C</span>\r\n                           <span class=\"hljs-comment\">// to convert 1 to unsigned 32 bit int, since just 1</span>\r\n                           <span class=\"hljs-comment\">// is treated as int which cannot be shifted left</span>\r\n                           <span class=\"hljs-comment\">// more than 30 times</span>\r\n            reverse_int =\r\n                reverse_int |\r\n                (UINT32_C(<span class=\"hljs-number\">1</span>)\r\n                 &lt;&lt; (TotalBits - <span class=\"hljs-number\">1</span> -\r\n                     i));  <span class=\"hljs-comment\">// Convert the ith bit from the end in reverse_int</span>\r\n                           <span class=\"hljs-comment\">// from 0 to 1, if ith bit from beginning in n is 1</span>\r\n                           <span class=\"hljs-comment\">// This is achieved by using bitwise OR on</span>\r\n                           <span class=\"hljs-comment\">// reverse_int (where ith bit from end is currently</span>\r\n                           <span class=\"hljs-comment\">// 0) and 1 shifted left 31 - i bits (to ith bit from</span>\r\n                           <span class=\"hljs-comment\">// the end)</span>\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> reverse_int;\r\n}"
+    }
+  },
+  "contributors": [
+    {
+      "name": "SaurusXI",
+      "email": "vermashantanu@hotmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

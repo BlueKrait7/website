@@ -1,0 +1,23 @@
+{
+  "slug": "7",
+  "name": "7",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\7.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\7.c",
+      "code": "<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;limits.h&gt;</span></span>\r\n\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">reverse</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> x)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> rev = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-keyword\">while</span> (x != <span class=\"hljs-number\">0</span>)\r\n    {\r\n        <span class=\"hljs-type\">int</span> pop = x % <span class=\"hljs-number\">10</span>;\r\n        x /= <span class=\"hljs-number\">10</span>;\r\n        <span class=\"hljs-keyword\">if</span> (rev &gt; INT_MAX / <span class=\"hljs-number\">10</span> || (rev == INT_MAX / <span class=\"hljs-number\">10</span> &amp;&amp; pop &gt; <span class=\"hljs-number\">7</span>))\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n        <span class=\"hljs-keyword\">if</span> (rev &lt; INT_MIN / <span class=\"hljs-number\">10</span> || (rev == INT_MIN / <span class=\"hljs-number\">10</span> &amp;&amp; pop &lt; <span class=\"hljs-number\">-8</span>))\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n        rev = rev * <span class=\"hljs-number\">10</span> + pop;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> rev;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Keval",
+      "email": "keval@thechubbypanda.net",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

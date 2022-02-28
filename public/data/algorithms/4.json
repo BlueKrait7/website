@@ -1,0 +1,23 @@
+{
+  "slug": "4",
+  "name": "4",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\4.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\4.c",
+      "code": "\r\n\r\n<span class=\"hljs-type\">double</span> <span class=\"hljs-title function_\">findMedianSortedArrays</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> *nums1, <span class=\"hljs-type\">int</span> nums1Size, <span class=\"hljs-type\">int</span> *nums2,\r\n                              <span class=\"hljs-type\">int</span> nums2Size)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> index1 = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-type\">int</span> index2 = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-type\">int</span> v[nums1Size + nums2Size];\r\n    <span class=\"hljs-type\">int</span> v_index = <span class=\"hljs-number\">0</span>;\r\n\r\n    <span class=\"hljs-keyword\">while</span> (index1 &lt; nums1Size &amp;&amp; index2 &lt; nums2Size)\r\n    {\r\n        <span class=\"hljs-keyword\">if</span> (nums1[index1] &lt;= nums2[index2])\r\n        {\r\n            v[v_index++] = nums1[index1++];\r\n        }\r\n        <span class=\"hljs-keyword\">else</span>\r\n        {\r\n            v[v_index++] = nums2[index2++];\r\n        }\r\n    }\r\n    <span class=\"hljs-keyword\">if</span> (index1 &lt; nums1Size)\r\n    {\r\n        <span class=\"hljs-keyword\">while</span> (index1 &lt; nums1Size)\r\n        {\r\n            v[v_index++] = nums1[index1++];\r\n        }\r\n    }\r\n    <span class=\"hljs-keyword\">if</span> (index2 &lt; nums2Size)\r\n    {\r\n        <span class=\"hljs-keyword\">while</span> (index2 &lt; nums2Size)\r\n        {\r\n            v[v_index++] = nums2[index2++];\r\n        }\r\n    }\r\n    <span class=\"hljs-keyword\">if</span> (v_index == <span class=\"hljs-number\">1</span>)\r\n    {\r\n        <span class=\"hljs-keyword\">return</span> v[<span class=\"hljs-number\">0</span>];\r\n    }\r\n    <span class=\"hljs-keyword\">if</span> (v_index % <span class=\"hljs-number\">2</span> == <span class=\"hljs-number\">0</span>)\r\n    {\r\n        <span class=\"hljs-type\">double</span> n1, n2;\r\n        n1 = v[v_index / <span class=\"hljs-number\">2</span>];\r\n        n2 = v[(v_index / <span class=\"hljs-number\">2</span>) - <span class=\"hljs-number\">1</span>];\r\n        <span class=\"hljs-keyword\">return</span> (n1 + n2) / <span class=\"hljs-number\">2</span>;\r\n    }\r\n    <span class=\"hljs-type\">int</span> new_index = (<span class=\"hljs-type\">int</span>)v_index / <span class=\"hljs-number\">2</span>;\r\n    <span class=\"hljs-type\">int</span> i = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-keyword\">return</span> v[new_index];\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Manu Gond",
+      "email": "manugond45@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

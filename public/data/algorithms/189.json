@@ -1,0 +1,23 @@
+{
+  "slug": "189",
+  "name": "189",
+  "categories": [
+    "leetcode"
+  ],
+  "body": {},
+  "implementations": {
+    "c": {
+      "dir": "leetcode\\src\\189.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/leetcode\\src\\189.c",
+      "code": "<span class=\"hljs-type\">void</span> <span class=\"hljs-title function_\">rotate</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> *nums, <span class=\"hljs-type\">int</span> numsSize, <span class=\"hljs-type\">int</span> k)</span>\r\n{\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> i = <span class=\"hljs-number\">1</span>; i &lt;= k; i++)\r\n    {\r\n        <span class=\"hljs-type\">int</span> j;\r\n        <span class=\"hljs-type\">int</span> lastElement;\r\n        lastElement = nums[numsSize - <span class=\"hljs-number\">1</span>];\r\n        <span class=\"hljs-keyword\">for</span> (j = numsSize - <span class=\"hljs-number\">1</span>; j &gt; <span class=\"hljs-number\">0</span>; j--)\r\n        {\r\n            nums[j] = nums[j - <span class=\"hljs-number\">1</span>];\r\n        }\r\n        nums[<span class=\"hljs-number\">0</span>] = lastElement;\r\n    }\r\n}"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Andre Lammers",
+      "email": "andre.lammers@mni.thm.de",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}
