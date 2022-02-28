@@ -1,0 +1,28 @@
+{
+  "slug": "bayes-theorem",
+  "name": "Bayes Theorem",
+  "categories": [
+    "probability"
+  ],
+  "body": {},
+  "implementations": {
+    "c-plus-plus": {
+      "dir": "probability\\bayes_theorem.cpp",
+      "url": "https://github.com/TheAlgorithms/c-plus-plus/tree/master/probability\\bayes_theorem.cpp",
+      "code": "<span class=\"hljs-comment\">/**\r\n * @file\r\n * @brief [Bayes&#x27; theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem)\r\n *\r\n * Bayes&#x27; theorem allows one to find \\f$P(A|B)\\f$ given \\f$P(B|A)\\f$ or\r\n * \\f$P(B|A)\\f$ given \\f$P(A|B)\\f$ and \\f$P(A)\\f$ and \\f$P(B)\\f$.\\n\r\n * Note that \\f$P(A|B)\\f$ is read &#x27;The probability of A given that the event B\r\n * has occured&#x27;.\r\n */</span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;iostream&gt;</span></span>\r\n\r\n<span class=\"hljs-comment\">/** returns P(A|B)\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">double</span> <span class=\"hljs-title\">bayes_AgivenB</span><span class=\"hljs-params\">(<span class=\"hljs-type\">double</span> BgivenA, <span class=\"hljs-type\">double</span> A, <span class=\"hljs-type\">double</span> B)</span> </span>{\r\n    <span class=\"hljs-keyword\">return</span> (BgivenA * A) / B;\r\n}\r\n\r\n<span class=\"hljs-comment\">/** returns P(B|A)\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">double</span> <span class=\"hljs-title\">bayes_BgivenA</span><span class=\"hljs-params\">(<span class=\"hljs-type\">double</span> AgivenB, <span class=\"hljs-type\">double</span> A, <span class=\"hljs-type\">double</span> B)</span> </span>{\r\n    <span class=\"hljs-keyword\">return</span> (AgivenB * B) / A;\r\n}\r\n\r\n<span class=\"hljs-comment\">/** Main function\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">int</span> <span class=\"hljs-title\">main</span><span class=\"hljs-params\">()</span> </span>{\r\n    <span class=\"hljs-type\">double</span> A = <span class=\"hljs-number\">0.01</span>;\r\n    <span class=\"hljs-type\">double</span> B = <span class=\"hljs-number\">0.1</span>;\r\n    <span class=\"hljs-type\">double</span> BgivenA = <span class=\"hljs-number\">0.9</span>;\r\n    <span class=\"hljs-type\">double</span> AgivenB = <span class=\"hljs-built_in\">bayes_AgivenB</span>(BgivenA, A, B);\r\n    std::cout &lt;&lt; <span class=\"hljs-string\">&quot;A given B = &quot;</span> &lt;&lt; AgivenB &lt;&lt; std::endl;\r\n    std::cout &lt;&lt; <span class=\"hljs-string\">&quot;B given A = &quot;</span> &lt;&lt; <span class=\"hljs-built_in\">bayes_BgivenA</span>(AgivenB, A, B) &lt;&lt; std::endl;\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Krishna Vedala",
+      "email": "7001608+kvedala@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Dylan Robertson",
+      "email": "31269647+RobotRage@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

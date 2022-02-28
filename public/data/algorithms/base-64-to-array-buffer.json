@@ -1,0 +1,23 @@
+{
+  "slug": "base-64-to-array-buffer",
+  "name": "Base 64 To Array Buffer",
+  "categories": [
+    "conversions"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Conversions\\test\\Base64ToArrayBuffer.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Conversions\\test\\Base64ToArrayBuffer.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { base64ToBuffer } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../Base64ToArrayBuffer&#x27;</span>\r\n<span class=\"hljs-keyword\">import</span> { <span class=\"hljs-title class_\">TextDecoder</span> } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;util&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;Base64ToArrayBuffer&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should decode &quot;SGVsbG8sIHdvcmxkIQ==&quot; as &quot;Hello, world!&quot;&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> testBase64String = <span class=\"hljs-string\">&#x27;SGVsbG8sIHdvcmxkIQ==&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> buffer = <span class=\"hljs-title function_\">base64ToBuffer</span>(testBase64String)\r\n    <span class=\"hljs-keyword\">const</span> decoder = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">TextDecoder</span>()\r\n    <span class=\"hljs-keyword\">const</span> helloWorldString = decoder.<span class=\"hljs-title function_\">decode</span>(buffer)\r\n    <span class=\"hljs-title function_\">expect</span>(helloWorldString).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-string\">&#x27;Hello, world!&#x27;</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should decode base64 &quot;Nxex6kQaWg==&quot; as binary buffer [55,23,177,234,68,26,90]&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> testBase64String = <span class=\"hljs-string\">&#x27;Nxex6kQaWg==&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> buffer = <span class=\"hljs-title function_\">base64ToBuffer</span>(testBase64String)\r\n    <span class=\"hljs-keyword\">const</span> array = [...<span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Uint8Array</span>(buffer)]\r\n    <span class=\"hljs-title function_\">expect</span>(array).<span class=\"hljs-title function_\">toEqual</span>([<span class=\"hljs-number\">55</span>, <span class=\"hljs-number\">23</span>, <span class=\"hljs-number\">177</span>, <span class=\"hljs-number\">234</span>, <span class=\"hljs-number\">68</span>, <span class=\"hljs-number\">26</span>, <span class=\"hljs-number\">90</span>])\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should decode base64 &quot;AAECAwQFBgcICQ==&quot; as binary buffer [0,1,2,3,4,5,6,7,8,9]&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> testBase64String = <span class=\"hljs-string\">&#x27;AAECAwQFBgcICQ==&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> buffer = <span class=\"hljs-title function_\">base64ToBuffer</span>(testBase64String)\r\n    <span class=\"hljs-keyword\">const</span> array = [...<span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Uint8Array</span>(buffer)]\r\n    <span class=\"hljs-title function_\">expect</span>(array).<span class=\"hljs-title function_\">toEqual</span>([<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">6</span>, <span class=\"hljs-number\">7</span>, <span class=\"hljs-number\">8</span>, <span class=\"hljs-number\">9</span>])\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Luis De Anda",
+      "email": "ldeandac16@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

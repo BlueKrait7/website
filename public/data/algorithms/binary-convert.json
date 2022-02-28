@@ -1,0 +1,28 @@
+{
+  "slug": "binary-convert",
+  "name": "Binary Convert",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\test\\BInaryConvert.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\BInaryConvert.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { <span class=\"hljs-title class_\">BinaryConvert</span> } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../BinaryConvert&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;BinaryConvert&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return the correct value&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">BinaryConvert</span>(<span class=\"hljs-number\">4</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">100</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return the correct value&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">BinaryConvert</span>(<span class=\"hljs-number\">12</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">1100</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return the correct value of the sum from two number&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">BinaryConvert</span>(<span class=\"hljs-number\">12</span> + <span class=\"hljs-number\">2</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">1110</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return the correct value of the subtract from two number&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">BinaryConvert</span>(<span class=\"hljs-number\">245</span> - <span class=\"hljs-number\">56</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">10111101</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return the correct value&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">BinaryConvert</span>(<span class=\"hljs-number\">254</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">11111110</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return the correct value&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">BinaryConvert</span>(<span class=\"hljs-number\">63483</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">1111011111111011</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "YATIN KATHURIA",
+      "email": "47096348+Yatin-kathuria@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "Arwy Syahputra Siregar",
+      "email": "55026697+arwysyah@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "babylonian-sqrt",
+  "name": "Babylonian Sqrt",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "julia": {
+      "dir": "src\\math\\babylonian_sqrt.jl",
+      "url": "https://github.com/TheAlgorithms/julia/tree/master/src\\math\\babylonian_sqrt.jl",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n    bab_sqrt(S::Real; tolerance = 1e-6, guess = nothing)\r\n\r\nThe Babylonian Method of calculating a square root is a simple iterative method to determine square roots. A full description of the algorithm can be found on [Wikipedia](https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Babylonian_method)\r\n\r\n# Arguments:\r\n- `S`: The number to calculate the square root for.\r\n\r\n# Positional Arguments\r\n- `tolerance`: How close the square of the square root needs to be from the input value. `abs(S - xn^2) &lt; tolerance`\r\n- `guess`: The initial value to use for `xn`\r\n\r\n# Examples/Tests \r\n```julia\r\njulia&gt; bab_sqrt(100)\r\n10.000000000107445\r\n\r\njulia&gt; bab_sqrt(100, guess = 15)\r\n10.000000000131072\r\n\r\njulia&gt; bab_sqrt(π, guess = 1)\r\n1.7724538555800293\r\n\r\njulia&gt; bab_sqrt(π, guess = 1, tolerance = 2)\r\n2.0707963267948966\r\n```\r\n\r\n# Algorithm: \r\n\r\n```julia\r\nwhile tolerance &lt;= abs(xn^2 - S)\r\n    xn = (1 / 2) * (xn + S / xn)\r\nend\r\n```\r\n\r\n# References:\r\n[Methods of computing square roots](https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Babylonian_method)\r\n\r\n```\r\n\r\n# Contributed by:- [Anson Biggs](https://ansonbiggs.com) \r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">function</span> bab_sqrt(S::<span class=\"hljs-built_in\">Real</span>; tolerance = <span class=\"hljs-number\">1e-6</span>, guess = <span class=\"hljs-literal\">nothing</span>)\r\n\r\n    <span class=\"hljs-comment\"># Can only calculate for positive numbers</span>\r\n    <span class=\"hljs-keyword\">if</span> S &lt; <span class=\"hljs-number\">0</span>\r\n        throw(<span class=\"hljs-built_in\">DomainError</span>(<span class=\"hljs-string\">&quot;Input must be greater than zero&quot;</span>))\r\n    <span class=\"hljs-keyword\">end</span>\r\n\r\n    xn = guess\r\n    <span class=\"hljs-keyword\">if</span> xn === <span class=\"hljs-literal\">nothing</span>\r\n        xn = S / <span class=\"hljs-number\">2</span>\r\n    <span class=\"hljs-keyword\">elseif</span> xn &lt; <span class=\"hljs-number\">0</span>\r\n        xn = abs(xn)\r\n    <span class=\"hljs-keyword\">end</span>\r\n\r\n    <span class=\"hljs-keyword\">while</span> tolerance &lt;= abs(xn^<span class=\"hljs-number\">2</span> - S)\r\n        xn = (<span class=\"hljs-number\">1</span> / <span class=\"hljs-number\">2</span>) * (xn + S / xn)\r\n    <span class=\"hljs-keyword\">end</span>\r\n    <span class=\"hljs-keyword\">return</span> xn\r\n\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Anson Biggs",
+      "email": "ansonleebiggs@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

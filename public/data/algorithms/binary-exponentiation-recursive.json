@@ -1,0 +1,38 @@
+{
+  "slug": "binary-exponentiation-recursive",
+  "name": "Binary Exponentiation Recursive",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\test\\BinaryExponentiationRecursive.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\BinaryExponentiationRecursive.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { binaryExponentiation } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../BinaryExponentiationRecursive&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;BinaryExponentiationRecursive&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should calculate 2 to the power of 10 correctly&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">binaryExponentiation</span>(<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">10</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">1024</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should calculate 3 to the power of 9 correctly&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">binaryExponentiation</span>(<span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">9</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">19683</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "utkarsh",
+      "email": "ucponia@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Keshav Bohra",
+      "email": "keshav2016@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Roland Hummel",
+      "email": "roland.hummel@qaware.de",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

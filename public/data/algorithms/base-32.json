@@ -1,0 +1,38 @@
+{
+  "slug": "base-32",
+  "name": "Base 32",
+  "categories": [
+    "ciphers"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "ciphers\\base32.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/ciphers\\base32.py",
+      "code": "<span class=\"hljs-keyword\">import</span> base64\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">base32_encode</span>(<span class=\"hljs-params\">string: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-built_in\">bytes</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Encodes a given string to base32, returning a bytes-like object\r\n    &gt;&gt;&gt; base32_encode(&quot;Hello World!&quot;)\r\n    b&#x27;JBSWY3DPEBLW64TMMQQQ====&#x27;\r\n    &gt;&gt;&gt; base32_encode(&quot;123456&quot;)\r\n    b&#x27;GEZDGNBVGY======&#x27;\r\n    &gt;&gt;&gt; base32_encode(&quot;some long complex string&quot;)\r\n    b&#x27;ONXW2ZJANRXW4ZZAMNXW24DMMV4CA43UOJUW4ZY=&#x27;\r\n    &quot;&quot;&quot;</span>\r\n\r\n    <span class=\"hljs-comment\"># encoded the input (we need a bytes like object)</span>\r\n    <span class=\"hljs-comment\"># then, b32encoded the bytes-like object</span>\r\n    <span class=\"hljs-keyword\">return</span> base64.b32encode(string.encode(<span class=\"hljs-string\">&quot;utf-8&quot;</span>))\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">base32_decode</span>(<span class=\"hljs-params\">encoded_bytes: <span class=\"hljs-built_in\">bytes</span></span>) -&gt; <span class=\"hljs-built_in\">str</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Decodes a given bytes-like object to a string, returning a string\r\n    &gt;&gt;&gt; base32_decode(b&#x27;JBSWY3DPEBLW64TMMQQQ====&#x27;)\r\n    &#x27;Hello World!&#x27;\r\n    &gt;&gt;&gt; base32_decode(b&#x27;GEZDGNBVGY======&#x27;)\r\n    &#x27;123456&#x27;\r\n    &gt;&gt;&gt; base32_decode(b&#x27;ONXW2ZJANRXW4ZZAMNXW24DMMV4CA43UOJUW4ZY=&#x27;)\r\n    &#x27;some long complex string&#x27;\r\n    &quot;&quot;&quot;</span>\r\n\r\n    <span class=\"hljs-comment\"># decode the bytes from base32</span>\r\n    <span class=\"hljs-comment\"># then, decode the bytes-like object to return as a string</span>\r\n    <span class=\"hljs-keyword\">return</span> base64.b32decode(encoded_bytes).decode(<span class=\"hljs-string\">&quot;utf-8&quot;</span>)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    test = <span class=\"hljs-string\">&quot;Hello World!&quot;</span>\r\n    encoded = base32_encode(test)\r\n    <span class=\"hljs-built_in\">print</span>(encoded)\r\n\r\n    decoded = base32_decode(encoded)\r\n    <span class=\"hljs-built_in\">print</span>(decoded)\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "QuartzAl",
+      "email": "55610038+QuartzAl@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Dhruv Manilawala",
+      "email": "dhruvmanila@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "gerroo",
+      "email": "gerensuner@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

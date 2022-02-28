@@ -1,0 +1,38 @@
+{
+  "slug": "base-16",
+  "name": "Base 16",
+  "categories": [
+    "ciphers"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "ciphers\\base16.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/ciphers\\base16.py",
+      "code": "<span class=\"hljs-keyword\">import</span> base64\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">base16_encode</span>(<span class=\"hljs-params\">inp: <span class=\"hljs-built_in\">str</span></span>) -&gt; <span class=\"hljs-built_in\">bytes</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Encodes a given utf-8 string into base-16.\r\n\r\n    &gt;&gt;&gt; base16_encode(&#x27;Hello World!&#x27;)\r\n    b&#x27;48656C6C6F20576F726C6421&#x27;\r\n    &gt;&gt;&gt; base16_encode(&#x27;HELLO WORLD!&#x27;)\r\n    b&#x27;48454C4C4F20574F524C4421&#x27;\r\n    &gt;&gt;&gt; base16_encode(&#x27;&#x27;)\r\n    b&#x27;&#x27;\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-comment\"># encode the input into a bytes-like object and then encode b16encode that</span>\r\n    <span class=\"hljs-keyword\">return</span> base64.b16encode(inp.encode(<span class=\"hljs-string\">&quot;utf-8&quot;</span>))\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">base16_decode</span>(<span class=\"hljs-params\">b16encoded: <span class=\"hljs-built_in\">bytes</span></span>) -&gt; <span class=\"hljs-built_in\">str</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Decodes from base-16 to a utf-8 string.\r\n\r\n    &gt;&gt;&gt; base16_decode(b&#x27;48656C6C6F20576F726C6421&#x27;)\r\n    &#x27;Hello World!&#x27;\r\n    &gt;&gt;&gt; base16_decode(b&#x27;48454C4C4F20574F524C4421&#x27;)\r\n    &#x27;HELLO WORLD!&#x27;\r\n    &gt;&gt;&gt; base16_decode(b&#x27;&#x27;)\r\n    &#x27;&#x27;\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-comment\"># b16decode the input into bytes and decode that into a human readable string</span>\r\n    <span class=\"hljs-keyword\">return</span> base64.b16decode(b16encoded).decode(<span class=\"hljs-string\">&quot;utf-8&quot;</span>)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Tan Yong He",
+      "email": "tyhshana@hotmail.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "gerroo",
+      "email": "gerensuner@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Rohan R Bharadwaj",
+      "email": "rohanrbharadwaj@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

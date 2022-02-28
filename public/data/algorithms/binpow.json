@@ -1,0 +1,23 @@
+{
+  "slug": "binpow",
+  "name": "Binpow",
+  "categories": [
+    "others"
+  ],
+  "body": {},
+  "implementations": {
+    "dart": {
+      "dir": "other\\binpow.dart",
+      "url": "https://github.com/TheAlgorithms/dart/tree/master/other\\binpow.dart",
+      "code": "<span class=\"hljs-comment\">// Effective computation of large exponents modulo a number</span>\r\n<span class=\"hljs-comment\">// Function binpow to calculate (x^n mod m)</span>\r\n<span class=\"hljs-built_in\">int</span> binPow(<span class=\"hljs-built_in\">int</span> a, <span class=\"hljs-built_in\">int</span> b, <span class=\"hljs-built_in\">int</span> m) {\r\n  <span class=\"hljs-built_in\">int</span> result = <span class=\"hljs-number\">1</span>;\r\n  a %= m;\r\n  <span class=\"hljs-keyword\">if</span> (a == <span class=\"hljs-number\">0</span>) <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n  <span class=\"hljs-keyword\">while</span> (b &gt; <span class=\"hljs-number\">0</span>) {\r\n    <span class=\"hljs-keyword\">if</span> (b % <span class=\"hljs-number\">2</span> == <span class=\"hljs-number\">1</span>) {\r\n      result = (result * a) % m;\r\n    }\r\n    b &gt;&gt;= <span class=\"hljs-number\">1</span>;\r\n    a = (a * a) % m;\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> result;\r\n}\r\n\r\n<span class=\"hljs-keyword\">void</span> main() {\r\n  <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&#x27;binary power of (2,5,13) = &#x27;</span> + binPow(<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">13</span>).toString());\r\n  <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&#x27;binary power of (5, 3,13) = &#x27;</span> + binPow(<span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">13</span>).toString());\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "KAUSHAL DEVRARI",
+      "email": "71590645+KaushalDevrari@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

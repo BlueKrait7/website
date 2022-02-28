@@ -1,0 +1,23 @@
+{
+  "slug": "average-absolute-deviation",
+  "name": "Average Absolute Deviation",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\average_absolute_deviation.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\average_absolute_deviation.py",
+      "code": "<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">average_absolute_deviation</span>(<span class=\"hljs-params\">nums: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]</span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Return the average absolute deviation of a list of numbers.\r\n    Wiki: https://en.wikipedia.org/wiki/Average_absolute_deviation\r\n\r\n    &gt;&gt;&gt; average_absolute_deviation([0])\r\n    0.0\r\n    &gt;&gt;&gt; average_absolute_deviation([4, 1, 3, 2])\r\n    1.0\r\n    &gt;&gt;&gt; average_absolute_deviation([2, 70, 6, 50, 20, 8, 4, 0])\r\n    20.0\r\n    &gt;&gt;&gt; average_absolute_deviation([-20, 0, 30, 15])\r\n    16.25\r\n    &gt;&gt;&gt; average_absolute_deviation([])\r\n    Traceback (most recent call last):\r\n        ...\r\n    ValueError: List is empty\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> <span class=\"hljs-keyword\">not</span> nums:  <span class=\"hljs-comment\"># Makes sure that the list is not empty</span>\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;List is empty&quot;</span>)\r\n\r\n    average = <span class=\"hljs-built_in\">sum</span>(nums) / <span class=\"hljs-built_in\">len</span>(nums)  <span class=\"hljs-comment\"># Calculate the average</span>\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-built_in\">sum</span>(<span class=\"hljs-built_in\">abs</span>(x - average) <span class=\"hljs-keyword\">for</span> x <span class=\"hljs-keyword\">in</span> nums) / <span class=\"hljs-built_in\">len</span>(nums)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Lukas",
+      "email": "lukas.aurelius@outlook.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

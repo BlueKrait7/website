@@ -1,0 +1,53 @@
+{
+  "slug": "binary-count-setbits",
+  "name": "Binary Count Setbits",
+  "categories": [
+    "bitmanipulation"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "bit_manipulation\\binary_count_setbits.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/bit_manipulation\\binary_count_setbits.py",
+      "code": "<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">binary_count_setbits</span>(<span class=\"hljs-params\">a: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">int</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Take in 1 integer, return a number that is\r\n    the number of 1&#x27;s in binary representation of that number.\r\n\r\n    &gt;&gt;&gt; binary_count_setbits(25)\r\n    3\r\n    &gt;&gt;&gt; binary_count_setbits(36)\r\n    2\r\n    &gt;&gt;&gt; binary_count_setbits(16)\r\n    1\r\n    &gt;&gt;&gt; binary_count_setbits(58)\r\n    4\r\n    &gt;&gt;&gt; binary_count_setbits(4294967295)\r\n    32\r\n    &gt;&gt;&gt; binary_count_setbits(0)\r\n    0\r\n    &gt;&gt;&gt; binary_count_setbits(-10)\r\n    Traceback (most recent call last):\r\n        ...\r\n    ValueError: Input value must be a positive integer\r\n    &gt;&gt;&gt; binary_count_setbits(0.8)\r\n    Traceback (most recent call last):\r\n        ...\r\n    TypeError: Input value must be a &#x27;int&#x27; type\r\n    &gt;&gt;&gt; binary_count_setbits(&quot;0&quot;)\r\n    Traceback (most recent call last):\r\n        ...\r\n    TypeError: &#x27;&lt;&#x27; not supported between instances of &#x27;str&#x27; and &#x27;int&#x27;\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> a &lt; <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;Input value must be a positive integer&quot;</span>)\r\n    <span class=\"hljs-keyword\">elif</span> <span class=\"hljs-built_in\">isinstance</span>(a, <span class=\"hljs-built_in\">float</span>):\r\n        <span class=\"hljs-keyword\">raise</span> TypeError(<span class=\"hljs-string\">&quot;Input value must be a &#x27;int&#x27; type&quot;</span>)\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-built_in\">bin</span>(a).count(<span class=\"hljs-string\">&quot;1&quot;</span>)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    },
+    "javascript": {
+      "dir": "Bit-Manipulation\\BinaryCountSetBits.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Bit-Manipulation\\BinaryCountSetBits.js",
+      "code": "<span class=\"hljs-comment\">/*\r\n    author: vivek9patel\r\n    license: GPL-3.0 or later\r\n\r\n    This script will find number of 1&#x27;s\r\n    in binary representation of given number\r\n\r\n*/</span>\r\n\r\n<span class=\"hljs-keyword\">function</span> <span class=\"hljs-title function_\">BinaryCountSetBits</span> (a) {\r\n  <span class=\"hljs-string\">&#x27;use strict&#x27;</span>\r\n  <span class=\"hljs-comment\">// convert number into binary representation and return number of set bits in binary representation</span>\r\n  <span class=\"hljs-keyword\">return</span> a.<span class=\"hljs-title function_\">toString</span>(<span class=\"hljs-number\">2</span>).<span class=\"hljs-title function_\">split</span>(<span class=\"hljs-string\">&#x27;1&#x27;</span>).<span class=\"hljs-property\">length</span> - <span class=\"hljs-number\">1</span>\r\n}\r\n\r\n<span class=\"hljs-keyword\">export</span> { <span class=\"hljs-title class_\">BinaryCountSetBits</span> }\r\n"
+    },
+    "ruby": {
+      "dir": "bit_manipulation\\binary_count_setbits.rb",
+      "url": "https://github.com/TheAlgorithms/ruby/tree/master/bit_manipulation\\binary_count_setbits.rb",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">binary_count_setbits</span><span class=\"hljs-params\">(x)</span></span>\r\n  raise <span class=\"hljs-string\">&#x27;Input must be a positive integer&#x27;</span> <span class=\"hljs-keyword\">if</span> x &lt; <span class=\"hljs-number\">0</span>\r\n\r\n  binary = x.to_s(<span class=\"hljs-number\">2</span>)\r\n\r\n  binary.chars.map { <span class=\"hljs-params\">|c|</span> c.to_i }.reduce(<span class=\"hljs-symbol\">:+</span>)\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\n<span class=\"hljs-keyword\">begin</span>\r\n  binary_count_setbits(-<span class=\"hljs-number\">1</span>)\r\n<span class=\"hljs-keyword\">rescue</span> StandardError =&gt; e\r\n  puts e.message\r\n<span class=\"hljs-keyword\">end</span>\r\n<span class=\"hljs-comment\"># Input must be a positive integer</span>\r\n\r\nputs binary_count_setbits(<span class=\"hljs-number\">0</span>)\r\n<span class=\"hljs-comment\"># 0</span>\r\n\r\nputs binary_count_setbits(<span class=\"hljs-number\">1</span>)\r\n<span class=\"hljs-comment\"># 1</span>\r\n\r\nputs binary_count_setbits(<span class=\"hljs-number\">1024</span>)\r\n<span class=\"hljs-comment\"># 1</span>\r\n\r\nputs binary_count_setbits(<span class=\"hljs-number\">1023</span>)\r\n<span class=\"hljs-comment\"># 10</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Keshav Bohra",
+      "email": "keshav2016@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Vijay Siva",
+      "email": "vijay.sivasubramaniam@instacart.com",
+      "commits": 2
+    },
+    {
+      "name": "Vivek Patel",
+      "email": "vicky.p8980@gmail.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

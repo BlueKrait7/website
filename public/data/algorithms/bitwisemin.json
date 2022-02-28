@@ -1,0 +1,24 @@
+{
+  "slug": "bitwisemin",
+  "name": "Bitwisemin",
+  "categories": [
+    "math",
+    "min"
+  ],
+  "body": {},
+  "implementations": {
+    "go": {
+      "dir": "math\\min\\bitwisemin.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/math\\min\\bitwisemin.go",
+      "code": "<span class=\"hljs-comment\">// bitwisemin.go</span>\r\n<span class=\"hljs-comment\">// description: Gives min of two integers</span>\r\n<span class=\"hljs-comment\">// details:</span>\r\n<span class=\"hljs-comment\">// implementation of finding the minimum of two numbers using only binary operations without using conditions</span>\r\n<span class=\"hljs-comment\">// author(s) [red_byte](https://github.com/i-redbyte)</span>\r\n<span class=\"hljs-comment\">// see bitwisemin_test.go</span>\r\n\r\n<span class=\"hljs-keyword\">package</span> min\r\n\r\n<span class=\"hljs-comment\">// Bitwise This function returns the minimum integer using bit operations</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">Bitwise</span><span class=\"hljs-params\">(base <span class=\"hljs-type\">int</span>, value <span class=\"hljs-type\">int</span>, values ...<span class=\"hljs-type\">int</span>)</span></span> <span class=\"hljs-type\">int</span> {\r\n\tmin := value\r\n\t<span class=\"hljs-keyword\">for</span> _, val := <span class=\"hljs-keyword\">range</span> values {\r\n\t\tmin = min&amp;((min-val)&gt;&gt;base) | val&amp;(^(min-val)&gt;&gt;base)\r\n\t}\r\n\t<span class=\"hljs-keyword\">return</span> min\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Ilya Sokolov",
+      "email": "developer.sokolov@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

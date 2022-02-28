@@ -1,0 +1,28 @@
+{
+  "slug": "binary-count-trailing-zeroes",
+  "name": "Binary Count Trailing Zeroes",
+  "categories": [
+    "bitmanipulation"
+  ],
+  "body": {},
+  "implementations": {
+    "ruby": {
+      "dir": "bit_manipulation\\binary_count_trailing_zeroes.rb",
+      "url": "https://github.com/TheAlgorithms/ruby/tree/master/bit_manipulation\\binary_count_trailing_zeroes.rb",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">binary_count_trailing_zeroes</span><span class=\"hljs-params\">(x)</span></span>\r\n  raise <span class=\"hljs-string\">&#x27;Input must be a positive integer&#x27;</span> <span class=\"hljs-keyword\">if</span> x &lt; <span class=\"hljs-number\">0</span>\r\n\r\n  binary = x.to_s(<span class=\"hljs-number\">2</span>)\r\n\r\n  count = <span class=\"hljs-number\">0</span>\r\n  binary.chars.reverse_each <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|char|</span>\r\n    <span class=\"hljs-keyword\">break</span> <span class=\"hljs-keyword\">if</span> char == <span class=\"hljs-string\">&#x27;1&#x27;</span>\r\n\r\n    count += <span class=\"hljs-number\">1</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n\r\n  count\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\n<span class=\"hljs-keyword\">begin</span>\r\n  binary_count_trailing_zeroes(-<span class=\"hljs-number\">1</span>)\r\n<span class=\"hljs-keyword\">rescue</span> StandardError =&gt; e\r\n  puts e.message\r\n<span class=\"hljs-keyword\">end</span>\r\n<span class=\"hljs-comment\"># Input must be a positive integer</span>\r\n\r\nputs binary_count_trailing_zeroes(<span class=\"hljs-number\">0</span>)\r\n<span class=\"hljs-comment\"># 1</span>\r\n\r\nputs binary_count_trailing_zeroes(<span class=\"hljs-number\">1023</span>)\r\n<span class=\"hljs-comment\"># 0</span>\r\n\r\nputs binary_count_trailing_zeroes(<span class=\"hljs-number\">1024</span>)\r\n<span class=\"hljs-comment\"># 10</span>\r\n\r\nputs binary_count_trailing_zeroes(<span class=\"hljs-number\">54</span>)\r\n<span class=\"hljs-comment\"># 1</span>\r\n\r\nputs binary_count_trailing_zeroes(<span class=\"hljs-number\">121_024</span>)\r\n<span class=\"hljs-comment\"># 6</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Vijay Siva",
+      "email": "vijay.sivasubramaniam@instacart.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

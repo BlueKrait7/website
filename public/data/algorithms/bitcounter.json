@@ -1,0 +1,24 @@
+{
+  "slug": "bitcounter",
+  "name": "Bitcounter",
+  "categories": [
+    "math",
+    "binary"
+  ],
+  "body": {},
+  "implementations": {
+    "go": {
+      "dir": "math\\binary\\bitcounter.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/math\\binary\\bitcounter.go",
+      "code": "<span class=\"hljs-comment\">// bitcounter.go</span>\r\n<span class=\"hljs-comment\">// description: Counts the number of set bits in a number</span>\r\n<span class=\"hljs-comment\">// details:</span>\r\n<span class=\"hljs-comment\">// For unsigned integer number N, return the number of bits set to 1 - [Bit numbering](https://en.wikipedia.org/wiki/Bit_numbering)</span>\r\n<span class=\"hljs-comment\">// author(s) [red_byte](https://github.com/i-redbyte)</span>\r\n<span class=\"hljs-comment\">// see bitcounter_test.go</span>\r\n\r\n<span class=\"hljs-keyword\">package</span> binary\r\n\r\n<span class=\"hljs-comment\">// BitCounter - The function returns the number of set bits for an unsigned integer number</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">BitCounter</span><span class=\"hljs-params\">(n <span class=\"hljs-type\">uint</span>)</span></span> <span class=\"hljs-type\">int</span> {\r\n\tcounter := <span class=\"hljs-number\">0</span>\r\n\t<span class=\"hljs-keyword\">for</span> n != <span class=\"hljs-number\">0</span> {\r\n\t\t<span class=\"hljs-keyword\">if</span> n&amp;<span class=\"hljs-number\">1</span> == <span class=\"hljs-number\">1</span> {\r\n\t\t\tcounter++\r\n\t\t}\r\n\t\tn &gt;&gt;= <span class=\"hljs-number\">1</span>\r\n\t}\r\n\t<span class=\"hljs-keyword\">return</span> counter\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Ilya Sokolov",
+      "email": "developer.sokolov@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

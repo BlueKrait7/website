@@ -1,0 +1,28 @@
+{
+  "slug": "binary-pow",
+  "name": "Binary Pow",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\maths\\BinaryPow.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\maths\\BinaryPow.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.maths;\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">BinaryPow</span> {\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Calculate a^p using binary exponentiation\r\n     * [Binary-Exponentiation](https://cp-algorithms.com/algebra/binary-exp.html)\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> a the base for exponentiation\r\n     * <span class=\"hljs-doctag\">@param</span> p the exponent - must be greater than 0\r\n     * <span class=\"hljs-doctag\">@return</span> a^p\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">binPow</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> a, <span class=\"hljs-type\">int</span> p)</span> {\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">res</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">1</span>;\r\n        <span class=\"hljs-keyword\">while</span> (p &gt; <span class=\"hljs-number\">0</span>) {\r\n            <span class=\"hljs-keyword\">if</span> ((p &amp; <span class=\"hljs-number\">1</span>) == <span class=\"hljs-number\">1</span>) {\r\n                res = res * a;\r\n            }\r\n            a = a * a;\r\n            p &gt;&gt;&gt;= <span class=\"hljs-number\">1</span>;\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> res;\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Function for testing binary exponentiation\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> a the base\r\n     * <span class=\"hljs-doctag\">@param</span> p the exponent\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">test</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> a, <span class=\"hljs-type\">int</span> p)</span> {\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">res</span> <span class=\"hljs-operator\">=</span> binPow(a, p);\r\n        <span class=\"hljs-type\">assert</span> <span class=\"hljs-variable\">res</span> <span class=\"hljs-operator\">=</span>= (<span class=\"hljs-type\">int</span>) Math.pow(a, p) : <span class=\"hljs-string\">&quot;Incorrect Implementation&quot;</span>;\r\n        System.out.println(a + <span class=\"hljs-string\">&quot;^&quot;</span> + p + <span class=\"hljs-string\">&quot;: &quot;</span> + res);\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Main Function to call tests\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> args System Line Arguments\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-comment\">// prints 2^15: 32768</span>\r\n        test(<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">15</span>);\r\n\r\n        <span class=\"hljs-comment\">// prints 3^9: 19683</span>\r\n        test(<span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">9</span>);\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "lakhan_nad",
+      "email": "lakhannad1999@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

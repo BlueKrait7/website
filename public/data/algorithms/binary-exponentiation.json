@@ -1,0 +1,93 @@
+{
+  "slug": "binary-exponentiation",
+  "name": "Binary Exponentiation",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\binary_exponentiation.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\binary_exponentiation.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;Binary Exponentiation.&quot;&quot;&quot;</span>\r\n\r\n<span class=\"hljs-comment\"># Author : Junth Basnet</span>\r\n<span class=\"hljs-comment\"># Time Complexity : O(logn)</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">binary_exponentiation</span>(<span class=\"hljs-params\">a, n</span>):\r\n\r\n    <span class=\"hljs-keyword\">if</span> n == <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>\r\n\r\n    <span class=\"hljs-keyword\">elif</span> n % <span class=\"hljs-number\">2</span> == <span class=\"hljs-number\">1</span>:\r\n        <span class=\"hljs-keyword\">return</span> binary_exponentiation(a, n - <span class=\"hljs-number\">1</span>) * a\r\n\r\n    <span class=\"hljs-keyword\">else</span>:\r\n        b = binary_exponentiation(a, n / <span class=\"hljs-number\">2</span>)\r\n        <span class=\"hljs-keyword\">return</span> b * b\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">try</span>:\r\n        BASE = <span class=\"hljs-built_in\">int</span>(<span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Enter Base : &quot;</span>).strip())\r\n        POWER = <span class=\"hljs-built_in\">int</span>(<span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Enter Power : &quot;</span>).strip())\r\n    <span class=\"hljs-keyword\">except</span> ValueError:\r\n        <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;Invalid literal for integer&quot;</span>)\r\n\r\n    RESULT = binary_exponentiation(BASE, POWER)\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f&quot;<span class=\"hljs-subst\">{BASE}</span>^(<span class=\"hljs-subst\">{POWER}</span>) : <span class=\"hljs-subst\">{RESULT}</span>&quot;</span>)\r\n"
+    },
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\divideandconquer\\BinaryExponentiation.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\divideandconquer\\BinaryExponentiation.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.divideandconquer;\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">BinaryExponentiation</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String args[])</span> {\r\n        System.out.println(calculatePower(<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">30</span>));\r\n    }\r\n\r\n    <span class=\"hljs-comment\">// Function to calculate x^y</span>\r\n    <span class=\"hljs-comment\">// Time Complexity: O(logn)</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">long</span> <span class=\"hljs-title function_\">calculatePower</span><span class=\"hljs-params\">(<span class=\"hljs-type\">long</span> x, <span class=\"hljs-type\">long</span> y)</span> {\r\n        <span class=\"hljs-keyword\">if</span> (y == <span class=\"hljs-number\">0</span>) {\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>;\r\n        }\r\n        <span class=\"hljs-type\">long</span> <span class=\"hljs-variable\">val</span> <span class=\"hljs-operator\">=</span> calculatePower(x, y / <span class=\"hljs-number\">2</span>);\r\n        val *= val;\r\n        <span class=\"hljs-keyword\">if</span> (y % <span class=\"hljs-number\">2</span> == <span class=\"hljs-number\">1</span>) {\r\n            val *= x;\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> val;\r\n    }\r\n}\r\n"
+    },
+    "scala": {
+      "dir": "src\\main\\scala\\Mathematics\\BinaryExponentiation.scala",
+      "url": "https://github.com/TheAlgorithms/scala/tree/master/src\\main\\scala\\Mathematics\\BinaryExponentiation.scala",
+      "code": "<span class=\"hljs-keyword\">package</span> <span class=\"hljs-type\">Mathematics</span>\r\n\r\n<span class=\"hljs-class\"><span class=\"hljs-keyword\">object</span> <span class=\"hljs-title\">BinaryExponentiation</span> </span>{\r\n\r\n  <span class=\"hljs-comment\">/** Method returns the binary exponentiation of a given number when base and power are passed the parameters\r\n    *\r\n    * @param Int\r\n    *   , Int\r\n    * @return\r\n    */</span>\r\n\r\n  <span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">binaryExponentiation</span></span>(base: <span class=\"hljs-type\">Int</span>, power: <span class=\"hljs-type\">Int</span>): <span class=\"hljs-type\">Int</span> = {\r\n    <span class=\"hljs-keyword\">if</span> (power == <span class=\"hljs-number\">0</span>) {\r\n      <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>\r\n    } <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span> (power % <span class=\"hljs-number\">2</span> == <span class=\"hljs-number\">1</span>) {\r\n      <span class=\"hljs-keyword\">return</span> binaryExponentiation(base, power - <span class=\"hljs-number\">1</span>) * base\r\n    } <span class=\"hljs-keyword\">else</span> {\r\n      <span class=\"hljs-keyword\">val</span> answer: <span class=\"hljs-type\">Int</span> = binaryExponentiation(base, power / <span class=\"hljs-number\">2</span>)\r\n      <span class=\"hljs-keyword\">return</span> answer * answer\r\n    }\r\n  }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "Alfredo Torre",
+      "email": "alfredotorre@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "khanhhuynguyenvu",
+      "email": "khanhhuynguyenvu@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "aditiagarwal34550",
+      "email": "aditiagarwal34550@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "PatOnTheBack",
+      "email": "51241310+PatOnTheBack@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Pranay Chauhan",
+      "email": "52269813+PranayChauhan2516@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "GeorgeChambi",
+      "email": "charalambous99@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Junth Basnet",
+      "email": "25685098+Junth19@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "97arushisharma",
+      "email": "97arushisharma@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Aditi Agarwal",
+      "email": "31546143+aditiagarwal34550@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "Chinmoy Das",
+      "email": "chinmoy159@users.noreply.github.com",
+      "commits": 4
+    }
+  ],
+  "explanationUrl": {}
+}

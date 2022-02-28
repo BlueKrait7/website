@@ -1,0 +1,53 @@
+{
+  "slug": "average-mode",
+  "name": "Average Mode",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\average_mode.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\average_mode.py",
+      "code": "<span class=\"hljs-keyword\">from</span> typing <span class=\"hljs-keyword\">import</span> <span class=\"hljs-type\">Any</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">mode</span>(<span class=\"hljs-params\">input_list: <span class=\"hljs-built_in\">list</span></span>) -&gt; <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-type\">Any</span>]:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;This function returns the mode(Mode as in the measures of\r\n    central tendency) of the input data.\r\n\r\n    The input list may contain any Datastructure or any Datatype.\r\n\r\n    &gt;&gt;&gt; mode([2, 3, 4, 5, 3, 4, 2, 5, 2, 2, 4, 2, 2, 2])\r\n    [2]\r\n    &gt;&gt;&gt; mode([3, 4, 5, 3, 4, 2, 5, 2, 2, 4, 4, 2, 2, 2])\r\n    [2]\r\n    &gt;&gt;&gt; mode([3, 4, 5, 3, 4, 2, 5, 2, 2, 4, 4, 4, 2, 2, 4, 2])\r\n    [2, 4]\r\n    &gt;&gt;&gt; mode([&quot;x&quot;, &quot;y&quot;, &quot;y&quot;, &quot;z&quot;])\r\n    [&#x27;y&#x27;]\r\n    &gt;&gt;&gt; mode([&quot;x&quot;, &quot;x&quot; , &quot;y&quot;, &quot;y&quot;, &quot;z&quot;])\r\n    [&#x27;x&#x27;, &#x27;y&#x27;]\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> <span class=\"hljs-keyword\">not</span> input_list:\r\n        <span class=\"hljs-keyword\">return</span> []\r\n    result = [input_list.count(value) <span class=\"hljs-keyword\">for</span> value <span class=\"hljs-keyword\">in</span> input_list]\r\n    y = <span class=\"hljs-built_in\">max</span>(result)  <span class=\"hljs-comment\"># Gets the maximum count in the input list.</span>\r\n    <span class=\"hljs-comment\"># Gets values of modes</span>\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-built_in\">sorted</span>({input_list[i] <span class=\"hljs-keyword\">for</span> i, value <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">enumerate</span>(result) <span class=\"hljs-keyword\">if</span> value == y})\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    },
+    "julia": {
+      "dir": "src\\math\\average_mode.jl",
+      "url": "https://github.com/TheAlgorithms/julia/tree/master/src\\math\\average_mode.jl",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n    mode(nums)\r\n\r\nFinds mode of a vector of numbers\r\n\r\n# Example\r\n\r\n```julia\r\nmode([2, 3, 4, 5, 3, 4, 2, 5, 2, 2, 4, 2, 2, 2])        # returns [2]\r\nmode([3, 4, 5, 3, 4, 2, 5, 2, 2, 4, 4, 2, 2, 2])        # returns [2]\r\nmode([3, 4, 5, 3, 4, 2, 5, 2, 2, 4, 4, 4, 2, 2, 4, 2])  # returns [2, 4]\r\nmode([&quot;x&quot;, &quot;y&quot;, &quot;y&quot;, &quot;z&quot;])                              # returns [&quot;y&quot;]\r\nmode([&quot;x&quot;, &quot;x&quot; , &quot;y&quot;, &quot;y&quot;, &quot;z&quot;])                       # returns [&quot;x&quot;, &quot;y&quot;]\r\n```\r\n\r\nContributed By:- [Ashwani Rathee](https://github.com/ashwani-rathee)\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">function</span> mode(nums)\r\n    dict = <span class=\"hljs-built_in\">Dict</span>() <span class=\"hljs-comment\"># nums =&gt; Number of repetitions</span>\r\n    result = [] <span class=\"hljs-comment\"># Array of the modes so far</span>\r\n    max = <span class=\"hljs-number\">0</span> <span class=\"hljs-comment\"># Max of repetitions so far</span>\r\n\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> nums\r\n        <span class=\"hljs-comment\"># Add one to the dict[i] entry (create one if none)</span>\r\n        <span class=\"hljs-keyword\">if</span> i <span class=\"hljs-keyword\">in</span> keys(dict)\r\n            dict[i] += <span class=\"hljs-number\">1</span>\r\n        <span class=\"hljs-keyword\">else</span>\r\n            dict[i] = <span class=\"hljs-number\">1</span>\r\n        <span class=\"hljs-keyword\">end</span>\r\n        <span class=\"hljs-comment\"># Result updated if no of repetitions of i &gt;= max</span>\r\n        <span class=\"hljs-keyword\">if</span> dict[i] &gt;= max\r\n            <span class=\"hljs-keyword\">if</span> dict[i] &gt; max\r\n                empty!(result)\r\n                max += <span class=\"hljs-number\">1</span>\r\n            <span class=\"hljs-keyword\">end</span>\r\n            append!(result, [i])\r\n        <span class=\"hljs-keyword\">end</span>\r\n    <span class=\"hljs-keyword\">end</span>\r\n\r\n    <span class=\"hljs-keyword\">return</span> result\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Azzaare",
+      "email": "jf@baffier.fr",
+      "commits": 1
+    },
+    {
+      "name": "Ashwani Rathee",
+      "email": "ab669522@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Rohan R Bharadwaj",
+      "email": "rohanrbharadwaj@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Grigoriy Hanin",
+      "email": "43445998+haningrisha@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "matkosoric",
+      "email": "soric.matko@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "LokiUvaraj",
+      "email": "54948079+LokiUvaraj@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "board-position",
+  "name": "Board Position",
+  "categories": [
+    "ai",
+    "minimax",
+    "sources",
+    "minimaxplayground",
+    "sources",
+    "model",
+    "board"
+  ],
+  "body": {},
+  "implementations": {
+    "swift": {
+      "dir": "algorithms\\AI\\minimax\\Sources\\Minimax.playground\\Sources\\Model\\Board\\BoardPosition.swift",
+      "url": "https://github.com/TheAlgorithms/swift/tree/master/algorithms\\AI\\minimax\\Sources\\Minimax.playground\\Sources\\Model\\Board\\BoardPosition.swift",
+      "code": "<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">typealias</span> <span class=\"hljs-type\">Position</span> <span class=\"hljs-operator\">=</span> (row: <span class=\"hljs-type\">Int</span>, column: <span class=\"hljs-type\">Int</span>)\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "michalnowak061",
+      "email": "michal.nowak061@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

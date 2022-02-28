@@ -1,0 +1,53 @@
+{
+  "slug": "binomial-coefficient",
+  "name": "Binomial Coefficient",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\binomial_coefficient.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\binomial_coefficient.py",
+      "code": "<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">binomial_coefficient</span>(<span class=\"hljs-params\">n, r</span>):\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Find binomial coefficient using pascals triangle.\r\n\r\n    &gt;&gt;&gt; binomial_coefficient(10, 5)\r\n    252\r\n    &quot;&quot;&quot;</span>\r\n    C = [<span class=\"hljs-number\">0</span> <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(r + <span class=\"hljs-number\">1</span>)]\r\n    <span class=\"hljs-comment\"># nc0 = 1</span>\r\n    C[<span class=\"hljs-number\">0</span>] = <span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-number\">1</span>, n + <span class=\"hljs-number\">1</span>):\r\n        <span class=\"hljs-comment\"># to compute current row from previous row.</span>\r\n        j = <span class=\"hljs-built_in\">min</span>(i, r)\r\n        <span class=\"hljs-keyword\">while</span> j &gt; <span class=\"hljs-number\">0</span>:\r\n            C[j] += C[j - <span class=\"hljs-number\">1</span>]\r\n            j -= <span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">return</span> C[r]\r\n\r\n\r\n<span class=\"hljs-built_in\">print</span>(binomial_coefficient(n=<span class=\"hljs-number\">10</span>, r=<span class=\"hljs-number\">5</span>))\r\n"
+    },
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\maths\\BinomialCoefficient.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\maths\\BinomialCoefficient.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.maths;\r\n\r\n<span class=\"hljs-comment\">/*\r\n * Java program for Binomial Cofficients\r\n * Binomial Cofficients: A binomial cofficient C(n,k) gives number ways\r\n * in which k objects can be chosen from n objects.\r\n * Wikipedia: https://en.wikipedia.org/wiki/Binomial_coefficient\r\n * \r\n * Author: Akshay Dubey (https://github.com/itsAkshayDubey)\r\n * \r\n * */</span>\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">BinomialCoefficient</span> {\r\n\t\r\n\t<span class=\"hljs-comment\">/**\r\n     * This method returns the number of ways in which k objects can be chosen from n objects\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> total_objects Total number of objects\r\n     * <span class=\"hljs-doctag\">@param</span> no_of_objects Number of objects to be chosen from total_objects\r\n     * <span class=\"hljs-doctag\">@return</span> number of ways in which no_of_objects objects can be chosen from total_objects objects\r\n     */</span>\r\n\t\r\n\t<span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">binomialCoefficient</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> total_objects, <span class=\"hljs-type\">int</span> no_of_objects)</span> {\r\n\t\t\r\n\t\t<span class=\"hljs-comment\">//Base Case</span>\r\n\t\t<span class=\"hljs-keyword\">if</span>(no_of_objects &gt; total_objects) {\r\n\t\t\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n\t\t}\r\n\t\t\r\n\t\t<span class=\"hljs-comment\">//Base Case</span>\r\n\t\t<span class=\"hljs-keyword\">if</span>(no_of_objects == <span class=\"hljs-number\">0</span> || no_of_objects == total_objects) {\r\n\t\t\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>;\r\n\t\t}\r\n\t\t\r\n\t\t<span class=\"hljs-comment\">//Recursive Call</span>\r\n\t\t<span class=\"hljs-keyword\">return</span> binomialCoefficient(total_objects - <span class=\"hljs-number\">1</span>, no_of_objects - <span class=\"hljs-number\">1</span>)\r\n\t\t\t\t+ binomialCoefficient(total_objects - <span class=\"hljs-number\">1</span>, no_of_objects);\r\n\t}\r\n\t\r\n\t<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n\t\tSystem.out.println(binomialCoefficient(<span class=\"hljs-number\">20</span>,<span class=\"hljs-number\">2</span>));\r\n\t\t\r\n\t\t<span class=\"hljs-comment\">//Output: 190</span>\r\n\t}\r\n\r\n}\r\n"
+    },
+    "go": {
+      "dir": "dynamic\\binomialcoefficient.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/dynamic\\binomialcoefficient.go",
+      "code": "<span class=\"hljs-keyword\">package</span> dynamic\r\n\r\n<span class=\"hljs-keyword\">import</span> <span class=\"hljs-string\">&quot;github.com/TheAlgorithms/Go/math/min&quot;</span>\r\n\r\n<span class=\"hljs-comment\">// func main() {</span>\r\n<span class=\"hljs-comment\">// \tmyArrayOfK := [4]int{5, 6, 7, 8}</span>\r\n<span class=\"hljs-comment\">// \tvar x int</span>\r\n\r\n<span class=\"hljs-comment\">// \tfmt.Println(&quot;\\nBinomial Coefficient Using Dynamic Programming:&quot;, bin2(50, 5))</span>\r\n<span class=\"hljs-comment\">// \tfor _, element := range myArrayOfK {</span>\r\n<span class=\"hljs-comment\">// \t\tstart := time.Now()</span>\r\n<span class=\"hljs-comment\">// \t\tx = bin2(50, element)</span>\r\n<span class=\"hljs-comment\">// \t\telapsed := time.Since(start)</span>\r\n<span class=\"hljs-comment\">// \t\tfmt.Println(&quot;bin2 (50,&quot;, element, &quot;) = &quot;, x, &quot;    took &quot;, elapsed)</span>\r\n\r\n<span class=\"hljs-comment\">// \t}</span>\r\n\r\n<span class=\"hljs-comment\">// }</span>\r\n\r\n<span class=\"hljs-comment\">// Bin2 function</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">Bin2</span><span class=\"hljs-params\">(n <span class=\"hljs-type\">int</span>, k <span class=\"hljs-type\">int</span>)</span></span> <span class=\"hljs-type\">int</span> {\r\n\t<span class=\"hljs-keyword\">var</span> i, j <span class=\"hljs-type\">int</span>\r\n\tB := <span class=\"hljs-built_in\">make</span>([][]<span class=\"hljs-type\">int</span>, (n + <span class=\"hljs-number\">1</span>))\r\n\t<span class=\"hljs-keyword\">for</span> i := <span class=\"hljs-keyword\">range</span> B {\r\n\t\tB[i] = <span class=\"hljs-built_in\">make</span>([]<span class=\"hljs-type\">int</span>, k+<span class=\"hljs-number\">1</span>)\r\n\t}\r\n\r\n\t<span class=\"hljs-keyword\">for</span> i = <span class=\"hljs-number\">0</span>; i &lt;= n; i++ {\r\n\t\t<span class=\"hljs-keyword\">for</span> j = <span class=\"hljs-number\">0</span>; j &lt;= min.Int(i, k); j++ {\r\n\t\t\t<span class=\"hljs-keyword\">if</span> j == <span class=\"hljs-number\">0</span> || j == i {\r\n\t\t\t\tB[i][j] = <span class=\"hljs-number\">1</span>\r\n\t\t\t} <span class=\"hljs-keyword\">else</span> {\r\n\t\t\t\tB[i][j] = B[i<span class=\"hljs-number\">-1</span>][j<span class=\"hljs-number\">-1</span>] + B[i<span class=\"hljs-number\">-1</span>][j]\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\t<span class=\"hljs-keyword\">return</span> B[n][k]\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Andrii Siriak",
+      "email": "siryaka@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "1fisedi",
+      "email": "51143882+1fisedi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Michele Caci",
+      "email": "michele.caci@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Akshay Dubey",
+      "email": "38462415+itsAkshayDubey@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "prathmesh1199",
+      "email": "51616294+prathmesh1199@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,33 @@
+{
+  "slug": "binary-exponentiation-2",
+  "name": "Binary Exponentiation 2",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\binary_exponentiation_2.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\binary_exponentiation_2.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n* Binary Exponentiation with Multiplication\r\n* This is a method to find a*b in a time complexity of O(log b)\r\n* This is one of the most commonly used methods of finding result of multiplication.\r\n* Also useful in cases where solution to (a*b)%c is required,\r\n* where a,b,c can be numbers over the computers calculation limits.\r\n* Done using iteration, can also be done using recursion\r\n\r\n* @author chinmoy159\r\n* @version 1.0 dated 10/08/2017\r\n&quot;&quot;&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">b_expo</span>(<span class=\"hljs-params\">a, b</span>):\r\n    res = <span class=\"hljs-number\">0</span>\r\n    <span class=\"hljs-keyword\">while</span> b &gt; <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">if</span> b &amp; <span class=\"hljs-number\">1</span>:\r\n            res += a\r\n\r\n        a += a\r\n        b &gt;&gt;= <span class=\"hljs-number\">1</span>\r\n\r\n    <span class=\"hljs-keyword\">return</span> res\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">b_expo_mod</span>(<span class=\"hljs-params\">a, b, c</span>):\r\n    res = <span class=\"hljs-number\">0</span>\r\n    <span class=\"hljs-keyword\">while</span> b &gt; <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">if</span> b &amp; <span class=\"hljs-number\">1</span>:\r\n            res = ((res % c) + (a % c)) % c\r\n\r\n        a += a\r\n        b &gt;&gt;= <span class=\"hljs-number\">1</span>\r\n\r\n    <span class=\"hljs-keyword\">return</span> res\r\n\r\n\r\n<span class=\"hljs-string\">&quot;&quot;&quot;\r\n* Wondering how this method works !\r\n* It&#x27;s pretty simple.\r\n* Let&#x27;s say you need to calculate a ^ b\r\n* RULE 1 : a * b = (a+a) * (b/2) ---- example : 4 * 4 = (4+4) * (4/2) = 8 * 2\r\n* RULE 2 : IF b is ODD, then ---- a * b = a + (a * (b - 1)) :: where (b - 1) is even.\r\n* Once b is even, repeat the process to get a * b\r\n* Repeat the process till b = 1 OR b = 0, because a*1 = a AND a*0 = 0\r\n*\r\n* As far as the modulo is concerned,\r\n* the fact : (a+b) % c = ((a%c) + (b%c)) % c\r\n* Now apply RULE 1 OR 2, whichever is required.\r\n&quot;&quot;&quot;</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "97arushisharma",
+      "email": "97arushisharma@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Chinmoy Das",
+      "email": "chinmoy159@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}
