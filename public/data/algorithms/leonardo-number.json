@@ -1,0 +1,23 @@
+{
+  "slug": "leonardo-number",
+  "name": "Leonardo Number",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\maths\\LeonardoNumber.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\maths\\LeonardoNumber.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.maths;\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">LeonardoNumber</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">leonardoNumber</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> n)</span> {\r\n        <span class=\"hljs-keyword\">if</span> (n &lt; <span class=\"hljs-number\">0</span>) {\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n        }\r\n        <span class=\"hljs-keyword\">if</span> (n == <span class=\"hljs-number\">0</span> || n == <span class=\"hljs-number\">1</span>) {\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>;\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> (leonardoNumber(n - <span class=\"hljs-number\">1</span>) + leonardoNumber(n - <span class=\"hljs-number\">2</span>) + <span class=\"hljs-number\">1</span>);\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String args[])</span> {\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>; i &lt; <span class=\"hljs-number\">20</span>; i++) {\r\n            System.out.print(leonardoNumber(i) + <span class=\"hljs-string\">&quot; &quot;</span>);\r\n        }\r\n\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Florian",
+      "email": "38241786+Flonator3000@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "lstm-prediction",
+  "name": "Lstm Prediction",
+  "categories": [
+    "machinelearning",
+    "lstm"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "machine_learning\\lstm\\lstm_prediction.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/machine_learning\\lstm\\lstm_prediction.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Create a Long Short Term Memory (LSTM) network model\r\n    An LSTM is a type of Recurrent Neural Network (RNN) as discussed at:\r\n    * http://colah.github.io/posts/2015-08-Understanding-LSTMs\r\n    * https://en.wikipedia.org/wiki/Long_short-term_memory\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">import</span> numpy <span class=\"hljs-keyword\">as</span> np\r\n<span class=\"hljs-keyword\">import</span> pandas <span class=\"hljs-keyword\">as</span> pd\r\n<span class=\"hljs-keyword\">from</span> sklearn.preprocessing <span class=\"hljs-keyword\">import</span> MinMaxScaler\r\n<span class=\"hljs-keyword\">from</span> tensorflow.keras.layers <span class=\"hljs-keyword\">import</span> LSTM, Dense\r\n<span class=\"hljs-keyword\">from</span> tensorflow.keras.models <span class=\"hljs-keyword\">import</span> Sequential\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    First part of building a model is to get the data and prepare\r\n    it for our model. You can use any dataset for stock prediction\r\n    make sure you set the price column on line number 21.  Here we\r\n    use a dataset which have the price on 3rd column.\r\n    &quot;&quot;&quot;</span>\r\n    df = pd.read_csv(<span class=\"hljs-string\">&quot;sample_data.csv&quot;</span>, header=<span class=\"hljs-literal\">None</span>)\r\n    len_data = df.shape[:<span class=\"hljs-number\">1</span>][<span class=\"hljs-number\">0</span>]\r\n    <span class=\"hljs-comment\"># If you&#x27;re using some other dataset input the target column</span>\r\n    actual_data = df.iloc[:, <span class=\"hljs-number\">1</span>:<span class=\"hljs-number\">2</span>]\r\n    actual_data = actual_data.values.reshape(len_data, <span class=\"hljs-number\">1</span>)\r\n    actual_data = MinMaxScaler().fit_transform(actual_data)\r\n    look_back = <span class=\"hljs-number\">10</span>\r\n    forward_days = <span class=\"hljs-number\">5</span>\r\n    periods = <span class=\"hljs-number\">20</span>\r\n    division = len_data - periods * look_back\r\n    train_data = actual_data[:division]\r\n    test_data = actual_data[division - look_back :]\r\n    train_x, train_y = [], []\r\n    test_x, test_y = [], []\r\n\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-number\">0</span>, <span class=\"hljs-built_in\">len</span>(train_data) - forward_days - look_back + <span class=\"hljs-number\">1</span>):\r\n        train_x.append(train_data[i : i + look_back])\r\n        train_y.append(train_data[i + look_back : i + look_back + forward_days])\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-number\">0</span>, <span class=\"hljs-built_in\">len</span>(test_data) - forward_days - look_back + <span class=\"hljs-number\">1</span>):\r\n        test_x.append(test_data[i : i + look_back])\r\n        test_y.append(test_data[i + look_back : i + look_back + forward_days])\r\n    x_train = np.array(train_x)\r\n    x_test = np.array(test_x)\r\n    y_train = np.array([<span class=\"hljs-built_in\">list</span>(i.ravel()) <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> train_y])\r\n    y_test = np.array([<span class=\"hljs-built_in\">list</span>(i.ravel()) <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> test_y])\r\n\r\n    model = Sequential()\r\n    model.add(LSTM(<span class=\"hljs-number\">128</span>, input_shape=(look_back, <span class=\"hljs-number\">1</span>), return_sequences=<span class=\"hljs-literal\">True</span>))\r\n    model.add(LSTM(<span class=\"hljs-number\">64</span>, input_shape=(<span class=\"hljs-number\">128</span>, <span class=\"hljs-number\">1</span>)))\r\n    model.add(Dense(forward_days))\r\n    model.<span class=\"hljs-built_in\">compile</span>(loss=<span class=\"hljs-string\">&quot;mean_squared_error&quot;</span>, optimizer=<span class=\"hljs-string\">&quot;adam&quot;</span>)\r\n    history = model.fit(\r\n        x_train, y_train, epochs=<span class=\"hljs-number\">150</span>, verbose=<span class=\"hljs-number\">1</span>, shuffle=<span class=\"hljs-literal\">True</span>, batch_size=<span class=\"hljs-number\">4</span>\r\n    )\r\n    pred = model.predict(x_test)\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "Jeffin Francis",
+      "email": "francisjeffin07@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

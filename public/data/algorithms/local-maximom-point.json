@@ -1,0 +1,29 @@
+{
+  "slug": "local-maximom-point",
+  "name": "Local Maximom Point",
+  "categories": [
+    "datastructures",
+    "array"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Data-Structures\\Array\\test\\LocalMaximomPoint.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Data-Structures\\Array\\test\\LocalMaximomPoint.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { <span class=\"hljs-title class_\">LocalMaximomPoint</span> } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../LocalMaximomPoint&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;LocalMaximumPoint tests&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;test boundary maximum points - last element&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> <span class=\"hljs-title class_\">Array</span> = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">6</span>, <span class=\"hljs-number\">12</span>]\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">LocalMaximomPoint</span>(<span class=\"hljs-title class_\">Array</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">6</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;test boundary maximum points - first element&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> <span class=\"hljs-title class_\">Array2</span> = [<span class=\"hljs-number\">13</span>, <span class=\"hljs-number\">6</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">1</span>]\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">LocalMaximomPoint</span>(<span class=\"hljs-title class_\">Array2</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">0</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;test boundary maximum points - should find first maximom point from the top&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-comment\">// Test a mix of number types (i.e., positive/negative, numbers with decimals, fractions)</span>\r\n    <span class=\"hljs-keyword\">const</span> <span class=\"hljs-title class_\">Array</span> = [<span class=\"hljs-number\">13</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">6</span>, <span class=\"hljs-number\">12</span>]\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">LocalMaximomPoint</span>(<span class=\"hljs-title class_\">Array</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">6</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;test inner points - second element&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> <span class=\"hljs-title class_\">Array2</span> = [<span class=\"hljs-number\">13</span>, <span class=\"hljs-number\">16</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">1</span>]\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">LocalMaximomPoint</span>(<span class=\"hljs-title class_\">Array2</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">1</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;test inner points - element some where in the middle&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> <span class=\"hljs-title class_\">Array2</span> = [<span class=\"hljs-number\">13</span>, <span class=\"hljs-number\">16</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">41</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">1</span>]\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">LocalMaximomPoint</span>(<span class=\"hljs-title class_\">Array2</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">3</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Rak Laptudirm",
+      "email": "raklaptudirm@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "jhonDoe15",
+      "email": "62393042+jhonDoe15@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

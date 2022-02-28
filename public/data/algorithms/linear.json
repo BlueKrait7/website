@@ -1,0 +1,28 @@
+{
+  "slug": "linear",
+  "name": "Linear",
+  "categories": [
+    "searches"
+  ],
+  "body": {},
+  "implementations": {
+    "go": {
+      "dir": "search\\linear.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/search\\linear.go",
+      "code": "<span class=\"hljs-keyword\">package</span> search\r\n\r\n<span class=\"hljs-comment\">// Linear Simple linear search algorithm that iterates over all elements of an array in the worst case scenario</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">Linear</span><span class=\"hljs-params\">(array []<span class=\"hljs-type\">int</span>, query <span class=\"hljs-type\">int</span>)</span></span> (<span class=\"hljs-type\">int</span>, <span class=\"hljs-type\">error</span>) {\r\n\t<span class=\"hljs-keyword\">for</span> i, item := <span class=\"hljs-keyword\">range</span> array {\r\n\t\t<span class=\"hljs-keyword\">if</span> item == query {\r\n\t\t\t<span class=\"hljs-keyword\">return</span> i, <span class=\"hljs-literal\">nil</span>\r\n\t\t}\r\n\t}\r\n\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">-1</span>, ErrNotFound\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Taj",
+      "email": "tjgurwara99@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "FuXiang Shu",
+      "email": "6470547+Crazy3lf@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

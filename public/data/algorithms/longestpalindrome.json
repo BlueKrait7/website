@@ -1,0 +1,24 @@
+{
+  "slug": "longestpalindrome",
+  "name": "Longestpalindrome",
+  "categories": [
+    "strings",
+    "manacher"
+  ],
+  "body": {},
+  "implementations": {
+    "go": {
+      "dir": "strings\\manacher\\longestpalindrome.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/strings\\manacher\\longestpalindrome.go",
+      "code": "<span class=\"hljs-comment\">// longestpalindrome.go</span>\r\n<span class=\"hljs-comment\">// description: Manacher&#x27;s algorithm (Longest palindromic substring)</span>\r\n<span class=\"hljs-comment\">// details:</span>\r\n<span class=\"hljs-comment\">// An algorithm with linear running time that allows you to get compressed information about all palindromic substrings of a given string. - [Manacher&#x27;s algorithm](https://en.wikipedia.org/wiki/Longest_palindromic_substring)</span>\r\n<span class=\"hljs-comment\">// author(s) [red_byte](https://github.com/i-redbyte)</span>\r\n<span class=\"hljs-comment\">// see longestpalindrome_test.go</span>\r\n\r\n<span class=\"hljs-keyword\">package</span> manacher\r\n\r\n<span class=\"hljs-keyword\">import</span> (\r\n\t<span class=\"hljs-string\">&quot;github.com/TheAlgorithms/Go/math/min&quot;</span>\r\n\t<span class=\"hljs-string\">&quot;strings&quot;</span>\r\n)\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">makeBoundaries</span><span class=\"hljs-params\">(s <span class=\"hljs-type\">string</span>)</span></span> <span class=\"hljs-type\">string</span> {\r\n\t<span class=\"hljs-keyword\">var</span> result strings.Builder\r\n\tresult.WriteRune(<span class=\"hljs-string\">&#x27;#&#x27;</span>)\r\n\t<span class=\"hljs-keyword\">for</span> _, ch := <span class=\"hljs-keyword\">range</span> s {\r\n\t\t<span class=\"hljs-keyword\">if</span> ch != <span class=\"hljs-string\">&#x27; &#x27;</span> { <span class=\"hljs-comment\">//ignore space as palindrome character</span>\r\n\t\t\tresult.WriteRune(ch)\r\n\t\t}\r\n\t\tresult.WriteRune(<span class=\"hljs-string\">&#x27;#&#x27;</span>)\r\n\t}\r\n\t<span class=\"hljs-keyword\">return</span> result.String()\r\n}\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">nextBoundary</span><span class=\"hljs-params\">(s <span class=\"hljs-type\">string</span>)</span></span> <span class=\"hljs-type\">string</span> {\r\n\t<span class=\"hljs-keyword\">var</span> result strings.Builder\r\n\t<span class=\"hljs-keyword\">for</span> _, ch := <span class=\"hljs-keyword\">range</span> s {\r\n\t\t<span class=\"hljs-keyword\">if</span> ch != <span class=\"hljs-string\">&#x27;#&#x27;</span> {\r\n\t\t\tresult.WriteRune(ch)\r\n\t\t}\r\n\t}\r\n\t<span class=\"hljs-keyword\">return</span> result.String()\r\n}\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">LongestPalindrome</span><span class=\"hljs-params\">(s <span class=\"hljs-type\">string</span>)</span></span> <span class=\"hljs-type\">string</span> {\r\n\tboundaries := makeBoundaries(s)\r\n\tb := <span class=\"hljs-built_in\">make</span>([]<span class=\"hljs-type\">int</span>, <span class=\"hljs-built_in\">len</span>(boundaries))\r\n\tk := <span class=\"hljs-number\">0</span>\r\n\tindex := <span class=\"hljs-number\">0</span>\r\n\tmaxLen := <span class=\"hljs-number\">0</span>\r\n\tmaxCenterSize := <span class=\"hljs-number\">0</span>\r\n\t<span class=\"hljs-keyword\">for</span> i := <span class=\"hljs-keyword\">range</span> b {\r\n\t\t<span class=\"hljs-keyword\">if</span> i &lt; k {\r\n\t\t\tb[i] = min.Int(b[<span class=\"hljs-number\">2</span>*index-i], k-i)\r\n\t\t} <span class=\"hljs-keyword\">else</span> {\r\n\t\t\tb[i] = <span class=\"hljs-number\">1</span>\r\n\t\t}\r\n\t\t<span class=\"hljs-keyword\">for</span> i-b[i] &gt;= <span class=\"hljs-number\">0</span> &amp;&amp; i+b[i] &lt; <span class=\"hljs-built_in\">len</span>(boundaries) &amp;&amp; boundaries[i-b[i]] == boundaries[i+b[i]] {\r\n\t\t\tb[i] += <span class=\"hljs-number\">1</span>\r\n\t\t}\r\n\t\t<span class=\"hljs-keyword\">if</span> maxLen &lt; b[i]<span class=\"hljs-number\">-1</span> {\r\n\t\t\tmaxLen = b[i] - <span class=\"hljs-number\">1</span>\r\n\t\t\tmaxCenterSize = i\r\n\t\t}\r\n\t\t<span class=\"hljs-keyword\">if</span> b[i]+i<span class=\"hljs-number\">-1</span> &gt; k {\r\n\t\t\tk = b[i] + i - <span class=\"hljs-number\">1</span>\r\n\t\t\tindex = i\r\n\t\t}\r\n\t}\r\n\t<span class=\"hljs-keyword\">return</span> nextBoundary(boundaries[maxCenterSize-maxLen : maxCenterSize+maxLen])\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Ilya Sokolov",
+      "email": "developer.sokolov@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

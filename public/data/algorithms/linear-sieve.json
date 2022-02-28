@@ -1,0 +1,38 @@
+{
+  "slug": "linear-sieve",
+  "name": "Linear Sieve",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\test\\LinearSieve.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\LinearSieve.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { <span class=\"hljs-title class_\">LinearSieve</span> } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../LinearSieve&#x27;</span>\r\n<span class=\"hljs-keyword\">import</span> { <span class=\"hljs-title class_\">PrimeCheck</span> } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../PrimeCheck&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;LinearSieve&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return primes below 100&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">LinearSieve</span>(<span class=\"hljs-number\">100</span>)).<span class=\"hljs-title function_\">toEqual</span>([<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">7</span>, <span class=\"hljs-number\">11</span>, <span class=\"hljs-number\">13</span>, <span class=\"hljs-number\">17</span>, <span class=\"hljs-number\">19</span>, <span class=\"hljs-number\">23</span>, <span class=\"hljs-number\">29</span>, <span class=\"hljs-number\">31</span>, <span class=\"hljs-number\">37</span>, <span class=\"hljs-number\">41</span>, <span class=\"hljs-number\">43</span>, <span class=\"hljs-number\">47</span>, <span class=\"hljs-number\">53</span>, <span class=\"hljs-number\">59</span>, <span class=\"hljs-number\">61</span>, <span class=\"hljs-number\">67</span>, <span class=\"hljs-number\">71</span>, <span class=\"hljs-number\">73</span>, <span class=\"hljs-number\">79</span>, <span class=\"hljs-number\">83</span>, <span class=\"hljs-number\">89</span>, <span class=\"hljs-number\">97</span>])\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return primes only&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> n = <span class=\"hljs-number\">100000</span>\r\n    <span class=\"hljs-keyword\">const</span> primes = <span class=\"hljs-title class_\">LinearSieve</span>(n)\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">const</span> p <span class=\"hljs-keyword\">of</span> primes) {\r\n      <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">PrimeCheck</span>(p)).<span class=\"hljs-title function_\">toBeTruthy</span>()\r\n    }\r\n  })\r\n})\r\n"
+    },
+    "scala": {
+      "dir": "src\\main\\scala\\Mathematics\\LinearSieve.scala",
+      "url": "https://github.com/TheAlgorithms/scala/tree/master/src\\main\\scala\\Mathematics\\LinearSieve.scala",
+      "code": "<span class=\"hljs-keyword\">package</span> <span class=\"hljs-type\">Mathematics</span>\r\n\r\n<span class=\"hljs-class\"><span class=\"hljs-keyword\">object</span> <span class=\"hljs-title\">LinearSieve</span> </span>{\r\n\r\n  <span class=\"hljs-comment\">/** Method returns sequence of prime numbers which all are not greater than n\r\n    *\r\n    * @param n\r\n    * @return\r\n    */</span>\r\n  <span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">getPrimeNumbers</span></span>(n: <span class=\"hljs-type\">Int</span>): <span class=\"hljs-type\">Seq</span>[<span class=\"hljs-type\">Int</span>] = {\r\n    <span class=\"hljs-keyword\">var</span> primeNumbers                   = <span class=\"hljs-type\">Seq</span>.empty[<span class=\"hljs-type\">Int</span>]\r\n    <span class=\"hljs-keyword\">val</span> lowestPrimeDivisor: <span class=\"hljs-type\">Array</span>[<span class=\"hljs-type\">Int</span>] = <span class=\"hljs-type\">Array</span>.fill(n + <span class=\"hljs-number\">1</span>)(<span class=\"hljs-number\">0</span>)\r\n    <span class=\"hljs-keyword\">for</span> (i &lt;- <span class=\"hljs-number\">2</span> to n) {\r\n      <span class=\"hljs-keyword\">if</span> (lowestPrimeDivisor(i) == <span class=\"hljs-number\">0</span>) {\r\n        lowestPrimeDivisor(i) = i\r\n        primeNumbers :+= i\r\n      }\r\n      <span class=\"hljs-keyword\">var</span> j = <span class=\"hljs-number\">0</span>\r\n      <span class=\"hljs-keyword\">while</span> (j &lt; primeNumbers.length &amp;&amp; primeNumbers(j) &lt;= lowestPrimeDivisor(i) &amp;&amp; i * primeNumbers(j) &lt;= n) {\r\n        lowestPrimeDivisor(i * primeNumbers(j)) = primeNumbers(j)\r\n        j = j + <span class=\"hljs-number\">1</span>\r\n      }\r\n    }\r\n    primeNumbers\r\n  }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Alfredo Torre",
+      "email": "alfredotorre@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Olexandr Yermilov",
+      "email": "olexandr.yermilov@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Allen Guan",
+      "email": "me@nella17.tw",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,44 @@
+{
+  "slug": "level-order-traversal-queue",
+  "name": "Level Order Traversal Queue",
+  "categories": [
+    "datastructures",
+    "tree"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\datastructures\\trees\\LevelOrderTraversalQueue.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\datastructures\\trees\\LevelOrderTraversalQueue.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.datastructures.trees;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.LinkedList;\r\n<span class=\"hljs-keyword\">import</span> java.util.Queue;\r\n\r\n<span class=\"hljs-comment\">/* Class to print Level Order Traversal */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">LevelOrderTraversalQueue</span> {\r\n\r\n    <span class=\"hljs-comment\">/* Class to represent Tree node */</span>\r\n    <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Node</span> {\r\n\r\n        <span class=\"hljs-type\">int</span> data;\r\n        Node left, right;\r\n\r\n        <span class=\"hljs-keyword\">public</span> <span class=\"hljs-title function_\">Node</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> item)</span> {\r\n            data = item;\r\n            left = <span class=\"hljs-literal\">null</span>;\r\n            right = <span class=\"hljs-literal\">null</span>;\r\n        }\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/* Given a binary tree. Print its nodes in level order\r\n  using array for implementing queue  */</span>\r\n    <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">printLevelOrder</span><span class=\"hljs-params\">(Node root)</span> {\r\n        Queue&lt;Node&gt; queue = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">LinkedList</span>&lt;Node&gt;();\r\n        queue.add(root);\r\n        <span class=\"hljs-keyword\">while</span> (!queue.isEmpty()) {\r\n\r\n            <span class=\"hljs-comment\">/* poll() removes the present head.\r\n      For more information on poll() visit\r\n      http://www.tutorialspoint.com/java/util/linkedlist_poll.htm */</span>\r\n            <span class=\"hljs-type\">Node</span> <span class=\"hljs-variable\">tempNode</span> <span class=\"hljs-operator\">=</span> queue.poll();\r\n            System.out.print(tempNode.data + <span class=\"hljs-string\">&quot; &quot;</span>);\r\n\r\n            <span class=\"hljs-comment\">/*Enqueue left child */</span>\r\n            <span class=\"hljs-keyword\">if</span> (tempNode.left != <span class=\"hljs-literal\">null</span>) {\r\n                queue.add(tempNode.left);\r\n            }\r\n\r\n            <span class=\"hljs-comment\">/*Enqueue right child */</span>\r\n            <span class=\"hljs-keyword\">if</span> (tempNode.right != <span class=\"hljs-literal\">null</span>) {\r\n                queue.add(tempNode.right);\r\n            }\r\n        }\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Maria Lungeanu",
+      "email": "Maria.Lungeanu@anritsu.com",
+      "commits": 1
+    },
+    {
+      "name": "khalil2535",
+      "email": "khalil2535@localhost",
+      "commits": 1
+    },
+    {
+      "name": "unknown",
+      "email": "cnddhks846@naver.com",
+      "commits": 1
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

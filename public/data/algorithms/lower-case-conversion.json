@@ -1,0 +1,28 @@
+{
+  "slug": "lower-case-conversion",
+  "name": "Lower Case Conversion",
+  "categories": [
+    "conversions"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Conversions\\LowerCaseConversion.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Conversions\\LowerCaseConversion.js",
+      "code": "<span class=\"hljs-comment\">/*\r\n    Explanation :- a user gives a String (it can be incomplete uppercase or\r\n        partial uppercase) and then the program would convert it into a\r\n        complete(all characters in lower case) lower case string. The\r\n        logic we have used in the following program is: All the upper case\r\n        characters (A-Z) has ASCII value ranging from 65 to 90 and their\r\n        corresponding lower case characters (a-z) have ASCII values 32\r\n        greater than them. For example ‘A‘ has an ASCII value of 65\r\n        and ‘a‘ has an ASCII value of 97 (65+32). The same applies to other\r\n        characters.\r\n*/</span>\r\n\r\n<span class=\"hljs-comment\">/**\r\n * LowerCaseConversion takes any case-style string and converts it to the lower case-style string.\r\n * <span class=\"hljs-doctag\">@param</span> {<span class=\"hljs-type\">String</span>} inputString any case style string\r\n * <span class=\"hljs-doctag\">@returns</span> {<span class=\"hljs-type\">String</span>} lower case string\r\n */</span>\r\n<span class=\"hljs-keyword\">const</span> <span class=\"hljs-title function_\">LowerCaseConversion</span> = (<span class=\"hljs-params\">inputString</span>) =&gt; {\r\n  <span class=\"hljs-comment\">// Take a string and split it into characters.</span>\r\n  <span class=\"hljs-keyword\">const</span> newString = inputString.<span class=\"hljs-title function_\">split</span>(<span class=\"hljs-string\">&#x27;&#x27;</span>).<span class=\"hljs-title function_\">map</span>(<span class=\"hljs-function\"><span class=\"hljs-params\">char</span> =&gt;</span> {\r\n    <span class=\"hljs-comment\">// Get a character code by the use charCodeAt method.</span>\r\n    <span class=\"hljs-keyword\">const</span> presentCharCode = char.<span class=\"hljs-title function_\">charCodeAt</span>()\r\n    <span class=\"hljs-comment\">// If the character code lies between 65 to 90 it means they are in the upper case so convert it.</span>\r\n    <span class=\"hljs-keyword\">if</span> (presentCharCode &gt;= <span class=\"hljs-number\">65</span> &amp;&amp; presentCharCode &lt;= <span class=\"hljs-number\">90</span>) {\r\n      <span class=\"hljs-comment\">// Convert the case by use of the above explanation.</span>\r\n      <span class=\"hljs-keyword\">return</span> <span class=\"hljs-title class_\">String</span>.<span class=\"hljs-title function_\">fromCharCode</span>(presentCharCode + <span class=\"hljs-number\">32</span>)\r\n    }\r\n    <span class=\"hljs-comment\">// Else return the characters without any modification.</span>\r\n    <span class=\"hljs-keyword\">return</span> char\r\n  })\r\n  <span class=\"hljs-comment\">// After modification, with the help of the join method, join all the characters and return them.</span>\r\n  <span class=\"hljs-keyword\">return</span> newString.<span class=\"hljs-title function_\">join</span>(<span class=\"hljs-string\">&#x27;&#x27;</span>)\r\n}\r\n\r\n<span class=\"hljs-keyword\">export</span> { <span class=\"hljs-title class_\">LowerCaseConversion</span> }\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Suryapratap Singh",
+      "email": "suryprtaps@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

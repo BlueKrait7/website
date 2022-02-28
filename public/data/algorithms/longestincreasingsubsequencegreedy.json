@@ -1,0 +1,23 @@
+{
+  "slug": "longestincreasingsubsequencegreedy",
+  "name": "Longestincreasingsubsequencegreedy",
+  "categories": [
+    "dynamic"
+  ],
+  "body": {},
+  "implementations": {
+    "go": {
+      "dir": "dynamic\\longestincreasingsubsequencegreedy.go",
+      "url": "https://github.com/TheAlgorithms/go/tree/master/dynamic\\longestincreasingsubsequencegreedy.go",
+      "code": "<span class=\"hljs-keyword\">package</span> dynamic\r\n\r\n<span class=\"hljs-comment\">// LongestIncreasingSubsequenceGreedy is a function to find the longest increasing</span>\r\n<span class=\"hljs-comment\">// subsequence in a given array using a greedy approach.</span>\r\n<span class=\"hljs-comment\">// The dynamic programming approach is implemented alongside this one.</span>\r\n<span class=\"hljs-comment\">// Worst Case Time Complexity: O(nlogn)</span>\r\n<span class=\"hljs-comment\">// Auxiliary Space: O(n), where n is the length of the array(slice).</span>\r\n<span class=\"hljs-comment\">// Reference: https://www.geeksforgeeks.org/construction-of-longest-monotonically-increasing-subsequence-n-log-n/</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">LongestIncreasingSubsequenceGreedy</span><span class=\"hljs-params\">(nums []<span class=\"hljs-type\">int</span>)</span></span> <span class=\"hljs-type\">int</span> {\r\n\tlongestIncreasingSubsequnce := <span class=\"hljs-built_in\">make</span>([]<span class=\"hljs-type\">int</span>, <span class=\"hljs-number\">0</span>)\r\n\r\n\t<span class=\"hljs-keyword\">for</span> _, num := <span class=\"hljs-keyword\">range</span> nums {\r\n\t\t<span class=\"hljs-comment\">// find the leftmost index in longestIncreasingSubsequnce with value &gt;= num</span>\r\n\t\tleftmostIndex := lowerBound(longestIncreasingSubsequnce, num)\r\n\r\n\t\t<span class=\"hljs-keyword\">if</span> leftmostIndex == <span class=\"hljs-built_in\">len</span>(longestIncreasingSubsequnce) {\r\n\t\t\tlongestIncreasingSubsequnce = <span class=\"hljs-built_in\">append</span>(longestIncreasingSubsequnce, num)\r\n\t\t} <span class=\"hljs-keyword\">else</span> {\r\n\t\t\tlongestIncreasingSubsequnce[leftmostIndex] = num\r\n\t\t}\r\n\t}\r\n\r\n\t<span class=\"hljs-keyword\">return</span> <span class=\"hljs-built_in\">len</span>(longestIncreasingSubsequnce)\r\n}\r\n\r\n<span class=\"hljs-comment\">// Function to find the leftmost index in arr with value &gt;= val, mimicking the inbuild lower_bound function in C++</span>\r\n<span class=\"hljs-comment\">// Time Complexity: O(logn)</span>\r\n<span class=\"hljs-comment\">// Auxiliary Space: O(1)</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">func</span> <span class=\"hljs-title\">lowerBound</span><span class=\"hljs-params\">(arr []<span class=\"hljs-type\">int</span>, val <span class=\"hljs-type\">int</span>)</span></span> <span class=\"hljs-type\">int</span> {\r\n\tsearchWindowLeft, searchWindowRight := <span class=\"hljs-number\">0</span>, <span class=\"hljs-built_in\">len</span>(arr)<span class=\"hljs-number\">-1</span>\r\n\r\n\t<span class=\"hljs-keyword\">for</span> searchWindowLeft &lt;= searchWindowRight {\r\n\t\tmiddle := (searchWindowLeft + searchWindowRight) / <span class=\"hljs-number\">2</span>\r\n\r\n\t\t<span class=\"hljs-keyword\">if</span> arr[middle] &lt; val {\r\n\t\t\tsearchWindowLeft = middle + <span class=\"hljs-number\">1</span>\r\n\t\t} <span class=\"hljs-keyword\">else</span> {\r\n\t\t\tsearchWindowRight = middle - <span class=\"hljs-number\">1</span>\r\n\t\t}\r\n\t}\r\n\r\n\t<span class=\"hljs-keyword\">return</span> searchWindowRight + <span class=\"hljs-number\">1</span>\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aniruddha Bhattacharjee",
+      "email": "aniruddha97bhatt@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

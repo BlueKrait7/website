@@ -1,0 +1,48 @@
+{
+  "slug": "least-recently-used",
+  "name": "Least Recently Used",
+  "categories": [
+    "others"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "other\\least_recently_used.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/other\\least_recently_used.py",
+      "code": "<span class=\"hljs-keyword\">from</span> __future__ <span class=\"hljs-keyword\">import</span> annotations\r\n\r\n<span class=\"hljs-keyword\">import</span> sys\r\n<span class=\"hljs-keyword\">from</span> collections <span class=\"hljs-keyword\">import</span> deque\r\n<span class=\"hljs-keyword\">from</span> typing <span class=\"hljs-keyword\">import</span> <span class=\"hljs-type\">Generic</span>, TypeVar\r\n\r\nT = TypeVar(<span class=\"hljs-string\">&quot;T&quot;</span>)\r\n\r\n\r\n<span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">LRUCache</span>(<span class=\"hljs-type\">Generic</span>[T]):\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Page Replacement Algorithm, Least Recently Used (LRU) Caching.\r\n\r\n    &gt;&gt;&gt; lru_cache: LRUCache[str | int] = LRUCache(4)\r\n    &gt;&gt;&gt; lru_cache.refer(&quot;A&quot;)\r\n    &gt;&gt;&gt; lru_cache.refer(2)\r\n    &gt;&gt;&gt; lru_cache.refer(3)\r\n\r\n    &gt;&gt;&gt; lru_cache\r\n    LRUCache(4) =&gt; [3, 2, &#x27;A&#x27;]\r\n\r\n    &gt;&gt;&gt; lru_cache.refer(&quot;A&quot;)\r\n    &gt;&gt;&gt; lru_cache\r\n    LRUCache(4) =&gt; [&#x27;A&#x27;, 3, 2]\r\n\r\n    &gt;&gt;&gt; lru_cache.refer(4)\r\n    &gt;&gt;&gt; lru_cache.refer(5)\r\n    &gt;&gt;&gt; lru_cache\r\n    LRUCache(4) =&gt; [5, 4, &#x27;A&#x27;, 3]\r\n\r\n    &quot;&quot;&quot;</span>\r\n\r\n    dq_store: deque[T]  <span class=\"hljs-comment\"># Cache store of keys</span>\r\n    key_reference: <span class=\"hljs-built_in\">set</span>[T]  <span class=\"hljs-comment\"># References of the keys in cache</span>\r\n    _MAX_CAPACITY: <span class=\"hljs-built_in\">int</span> = <span class=\"hljs-number\">10</span>  <span class=\"hljs-comment\"># Maximum capacity of cache</span>\r\n\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">__init__</span>(<span class=\"hljs-params\">self, n: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-literal\">None</span>:\r\n        <span class=\"hljs-string\">&quot;&quot;&quot;Creates an empty store and map for the keys.\r\n        The LRUCache is set the size n.\r\n        &quot;&quot;&quot;</span>\r\n        self.dq_store = deque()\r\n        self.key_reference = <span class=\"hljs-built_in\">set</span>()\r\n        <span class=\"hljs-keyword\">if</span> <span class=\"hljs-keyword\">not</span> n:\r\n            LRUCache._MAX_CAPACITY = sys.maxsize\r\n        <span class=\"hljs-keyword\">elif</span> n &lt; <span class=\"hljs-number\">0</span>:\r\n            <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;n should be an integer greater than 0.&quot;</span>)\r\n        <span class=\"hljs-keyword\">else</span>:\r\n            LRUCache._MAX_CAPACITY = n\r\n\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">refer</span>(<span class=\"hljs-params\">self, x: T</span>) -&gt; <span class=\"hljs-literal\">None</span>:\r\n        <span class=\"hljs-string\">&quot;&quot;&quot;\r\n        Looks for a page in the cache store and adds reference to the set.\r\n        Remove the least recently used key if the store is full.\r\n        Update store to reflect recent access.\r\n        &quot;&quot;&quot;</span>\r\n        <span class=\"hljs-keyword\">if</span> x <span class=\"hljs-keyword\">not</span> <span class=\"hljs-keyword\">in</span> self.key_reference:\r\n            <span class=\"hljs-keyword\">if</span> <span class=\"hljs-built_in\">len</span>(self.dq_store) == LRUCache._MAX_CAPACITY:\r\n                last_element = self.dq_store.pop()\r\n                self.key_reference.remove(last_element)\r\n        <span class=\"hljs-keyword\">else</span>:\r\n            self.dq_store.remove(x)\r\n\r\n        self.dq_store.appendleft(x)\r\n        self.key_reference.add(x)\r\n\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">display</span>(<span class=\"hljs-params\">self</span>) -&gt; <span class=\"hljs-literal\">None</span>:\r\n        <span class=\"hljs-string\">&quot;&quot;&quot;\r\n        Prints all the elements in the store.\r\n        &quot;&quot;&quot;</span>\r\n        <span class=\"hljs-keyword\">for</span> k <span class=\"hljs-keyword\">in</span> self.dq_store:\r\n            <span class=\"hljs-built_in\">print</span>(k)\r\n\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">__repr__</span>(<span class=\"hljs-params\">self</span>) -&gt; <span class=\"hljs-built_in\">str</span>:\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">f&quot;LRUCache(<span class=\"hljs-subst\">{self._MAX_CAPACITY}</span>) =&gt; <span class=\"hljs-subst\">{<span class=\"hljs-built_in\">list</span>(self.dq_store)}</span>&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n\r\n    lru_cache: LRUCache[<span class=\"hljs-built_in\">str</span> | <span class=\"hljs-built_in\">int</span>] = LRUCache(<span class=\"hljs-number\">4</span>)\r\n    lru_cache.refer(<span class=\"hljs-string\">&quot;A&quot;</span>)\r\n    lru_cache.refer(<span class=\"hljs-number\">2</span>)\r\n    lru_cache.refer(<span class=\"hljs-number\">3</span>)\r\n    lru_cache.refer(<span class=\"hljs-string\">&quot;A&quot;</span>)\r\n    lru_cache.refer(<span class=\"hljs-number\">4</span>)\r\n    lru_cache.refer(<span class=\"hljs-number\">5</span>)\r\n    lru_cache.display()\r\n\r\n    <span class=\"hljs-built_in\">print</span>(lru_cache)\r\n    <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-built_in\">str</span>(lru_cache) == <span class=\"hljs-string\">&quot;LRUCache(4) =&gt; [5, 4, &#x27;A&#x27;, 3]&quot;</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Andrew Grangaard",
+      "email": "granny-github@ofb.net",
+      "commits": 1
+    },
+    {
+      "name": "Joyce",
+      "email": "jycyeo@yahoo.com.sg",
+      "commits": 1
+    },
+    {
+      "name": "Dhruv Manilawala",
+      "email": "dhruvmanila@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Phileas",
+      "email": "phileas.hocquard@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

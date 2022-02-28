@@ -1,0 +1,24 @@
+{
+  "slug": "longest-substring-without-repeating-characters",
+  "name": "Longest Substring Without Repeating Characters",
+  "categories": [
+    "dynamicprogramming",
+    "slidingwindow"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Dynamic-Programming\\Sliding-Window\\test\\LongestSubstringWithoutRepeatingCharacters.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Dynamic-Programming\\Sliding-Window\\test\\LongestSubstringWithoutRepeatingCharacters.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { <span class=\"hljs-title class_\">LongestSubstringWithoutRepeatingCharacters</span> } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../LongestSubstringWithoutRepeatingCharacters.js&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;LongestSubstringWithoutRepeatingCharacters&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should return longest substring without repeating characters&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">LongestSubstringWithoutRepeatingCharacters</span>(<span class=\"hljs-string\">&#x27;abcabcbb&#x27;</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">3</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">LongestSubstringWithoutRepeatingCharacters</span>(<span class=\"hljs-string\">&#x27;bbbbb&#x27;</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">1</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">LongestSubstringWithoutRepeatingCharacters</span>(<span class=\"hljs-string\">&#x27;pwwkew&#x27;</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">3</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">LongestSubstringWithoutRepeatingCharacters</span>(<span class=\"hljs-string\">&#x27;a&#x27;</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">1</span>)\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title class_\">LongestSubstringWithoutRepeatingCharacters</span>(<span class=\"hljs-string\">&#x27;&#x27;</span>)).<span class=\"hljs-title function_\">toEqual</span>(<span class=\"hljs-number\">0</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aditya Parmar",
+      "email": "58773630+Aditya1942@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

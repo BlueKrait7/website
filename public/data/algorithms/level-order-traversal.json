@@ -1,0 +1,59 @@
+{
+  "slug": "level-order-traversal",
+  "name": "Level Order Traversal",
+  "categories": [
+    "datastructures",
+    "tree"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\datastructures\\trees\\LevelOrderTraversal.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\datastructures\\trees\\LevelOrderTraversal.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.datastructures.trees;\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">LevelOrderTraversal</span> {\r\n\r\n    <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Node</span> {\r\n\r\n        <span class=\"hljs-type\">int</span> data;\r\n        Node left, right;\r\n\r\n        <span class=\"hljs-keyword\">public</span> <span class=\"hljs-title function_\">Node</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> item)</span> {\r\n            data = item;\r\n            left = right = <span class=\"hljs-literal\">null</span>;\r\n        }\r\n    }\r\n\r\n    <span class=\"hljs-comment\">// Root of the Binary Tree</span>\r\n    Node root;\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-title function_\">LevelOrderTraversal</span><span class=\"hljs-params\">(Node root)</span> {\r\n        <span class=\"hljs-built_in\">this</span>.root = root;\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/* function to print level order traversal of tree*/</span>\r\n    <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">printLevelOrder</span><span class=\"hljs-params\">()</span> {\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">h</span> <span class=\"hljs-operator\">=</span> height(root);\r\n        <span class=\"hljs-type\">int</span> i;\r\n        <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">1</span>; i &lt;= h; i++) {\r\n            printGivenLevel(root, i);\r\n        }\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/* Compute the &quot;height&quot; of a tree -- the number of\r\n  nodes along the longest path from the root node\r\n  down to the farthest leaf node.*/</span>\r\n    <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">height</span><span class=\"hljs-params\">(Node root)</span> {\r\n        <span class=\"hljs-keyword\">if</span> (root == <span class=\"hljs-literal\">null</span>) {\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n        } <span class=\"hljs-keyword\">else</span> {\r\n            <span class=\"hljs-comment\">/**\r\n             * Return the height of larger subtree\r\n             */</span>\r\n            <span class=\"hljs-keyword\">return</span> Math.max(height(root.left), height(root.right)) + <span class=\"hljs-number\">1</span>;\r\n        }\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/* Print nodes at the given level */</span>\r\n    <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">printGivenLevel</span><span class=\"hljs-params\">(Node root, <span class=\"hljs-type\">int</span> level)</span> {\r\n        <span class=\"hljs-keyword\">if</span> (root == <span class=\"hljs-literal\">null</span>) {\r\n            <span class=\"hljs-keyword\">return</span>;\r\n        }\r\n        <span class=\"hljs-keyword\">if</span> (level == <span class=\"hljs-number\">1</span>) {\r\n            System.out.print(root.data + <span class=\"hljs-string\">&quot; &quot;</span>);\r\n        } <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span> (level &gt; <span class=\"hljs-number\">1</span>) {\r\n            printGivenLevel(root.left, level - <span class=\"hljs-number\">1</span>);\r\n            printGivenLevel(root.right, level - <span class=\"hljs-number\">1</span>);\r\n        }\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "varunu28",
+      "email": "varun.u28@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "ayaanfaiz",
+      "email": "ayaan2103@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Maria Lungeanu",
+      "email": "Maria.Lungeanu@anritsu.com",
+      "commits": 1
+    },
+    {
+      "name": "JayH2018",
+      "email": "42029911+JayH2018@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "khalil2535",
+      "email": "khalil2535@localhost",
+      "commits": 1
+    },
+    {
+      "name": "unknown",
+      "email": "cnddhks846@naver.com",
+      "commits": 1
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

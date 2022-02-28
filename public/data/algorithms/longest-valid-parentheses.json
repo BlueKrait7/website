@@ -1,0 +1,48 @@
+{
+  "slug": "longest-valid-parentheses",
+  "name": "Longest Valid Parentheses",
+  "categories": [
+    "dynamicprogramming"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Dynamic-Programming\\tests\\LongestValidParentheses.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Dynamic-Programming\\tests\\LongestValidParentheses.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { longestValidParentheses } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../LongestValidParentheses&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;longestValidParentheses&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return 0 as longest valid parentheses substring&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">longestValidParentheses</span>(<span class=\"hljs-string\">&#x27;&#x27;</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">0</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return 2 as longest valid parentheses substring&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">longestValidParentheses</span>(<span class=\"hljs-string\">&#x27;(()&#x27;</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">2</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return 2 as longest valid parentheses substring&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">longestValidParentheses</span>(<span class=\"hljs-string\">&#x27;)()())&#x27;</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">4</span>)\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to return 2 as longest valid parentheses substring&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">longestValidParentheses</span>(<span class=\"hljs-string\">&#x27;(((&#x27;</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-number\">0</span>)\r\n  })\r\n})\r\n"
+    },
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\dynamicprogramming\\LongestValidParentheses.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\dynamicprogramming\\LongestValidParentheses.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.dynamicprogramming;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.Scanner;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Given a string containing just the characters &#x27;(&#x27; and &#x27;)&#x27;, find the length of\r\n * the longest valid (well-formed) parentheses substring.\r\n *\r\n * <span class=\"hljs-doctag\">@author</span> Libin Yang (https://github.com/yanglbme)\r\n * <span class=\"hljs-doctag\">@since</span> 2018/10/5\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">LongestValidParentheses</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">getLongestValidParentheses</span><span class=\"hljs-params\">(String s)</span> {\r\n        <span class=\"hljs-keyword\">if</span> (s == <span class=\"hljs-literal\">null</span> || s.length() &lt; <span class=\"hljs-number\">2</span>) {\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n        }\r\n        <span class=\"hljs-type\">char</span>[] chars = s.toCharArray();\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">n</span> <span class=\"hljs-operator\">=</span> chars.length;\r\n        <span class=\"hljs-type\">int</span>[] res = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">int</span>[n];\r\n        res[<span class=\"hljs-number\">0</span>] = <span class=\"hljs-number\">0</span>;\r\n        res[<span class=\"hljs-number\">1</span>] = chars[<span class=\"hljs-number\">1</span>] == <span class=\"hljs-string\">&#x27;)&#x27;</span> &amp;&amp; chars[<span class=\"hljs-number\">0</span>] == <span class=\"hljs-string\">&#x27;(&#x27;</span> ? <span class=\"hljs-number\">2</span> : <span class=\"hljs-number\">0</span>;\r\n\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">max</span> <span class=\"hljs-operator\">=</span> res[<span class=\"hljs-number\">1</span>];\r\n\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">2</span>; i &lt; n; ++i) {\r\n            <span class=\"hljs-keyword\">if</span> (chars[i] == <span class=\"hljs-string\">&#x27;)&#x27;</span>) {\r\n                <span class=\"hljs-keyword\">if</span> (chars[i - <span class=\"hljs-number\">1</span>] == <span class=\"hljs-string\">&#x27;(&#x27;</span>) {\r\n                    res[i] = res[i - <span class=\"hljs-number\">2</span>] + <span class=\"hljs-number\">2</span>;\r\n                } <span class=\"hljs-keyword\">else</span> {\r\n                    <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">index</span> <span class=\"hljs-operator\">=</span> i - res[i - <span class=\"hljs-number\">1</span>] - <span class=\"hljs-number\">1</span>;\r\n                    <span class=\"hljs-keyword\">if</span> (index &gt;= <span class=\"hljs-number\">0</span> &amp;&amp; chars[index] == <span class=\"hljs-string\">&#x27;(&#x27;</span>) {\r\n                        <span class=\"hljs-comment\">// ()(())</span>\r\n                        res[i] = res[i - <span class=\"hljs-number\">1</span>] + <span class=\"hljs-number\">2</span> + (index - <span class=\"hljs-number\">1</span> &gt;= <span class=\"hljs-number\">0</span> ? res[index - <span class=\"hljs-number\">1</span>] : <span class=\"hljs-number\">0</span>);\r\n                    }\r\n                }\r\n            }\r\n            max = Math.max(max, res[i]);\r\n        }\r\n\r\n        <span class=\"hljs-keyword\">return</span> max;\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-type\">Scanner</span> <span class=\"hljs-variable\">sc</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Scanner</span>(System.in);\r\n\r\n        <span class=\"hljs-keyword\">while</span> (<span class=\"hljs-literal\">true</span>) {\r\n            <span class=\"hljs-type\">String</span> <span class=\"hljs-variable\">str</span> <span class=\"hljs-operator\">=</span> sc.nextLine();\r\n            <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-string\">&quot;quit&quot;</span>.equals(str)) {\r\n                <span class=\"hljs-keyword\">break</span>;\r\n            }\r\n\r\n            System.out.println(<span class=\"hljs-string\">&quot;Len is: &quot;</span> + getLongestValidParentheses(str));\r\n        }\r\n\r\n        sc.close();\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Suhail Malik",
+      "email": "devmsuhail@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Serwio YK",
+      "email": "56473255+Serwios@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Omkarnath Parida",
+      "email": "omkarnath.parida@yocket.in",
+      "commits": 2
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

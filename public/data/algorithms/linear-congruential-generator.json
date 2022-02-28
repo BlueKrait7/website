@@ -1,0 +1,58 @@
+{
+  "slug": "linear-congruential-generator",
+  "name": "Linear Congruential Generator",
+  "categories": [
+    "others"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "other\\linear_congruential_generator.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/other\\linear_congruential_generator.py",
+      "code": "__author__ = <span class=\"hljs-string\">&quot;Tobias Carryer&quot;</span>\r\n\r\n<span class=\"hljs-keyword\">from</span> time <span class=\"hljs-keyword\">import</span> time\r\n\r\n\r\n<span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">LinearCongruentialGenerator</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    A pseudorandom number generator.\r\n    &quot;&quot;&quot;</span>\r\n\r\n    <span class=\"hljs-comment\"># The default value for **seed** is the result of a function call which is not</span>\r\n    <span class=\"hljs-comment\"># normally recommended and causes flake8-bugbear to raise a B008 error. However,</span>\r\n    <span class=\"hljs-comment\"># in this case, it is accptable because `LinearCongruentialGenerator.__init__()`</span>\r\n    <span class=\"hljs-comment\"># will only be called once per instance and it ensures that each instance will</span>\r\n    <span class=\"hljs-comment\"># generate a unique sequence of numbers.</span>\r\n\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">__init__</span>(<span class=\"hljs-params\">self, multiplier, increment, modulo, seed=<span class=\"hljs-built_in\">int</span>(<span class=\"hljs-params\">time(<span class=\"hljs-params\"></span>)</span>)</span>):  <span class=\"hljs-comment\"># noqa: B008</span>\r\n        <span class=\"hljs-string\">&quot;&quot;&quot;\r\n        These parameters are saved and used when nextNumber() is called.\r\n\r\n        modulo is the largest number that can be generated (exclusive). The most\r\n        efficient values are powers of 2. 2^32 is a common value.\r\n        &quot;&quot;&quot;</span>\r\n        self.multiplier = multiplier\r\n        self.increment = increment\r\n        self.modulo = modulo\r\n        self.seed = seed\r\n\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">next_number</span>(<span class=\"hljs-params\">self</span>):\r\n        <span class=\"hljs-string\">&quot;&quot;&quot;\r\n        The smallest number that can be generated is zero.\r\n        The largest number that can be generated is modulo-1. modulo is set in the\r\n        constructor.\r\n        &quot;&quot;&quot;</span>\r\n        self.seed = (self.multiplier * self.seed + self.increment) % self.modulo\r\n        <span class=\"hljs-keyword\">return</span> self.seed\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-comment\"># Show the LCG in action.</span>\r\n    lcg = LinearCongruentialGenerator(<span class=\"hljs-number\">1664525</span>, <span class=\"hljs-number\">1013904223</span>, <span class=\"hljs-number\">2</span> &lt;&lt; <span class=\"hljs-number\">31</span>)\r\n    <span class=\"hljs-keyword\">while</span> <span class=\"hljs-literal\">True</span>:\r\n        <span class=\"hljs-built_in\">print</span>(lcg.next_number())\r\n"
+    },
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\others\\LinearCongruentialGenerator.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\others\\LinearCongruentialGenerator.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.others;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * *\r\n * A pseudorandom number generator.\r\n *\r\n * <span class=\"hljs-doctag\">@author</span> Tobias Carryer\r\n * <span class=\"hljs-doctag\">@date</span> October 10, 2017\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">LinearCongruentialGenerator</span> {\r\n\r\n    <span class=\"hljs-keyword\">private</span> <span class=\"hljs-type\">double</span> a, c, m, previousValue;\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * *\r\n     * These parameters are saved and used when nextNumber() is called. The\r\n     * current timestamp in milliseconds is used as the seed.\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> multiplier\r\n     * <span class=\"hljs-doctag\">@param</span> increment\r\n     * <span class=\"hljs-doctag\">@param</span> modulo The maximum number that can be generated (exclusive). A\r\n     * common value is 2^32.\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-title function_\">LinearCongruentialGenerator</span><span class=\"hljs-params\">(<span class=\"hljs-type\">double</span> multiplier, <span class=\"hljs-type\">double</span> increment, <span class=\"hljs-type\">double</span> modulo)</span> {\r\n        <span class=\"hljs-built_in\">this</span>(System.currentTimeMillis(), multiplier, increment, modulo);\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * *\r\n     * These parameters are saved and used when nextNumber() is called.\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> seed\r\n     * <span class=\"hljs-doctag\">@param</span> multiplier\r\n     * <span class=\"hljs-doctag\">@param</span> increment\r\n     * <span class=\"hljs-doctag\">@param</span> modulo The maximum number that can be generated (exclusive). A\r\n     * common value is 2^32.\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-title function_\">LinearCongruentialGenerator</span><span class=\"hljs-params\">(\r\n            <span class=\"hljs-type\">double</span> seed, <span class=\"hljs-type\">double</span> multiplier, <span class=\"hljs-type\">double</span> increment, <span class=\"hljs-type\">double</span> modulo)</span> {\r\n        <span class=\"hljs-built_in\">this</span>.previousValue = seed;\r\n        <span class=\"hljs-built_in\">this</span>.a = multiplier;\r\n        <span class=\"hljs-built_in\">this</span>.c = increment;\r\n        <span class=\"hljs-built_in\">this</span>.m = modulo;\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * The smallest number that can be generated is zero. The largest number\r\n     * that can be generated is modulo-1. modulo is set in the constructor.\r\n     *\r\n     * <span class=\"hljs-doctag\">@return</span> a pseudorandom number.\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-type\">double</span> <span class=\"hljs-title function_\">nextNumber</span><span class=\"hljs-params\">()</span> {\r\n        previousValue = (a * previousValue + c) % m;\r\n        <span class=\"hljs-keyword\">return</span> previousValue;\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-comment\">// Show the LCG in action.</span>\r\n        <span class=\"hljs-comment\">// Decisive proof that the LCG works could be made by adding each number</span>\r\n        <span class=\"hljs-comment\">// generated to a Set while checking for duplicates.</span>\r\n        <span class=\"hljs-type\">LinearCongruentialGenerator</span> <span class=\"hljs-variable\">lcg</span>\r\n                <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">LinearCongruentialGenerator</span>(<span class=\"hljs-number\">1664525</span>, <span class=\"hljs-number\">1013904223</span>, Math.pow(<span class=\"hljs-number\">2.0</span>, <span class=\"hljs-number\">32.0</span>));\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>; i &lt; <span class=\"hljs-number\">512</span>; i++) {\r\n            System.out.println(lcg.nextNumber());\r\n        }\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Tobias",
+      "email": "TobCar@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "cclauss",
+      "email": "cclauss@bluewin.ch",
+      "commits": 1
+    },
+    {
+      "name": "97arushisharma",
+      "email": "97arushisharma@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 2
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 5
+    }
+  ],
+  "explanationUrl": {}
+}

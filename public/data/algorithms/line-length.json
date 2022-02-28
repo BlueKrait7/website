@@ -1,0 +1,38 @@
+{
+  "slug": "line-length",
+  "name": "Line Length",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "maths\\line_length.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/maths\\line_length.py",
+      "code": "<span class=\"hljs-keyword\">from</span> __future__ <span class=\"hljs-keyword\">import</span> annotations\r\n\r\n<span class=\"hljs-keyword\">import</span> math\r\n<span class=\"hljs-keyword\">from</span> typing <span class=\"hljs-keyword\">import</span> <span class=\"hljs-type\">Callable</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">line_length</span>(<span class=\"hljs-params\">\r\n    fnc: <span class=\"hljs-type\">Callable</span>[[<span class=\"hljs-built_in\">int</span> | <span class=\"hljs-built_in\">float</span>], <span class=\"hljs-built_in\">int</span> | <span class=\"hljs-built_in\">float</span>],\r\n    x_start: <span class=\"hljs-built_in\">int</span> | <span class=\"hljs-built_in\">float</span>,\r\n    x_end: <span class=\"hljs-built_in\">int</span> | <span class=\"hljs-built_in\">float</span>,\r\n    steps: <span class=\"hljs-built_in\">int</span> = <span class=\"hljs-number\">100</span>,\r\n</span>) -&gt; <span class=\"hljs-built_in\">float</span>:\r\n\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Approximates the arc length of a line segment by treating the curve as a\r\n    sequence of linear lines and summing their lengths\r\n    :param fnc: a function which defines a curve\r\n    :param x_start: left end point to indicate the start of line segment\r\n    :param x_end: right end point to indicate end of line segment\r\n    :param steps: an accuracy gauge; more steps increases accuracy\r\n    :return: a float representing the length of the curve\r\n\r\n    &gt;&gt;&gt; def f(x):\r\n    ...    return x\r\n    &gt;&gt;&gt; f&quot;{line_length(f, 0, 1, 10):.6f}&quot;\r\n    &#x27;1.414214&#x27;\r\n\r\n    &gt;&gt;&gt; def f(x):\r\n    ...    return 1\r\n    &gt;&gt;&gt; f&quot;{line_length(f, -5.5, 4.5):.6f}&quot;\r\n    &#x27;10.000000&#x27;\r\n\r\n    &gt;&gt;&gt; def f(x):\r\n    ...    return math.sin(5 * x) + math.cos(10 * x) + x * x/10\r\n    &gt;&gt;&gt; f&quot;{line_length(f, 0.0, 10.0, 10000):.6f}&quot;\r\n    &#x27;69.534930&#x27;\r\n    &quot;&quot;&quot;</span>\r\n\r\n    x1 = x_start\r\n    fx1 = fnc(x_start)\r\n    length = <span class=\"hljs-number\">0.0</span>\r\n\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(steps):\r\n\r\n        <span class=\"hljs-comment\"># Approximates curve as a sequence of linear lines and sums their length</span>\r\n        x2 = (x_end - x_start) / steps + x1\r\n        fx2 = fnc(x2)\r\n        length += math.hypot(x2 - x1, fx2 - fx1)\r\n\r\n        <span class=\"hljs-comment\"># Increment step</span>\r\n        x1 = x2\r\n        fx1 = fx2\r\n\r\n    <span class=\"hljs-keyword\">return</span> length\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n\r\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">f</span>(<span class=\"hljs-params\">x</span>):\r\n        <span class=\"hljs-keyword\">return</span> math.sin(<span class=\"hljs-number\">10</span> * x)\r\n\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;f(x) = sin(10 * x)&quot;</span>)\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&quot;The length of the curve from x = -10 to x = 10 is:&quot;</span>)\r\n    i = <span class=\"hljs-number\">10</span>\r\n    <span class=\"hljs-keyword\">while</span> i &lt;= <span class=\"hljs-number\">100000</span>:\r\n        <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f&quot;With <span class=\"hljs-subst\">{i}</span> steps: <span class=\"hljs-subst\">{line_length(f, -<span class=\"hljs-number\">10</span>, <span class=\"hljs-number\">10</span>, i)}</span>&quot;</span>)\r\n        i *= <span class=\"hljs-number\">10</span>\r\n"
+    },
+    "julia": {
+      "dir": "src\\math\\line_length.jl",
+      "url": "https://github.com/TheAlgorithms/julia/tree/master/src\\math\\line_length.jl",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n    line_length(f, x_start, x_end, steps=100)\r\n\r\nApproximates the arc length of a line segment by treating the curve as a\r\nsequence of linear lines and summing their lengths.\r\n\r\nArguments:\r\n - f: function that returns the arc\r\n - x_start: starting x value\r\n - x_end: ending x_value\r\n - steps: steps to take for accurace, more the steps greater the accuracy\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">function</span> line_length(f, x_start, x_end, steps=<span class=\"hljs-number\">100</span>)\r\n\tx1 = x_start\r\n\tfx1 = f(x1)\r\n\tlen = <span class=\"hljs-number\">0.0</span>\r\n\r\n\t<span class=\"hljs-keyword\">for</span> step <span class=\"hljs-keyword\">in</span> <span class=\"hljs-number\">1</span>:steps\r\n\t\tx2 = ((x_end - x_start) / steps) + x1\r\n\t\tfx2 = f(x2)\r\n\t\tlen += hypot(x2 - x1, fx2 - fx1)\r\n\r\n\t\tx1 = x2\r\n\t\tfx1 = fx2\r\n\t<span class=\"hljs-keyword\">end</span>\r\n\r\n\t<span class=\"hljs-keyword\">return</span> len\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Azzaare",
+      "email": "jf@baffier.fr",
+      "commits": 1
+    },
+    {
+      "name": "Sharan Krishnan",
+      "email": "58838321+shrabian@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 4
+    }
+  ],
+  "explanationUrl": {}
+}

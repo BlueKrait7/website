@@ -1,0 +1,24 @@
+{
+  "slug": "linearwithout-inbuilt",
+  "name": "Linear(without Inbuilt)",
+  "categories": [
+    "machinelearning",
+    "activationfunctions"
+  ],
+  "body": {},
+  "implementations": {
+    "matlab-octave": {
+      "dir": "algorithms\\machine_learning\\Activation Functions\\Linear(without inbuilt).m",
+      "url": "https://github.com/TheAlgorithms/matlab-octave/tree/master/algorithms\\machine_learning\\Activation Functions\\Linear(without inbuilt).m",
+      "code": "<span class=\"hljs-comment\">%linear function without using inbuilt func</span>\r\nx = <span class=\"hljs-number\">-10</span>:<span class=\"hljs-number\">0.01</span>:<span class=\"hljs-number\">10</span>;\r\nm = input(<span class=\"hljs-string\">&#x27;Enter the slope&#x27;</span>);\r\ny = <span class=\"hljs-built_in\">zeros</span>(<span class=\"hljs-built_in\">size</span>(x));\r\ny = m*x;\r\n<span class=\"hljs-built_in\">plot</span>(x,y);\r\nxlabel(<span class=\"hljs-string\">&#x27;x&#x27;</span>);\r\nylabel(<span class=\"hljs-string\">&#x27;y&#x27;</span>);\r\ngrid on\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Yukti Khosla",
+      "email": "44090430+Yukti-09@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

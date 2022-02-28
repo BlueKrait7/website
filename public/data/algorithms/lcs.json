@@ -1,0 +1,23 @@
+{
+  "slug": "lcs",
+  "name": "LCS",
+  "categories": [
+    "dynamicprogramming"
+  ],
+  "body": {},
+  "implementations": {
+    "kotlin": {
+      "dir": "src\\main\\kotlin\\dynamicProgramming\\LCS.kt",
+      "url": "https://github.com/TheAlgorithms/kotlin/tree/master/src\\main\\kotlin\\dynamicProgramming\\LCS.kt",
+      "code": "<span class=\"hljs-keyword\">package</span> dynamicProgramming\r\n\r\n<span class=\"hljs-keyword\">import</span> kotlin.math.max\r\n\r\n<span class=\"hljs-comment\">/* This algorithm is Longest Common Subsequence\r\n\r\n * @param  s1,s2 - strings to be compared\r\n * @return Length of longest common subsequence between two strings.\r\n   Eg., for stage and sale it is 3.(sae is the longest common subsequence)\r\n */</span>\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">fun</span> <span class=\"hljs-title\">lcs</span><span class=\"hljs-params\">(s1: <span class=\"hljs-type\">String</span>, s2: <span class=\"hljs-type\">String</span>)</span></span>: <span class=\"hljs-built_in\">Int</span> {\r\n    <span class=\"hljs-keyword\">val</span> L = Array(s1.length + <span class=\"hljs-number\">1</span>) { IntArray(s2.length + <span class=\"hljs-number\">1</span>) }\r\n\r\n    <span class=\"hljs-keyword\">for</span> (i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-number\">0.</span>.s1.length) {\r\n        <span class=\"hljs-keyword\">for</span> (j <span class=\"hljs-keyword\">in</span> <span class=\"hljs-number\">0.</span>.s2.length) {\r\n            <span class=\"hljs-keyword\">if</span> (i == <span class=\"hljs-number\">0</span> || j == <span class=\"hljs-number\">0</span>) L[i][j] = <span class=\"hljs-number\">0</span>\r\n            <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span> (s1[i - <span class=\"hljs-number\">1</span>] == s2[j - <span class=\"hljs-number\">1</span>]) L[i][j] = L[i - <span class=\"hljs-number\">1</span>][j - <span class=\"hljs-number\">1</span>] + <span class=\"hljs-number\">1</span>\r\n            <span class=\"hljs-keyword\">else</span> L[i][j] = max(L[i - <span class=\"hljs-number\">1</span>][j], L[i][j - <span class=\"hljs-number\">1</span>])\r\n        }\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> L[s1.length][s2.length]\r\n}"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Akshay-H",
+      "email": "akshayhari555@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

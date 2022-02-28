@@ -1,0 +1,23 @@
+{
+  "slug": "leap-year",
+  "name": "Leap Year",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\test\\LeapYear.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\test\\LeapYear.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { isLeapYear } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../LeapYear&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;Leap Year&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;Should return true on the year 2000&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">isLeapYear</span>(<span class=\"hljs-number\">2000</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">true</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;Should return false on the year 2001&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">isLeapYear</span>(<span class=\"hljs-number\">2001</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">false</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;Should return false on the year 2002&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">isLeapYear</span>(<span class=\"hljs-number\">2002</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">false</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;Should return false on the year 2003&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">isLeapYear</span>(<span class=\"hljs-number\">2003</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">false</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;Should return false on the year 2004&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">isLeapYear</span>(<span class=\"hljs-number\">2004</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">true</span>)\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;Should return false on the year 1900&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">isLeapYear</span>(<span class=\"hljs-number\">1900</span>)).<span class=\"hljs-title function_\">toBe</span>(<span class=\"hljs-literal\">false</span>)\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Sajeeb Ahamed",
+      "email": "sajeeb07ahamed@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

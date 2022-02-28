@@ -1,0 +1,374 @@
+{
+  "slug": "linear-search",
+  "name": "Linear Search",
+  "categories": [
+    "searches"
+  ],
+  "body": {
+    "es": "<h4>Declaración de problema</h4>\n<p>Dada una matriz de <code>n</code> elementos, escriba una función para buscar el índice de un elemento determinado (destino)</p>\n<h4>Enfoque</h4>\n<ul>\n<li>Comience a iterar con el primer elemento de la matriz.</li>\n<li>Compararlo con el elemento objetivo.</li>\n<li>Si es igual al elemento de destino, devuelva el índice.</li>\n<li>De lo contrario, continúe iterando.</li>\n<li>Devolver -1 si el elemento de destino no se encuentra en la matriz.</li>\n</ul>\n<h4>Complejidad temporal</h4>\n<p><code>O(n)</code> Peor caso\r\n<code>O(1)</code> Mejor caso (Si el primer elemento de matriz es el elemento de destino)</p>\n<h4>Complejidad espacial</h4>\n<p><code>O(1)</code></p>\n<h4>Ejemplo</h4>\n<pre><code class=\"hljs language-stata\">arr = [1, 3, 9, 5, 0, 2]  \r\n\r\ntarget = 5\r\n<span class=\"hljs-keyword\">La</span> búsqueda lineal debe devolver el índice 3, ya <span class=\"hljs-keyword\">que</span> 5 <span class=\"hljs-keyword\">est</span>á <span class=\"hljs-keyword\">en</span> el índice 3.\r\n\r\ntarget = 6           \r\n<span class=\"hljs-keyword\">La</span> búsqueda lineal debe devolver -1 ya <span class=\"hljs-keyword\">que</span> 6 <span class=\"hljs-keyword\">no</span> <span class=\"hljs-keyword\">est</span>á presente <span class=\"hljs-keyword\">en</span> <span class=\"hljs-keyword\">la</span> matriz\n</code></pre>\n<h4>Enlaces de implementación de código</h4>\n<ul>\n<li><a href=\"https://github.com/TheAlgorithms/Java/blob/master/Searches/LinearSearch.java\">Java</a></li>\n<li><a href=\"https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/Search/Linear%20Search.cpp\">C++</a></li>\n<li><a href=\"https://github.com/TheAlgorithms/Python/blob/master/searches/linear_search.py\">Python</a></li>\n<li><a href=\"https://github.com/TheAlgorithms/Javascript/blob/master/Search/LinearSearch.js\">JavaScript</a></li>\n<li><a href=\"https://github.com/TheAlgorithms/C-Sharp/blob/master/Algorithms/Search/LinearSearcher.cs\">C-Sharp</a></li>\n<li><a href=\"https://github.com/TheAlgorithms/C/blob/master/searching/linear_search.c\">C</a></li>\n<li><a href=\"https://github.com/TheAlgorithms/Go/blob/master/searches/linearsearch.go\">Go</a></li>\n<li><a href=\"https://github.com/TheAlgorithms/Rust/blob/master/src/searching/linear_search.rs\">Rust</a></li>\n<li><a href=\"https://github.com/TheAlgorithms/Dart/blob/master/search/linear_Search.dart\">Dart</a></li>\n<li><a href=\"https://github.com/TheAlgorithms/Ruby/blob/master/Searches/linear_search.rb\">Ruby</a></li>\n<li><a href=\"https://github.com/TheAlgorithms/PHP/blob/master/searches/linear_search.php\">PHP</a></li>\n<li><a href=\"https://github.com/TheAlgorithms/Kotlin/blob/master/src/main/kotlin/search/LinearSearch.kt\">Kotlin</a></li>\n<li><a href=\"https://github.com/TheAlgorithms/Scala/blob/master/src/main/scala/Search/LinearSearch.scala\">Scala</a></li>\n<li><a href=\"https://github.com/TheAlgorithms/OCaml/blob/master/searches/linear_search.ml\">OCaml</a></li>\n<li><a href=\"https://github.com/TheAlgorithms/MATLAB-Octave/blob/master/algorithms/Searching/linear_search.m\">MATLAB-Octave</a></li>\n</ul>\n<h4>Explicación en YouTube</h4>\n<p><a href=\"https://www.youtube.com/watch?v=CX2CYIJLwfg\">Un vídeo CS50 que explica el algoritmo de búsqueda lineal</a></p>\n<h4>Explicación de animación</h4>\n<ul>\n<li><a href=\"https://boardhub.github.io/tute/?wd=linearSearchAlgo\">Tute Board</a></li>\n</ul>",
+    "en": "<h4>Problem Statement</h4>\n<p>Given an array of n elements, write a function to search for the index of a given element (target)</p>\n<h4>Approach</h4>\n<ul>\n<li>Start iterating with the first element in the array.</li>\n<li>Compare it with the target element</li>\n<li>If it is equal to the target element then return the index</li>\n<li>Else continue iterating</li>\n<li>Return -1 if target element is not found in the array</li>\n</ul>\n<h4>Time Complexity</h4>\n<p>O(n) Worse Case<br>\nO(1) Best Case (If first element of array is the target element)</p>\n<h4>Space Complexity</h4>\n<p>O(1)</p>\n<h4>Example</h4>\n<pre><code class=\"hljs language-smali\">arr = [1, 3, 9, 5, 0, 2]  \r\n\r\ntarget = 5\r\nLinear Search should<span class=\"hljs-built_in\"> return </span>index 3 as 5 is on index 3     \r\n\r\ntarget = 6           \r\nLinear Search should<span class=\"hljs-built_in\"> return </span>-1 as 6 is<span class=\"hljs-built_in\"> not </span>present in the<span class=\"hljs-built_in\"> array\n</span></code></pre>\n<h4>Code Implementation Links</h4>\n<ul>\n<li><a href=\"https://github.com/TheAlgorithms/Java/blob/master/Searches/LinearSearch.java\">Java</a></li>\n<li><a href=\"https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/Search/Linear%20Search.cpp\">C++</a></li>\n<li><a href=\"https://github.com/TheAlgorithms/Python/blob/master/searches/linear_search.py\">Python</a></li>\n</ul>\n<h4>Video Explanation</h4>\n<p><a href=\"https://www.youtube.com/watch?v=CX2CYIJLwfg\">A CS50 video explaining the Linear Search Algorithm</a></p>\n<h4>Animation Explanation</h4>\n<ul>\n<li><a href=\"https://boardhub.github.io/tute/?wd=linearSearchAlgo\">Tute Board</a></li>\n</ul>"
+  },
+  "implementations": {
+    "python": {
+      "dir": "searches\\linear_search.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/searches\\linear_search.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\nThis is pure Python implementation of linear search algorithm\r\n\r\nFor doctests run following command:\r\npython3 -m doctest -v linear_search.py\r\n\r\nFor manual testing run:\r\npython3 linear_search.py\r\n&quot;&quot;&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">linear_search</span>(<span class=\"hljs-params\">sequence: <span class=\"hljs-built_in\">list</span>, target: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">int</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;A pure Python implementation of a linear search algorithm\r\n\r\n    :param sequence: a collection with comparable items (as sorted items not required\r\n        in Linear Search)\r\n    :param target: item value to search\r\n    :return: index of found item or None if item is not found\r\n\r\n    Examples:\r\n    &gt;&gt;&gt; linear_search([0, 5, 7, 10, 15], 0)\r\n    0\r\n    &gt;&gt;&gt; linear_search([0, 5, 7, 10, 15], 15)\r\n    4\r\n    &gt;&gt;&gt; linear_search([0, 5, 7, 10, 15], 5)\r\n    1\r\n    &gt;&gt;&gt; linear_search([0, 5, 7, 10, 15], 6)\r\n    -1\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">for</span> index, item <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">enumerate</span>(sequence):\r\n        <span class=\"hljs-keyword\">if</span> item == target:\r\n            <span class=\"hljs-keyword\">return</span> index\r\n    <span class=\"hljs-keyword\">return</span> -<span class=\"hljs-number\">1</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">rec_linear_search</span>(<span class=\"hljs-params\">sequence: <span class=\"hljs-built_in\">list</span>, low: <span class=\"hljs-built_in\">int</span>, high: <span class=\"hljs-built_in\">int</span>, target: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">int</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    A pure Python implementation of a recursive linear search algorithm\r\n\r\n    :param sequence: a collection with comparable items (as sorted items not required\r\n        in Linear Search)\r\n    :param low: Lower bound of the array\r\n    :param high: Higher bound of the array\r\n    :param target: The element to be found\r\n    :return: Index of the key or -1 if key not found\r\n\r\n    Examples:\r\n    &gt;&gt;&gt; rec_linear_search([0, 30, 500, 100, 700], 0, 4, 0)\r\n    0\r\n    &gt;&gt;&gt; rec_linear_search([0, 30, 500, 100, 700], 0, 4, 700)\r\n    4\r\n    &gt;&gt;&gt; rec_linear_search([0, 30, 500, 100, 700], 0, 4, 30)\r\n    1\r\n    &gt;&gt;&gt; rec_linear_search([0, 30, 500, 100, 700], 0, 4, -6)\r\n    -1\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> <span class=\"hljs-keyword\">not</span> (<span class=\"hljs-number\">0</span> &lt;= high &lt; <span class=\"hljs-built_in\">len</span>(sequence) <span class=\"hljs-keyword\">and</span> <span class=\"hljs-number\">0</span> &lt;= low &lt; <span class=\"hljs-built_in\">len</span>(sequence)):\r\n        <span class=\"hljs-keyword\">raise</span> Exception(<span class=\"hljs-string\">&quot;Invalid upper or lower bound!&quot;</span>)\r\n    <span class=\"hljs-keyword\">if</span> high &lt; low:\r\n        <span class=\"hljs-keyword\">return</span> -<span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">if</span> sequence[low] == target:\r\n        <span class=\"hljs-keyword\">return</span> low\r\n    <span class=\"hljs-keyword\">if</span> sequence[high] == target:\r\n        <span class=\"hljs-keyword\">return</span> high\r\n    <span class=\"hljs-keyword\">return</span> rec_linear_search(sequence, low + <span class=\"hljs-number\">1</span>, high - <span class=\"hljs-number\">1</span>, target)\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    user_input = <span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Enter numbers separated by comma:\\n&quot;</span>).strip()\r\n    sequence = [<span class=\"hljs-built_in\">int</span>(item.strip()) <span class=\"hljs-keyword\">for</span> item <span class=\"hljs-keyword\">in</span> user_input.split(<span class=\"hljs-string\">&quot;,&quot;</span>)]\r\n\r\n    target = <span class=\"hljs-built_in\">int</span>(<span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Enter a single number to be found in the list:\\n&quot;</span>).strip())\r\n    result = linear_search(sequence, target)\r\n    <span class=\"hljs-keyword\">if</span> result != -<span class=\"hljs-number\">1</span>:\r\n        <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f&quot;linear_search(<span class=\"hljs-subst\">{sequence}</span>, <span class=\"hljs-subst\">{target}</span>) = <span class=\"hljs-subst\">{result}</span>&quot;</span>)\r\n    <span class=\"hljs-keyword\">else</span>:\r\n        <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f&quot;<span class=\"hljs-subst\">{target}</span> was not found in <span class=\"hljs-subst\">{sequence}</span>&quot;</span>)\r\n"
+    },
+    "javascript": {
+      "dir": "Search\\LinearSearch.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Search\\LinearSearch.js",
+      "code": "<span class=\"hljs-comment\">/*\r\n * Linear search or sequential search is a method for finding a target\r\n * value within a list. It sequentially checks each element of the list\r\n * for the target value until a match is found or until all the elements\r\n * have been searched.\r\n */</span>\r\n<span class=\"hljs-keyword\">function</span> <span class=\"hljs-title function_\">SearchArray</span> (searchNum, ar, output = <span class=\"hljs-function\"><span class=\"hljs-params\">v</span> =&gt;</span> <span class=\"hljs-variable language_\">console</span>.<span class=\"hljs-title function_\">log</span>(v)) {\r\n  <span class=\"hljs-keyword\">const</span> position = <span class=\"hljs-title class_\">Search</span>(ar, searchNum)\r\n  <span class=\"hljs-keyword\">if</span> (position !== -<span class=\"hljs-number\">1</span>) {\r\n    <span class=\"hljs-title function_\">output</span>(<span class=\"hljs-string\">&#x27;The element was found at &#x27;</span> + (position + <span class=\"hljs-number\">1</span>))\r\n  } <span class=\"hljs-keyword\">else</span> {\r\n    <span class=\"hljs-title function_\">output</span>(<span class=\"hljs-string\">&#x27;The element not found&#x27;</span>)\r\n  }\r\n}\r\n\r\n<span class=\"hljs-comment\">// Search “theArray” for the specified “key” value</span>\r\n<span class=\"hljs-keyword\">function</span> <span class=\"hljs-title function_\">Search</span> (theArray, key) {\r\n  <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> n = <span class=\"hljs-number\">0</span>; n &lt; theArray.<span class=\"hljs-property\">length</span>; n++) {\r\n    <span class=\"hljs-keyword\">if</span> (theArray[n] === key) { <span class=\"hljs-keyword\">return</span> n }\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> -<span class=\"hljs-number\">1</span>\r\n}\r\n\r\n<span class=\"hljs-keyword\">export</span> { <span class=\"hljs-title class_\">SearchArray</span>, <span class=\"hljs-title class_\">Search</span> }\r\n\r\n<span class=\"hljs-comment\">// const ar = [1, 2, 3, 4, 5, 6, 7, 8, 9]</span>\r\n<span class=\"hljs-comment\">// SearchArray(3, ar)</span>\r\n<span class=\"hljs-comment\">// SearchArray(4, ar)</span>\r\n<span class=\"hljs-comment\">// SearchArray(11, ar)</span>\r\n"
+    },
+    "c-plus-plus": {
+      "dir": "search\\linear_search.cpp",
+      "url": "https://github.com/TheAlgorithms/c-plus-plus/tree/master/search\\linear_search.cpp",
+      "code": "<span class=\"hljs-comment\">/**\r\n * \\file\r\n * \\brief [Linear search\r\n * algorithm](https://en.wikipedia.org/wiki/Linear_search)\r\n *\r\n * @author Unknown author\r\n * @author [Ritika Mukherjee](https://github.com/ritikaa17)\r\n */</span>\r\n\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;iostream&gt;</span>   <span class=\"hljs-comment\">/// for IO operations</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;cassert&gt;</span>    <span class=\"hljs-comment\">/// for assert</span></span>\r\n\r\n<span class=\"hljs-comment\">/**\r\n * \\brief [Algorithm implementation for linear search]\r\n * \\param [in] array array to search in\r\n * \\param [in] size length of array\r\n * \\param [in] key key value to search for\r\n * \\returns index where the key-value occurs in the array\r\n * \\returns -1 if key-value not found\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">int</span> <span class=\"hljs-title\">LinearSearch</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> *array, <span class=\"hljs-type\">int</span> size, <span class=\"hljs-type\">int</span> key)</span> \r\n</span>{\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> i = <span class=\"hljs-number\">0</span>; i &lt; size; ++i) \r\n    {\r\n        <span class=\"hljs-keyword\">if</span> (array[i] == key) {\r\n            <span class=\"hljs-keyword\">return</span> i;\r\n        }\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/* We reach here only in case element is not present in array, return an invalid entry in that case*/</span>\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">-1</span>;\r\n}\r\n\r\n<span class=\"hljs-comment\">/**\r\n * @brief Self-test implementations\r\n * @returns void\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">static</span> <span class=\"hljs-type\">void</span> <span class=\"hljs-title\">tests</span><span class=\"hljs-params\">()</span> </span>{\r\n    <span class=\"hljs-type\">int</span> size = <span class=\"hljs-number\">4</span>;\r\n    <span class=\"hljs-type\">int</span> *array = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-type\">int</span>[size];\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> i = <span class=\"hljs-number\">0</span>; i &lt; size; i++) {\r\n        array[i] = i;\r\n    }\r\n\r\n    <span class=\"hljs-built_in\">assert</span>(<span class=\"hljs-built_in\">LinearSearch</span>(array, size, <span class=\"hljs-number\">0</span>) == <span class=\"hljs-number\">0</span>);\r\n    <span class=\"hljs-built_in\">assert</span>(<span class=\"hljs-built_in\">LinearSearch</span>(array, size, <span class=\"hljs-number\">1</span>) == <span class=\"hljs-number\">1</span>);\r\n    <span class=\"hljs-built_in\">assert</span>(<span class=\"hljs-built_in\">LinearSearch</span>(array, size, <span class=\"hljs-number\">2</span>) == <span class=\"hljs-number\">2</span>);\r\n\r\n    size = <span class=\"hljs-number\">6</span>;\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> i = <span class=\"hljs-number\">0</span>; i &lt; size; i++) {\r\n        array[i] = i;\r\n    }\r\n\r\n    <span class=\"hljs-built_in\">assert</span>(<span class=\"hljs-built_in\">LinearSearch</span>(array, size, <span class=\"hljs-number\">3</span>) == <span class=\"hljs-number\">3</span>);\r\n    <span class=\"hljs-built_in\">assert</span>(<span class=\"hljs-built_in\">LinearSearch</span>(array, size, <span class=\"hljs-number\">1</span>) == <span class=\"hljs-number\">1</span>);\r\n    <span class=\"hljs-built_in\">assert</span>(<span class=\"hljs-built_in\">LinearSearch</span>(array, size, <span class=\"hljs-number\">5</span>) == <span class=\"hljs-number\">5</span>);\r\n\r\n    std::cout &lt;&lt; <span class=\"hljs-string\">&quot;All tests have successfully passed!\\n&quot;</span>;\r\n    <span class=\"hljs-keyword\">delete</span>[] array; <span class=\"hljs-comment\">// free memory up</span>\r\n}\r\n\r\n<span class=\"hljs-comment\">/**\r\n * @brief Main function\r\n * @returns 0 on exit\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">int</span> <span class=\"hljs-title\">main</span><span class=\"hljs-params\">()</span> </span>{\r\n    <span class=\"hljs-type\">int</span> mode = <span class=\"hljs-number\">0</span>;\r\n\r\n    std::cout &lt;&lt; <span class=\"hljs-string\">&quot;Choose mode\\n&quot;</span>;\r\n    std::cout &lt;&lt; <span class=\"hljs-string\">&quot;Self-test mode (1), interactive mode (2): &quot;</span>;\r\n\r\n    std::cin &gt;&gt; mode;\r\n\r\n    <span class=\"hljs-keyword\">if</span> (mode == <span class=\"hljs-number\">2</span>) {\r\n        <span class=\"hljs-type\">int</span> size = <span class=\"hljs-number\">0</span>;\r\n        std::cout &lt;&lt; <span class=\"hljs-string\">&quot;\\nEnter the size of the array: &quot;</span>;\r\n        std::cin &gt;&gt; size;\r\n\r\n        <span class=\"hljs-keyword\">while</span> ((size &lt;= <span class=\"hljs-number\">1</span>) || (size &gt;= <span class=\"hljs-number\">30</span>)) {\r\n            std::cout &lt;&lt; <span class=\"hljs-string\">&quot;Size cannot be less than zero. Please choose another value: &quot;</span>;\r\n            std::cin &gt;&gt; size;\r\n        }\r\n\r\n        <span class=\"hljs-type\">int</span> *array = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-type\">int</span>[size];\r\n        <span class=\"hljs-type\">int</span> key = <span class=\"hljs-number\">0</span>;\r\n\r\n        <span class=\"hljs-comment\">// Input for the array elements</span>\r\n        std::cout &lt;&lt; <span class=\"hljs-string\">&quot;Enter the array of &quot;</span> &lt;&lt; size &lt;&lt; <span class=\"hljs-string\">&quot; numbers: &quot;</span>;\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> i = <span class=\"hljs-number\">0</span>; i &lt; size; i++) {\r\n            std::cin &gt;&gt; array[i];\r\n        }\r\n\r\n        std::cout &lt;&lt; <span class=\"hljs-string\">&quot;\\nEnter the number to be searched: &quot;</span>;\r\n        std::cin &gt;&gt; key;\r\n\r\n        <span class=\"hljs-type\">int</span> index = <span class=\"hljs-built_in\">LinearSearch</span>(array, size, key);\r\n        <span class=\"hljs-keyword\">if</span> (index != <span class=\"hljs-number\">-1</span>)\r\n        {\r\n            std::cout &lt;&lt; <span class=\"hljs-string\">&quot;Number found at index: &quot;</span> &lt;&lt; index &lt;&lt; <span class=\"hljs-string\">&quot;\\n&quot;</span>;\r\n        } \r\n        <span class=\"hljs-keyword\">else</span>\r\n        {\r\n            std::cout &lt;&lt; <span class=\"hljs-string\">&quot;Array element not found&quot;</span>;\r\n        }\r\n        <span class=\"hljs-keyword\">delete</span>[] array;\r\n    }\r\n    <span class=\"hljs-keyword\">else</span> {\r\n        <span class=\"hljs-built_in\">tests</span>();  <span class=\"hljs-comment\">// run self-test implementations</span>\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n"
+    },
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\searches\\LinearSearch.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\searches\\LinearSearch.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.searches;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.Random;\r\n<span class=\"hljs-keyword\">import</span> java.util.stream.Stream;\r\n<span class=\"hljs-keyword\">import</span> com.thealgorithms.devutils.searches.SearchAlgorithm;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Linear search is the easiest search algorithm It works with sorted and\r\n * unsorted arrays (an binary search works only with sorted array) This\r\n * algorithm just compares all elements of an array to find a value\r\n *\r\n * &lt;p&gt;\r\n * Worst-case performance O(n) Best-case performance O(1) Average performance\r\n * O(n) Worst-case space complexity\r\n *\r\n * <span class=\"hljs-doctag\">@author</span> Varun Upadhyay (https://github.com/varunu28)\r\n * <span class=\"hljs-doctag\">@author</span> Podshivalov Nikita (https://github.com/nikitap492)\r\n * <span class=\"hljs-doctag\">@see</span> BinarySearch\r\n * <span class=\"hljs-doctag\">@see</span> SearchAlgorithm\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">LinearSearch</span> <span class=\"hljs-keyword\">implements</span> <span class=\"hljs-title class_\">SearchAlgorithm</span> {\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Generic Linear search method\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> array List to be searched\r\n     * <span class=\"hljs-doctag\">@param</span> value Key being searched for\r\n     * <span class=\"hljs-doctag\">@return</span> Location of the key\r\n     */</span>\r\n    <span class=\"hljs-meta\">@Override</span>\r\n    <span class=\"hljs-keyword\">public</span> &lt;T <span class=\"hljs-keyword\">extends</span> <span class=\"hljs-title class_\">Comparable</span>&lt;T&gt;&gt; <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">find</span><span class=\"hljs-params\">(T[] array, T value)</span> {\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>; i &lt; array.length; i++) {\r\n            <span class=\"hljs-keyword\">if</span> (array[i].compareTo(value) == <span class=\"hljs-number\">0</span>) {\r\n                <span class=\"hljs-keyword\">return</span> i;\r\n            }\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> -<span class=\"hljs-number\">1</span>;\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-comment\">// just generate data</span>\r\n        <span class=\"hljs-type\">Random</span> <span class=\"hljs-variable\">r</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Random</span>();\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">size</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">200</span>;\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">maxElement</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">100</span>;\r\n        Integer[] integers\r\n                = Stream.generate(() -&gt; r.nextInt(maxElement)).limit(size).toArray(Integer[]::<span class=\"hljs-keyword\">new</span>);\r\n\r\n        <span class=\"hljs-comment\">// the element that should be found</span>\r\n        <span class=\"hljs-type\">Integer</span> <span class=\"hljs-variable\">shouldBeFound</span> <span class=\"hljs-operator\">=</span> integers[r.nextInt(size - <span class=\"hljs-number\">1</span>)];\r\n\r\n        <span class=\"hljs-type\">LinearSearch</span> <span class=\"hljs-variable\">search</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">LinearSearch</span>();\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">atIndex</span> <span class=\"hljs-operator\">=</span> search.find(integers, shouldBeFound);\r\n\r\n        System.out.println(\r\n                String.format(\r\n                        <span class=\"hljs-string\">&quot;Should be found: %d. Found %d at index %d. An array length %d&quot;</span>,\r\n                        shouldBeFound, integers[atIndex], atIndex, size));\r\n    }\r\n}\r\n"
+    },
+    "c": {
+      "dir": "searching\\linear_search.c",
+      "url": "https://github.com/TheAlgorithms/c/tree/master/searching\\linear_search.c",
+      "code": "<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;stdio.h&gt;</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;stdlib.h&gt;</span></span>\r\n\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">linearsearch</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> *arr, <span class=\"hljs-type\">int</span> size, <span class=\"hljs-type\">int</span> val)</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> i;\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; size; i++)\r\n    {\r\n        <span class=\"hljs-keyword\">if</span> (arr[i] == val)\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">1</span>;\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n\r\n<span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">()</span>\r\n{\r\n    <span class=\"hljs-type\">int</span> n, i, v;\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;Enter the size of the array:\\n&quot;</span>);\r\n    <span class=\"hljs-built_in\">scanf</span>(<span class=\"hljs-string\">&quot;%d&quot;</span>, &amp;n);  <span class=\"hljs-comment\">// Taking input for the size of Array</span>\r\n\r\n    <span class=\"hljs-type\">int</span> *a = (<span class=\"hljs-type\">int</span> *)<span class=\"hljs-built_in\">malloc</span>(n * <span class=\"hljs-keyword\">sizeof</span>(<span class=\"hljs-type\">int</span>));\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;Enter the contents for an array of size %d:\\n&quot;</span>, n);\r\n    <span class=\"hljs-keyword\">for</span> (i = <span class=\"hljs-number\">0</span>; i &lt; n; i++)\r\n        <span class=\"hljs-built_in\">scanf</span>(<span class=\"hljs-string\">&quot;%d&quot;</span>, &amp;a[i]);  <span class=\"hljs-comment\">// accepts the values of array elements until the</span>\r\n                             <span class=\"hljs-comment\">// loop terminates//</span>\r\n\r\n    <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;Enter the value to be searched:\\n&quot;</span>);\r\n    <span class=\"hljs-built_in\">scanf</span>(<span class=\"hljs-string\">&quot;%d&quot;</span>, &amp;v);  <span class=\"hljs-comment\">// Taking input the value to be searched</span>\r\n    <span class=\"hljs-keyword\">if</span> (linearsearch(a, n, v))\r\n        <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;Value %d is in the array.\\n&quot;</span>, v);\r\n    <span class=\"hljs-keyword\">else</span>\r\n        <span class=\"hljs-built_in\">printf</span>(<span class=\"hljs-string\">&quot;Value %d is not in the array.\\n&quot;</span>, v);\r\n\r\n    <span class=\"hljs-built_in\">free</span>(a);\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n"
+    },
+    "rust": {
+      "dir": "src\\searching\\linear_search.rs",
+      "url": "https://github.com/TheAlgorithms/rust/tree/master/src\\searching\\linear_search.rs",
+      "code": "<span class=\"hljs-keyword\">use</span> std::cmp::<span class=\"hljs-built_in\">PartialEq</span>;\r\n\r\n<span class=\"hljs-keyword\">pub</span> <span class=\"hljs-keyword\">fn</span> <span class=\"hljs-title function_\">linear_search</span>&lt;T: <span class=\"hljs-built_in\">PartialEq</span>&gt;(item: &amp;T, arr: &amp;[T]) <span class=\"hljs-punctuation\">-&gt;</span> <span class=\"hljs-type\">Option</span>&lt;<span class=\"hljs-type\">usize</span>&gt; {\r\n    <span class=\"hljs-title function_ invoke__\">for</span> (i, data) <span class=\"hljs-keyword\">in</span> arr.<span class=\"hljs-title function_ invoke__\">iter</span>().<span class=\"hljs-title function_ invoke__\">enumerate</span>() {\r\n        <span class=\"hljs-keyword\">if</span> item == data {\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-title function_ invoke__\">Some</span>(i);\r\n        }\r\n    }\r\n\r\n    <span class=\"hljs-literal\">None</span>\r\n}\r\n\r\n<span class=\"hljs-meta\">#[cfg(test)]</span>\r\n<span class=\"hljs-keyword\">mod</span> tests {\r\n    <span class=\"hljs-keyword\">use</span> super::*;\r\n\r\n    <span class=\"hljs-meta\">#[test]</span>\r\n    <span class=\"hljs-keyword\">fn</span> <span class=\"hljs-title function_\">search_strings</span>() {\r\n        <span class=\"hljs-keyword\">let</span> <span class=\"hljs-variable\">index</span> = <span class=\"hljs-title function_ invoke__\">linear_search</span>(&amp;<span class=\"hljs-string\">&quot;a&quot;</span>, &amp;<span class=\"hljs-built_in\">vec!</span>[<span class=\"hljs-string\">&quot;a&quot;</span>, <span class=\"hljs-string\">&quot;b&quot;</span>, <span class=\"hljs-string\">&quot;c&quot;</span>, <span class=\"hljs-string\">&quot;d&quot;</span>, <span class=\"hljs-string\">&quot;google&quot;</span>, <span class=\"hljs-string\">&quot;zoo&quot;</span>]);\r\n        <span class=\"hljs-built_in\">assert_eq!</span>(index, <span class=\"hljs-title function_ invoke__\">Some</span>(<span class=\"hljs-number\">0</span>));\r\n    }\r\n\r\n    <span class=\"hljs-meta\">#[test]</span>\r\n    <span class=\"hljs-keyword\">fn</span> <span class=\"hljs-title function_\">search_ints</span>() {\r\n        <span class=\"hljs-keyword\">let</span> <span class=\"hljs-variable\">index</span> = <span class=\"hljs-title function_ invoke__\">linear_search</span>(&amp;<span class=\"hljs-number\">4</span>, &amp;<span class=\"hljs-built_in\">vec!</span>[<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>]);\r\n        <span class=\"hljs-built_in\">assert_eq!</span>(index, <span class=\"hljs-title function_ invoke__\">Some</span>(<span class=\"hljs-number\">3</span>));\r\n\r\n        <span class=\"hljs-keyword\">let</span> <span class=\"hljs-variable\">index</span> = <span class=\"hljs-title function_ invoke__\">linear_search</span>(&amp;<span class=\"hljs-number\">3</span>, &amp;<span class=\"hljs-built_in\">vec!</span>[<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>]);\r\n        <span class=\"hljs-built_in\">assert_eq!</span>(index, <span class=\"hljs-title function_ invoke__\">Some</span>(<span class=\"hljs-number\">2</span>));\r\n\r\n        <span class=\"hljs-keyword\">let</span> <span class=\"hljs-variable\">index</span> = <span class=\"hljs-title function_ invoke__\">linear_search</span>(&amp;<span class=\"hljs-number\">2</span>, &amp;<span class=\"hljs-built_in\">vec!</span>[<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>]);\r\n        <span class=\"hljs-built_in\">assert_eq!</span>(index, <span class=\"hljs-title function_ invoke__\">Some</span>(<span class=\"hljs-number\">1</span>));\r\n\r\n        <span class=\"hljs-keyword\">let</span> <span class=\"hljs-variable\">index</span> = <span class=\"hljs-title function_ invoke__\">linear_search</span>(&amp;<span class=\"hljs-number\">1</span>, &amp;<span class=\"hljs-built_in\">vec!</span>[<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>]);\r\n        <span class=\"hljs-built_in\">assert_eq!</span>(index, <span class=\"hljs-title function_ invoke__\">Some</span>(<span class=\"hljs-number\">0</span>));\r\n    }\r\n\r\n    <span class=\"hljs-meta\">#[test]</span>\r\n    <span class=\"hljs-keyword\">fn</span> <span class=\"hljs-title function_\">not_found</span>() {\r\n        <span class=\"hljs-keyword\">let</span> <span class=\"hljs-variable\">index</span> = <span class=\"hljs-title function_ invoke__\">linear_search</span>(&amp;<span class=\"hljs-number\">5</span>, &amp;<span class=\"hljs-built_in\">vec!</span>[<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>]);\r\n        <span class=\"hljs-built_in\">assert_eq!</span>(index, <span class=\"hljs-literal\">None</span>);\r\n    }\r\n\r\n    <span class=\"hljs-meta\">#[test]</span>\r\n    <span class=\"hljs-keyword\">fn</span> <span class=\"hljs-title function_\">empty</span>() {\r\n        <span class=\"hljs-keyword\">let</span> <span class=\"hljs-variable\">index</span> = <span class=\"hljs-title function_ invoke__\">linear_search</span>(&amp;<span class=\"hljs-number\">1</span>, &amp;<span class=\"hljs-built_in\">vec!</span>[]);\r\n        <span class=\"hljs-built_in\">assert_eq!</span>(index, <span class=\"hljs-literal\">None</span>);\r\n    }\r\n}\r\n"
+    },
+    "dart": {
+      "dir": "search\\linear_Search.dart",
+      "url": "https://github.com/TheAlgorithms/dart/tree/master/search\\linear_Search.dart",
+      "code": "<span class=\"hljs-built_in\">int</span> linear_search(<span class=\"hljs-built_in\">List</span>&lt;<span class=\"hljs-built_in\">int</span>&gt; a, number) {\r\n  <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-built_in\">int</span> i = <span class=\"hljs-number\">0</span>; i &lt; a.length; i++) {\r\n    <span class=\"hljs-keyword\">if</span> (a[i] == number) {\r\n      <span class=\"hljs-keyword\">return</span> i;\r\n    }\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">-1</span>;\r\n}\r\n\r\n<span class=\"hljs-keyword\">void</span> main() {\r\n  <span class=\"hljs-built_in\">List</span>&lt;<span class=\"hljs-built_in\">int</span>&gt; list = [<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">8</span>, <span class=\"hljs-number\">13</span>, <span class=\"hljs-number\">21</span>, <span class=\"hljs-number\">34</span>, <span class=\"hljs-number\">55</span>, <span class=\"hljs-number\">89</span>];\r\n  <span class=\"hljs-built_in\">int</span> x = <span class=\"hljs-number\">15</span>;\r\n  <span class=\"hljs-built_in\">int</span> index = linear_search(list, x);\r\n  <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&#x27;list:&#x27;</span>);\r\n  <span class=\"hljs-built_in\">print</span>(list);\r\n  <span class=\"hljs-keyword\">if</span> (index != <span class=\"hljs-number\">-1</span>) {\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&#x27;<span class=\"hljs-subst\">$x</span> found at positions: <span class=\"hljs-subst\">$index</span>&#x27;</span>);\r\n  } <span class=\"hljs-keyword\">else</span> {\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">&#x27;<span class=\"hljs-subst\">$x</span> Not found&#x27;</span>);\r\n  }\r\n}\r\n"
+    },
+    "ruby": {
+      "dir": "searches\\linear_search.rb",
+      "url": "https://github.com/TheAlgorithms/ruby/tree/master/searches\\linear_search.rb",
+      "code": "<span class=\"hljs-comment\"># Looks through array for a value in O(n) time.</span>\r\n<span class=\"hljs-comment\"># Array does not need to be sorted.</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">linear_search</span><span class=\"hljs-params\">(array, key)</span></span>\r\n  array.each_with_index <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|current, index|</span>\r\n    <span class=\"hljs-keyword\">return</span> index <span class=\"hljs-keyword\">if</span> current == key\r\n  <span class=\"hljs-keyword\">end</span>\r\n  <span class=\"hljs-literal\">nil</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\nputs <span class=\"hljs-string\">&quot;Enter a space-separated list:&quot;</span>\r\narr = gets.chomp.split(<span class=\"hljs-string\">&#x27; &#x27;</span>).map(&amp;<span class=\"hljs-symbol\">:to_i</span>)\r\nputs <span class=\"hljs-string\">&quot;Enter a value to be searched:&quot;</span>\r\nkey = gets.chomp.to_i\r\nputs <span class=\"hljs-keyword\">if</span> linear_search(arr, key) != <span class=\"hljs-literal\">nil</span>\r\n  <span class=\"hljs-string\">&quot;Found at index <span class=\"hljs-subst\">#{linear_search(arr, key)}</span>&quot;</span>\r\n<span class=\"hljs-keyword\">else</span>\r\n  <span class=\"hljs-string\">&quot;Not found&quot;</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    },
+    "php": {
+      "dir": "searches\\linear_search.php",
+      "url": "https://github.com/TheAlgorithms/php/tree/master/searches\\linear_search.php",
+      "code": "<span class=\"hljs-meta\">&lt;?php</span>\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Linear search in PHP\r\n * \r\n * Reference: https://www.geeksforgeeks.org/linear-search/\r\n * \r\n * <span class=\"hljs-doctag\">@param</span> Array $list a array of integers to search\r\n * <span class=\"hljs-doctag\">@param</span> integer $target an integer number to search for in the list\r\n * <span class=\"hljs-doctag\">@return</span> integer the index where the target is found (or -1 if not found)\r\n * \r\n * Examples:\r\n * \r\n *  data =  5, 7, 8, 11, 12, 15, 17, 18, 20\r\n *  \r\n *  x = 15\r\n *  Element found at position 6\r\n *  \r\n *  x = 1\r\n *  Element not found\r\n * \r\n **/</span>\r\n\r\n\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">linear_search</span>(<span class=\"hljs-params\"><span class=\"hljs-variable\">$list</span>, <span class=\"hljs-variable\">$target</span></span>) #<span class=\"hljs-title\">Linear</span> <span class=\"hljs-title\">Search</span>\r\n  </span>{ <span class=\"hljs-variable\">$n</span> = <span class=\"hljs-title function_ invoke__\">sizeof</span>(<span class=\"hljs-variable\">$list</span>); \r\n    <span class=\"hljs-keyword\">for</span>(<span class=\"hljs-variable\">$i</span> = <span class=\"hljs-number\">0</span>; <span class=\"hljs-variable\">$i</span> &lt; <span class=\"hljs-variable\">$n</span>; <span class=\"hljs-variable\">$i</span>++) \r\n    { \r\n        <span class=\"hljs-keyword\">if</span>(<span class=\"hljs-variable\">$list</span>[<span class=\"hljs-variable\">$i</span>] == <span class=\"hljs-variable\">$target</span>) \r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-variable\">$i</span>+<span class=\"hljs-number\">1</span>; \r\n    } \r\n    <span class=\"hljs-keyword\">return</span> -<span class=\"hljs-number\">1</span>; \r\n   }\r\n   \r\n<span class=\"hljs-comment\"># DRIVER CODE</span>\r\n<span class=\"hljs-variable\">$data</span> = <span class=\"hljs-keyword\">array</span>(<span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">7</span>, <span class=\"hljs-number\">8</span>, <span class=\"hljs-number\">11</span>, <span class=\"hljs-number\">12</span>, <span class=\"hljs-number\">15</span>, <span class=\"hljs-number\">17</span>, <span class=\"hljs-number\">18</span>, <span class=\"hljs-number\">20</span>);  \r\n<span class=\"hljs-variable\">$x</span> = <span class=\"hljs-number\">15</span>; \r\n\r\n\r\n<span class=\"hljs-variable\">$result</span> = <span class=\"hljs-title function_ invoke__\">linear_search</span>(<span class=\"hljs-variable\">$data</span>, <span class=\"hljs-variable\">$x</span>); <span class=\"hljs-comment\"># OUTPUT DISPLAY</span>\r\n<span class=\"hljs-keyword\">if</span>(<span class=\"hljs-variable\">$result</span> == -<span class=\"hljs-number\">1</span>) \r\n    <span class=\"hljs-keyword\">echo</span> <span class=\"hljs-string\">&quot;Element not found&quot;</span>; \r\n<span class=\"hljs-keyword\">else</span>\r\n    <span class=\"hljs-keyword\">echo</span> <span class=\"hljs-string\">&quot;Element found at position &quot;</span> , <span class=\"hljs-variable\">$result</span>; \r\n\r\n<span class=\"hljs-meta\">?&gt;</span>\r\n"
+    },
+    "kotlin": {
+      "dir": "src\\main\\kotlin\\search\\LinearSearch.kt",
+      "url": "https://github.com/TheAlgorithms/kotlin/tree/master/src\\main\\kotlin\\search\\LinearSearch.kt",
+      "code": "<span class=\"hljs-keyword\">package</span> search\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Linear search is an algorithm which finds the position of a target value within an array (Usually unsorted)\r\n *\r\n * Worst-case performance\tO(n)\r\n * Best-case performance\tO(1)\r\n * Average performance\tO(n)\r\n * Worst-case space complexity\tO(1)\r\n */</span>\r\n\r\n<span class=\"hljs-comment\">/**\r\n * <span class=\"hljs-doctag\">@param</span> array is an array where the element should be found\r\n * <span class=\"hljs-doctag\">@param</span> key is an element which should be found\r\n * <span class=\"hljs-doctag\">@return</span> index of the element\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">fun</span> <span class=\"hljs-type\">&lt;T : Comparable&lt;T&gt;</span>&gt; <span class=\"hljs-title\">linearSearch</span><span class=\"hljs-params\">(array: <span class=\"hljs-type\">Array</span>&lt;<span class=\"hljs-type\">T</span>&gt;, key: <span class=\"hljs-type\">T</span>)</span></span>: <span class=\"hljs-built_in\">Int</span> {\r\n    <span class=\"hljs-keyword\">return</span> linearSearchImpl(array, key)\r\n}\r\n\r\n<span class=\"hljs-comment\">/**\r\n * <span class=\"hljs-doctag\">@param</span> array The array to search\r\n * <span class=\"hljs-doctag\">@param</span> key The element you are looking for\r\n * <span class=\"hljs-doctag\">@return</span> the location of the key or -1 if the element is not found\r\n **/</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">fun</span> <span class=\"hljs-type\">&lt;T : Comparable&lt;T&gt;</span>&gt; <span class=\"hljs-title\">linearSearchImpl</span><span class=\"hljs-params\">(array: <span class=\"hljs-type\">Array</span>&lt;<span class=\"hljs-type\">T</span>&gt;, key: <span class=\"hljs-type\">T</span>)</span></span>: <span class=\"hljs-built_in\">Int</span> {\r\n    <span class=\"hljs-keyword\">for</span> (i <span class=\"hljs-keyword\">in</span> array.indices) {\r\n        <span class=\"hljs-keyword\">if</span> (array[i].compareTo(key) == <span class=\"hljs-number\">0</span>) {\r\n            <span class=\"hljs-keyword\">return</span> i\r\n        }\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">return</span> -<span class=\"hljs-number\">1</span>\r\n}\r\n"
+    },
+    "scala": {
+      "dir": "src\\main\\scala\\Search\\LinearSearch.scala",
+      "url": "https://github.com/TheAlgorithms/scala/tree/master/src\\main\\scala\\Search\\LinearSearch.scala",
+      "code": "<span class=\"hljs-keyword\">package</span> <span class=\"hljs-type\">Search</span>\r\n\r\n<span class=\"hljs-keyword\">import</span> scala.annotation.tailrec\r\n\r\n<span class=\"hljs-comment\">/** This is scala implementation of linear search algorithm\r\n  */</span>\r\n<span class=\"hljs-class\"><span class=\"hljs-keyword\">object</span> <span class=\"hljs-title\">LinearSearch</span> </span>{\r\n\r\n  <span class=\"hljs-comment\">/** @param arr\r\n    *   - a sequence of integers\r\n    * @param elem\r\n    *   - a integer to search for in the @args\r\n    * @return\r\n    *   - index of the @elem or -1 if elem is not fount in the @arr\r\n    */</span>\r\n  <span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">linearSearch</span></span>(arr: <span class=\"hljs-type\">Vector</span>[<span class=\"hljs-type\">Int</span>], elem: <span class=\"hljs-type\">Int</span>): <span class=\"hljs-type\">Int</span> = {\r\n    <span class=\"hljs-meta\">@tailrec</span>\r\n    <span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">iter</span></span>(index: <span class=\"hljs-type\">Int</span>): <span class=\"hljs-type\">Int</span> =\r\n      <span class=\"hljs-keyword\">if</span> (index == arr.length) <span class=\"hljs-number\">-1</span>\r\n      <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span> (arr(index) == elem) index\r\n      <span class=\"hljs-keyword\">else</span> iter(index + <span class=\"hljs-number\">1</span>)\r\n\r\n    iter(<span class=\"hljs-number\">0</span>)\r\n  }\r\n\r\n}\r\n"
+    },
+    "ocaml": {
+      "dir": "searches\\linear_search.ml",
+      "url": "https://github.com/TheAlgorithms/ocaml/tree/master/searches\\linear_search.ml",
+      "code": "<span class=\"hljs-comment\">(* Linear search implementation in OCaml.\r\n   Since lists in OCaml are true linked lists, linear search is the only option.\r\n   \r\n\r\n   You can load this file into the REPL with `#use &quot;linear_search.ml&quot;`\r\n *)</span>\r\n\r\n<span class=\"hljs-comment\">(** Finds the position of an item in a linked list.\r\n\r\n    @param needle Item to search for.\r\n    @param haystack Linked list to search.\r\n\r\n *)</span>\r\n<span class=\"hljs-keyword\">let</span> linear_search needle haystack =\r\n  <span class=\"hljs-keyword\">let</span> <span class=\"hljs-keyword\">rec</span> aux needle haystack pos =\r\n    <span class=\"hljs-keyword\">match</span> haystack <span class=\"hljs-keyword\">with</span>\r\n    | <span class=\"hljs-literal\">[]</span> -&gt; <span class=\"hljs-type\">None</span>\r\n    | h :: hs -&gt;\r\n      <span class=\"hljs-keyword\">if</span> h = needle <span class=\"hljs-keyword\">then</span> <span class=\"hljs-type\">Some</span> pos\r\n      <span class=\"hljs-keyword\">else</span> aux needle hs (pos + <span class=\"hljs-number\">1</span>)\r\n  <span class=\"hljs-keyword\">in</span> aux needle haystack <span class=\"hljs-number\">0</span>\r\n\r\n<span class=\"hljs-comment\">(* Examples:\r\n\r\n  linear_search 0 [1;2;3] <span class=\"hljs-comment\">(* Returns None *)</span>\r\n  linear_search 0 [1;2;3;0] <span class=\"hljs-comment\">(* Returns (Some 3) *)</span>\r\n  linear_search ~start_pos:1 0 [1;2;3;0] <span class=\"hljs-comment\">(* Returns (Some 4) *)</span>\r\n *)</span>\r\n\r\n<span class=\"hljs-comment\">(** Finds the position of an item in an array.\r\n\r\n    @param needle Item to search for.\r\n    @param haystack Array to search.\r\n *)</span>\r\n<span class=\"hljs-keyword\">let</span> linear_search_array needle haystack =\r\n  <span class=\"hljs-comment\">(* This function is tail-recursive -- it will not run out of stack space *)</span>\r\n  <span class=\"hljs-keyword\">let</span> <span class=\"hljs-keyword\">rec</span> aux needle haystack pos =\r\n    <span class=\"hljs-keyword\">if</span> haystack.(pos) = needle <span class=\"hljs-keyword\">then</span> pos\r\n    <span class=\"hljs-keyword\">else</span> aux needle haystack (pos + <span class=\"hljs-number\">1</span>)\r\n  <span class=\"hljs-keyword\">in</span>\r\n  <span class=\"hljs-keyword\">try</span> <span class=\"hljs-type\">Some</span> (aux needle haystack <span class=\"hljs-number\">0</span>)\r\n  <span class=\"hljs-keyword\">with</span> <span class=\"hljs-type\">Invalid_argument</span> _ -&gt;\r\n    <span class=\"hljs-comment\">(* Index out of bounds condition will cause an Invalid_argument exception *)</span>\r\n    <span class=\"hljs-type\">None</span>\r\n\r\n<span class=\"hljs-comment\">(* Examples:\r\n\r\n  linear_search_array 0 [| 1; 2; 3; 0 |]\r\n *)</span>\r\n"
+    },
+    "swift": {
+      "dir": "Search\\LinearSearch.swift",
+      "url": "https://github.com/TheAlgorithms/swift/tree/master/Search\\LinearSearch.swift",
+      "code": "<span class=\"hljs-keyword\">import</span> Foundation\r\n\r\n<span class=\"hljs-keyword\">func</span> <span class=\"hljs-title function_\">linearSearch</span>&lt;<span class=\"hljs-type\">T</span>: <span class=\"hljs-type\">Equatable</span>&gt;(<span class=\"hljs-keyword\">_</span> <span class=\"hljs-params\">array</span>: [<span class=\"hljs-type\">T</span>], <span class=\"hljs-keyword\">_</span> <span class=\"hljs-params\">object</span>: <span class=\"hljs-type\">T</span>) -&gt; <span class=\"hljs-type\">Int</span>? {\r\n  <span class=\"hljs-keyword\">for</span> (index, obj) <span class=\"hljs-keyword\">in</span> array.enumerated() <span class=\"hljs-keyword\">where</span> obj <span class=\"hljs-operator\">==</span> object {\r\n    <span class=\"hljs-keyword\">return</span> index\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">nil</span>\r\n}\r\n\r\n<span class=\"hljs-comment\">// The code below can be used for testing</span>\r\n\r\n<span class=\"hljs-comment\">// var numbers = [10, 119, 13, 24, 53, 17, 31, 7, 19, 627, 47, 163, 37, 611, 29, 43, 51, 41, 32]</span>\r\n<span class=\"hljs-comment\">// if let searchIndex = linearSearch(numbers,31) {</span>\r\n<span class=\"hljs-comment\">//     print(&quot;Element found on index: \\(searchIndex)&quot;)</span>\r\n<span class=\"hljs-comment\">// }</span>\r\n<span class=\"hljs-comment\">// else {</span>\r\n<span class=\"hljs-comment\">// print(&quot;Element not found&quot;)</span>\r\n<span class=\"hljs-comment\">// }</span>\r\n"
+    },
+    "matlab-octave": {
+      "dir": "algorithms\\Searching\\linear_search.m",
+      "url": "https://github.com/TheAlgorithms/matlab-octave/tree/master/algorithms\\Searching\\linear_search.m",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">p</span> = <span class=\"hljs-title\">linear_search</span><span class=\"hljs-params\">(A,t)</span></span>\r\n<span class=\"hljs-comment\">%% linear Search</span>\r\n<span class=\"hljs-comment\">% This function linear searches target value (t) in array A. </span>\r\n<span class=\"hljs-comment\">% For this, It sequentially checks each entry of the array until a match is found</span>\r\n<span class=\"hljs-comment\">% or  or the whole list has been searched.</span>\r\n<span class=\"hljs-comment\">% If it can find the target returns 1 otherwise 0. </span>\r\n\r\narray_length = <span class=\"hljs-built_in\">length</span>(A);\r\n<span class=\"hljs-built_in\">i</span> = <span class=\"hljs-number\">1</span>;\r\nsearchTermination = <span class=\"hljs-number\">0</span>;\r\n\r\n<span class=\"hljs-keyword\">while</span> searchTermination == <span class=\"hljs-number\">0</span> &amp;&amp; <span class=\"hljs-built_in\">i</span> &lt; array_length+<span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">if</span> A(<span class=\"hljs-built_in\">i</span>) == t\r\n        p = <span class=\"hljs-number\">1</span>;\r\n        searchTermination = <span class=\"hljs-number\">1</span>;\r\n        <span class=\"hljs-built_in\">disp</span>(<span class=\"hljs-string\">&#x27;the target is found in the array&#x27;</span>)\r\n    <span class=\"hljs-keyword\">else</span>\r\n        <span class=\"hljs-built_in\">i</span> = <span class=\"hljs-built_in\">i</span>+<span class=\"hljs-number\">1</span>;\r\n    <span class=\"hljs-keyword\">end</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n<span class=\"hljs-keyword\">if</span> <span class=\"hljs-built_in\">i</span> == array_length+<span class=\"hljs-number\">1</span>\r\n    p = <span class=\"hljs-number\">0</span>;\r\n    <span class=\"hljs-built_in\">disp</span>(<span class=\"hljs-string\">&#x27;the target is not found in the array&#x27;</span>)\r\n<span class=\"hljs-keyword\">end</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    },
+    "julia": {
+      "dir": "src\\searches\\linear_search.jl",
+      "url": "https://github.com/TheAlgorithms/julia/tree/master/src\\searches\\linear_search.jl",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n    linear_search(array, key)\r\nA simple search of `array`, element per element until `key` is found.\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">function</span> linear_search(array, key)\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-number\">1</span>:length(array)\r\n        <span class=\"hljs-keyword\">if</span> array[i] == key\r\n            <span class=\"hljs-keyword\">return</span> i\r\n        <span class=\"hljs-keyword\">end</span>\r\n    <span class=\"hljs-keyword\">end</span>\r\n    <span class=\"hljs-keyword\">return</span> -<span class=\"hljs-number\">1</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    },
+    "lua": {
+      "dir": "src\\searches\\linear_search.lua",
+      "url": "https://github.com/TheAlgorithms/lua/tree/master/src\\searches\\linear_search.lua",
+      "code": "<span class=\"hljs-keyword\">return</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span><span class=\"hljs-params\">(\r\n\tlist,\r\n\t<span class=\"hljs-comment\">-- Value to be searched</span>\r\n\tvalue,\r\n\t<span class=\"hljs-comment\">-- Whether the list is sorted</span>\r\n\tsorted,\r\n\t<span class=\"hljs-comment\">-- Comparator</span>\r\n\tless_than\r\n)</span></span>\r\n\tless_than = less_than <span class=\"hljs-keyword\">or</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span><span class=\"hljs-params\">(a, b)</span></span>\r\n\t\t<span class=\"hljs-keyword\">return</span> a &lt; b\r\n\t<span class=\"hljs-keyword\">end</span>\r\n\t<span class=\"hljs-keyword\">for</span> index, element <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">ipairs</span>(list) <span class=\"hljs-keyword\">do</span>\r\n\t\t<span class=\"hljs-keyword\">if</span> less_than(value, element) <span class=\"hljs-keyword\">then</span>\r\n\t\t\t<span class=\"hljs-keyword\">if</span> sorted <span class=\"hljs-keyword\">then</span>\r\n\t\t\t\t<span class=\"hljs-comment\">-- Negative insertion index if the list is sorted and the value was not found</span>\r\n\t\t\t\t<span class=\"hljs-keyword\">return</span> -index\r\n\t\t\t<span class=\"hljs-keyword\">end</span>\r\n\t\t<span class=\"hljs-keyword\">elseif</span> <span class=\"hljs-keyword\">not</span> less_than(element, value) <span class=\"hljs-keyword\">then</span> <span class=\"hljs-comment\">-- must be equal</span>\r\n\t\t\t<span class=\"hljs-comment\">-- Index if found</span>\r\n\t\t\t<span class=\"hljs-keyword\">return</span> index\r\n\t\t<span class=\"hljs-keyword\">end</span>\r\n\t<span class=\"hljs-keyword\">end</span>\r\n\t<span class=\"hljs-comment\">-- Negative insertion index after the last element</span>\r\n\t<span class=\"hljs-comment\">-- Returned if the list is unsorted or the value is bigger than all values in the sorted list</span>\r\n\t<span class=\"hljs-keyword\">return</span> -#list - <span class=\"hljs-number\">1</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n"
+    },
+    "c-sharp": {
+      "dir": "./Algorithms/Search/LinearSearcher.cs",
+      "url": "https:\\github.com\\TheAlgorithms\\C-Sharp\\tree\\master\\Algorithms\\Search\\LinearSearcher.cs",
+      "code": "<span class=\"hljs-keyword\">using</span> System;\r\n<span class=\"hljs-keyword\">using</span> Utilities.Exceptions;\r\n\r\n<span class=\"hljs-keyword\">namespace</span> <span class=\"hljs-title\">Algorithms.Search</span>\r\n{\r\n    <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;summary&gt;</span></span>\r\n    <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>     Class that implements linear search algorithm.</span>\r\n    <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;/summary&gt;</span></span>\r\n    <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;typeparam name=&quot;T&quot;&gt;</span>Type of array element.<span class=\"hljs-doctag\">&lt;/typeparam&gt;</span></span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">LinearSearcher</span>&lt;<span class=\"hljs-title\">T</span>&gt;\r\n    {\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;summary&gt;</span></span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>     Finds first item in array that satisfies specified term</span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>     Time complexity: O(n)</span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>     Space complexity: O(1).</span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;/summary&gt;</span></span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;param name=&quot;data&quot;&gt;</span>Array to search in.<span class=\"hljs-doctag\">&lt;/param&gt;</span></span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;param name=&quot;term&quot;&gt;</span>Term to check against.<span class=\"hljs-doctag\">&lt;/param&gt;</span></span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;returns&gt;</span>First item that satisfies term.<span class=\"hljs-doctag\">&lt;/returns&gt;</span></span>\r\n        <span class=\"hljs-function\"><span class=\"hljs-keyword\">public</span> T <span class=\"hljs-title\">Find</span>(<span class=\"hljs-params\">T[] data, Func&lt;T, <span class=\"hljs-built_in\">bool</span>&gt; term</span>)</span>\r\n        {\r\n            <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">var</span> i = <span class=\"hljs-number\">0</span>; i &lt; data.Length; i++)\r\n            {\r\n                <span class=\"hljs-keyword\">if</span> (term(data[i]))\r\n                {\r\n                    <span class=\"hljs-keyword\">return</span> data[i];\r\n                }\r\n            }\r\n\r\n            <span class=\"hljs-keyword\">throw</span> <span class=\"hljs-keyword\">new</span> ItemNotFoundException();\r\n        }\r\n\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;summary&gt;</span></span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>     Finds index of first item in array that satisfies specified term</span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>     Time complexity: O(n)</span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span>     Space complexity: O(1).</span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;/summary&gt;</span></span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;param name=&quot;data&quot;&gt;</span>Array to search in.<span class=\"hljs-doctag\">&lt;/param&gt;</span></span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;param name=&quot;term&quot;&gt;</span>Term to check against.<span class=\"hljs-doctag\">&lt;/param&gt;</span></span>\r\n        <span class=\"hljs-comment\"><span class=\"hljs-doctag\">///</span> <span class=\"hljs-doctag\">&lt;returns&gt;</span>Index of first item that satisfies term or -1 if none found.<span class=\"hljs-doctag\">&lt;/returns&gt;</span></span>\r\n        <span class=\"hljs-function\"><span class=\"hljs-keyword\">public</span> <span class=\"hljs-built_in\">int</span> <span class=\"hljs-title\">FindIndex</span>(<span class=\"hljs-params\">T[] data, Func&lt;T, <span class=\"hljs-built_in\">bool</span>&gt; term</span>)</span>\r\n        {\r\n            <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">var</span> i = <span class=\"hljs-number\">0</span>; i &lt; data.Length; i++)\r\n            {\r\n                <span class=\"hljs-keyword\">if</span> (term(data[i]))\r\n                {\r\n                    <span class=\"hljs-keyword\">return</span> i;\r\n                }\r\n            }\r\n\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">-1</span>;\r\n        }\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "lakhan_nad",
+      "email": "lakhannad1999@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Emil Suleymanov",
+      "email": "emil.suleymanov@tum.de",
+      "commits": 1
+    },
+    {
+      "name": "Daniil Baturin",
+      "email": "daniil@baturin.org",
+      "commits": 1
+    },
+    {
+      "name": "Anant Kanchan",
+      "email": "66024577+anantcodes@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Atousa K",
+      "email": "missa.k213@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Bender",
+      "email": "christianbender89@web.de",
+      "commits": 1
+    },
+    {
+      "name": "Malte Jürgens",
+      "email": "maltejur@web.de",
+      "commits": 1
+    },
+    {
+      "name": "Tiffany Ford",
+      "email": "rhysma@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "aexolate",
+      "email": "nexlenter@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Alfredo Torre",
+      "email": "alfredotorre@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Steve Nester",
+      "email": "snester13456@comcast.net",
+      "commits": 1
+    },
+    {
+      "name": "gaurav_miglani",
+      "email": "gaurav.miglani@innovaccer.com",
+      "commits": 1
+    },
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Thomas Huang",
+      "email": "thomas.huang2017@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Taj",
+      "email": "tjgurwara99@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Krishna Vedala",
+      "email": "7001608+kvedala@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Archana550",
+      "email": "51438542+Archana550@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Arpit Verma",
+      "email": "43077029+arpitv424@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "sayoojkz",
+      "email": "35601680+sayoojkz@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Rak Laptudirm",
+      "email": "68542775+raklaptudirm@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "PatOnTheBack",
+      "email": "51241310+PatOnTheBack@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "nik",
+      "email": "nikitap4.92@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "KyleScharnhorst",
+      "email": "scharkr1@uw.edu",
+      "commits": 1
+    },
+    {
+      "name": "Ritika Mukherjee",
+      "email": "40390051+ritikaa17@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Himanshu Airan",
+      "email": "62210670+Himanshu-77@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Naveen Hegde",
+      "email": "hegdenaveen1@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Ashley Jeji George",
+      "email": "40469421+Ashley-J-George@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Prince Gangurde",
+      "email": "50592495+Prince326@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "matkosoric",
+      "email": "soric.matko@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "GeorgeChambi",
+      "email": "charalambous99@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "overclockedllama",
+      "email": "dsoneji001@hotmail.co.uk",
+      "commits": 1
+    },
+    {
+      "name": "cclauss",
+      "email": "cclauss@bluewin.ch",
+      "commits": 1
+    },
+    {
+      "name": "97arushisharma",
+      "email": "97arushisharma@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "NotAName",
+      "email": "michaalbert.42@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Stepfen Shawn",
+      "email": "m18824909883@163.com",
+      "commits": 2
+    },
+    {
+      "name": "Arnav Borborah",
+      "email": "arnavborborah11@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "khanhhuynguyenvu",
+      "email": "khanhhuynguyenvu@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Azzaare",
+      "email": "jf@baffier.fr",
+      "commits": 2
+    },
+    {
+      "name": "Brayo",
+      "email": "vukubrian@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "vinayak",
+      "email": "itssvinayak@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Krishna Vedala",
+      "email": "krishna.vedala@ieee.org",
+      "commits": 2
+    },
+    {
+      "name": "Gabriel",
+      "email": "g4briel.4lves@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Mohit Sharma",
+      "email": "mohit1532.cse16@chitkara.edu.in",
+      "commits": 2
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 2
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 3
+    },
+    {
+      "name": "Jowin John Chemban",
+      "email": "29167718+jowinjohnchemban@users.noreply.github.com",
+      "commits": 3
+    },
+    {
+      "name": "Andrii Siriak",
+      "email": "siryaka@gmail.com",
+      "commits": 3
+    },
+    {
+      "name": "Emilien Fugier",
+      "email": "mail@emilienfugier.xyz",
+      "commits": 3
+    },
+    {
+      "name": "Lars Mueller",
+      "email": "appgurulars@gmx.de",
+      "commits": 3
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 3
+    },
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 3
+    },
+    {
+      "name": "varunu28",
+      "email": "varun.u28@gmail.com",
+      "commits": 6
+    }
+  ],
+  "explanationUrl": {
+    "es": "https://github.com/TheAlgorithms/Algorithms-Explanation/tree/master/es\\Algoritmos de búsqueda\\Búsqueda lineal.md",
+    "en": "https://github.com/TheAlgorithms/Algorithms-Explanation/tree/master/en\\Search Algorithms\\Linear Search.md"
+  }
+}
