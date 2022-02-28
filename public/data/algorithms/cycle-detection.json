@@ -1,0 +1,29 @@
+{
+  "slug": "cycle-detection",
+  "name": "Cycle Detection",
+  "categories": [
+    "datastructures",
+    "linkedlist"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Data-Structures\\Linked-List\\CycleDetection.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Data-Structures\\Linked-List\\CycleDetection.js",
+      "code": "<span class=\"hljs-comment\">/**\r\n * A LinkedList based solution for Detect a Cycle in a list\r\n * https://en.wikipedia.org/wiki/Cycle_detection\r\n */</span>\r\n\r\n<span class=\"hljs-keyword\">function</span> <span class=\"hljs-title function_\">main</span> () {\r\n  <span class=\"hljs-comment\">/*\r\n  Problem Statement:\r\n  Given head, the head of a linked list, determine if the linked list has a cycle in it.\r\n\r\n  Note:\r\n  * While Solving the problem in given link below, don&#x27;t use main() function.\r\n  * Just use only the code inside main() function.\r\n  * The purpose of using main() function here is to avoid global variables.\r\n\r\n  Link for the Problem: https://leetcode.com/problems/linked-list-cycle/\r\n  */</span>\r\n  <span class=\"hljs-keyword\">const</span> head = <span class=\"hljs-string\">&#x27;&#x27;</span> <span class=\"hljs-comment\">// Reference to head is given in the problem. So please ignore this line</span>\r\n  <span class=\"hljs-keyword\">let</span> fast = head\r\n  <span class=\"hljs-keyword\">let</span> slow = head\r\n\r\n  <span class=\"hljs-keyword\">while</span> (fast != <span class=\"hljs-literal\">null</span> &amp;&amp; fast.<span class=\"hljs-property\">next</span> != <span class=\"hljs-literal\">null</span> &amp;&amp; slow != <span class=\"hljs-literal\">null</span>) {\r\n    fast = fast.<span class=\"hljs-property\">next</span>.<span class=\"hljs-property\">next</span>\r\n    slow = slow.<span class=\"hljs-property\">next</span>\r\n    <span class=\"hljs-keyword\">if</span> (fast === slow) {\r\n      <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">true</span>\r\n    }\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>\r\n}\r\n\r\n<span class=\"hljs-title function_\">main</span>()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Keshav Bohra",
+      "email": "keshav2016@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Omkarnath Parida",
+      "email": "pomkarnath98@gmail.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

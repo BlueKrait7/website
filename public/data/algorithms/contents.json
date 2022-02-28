@@ -1,0 +1,36 @@
+{
+  "slug": "contents",
+  "name": "Contents",
+  "categories": [
+    "ai",
+    "minimax",
+    "sources",
+    "minimaxplayground"
+  ],
+  "body": {},
+  "implementations": {
+    "swift": {
+      "dir": "algorithms\\AI\\minimax\\Sources\\Minimax.playground\\Contents.swift",
+      "url": "https://github.com/TheAlgorithms/swift/tree/master/algorithms\\AI\\minimax\\Sources\\Minimax.playground\\Contents.swift",
+      "code": "<span class=\"hljs-keyword\">import</span> UIKit\r\n<span class=\"hljs-keyword\">import</span> PlaygroundSupport\r\n\r\n<span class=\"hljs-keyword\">let</span> boardSize <span class=\"hljs-operator\">=</span> <span class=\"hljs-type\">CGSize</span>(width: <span class=\"hljs-number\">500</span>, height: <span class=\"hljs-number\">550</span>)\r\n<span class=\"hljs-keyword\">let</span> boardView <span class=\"hljs-operator\">=</span> <span class=\"hljs-type\">BoardView</span>(frame: <span class=\"hljs-type\">CGRect</span>(origin: .zero, size: boardSize))\r\n\r\n<span class=\"hljs-type\">PlaygroundPage</span>.current.needsIndefiniteExecution <span class=\"hljs-operator\">=</span> <span class=\"hljs-literal\">true</span>\r\n<span class=\"hljs-type\">PlaygroundPage</span>.current.liveView <span class=\"hljs-operator\">=</span> boardView\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Letícia Santos",
+      "email": "leticia.faleia@gmail.com",
+      "commits": 3
+    },
+    {
+      "name": "michalnowak061",
+      "email": "michal.nowak061@gmail.com",
+      "commits": 4
+    }
+  ],
+  "explanationUrl": {}
+}

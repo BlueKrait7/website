@@ -1,0 +1,28 @@
+{
+  "slug": "convolution",
+  "name": "Convolution",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\maths\\Convolution.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\maths\\Convolution.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.maths;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Class for linear convolution of two discrete signals\r\n *\r\n * <span class=\"hljs-doctag\">@author</span> Ioannis Karavitsis\r\n * <span class=\"hljs-doctag\">@version</span> 1.0\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Convolution</span> {\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Discrete linear convolution function. Both input signals and the output\r\n     * signal must start from 0. If you have a signal that has values before 0\r\n     * then shift it to start from 0.\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> A The first discrete signal\r\n     * <span class=\"hljs-doctag\">@param</span> B The second discrete signal\r\n     * <span class=\"hljs-doctag\">@return</span> The convolved signal\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">double</span>[] convolution(<span class=\"hljs-type\">double</span>[] A, <span class=\"hljs-type\">double</span>[] B) {\r\n        <span class=\"hljs-type\">double</span>[] convolved = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">double</span>[A.length + B.length - <span class=\"hljs-number\">1</span>];\r\n\r\n        <span class=\"hljs-comment\">/*\r\n    The discrete convolution of two signals A and B is defined as:\r\n\r\n          A.length\r\n    C[i] = Σ (A[k]*B[i-k])\r\n          k=0\r\n\r\n    It&#x27;s obvious that:  0 &lt;= k &lt;= A.length , 0 &lt;= i &lt;= A.length + B.length - 2  and  0 &lt;= i-k &lt;= B.length - 1\r\n    From the last inequality we get that:  i - B.length + 1 &lt;= k &lt;= i and thus we get the conditions below.\r\n         */</span>\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>; i &lt; convolved.length; i++) {\r\n            convolved[i] = <span class=\"hljs-number\">0</span>;\r\n            <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">k</span> <span class=\"hljs-operator\">=</span> Math.max(i - B.length + <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">0</span>);\r\n\r\n            <span class=\"hljs-keyword\">while</span> (k &lt; i + <span class=\"hljs-number\">1</span> &amp;&amp; k &lt; A.length) {\r\n                convolved[i] += A[k] * B[i - k];\r\n                k++;\r\n            }\r\n        }\r\n\r\n        <span class=\"hljs-keyword\">return</span> convolved;\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "JohnKara",
+      "email": "kcioannis@csd.auth.gr",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,33 @@
+{
+  "slug": "date-day-difference",
+  "name": "Date Day Difference",
+  "categories": [
+    "conversions"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Conversions\\DateDayDifference.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Conversions\\DateDayDifference.js",
+      "code": "<span class=\"hljs-comment\">/*\r\n    DateDayDifference Method\r\n    ------------------------\r\n    DateDayDifference method calculates the number of days between two dates.\r\n\r\n    Algorithm &amp; Explanation : https://ncalculators.com/time-date/date-difference-calculator.htm\r\n*/</span>\r\n\r\n<span class=\"hljs-comment\">// Internal method for make calculations easier</span>\r\n<span class=\"hljs-keyword\">const</span> <span class=\"hljs-title function_\">isLeap</span> = (<span class=\"hljs-params\">year</span>) =&gt; {\r\n  <span class=\"hljs-keyword\">if</span> (year % <span class=\"hljs-number\">400</span> === <span class=\"hljs-number\">0</span>) <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">true</span>\r\n  <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span> (year % <span class=\"hljs-number\">100</span> === <span class=\"hljs-number\">0</span>) <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>\r\n  <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span> (year % <span class=\"hljs-number\">4</span> === <span class=\"hljs-number\">0</span>) <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">true</span>\r\n  <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">false</span>\r\n}\r\n<span class=\"hljs-keyword\">const</span> <span class=\"hljs-title function_\">DateToDay</span> = (<span class=\"hljs-params\">dd, mm, yyyy</span>) =&gt; {\r\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">floor</span>((<span class=\"hljs-number\">365</span> * (yyyy - <span class=\"hljs-number\">1</span>)) + ((yyyy - <span class=\"hljs-number\">1</span>) / <span class=\"hljs-number\">4</span>) - ((yyyy - <span class=\"hljs-number\">1</span>) / <span class=\"hljs-number\">100</span>) + ((yyyy - <span class=\"hljs-number\">1</span>) / <span class=\"hljs-number\">400</span>) + dd + (((<span class=\"hljs-number\">367</span> * mm) - <span class=\"hljs-number\">362</span>) / <span class=\"hljs-number\">12</span>) + (mm &lt;= <span class=\"hljs-number\">2</span> ? <span class=\"hljs-number\">0</span> : <span class=\"hljs-title function_\">isLeap</span>(yyyy) ? -<span class=\"hljs-number\">1</span> : -<span class=\"hljs-number\">2</span>))\r\n}\r\n\r\n<span class=\"hljs-keyword\">const</span> <span class=\"hljs-title function_\">DateDayDifference</span> = (<span class=\"hljs-params\">date1, date2</span>) =&gt; {\r\n  <span class=\"hljs-comment\">// firstly, check that both input are string or not.</span>\r\n  <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-keyword\">typeof</span> date1 !== <span class=\"hljs-string\">&#x27;string&#x27;</span> &amp;&amp; <span class=\"hljs-keyword\">typeof</span> date2 !== <span class=\"hljs-string\">&#x27;string&#x27;</span>) {\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">TypeError</span>(<span class=\"hljs-string\">&#x27;Argument is not a string.&#x27;</span>)\r\n  }\r\n  <span class=\"hljs-comment\">// extract the first date</span>\r\n  <span class=\"hljs-keyword\">const</span> [firstDateDay, firstDateMonth, firstDateYear] = date1.<span class=\"hljs-title function_\">split</span>(<span class=\"hljs-string\">&#x27;/&#x27;</span>).<span class=\"hljs-title function_\">map</span>(<span class=\"hljs-function\">(<span class=\"hljs-params\">ele</span>) =&gt;</span> <span class=\"hljs-title class_\">Number</span>(ele))\r\n  <span class=\"hljs-comment\">// extract the second date</span>\r\n  <span class=\"hljs-keyword\">const</span> [secondDateDay, secondDateMonth, secondDateYear] = date2.<span class=\"hljs-title function_\">split</span>(<span class=\"hljs-string\">&#x27;/&#x27;</span>).<span class=\"hljs-title function_\">map</span>(<span class=\"hljs-function\">(<span class=\"hljs-params\">ele</span>) =&gt;</span> <span class=\"hljs-title class_\">Number</span>(ele))\r\n  <span class=\"hljs-comment\">// check the both data are valid or not.</span>\r\n  <span class=\"hljs-keyword\">if</span> (firstDateDay &lt; <span class=\"hljs-number\">0</span> || firstDateDay &gt; <span class=\"hljs-number\">31</span> ||\r\n        firstDateMonth &gt; <span class=\"hljs-number\">12</span> || firstDateMonth &lt; <span class=\"hljs-number\">0</span> ||\r\n        secondDateDay &lt; <span class=\"hljs-number\">0</span> || secondDateDay &gt; <span class=\"hljs-number\">31</span> ||\r\n        secondDateMonth &gt; <span class=\"hljs-number\">12</span> || secondDateMonth &lt; <span class=\"hljs-number\">0</span>) {\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">TypeError</span>(<span class=\"hljs-string\">&#x27;Date is not valid.&#x27;</span>)\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">abs</span>(<span class=\"hljs-title class_\">DateToDay</span>(secondDateDay, secondDateMonth, secondDateYear) - <span class=\"hljs-title class_\">DateToDay</span>(firstDateDay, firstDateMonth, firstDateYear))\r\n}\r\n\r\n<span class=\"hljs-comment\">// Example : DateDayDifference(&#x27;17/08/2002&#x27;, &#x27;10/10/2020&#x27;) =&gt; 6630</span>\r\n\r\n<span class=\"hljs-keyword\">export</span> { <span class=\"hljs-title class_\">DateDayDifference</span> }\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Keshav Bohra",
+      "email": "keshav2016@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Suryapratap Singh",
+      "email": "suryprtaps@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

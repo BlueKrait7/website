@@ -1,0 +1,53 @@
+{
+  "slug": "connected-components-with-dsu",
+  "name": "Connected Components with Dsu",
+  "categories": [
+    "graphs"
+  ],
+  "body": {},
+  "implementations": {
+    "c-plus-plus": {
+      "dir": "graph\\connected_components_with_dsu.cpp",
+      "url": "https://github.com/TheAlgorithms/c-plus-plus/tree/master/graph\\connected_components_with_dsu.cpp",
+      "code": "<span class=\"hljs-comment\">/**\r\n * @file\r\n * @brief [Disjoint union](https://en.wikipedia.org/wiki/Disjoint_union)\r\n *\r\n * @details\r\n * The Disjoint union is the technique to find connected component in graph efficiently.\r\n *\r\n * ### Algorithm\r\n * In Graph, if you have to find out the number of connected components, there are 2 options\r\n * 1. Depth first search\r\n * 2. Disjoint union\r\n * 1st option is inefficient, Disjoint union is the most optimal way to find this.\r\n *\r\n * @author Unknown author\r\n * @author [Sagar Pandya](https://github.com/sagarpandyansit)\r\n */</span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;iostream&gt;</span> <span class=\"hljs-comment\">/// for IO operations</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;set&gt;</span>    <span class=\"hljs-comment\">/// for std::set</span></span>\r\n<span class=\"hljs-meta\">#<span class=\"hljs-keyword\">include</span> <span class=\"hljs-string\">&lt;vector&gt;</span> <span class=\"hljs-comment\">/// for std::vector</span></span>\r\n\r\n<span class=\"hljs-comment\">/**\r\n * @namespace graph\r\n * @brief Graph Algorithms\r\n */</span>\r\n<span class=\"hljs-keyword\">namespace</span> graph {\r\n<span class=\"hljs-comment\">/**\r\n * @namespace disjoint_union\r\n * @brief Functions for [Disjoint union](https://en.wikipedia.org/wiki/Disjoint_union) implementation\r\n */</span>\r\n<span class=\"hljs-keyword\">namespace</span> disjoint_union {\r\n<span class=\"hljs-type\">uint32_t</span> number_of_nodes = <span class=\"hljs-number\">0</span>;                <span class=\"hljs-comment\">// denotes number of nodes</span>\r\nstd::vector&lt;<span class=\"hljs-type\">int64_t</span>&gt; parent{};               <span class=\"hljs-comment\">// parent of each node</span>\r\nstd::vector&lt;<span class=\"hljs-type\">uint32_t</span>&gt; connected_set_size{};  <span class=\"hljs-comment\">// size of each set</span>\r\n<span class=\"hljs-comment\">/**\r\n * @brief function the initialize every node as it&#x27;s own parent\r\n * @returns void\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">void</span> <span class=\"hljs-title\">make_set</span><span class=\"hljs-params\">()</span> </span>{\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">uint32_t</span> i = <span class=\"hljs-number\">1</span>; i &lt;= number_of_nodes; i++) {\r\n        parent[i] = i;\r\n        connected_set_size[i] = <span class=\"hljs-number\">1</span>;\r\n    }\r\n}\r\n<span class=\"hljs-comment\">/**\r\n * @brief Find the component where following node belongs to\r\n * @param val parent of val should be found\r\n * @return parent of val\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">int64_t</span> <span class=\"hljs-title\">find_set</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int64_t</span> val)</span> </span>{\r\n    <span class=\"hljs-keyword\">while</span> (parent[val] != val) {\r\n        parent[val] = parent[parent[val]];\r\n        val = parent[val];\r\n    }\r\n    <span class=\"hljs-keyword\">return</span> val;\r\n}\r\n<span class=\"hljs-comment\">/**\r\n * @brief Merge 2 components to become one\r\n * @param node1 1st component\r\n * @param node2 2nd component\r\n * @returns void\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">void</span> <span class=\"hljs-title\">union_sets</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int64_t</span> node1, <span class=\"hljs-type\">int64_t</span> node2)</span> </span>{\r\n    node1 = <span class=\"hljs-built_in\">find_set</span>(node1);  <span class=\"hljs-comment\">// find the parent of node1</span>\r\n    node2 = <span class=\"hljs-built_in\">find_set</span>(node2);  <span class=\"hljs-comment\">// find the parent of node2</span>\r\n\r\n    <span class=\"hljs-comment\">// If parents of both nodes are not same, combine them</span>\r\n    <span class=\"hljs-keyword\">if</span> (node1 != node2) {\r\n        <span class=\"hljs-keyword\">if</span> (connected_set_size[node1] &lt; connected_set_size[node2]) {\r\n            std::<span class=\"hljs-built_in\">swap</span>(node1, node2);  <span class=\"hljs-comment\">// swap both components</span>\r\n        }\r\n        parent[node2] = node1;  <span class=\"hljs-comment\">// make node1 as parent of node2.</span>\r\n        connected_set_size[node1] +=\r\n            connected_set_size[node2];  <span class=\"hljs-comment\">// sum the size of both as they combined</span>\r\n    }\r\n}\r\n<span class=\"hljs-comment\">/**\r\n * @brief Find total no. of connected components\r\n * @return Number of connected components\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">uint32_t</span> <span class=\"hljs-title\">no_of_connected_components</span><span class=\"hljs-params\">()</span> </span>{\r\n    std::set&lt;<span class=\"hljs-type\">int64_t</span>&gt; temp;  <span class=\"hljs-comment\">// temp set to count number of connected components</span>\r\n    <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">uint32_t</span> i = <span class=\"hljs-number\">1</span>; i &lt;= number_of_nodes; i++) temp.<span class=\"hljs-built_in\">insert</span>(<span class=\"hljs-built_in\">find_set</span>(i));\r\n    <span class=\"hljs-keyword\">return</span> temp.<span class=\"hljs-built_in\">size</span>();  <span class=\"hljs-comment\">// return the size of temp set</span>\r\n}\r\n}  <span class=\"hljs-comment\">// namespace disjoint_union</span>\r\n}  <span class=\"hljs-comment\">// namespace graph</span>\r\n\r\n<span class=\"hljs-comment\">/**\r\n * @brief Test Implementations\r\n * @returns void\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">static</span> <span class=\"hljs-type\">void</span> <span class=\"hljs-title\">test</span><span class=\"hljs-params\">()</span> </span>{\r\n    <span class=\"hljs-keyword\">namespace</span> dsu = graph::disjoint_union;\r\n    std::cin &gt;&gt; dsu::number_of_nodes;\r\n    dsu::parent.<span class=\"hljs-built_in\">resize</span>(dsu::number_of_nodes + <span class=\"hljs-number\">1</span>);\r\n    dsu::connected_set_size.<span class=\"hljs-built_in\">resize</span>(dsu::number_of_nodes + <span class=\"hljs-number\">1</span>);\r\n    dsu::<span class=\"hljs-built_in\">make_set</span>();\r\n    <span class=\"hljs-type\">uint32_t</span> edges = <span class=\"hljs-number\">0</span>;\r\n    std::cin &gt;&gt; edges;  <span class=\"hljs-comment\">// no of edges in the graph</span>\r\n    <span class=\"hljs-keyword\">while</span> (edges--) {\r\n        <span class=\"hljs-type\">int64_t</span> node_a = <span class=\"hljs-number\">0</span>, node_b = <span class=\"hljs-number\">0</span>;\r\n        std::cin &gt;&gt; node_a &gt;&gt; node_b;\r\n        dsu::<span class=\"hljs-built_in\">union_sets</span>(node_a, node_b);\r\n    }\r\n    std::cout &lt;&lt; dsu::<span class=\"hljs-built_in\">no_of_connected_components</span>() &lt;&lt; std::endl;\r\n}\r\n\r\n<span class=\"hljs-comment\">/**\r\n * @brief Main function\r\n * @returns 0 on exit\r\n */</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-type\">int</span> <span class=\"hljs-title\">main</span><span class=\"hljs-params\">()</span> </span>{\r\n    <span class=\"hljs-built_in\">test</span>();  <span class=\"hljs-comment\">// Execute the tests</span>\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "David Leal",
+      "email": "halfpacho@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Krishna Vedala",
+      "email": "7001608+kvedala@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Ayaan Khan",
+      "email": "ayaankhan98@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Sagar Pandya",
+      "email": "31953933+sagarpandyansit@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Filip Hlasek",
+      "email": "fhlasek@gmail.com",
+      "commits": 3
+    },
+    {
+      "name": "coderanant",
+      "email": "coderanant@gmail.com",
+      "commits": 3
+    },
+    {
+      "name": "Sagar Pandya",
+      "email": "sagar.pandya1999@gmail.com",
+      "commits": 7
+    }
+  ],
+  "explanationUrl": {}
+}

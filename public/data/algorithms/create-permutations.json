@@ -1,0 +1,23 @@
+{
+  "slug": "create-permutations",
+  "name": "Create Permutations",
+  "categories": [
+    "strings"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "String\\test\\CreatePermutations.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/String\\test\\CreatePermutations.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { createPermutations } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../CreatePermutations&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;createPermutations&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to generate 6 different combinations&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> text = <span class=\"hljs-string\">&#x27;abc&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> <span class=\"hljs-variable constant_\">SUT</span> = <span class=\"hljs-title function_\">createPermutations</span>(text)\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-variable constant_\">SUT</span>).<span class=\"hljs-title function_\">toStrictEqual</span>([<span class=\"hljs-string\">&#x27;abc&#x27;</span>, <span class=\"hljs-string\">&#x27;acb&#x27;</span>, <span class=\"hljs-string\">&#x27;bac&#x27;</span>, <span class=\"hljs-string\">&#x27;bca&#x27;</span>, <span class=\"hljs-string\">&#x27;cab&#x27;</span>, <span class=\"hljs-string\">&#x27;cba&#x27;</span>])\r\n  })\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;expects to generate 2 different combinations&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-keyword\">const</span> text = <span class=\"hljs-string\">&#x27;12&#x27;</span>\r\n    <span class=\"hljs-keyword\">const</span> <span class=\"hljs-variable constant_\">SUT</span> = <span class=\"hljs-title function_\">createPermutations</span>(text)\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-variable constant_\">SUT</span>).<span class=\"hljs-title function_\">toStrictEqual</span>([<span class=\"hljs-string\">&#x27;12&#x27;</span>, <span class=\"hljs-string\">&#x27;21&#x27;</span>])\r\n  })\r\n})\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Thivagar Manickam",
+      "email": "thivagar200@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

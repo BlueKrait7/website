@@ -1,0 +1,34 @@
+{
+  "slug": "convolve",
+  "name": "Convolve",
+  "categories": [
+    "digitalimageprocessing",
+    "filters"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "digital_image_processing\\filters\\convolve.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/digital_image_processing\\filters\\convolve.py",
+      "code": "<span class=\"hljs-comment\"># @Author  : lightXu</span>\r\n<span class=\"hljs-comment\"># @File    : convolve.py</span>\r\n<span class=\"hljs-comment\"># @Time    : 2019/7/8 0008 下午 16:13</span>\r\n<span class=\"hljs-keyword\">from</span> cv2 <span class=\"hljs-keyword\">import</span> COLOR_BGR2GRAY, cvtColor, imread, imshow, waitKey\r\n<span class=\"hljs-keyword\">from</span> numpy <span class=\"hljs-keyword\">import</span> array, dot, pad, ravel, uint8, zeros\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">im2col</span>(<span class=\"hljs-params\">image, block_size</span>):\r\n    rows, cols = image.shape\r\n    dst_height = cols - block_size[<span class=\"hljs-number\">1</span>] + <span class=\"hljs-number\">1</span>\r\n    dst_width = rows - block_size[<span class=\"hljs-number\">0</span>] + <span class=\"hljs-number\">1</span>\r\n    image_array = zeros((dst_height * dst_width, block_size[<span class=\"hljs-number\">1</span>] * block_size[<span class=\"hljs-number\">0</span>]))\r\n    row = <span class=\"hljs-number\">0</span>\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-number\">0</span>, dst_height):\r\n        <span class=\"hljs-keyword\">for</span> j <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-number\">0</span>, dst_width):\r\n            window = ravel(image[i : i + block_size[<span class=\"hljs-number\">0</span>], j : j + block_size[<span class=\"hljs-number\">1</span>]])\r\n            image_array[row, :] = window\r\n            row += <span class=\"hljs-number\">1</span>\r\n\r\n    <span class=\"hljs-keyword\">return</span> image_array\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">img_convolve</span>(<span class=\"hljs-params\">image, filter_kernel</span>):\r\n    height, width = image.shape[<span class=\"hljs-number\">0</span>], image.shape[<span class=\"hljs-number\">1</span>]\r\n    k_size = filter_kernel.shape[<span class=\"hljs-number\">0</span>]\r\n    pad_size = k_size // <span class=\"hljs-number\">2</span>\r\n    <span class=\"hljs-comment\"># Pads image with the edge values of array.</span>\r\n    image_tmp = pad(image, pad_size, mode=<span class=\"hljs-string\">&quot;edge&quot;</span>)\r\n\r\n    <span class=\"hljs-comment\"># im2col, turn the k_size*k_size pixels into a row and np.vstack all rows</span>\r\n    image_array = im2col(image_tmp, (k_size, k_size))\r\n\r\n    <span class=\"hljs-comment\">#  turn the kernel into shape(k*k, 1)</span>\r\n    kernel_array = ravel(filter_kernel)\r\n    <span class=\"hljs-comment\"># reshape and get the dst image</span>\r\n    dst = dot(image_array, kernel_array).reshape(height, width)\r\n    <span class=\"hljs-keyword\">return</span> dst\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-comment\"># read original image</span>\r\n    img = imread(<span class=\"hljs-string\">r&quot;../image_data/lena.jpg&quot;</span>)\r\n    <span class=\"hljs-comment\"># turn image in gray scale value</span>\r\n    gray = cvtColor(img, COLOR_BGR2GRAY)\r\n    <span class=\"hljs-comment\"># Laplace operator</span>\r\n    Laplace_kernel = array([[<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">0</span>], [<span class=\"hljs-number\">1</span>, -<span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">1</span>], [<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">0</span>]])\r\n    out = img_convolve(gray, Laplace_kernel).astype(uint8)\r\n    imshow(<span class=\"hljs-string\">&quot;Laplacian&quot;</span>, out)\r\n    waitKey(<span class=\"hljs-number\">0</span>)\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Shoujue Xu",
+      "email": "lightxusj@126.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

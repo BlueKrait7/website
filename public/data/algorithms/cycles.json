@@ -1,0 +1,39 @@
+{
+  "slug": "cycles",
+  "name": "Cycles",
+  "categories": [
+    "datastructures",
+    "graphs"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\datastructures\\graphs\\Cycles.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\datastructures\\graphs\\Cycles.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.datastructures.graphs;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.ArrayList;\r\n<span class=\"hljs-keyword\">import</span> java.util.Scanner;\r\n\r\n<span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Cycle</span> {\r\n\r\n    <span class=\"hljs-keyword\">private</span> <span class=\"hljs-type\">int</span> nodes, edges;\r\n    <span class=\"hljs-keyword\">private</span> <span class=\"hljs-type\">int</span>[][] adjacencyMatrix;\r\n    <span class=\"hljs-keyword\">private</span> <span class=\"hljs-type\">boolean</span>[] visited;\r\n    ArrayList&lt;ArrayList&lt;Integer&gt;&gt; cycles = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">ArrayList</span>&lt;ArrayList&lt;Integer&gt;&gt;();\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-title function_\">Cycle</span><span class=\"hljs-params\">()</span> {\r\n        <span class=\"hljs-type\">Scanner</span> <span class=\"hljs-variable\">in</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Scanner</span>(System.in);\r\n        System.out.print(<span class=\"hljs-string\">&quot;Enter the no. of nodes: &quot;</span>);\r\n        nodes = in.nextInt();\r\n        System.out.print(<span class=\"hljs-string\">&quot;Enter the no. of Edges: &quot;</span>);\r\n        edges = in.nextInt();\r\n\r\n        adjacencyMatrix = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">int</span>[nodes][nodes];\r\n        visited = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">boolean</span>[nodes];\r\n\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>; i &lt; nodes; i++) {\r\n            visited[i] = <span class=\"hljs-literal\">false</span>;\r\n        }\r\n\r\n        System.out.println(<span class=\"hljs-string\">&quot;Enter the details of each edges &lt;Start Node&gt; &lt;End Node&gt;&quot;</span>);\r\n\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>; i &lt; edges; i++) {\r\n            <span class=\"hljs-type\">int</span> start, end;\r\n            start = in.nextInt();\r\n            end = in.nextInt();\r\n            adjacencyMatrix[start][end] = <span class=\"hljs-number\">1</span>;\r\n        }\r\n        in.close();\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">start</span><span class=\"hljs-params\">()</span> {\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>; i &lt; nodes; i++) {\r\n            ArrayList&lt;Integer&gt; temp = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">ArrayList</span>&lt;&gt;();\r\n            dfs(i, i, temp);\r\n            <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">j</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>; j &lt; nodes; j++) {\r\n                adjacencyMatrix[i][j] = <span class=\"hljs-number\">0</span>;\r\n                adjacencyMatrix[j][i] = <span class=\"hljs-number\">0</span>;\r\n            }\r\n        }\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">private</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">dfs</span><span class=\"hljs-params\">(Integer start, Integer curr, ArrayList&lt;Integer&gt; temp)</span> {\r\n        temp.add(curr);\r\n        visited[curr] = <span class=\"hljs-literal\">true</span>;\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>; i &lt; nodes; i++) {\r\n            <span class=\"hljs-keyword\">if</span> (adjacencyMatrix[curr][i] == <span class=\"hljs-number\">1</span>) {\r\n                <span class=\"hljs-keyword\">if</span> (i == start) {\r\n                    cycles.add(<span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">ArrayList</span>&lt;Integer&gt;(temp));\r\n                } <span class=\"hljs-keyword\">else</span> {\r\n                    <span class=\"hljs-keyword\">if</span> (!visited[i]) {\r\n                        dfs(start, i, temp);\r\n                    }\r\n                }\r\n            }\r\n        }\r\n\r\n        <span class=\"hljs-keyword\">if</span> (temp.size() &gt; <span class=\"hljs-number\">0</span>) {\r\n            temp.remove(temp.size() - <span class=\"hljs-number\">1</span>);\r\n        }\r\n        visited[curr] = <span class=\"hljs-literal\">false</span>;\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">printAll</span><span class=\"hljs-params\">()</span> {\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>; i &lt; cycles.size(); i++) {\r\n            <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">j</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>; j &lt; cycles.get(i).size(); j++) {\r\n                System.out.print(cycles.get(i).get(j) + <span class=\"hljs-string\">&quot; -&gt; &quot;</span>);\r\n            }\r\n            System.out.println(cycles.get(i).get(<span class=\"hljs-number\">0</span>));\r\n            System.out.println();\r\n        }\r\n    }\r\n}\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Cycles</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-type\">Cycle</span> <span class=\"hljs-variable\">c</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Cycle</span>();\r\n        c.start();\r\n        c.printAll();\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "shivg7706",
+      "email": "shivamgupta7706@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 2
+    },
+    {
+      "name": "EAlexa",
+      "email": "rubi_81@outlook.de",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "crc-32",
+  "name": "CRC 32",
+  "categories": [
+    "others"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\others\\CRC32.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\others\\CRC32.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.others;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.BitSet;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Generates a crc32 checksum for a given string or byte array\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">CRC32</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        System.out.println(Integer.toHexString(crc32(<span class=\"hljs-string\">&quot;Hello World&quot;</span>)));\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">crc32</span><span class=\"hljs-params\">(String str)</span> {\r\n        <span class=\"hljs-keyword\">return</span> crc32(str.getBytes());\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">crc32</span><span class=\"hljs-params\">(<span class=\"hljs-type\">byte</span>[] data)</span> {\r\n        <span class=\"hljs-type\">BitSet</span> <span class=\"hljs-variable\">bitSet</span> <span class=\"hljs-operator\">=</span> BitSet.valueOf(data);\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">crc32</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0xFFFFFFFF</span>; <span class=\"hljs-comment\">// initial value</span>\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>; i &lt; data.length * <span class=\"hljs-number\">8</span>; i++) {\r\n            <span class=\"hljs-keyword\">if</span> (((crc32 &gt;&gt;&gt; <span class=\"hljs-number\">31</span>) &amp; <span class=\"hljs-number\">1</span>) != (bitSet.get(i) ? <span class=\"hljs-number\">1</span> : <span class=\"hljs-number\">0</span>)) {\r\n                crc32 = (crc32 &lt;&lt; <span class=\"hljs-number\">1</span>) ^ <span class=\"hljs-number\">0x04C11DB7</span>; <span class=\"hljs-comment\">// xor with polynomial</span>\r\n            } <span class=\"hljs-keyword\">else</span> {\r\n                crc32 = (crc32 &lt;&lt; <span class=\"hljs-number\">1</span>);\r\n            }\r\n        }\r\n        crc32 = Integer.reverse(crc32); <span class=\"hljs-comment\">// result reflect</span>\r\n        <span class=\"hljs-keyword\">return</span> crc32 ^ <span class=\"hljs-number\">0xFFFFFFFF</span>; <span class=\"hljs-comment\">// final xor value</span>\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

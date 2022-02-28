@@ -1,0 +1,38 @@
+{
+  "slug": "coloring",
+  "name": "Coloring",
+  "categories": [
+    "backtracking"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "backtracking\\coloring.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/backtracking\\coloring.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Graph Coloring also called &quot;m coloring problem&quot;\r\n    consists of coloring a given graph with at most m colors\r\n    such that no adjacent vertices are assigned the same color\r\n\r\n    Wikipedia: https://en.wikipedia.org/wiki/Graph_coloring\r\n&quot;&quot;&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">valid_coloring</span>(<span class=\"hljs-params\">\r\n    neighbours: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>], colored_vertices: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>], color: <span class=\"hljs-built_in\">int</span>\r\n</span>) -&gt; <span class=\"hljs-built_in\">bool</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    For each neighbour check if the coloring constraint is satisfied\r\n    If any of the neighbours fail the constraint return False\r\n    If all neighbours validate the constraint return True\r\n\r\n    &gt;&gt;&gt; neighbours = [0,1,0,1,0]\r\n    &gt;&gt;&gt; colored_vertices = [0, 2, 1, 2, 0]\r\n\r\n    &gt;&gt;&gt; color = 1\r\n    &gt;&gt;&gt; valid_coloring(neighbours, colored_vertices, color)\r\n    True\r\n\r\n    &gt;&gt;&gt; color = 2\r\n    &gt;&gt;&gt; valid_coloring(neighbours, colored_vertices, color)\r\n    False\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-comment\"># Does any neighbour not satisfy the constraints</span>\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-keyword\">not</span> <span class=\"hljs-built_in\">any</span>(\r\n        neighbour == <span class=\"hljs-number\">1</span> <span class=\"hljs-keyword\">and</span> colored_vertices[i] == color\r\n        <span class=\"hljs-keyword\">for</span> i, neighbour <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">enumerate</span>(neighbours)\r\n    )\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">util_color</span>(<span class=\"hljs-params\">\r\n    graph: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]], max_colors: <span class=\"hljs-built_in\">int</span>, colored_vertices: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>], index: <span class=\"hljs-built_in\">int</span>\r\n</span>) -&gt; <span class=\"hljs-built_in\">bool</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Pseudo-Code\r\n\r\n    Base Case:\r\n    1. Check if coloring is complete\r\n        1.1 If complete return True (meaning that we successfully colored the graph)\r\n\r\n    Recursive Step:\r\n    2. Iterates over each color:\r\n        Check if the current coloring is valid:\r\n            2.1. Color given vertex\r\n            2.2. Do recursive call, check if this coloring leads to a solution\r\n            2.4. if current coloring leads to a solution return\r\n            2.5. Uncolor given vertex\r\n\r\n    &gt;&gt;&gt; graph = [[0, 1, 0, 0, 0],\r\n    ...          [1, 0, 1, 0, 1],\r\n    ...          [0, 1, 0, 1, 0],\r\n    ...          [0, 1, 1, 0, 0],\r\n    ...          [0, 1, 0, 0, 0]]\r\n    &gt;&gt;&gt; max_colors = 3\r\n    &gt;&gt;&gt; colored_vertices = [0, 1, 0, 0, 0]\r\n    &gt;&gt;&gt; index = 3\r\n\r\n    &gt;&gt;&gt; util_color(graph, max_colors, colored_vertices, index)\r\n    True\r\n\r\n    &gt;&gt;&gt; max_colors = 2\r\n    &gt;&gt;&gt; util_color(graph, max_colors, colored_vertices, index)\r\n    False\r\n    &quot;&quot;&quot;</span>\r\n\r\n    <span class=\"hljs-comment\"># Base Case</span>\r\n    <span class=\"hljs-keyword\">if</span> index == <span class=\"hljs-built_in\">len</span>(graph):\r\n        <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">True</span>\r\n\r\n    <span class=\"hljs-comment\"># Recursive Step</span>\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(max_colors):\r\n        <span class=\"hljs-keyword\">if</span> valid_coloring(graph[index], colored_vertices, i):\r\n            <span class=\"hljs-comment\"># Color current vertex</span>\r\n            colored_vertices[index] = i\r\n            <span class=\"hljs-comment\"># Validate coloring</span>\r\n            <span class=\"hljs-keyword\">if</span> util_color(graph, max_colors, colored_vertices, index + <span class=\"hljs-number\">1</span>):\r\n                <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">True</span>\r\n            <span class=\"hljs-comment\"># Backtrack</span>\r\n            colored_vertices[index] = -<span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">False</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">color</span>(<span class=\"hljs-params\">graph: <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]], max_colors: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">list</span>[<span class=\"hljs-built_in\">int</span>]:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Wrapper function to call subroutine called util_color\r\n    which will either return True or False.\r\n    If True is returned colored_vertices list is filled with correct colorings\r\n\r\n    &gt;&gt;&gt; graph = [[0, 1, 0, 0, 0],\r\n    ...          [1, 0, 1, 0, 1],\r\n    ...          [0, 1, 0, 1, 0],\r\n    ...          [0, 1, 1, 0, 0],\r\n    ...          [0, 1, 0, 0, 0]]\r\n\r\n    &gt;&gt;&gt; max_colors = 3\r\n    &gt;&gt;&gt; color(graph, max_colors)\r\n    [0, 1, 0, 2, 0]\r\n\r\n    &gt;&gt;&gt; max_colors = 2\r\n    &gt;&gt;&gt; color(graph, max_colors)\r\n    []\r\n    &quot;&quot;&quot;</span>\r\n    colored_vertices = [-<span class=\"hljs-number\">1</span>] * <span class=\"hljs-built_in\">len</span>(graph)\r\n\r\n    <span class=\"hljs-keyword\">if</span> util_color(graph, max_colors, colored_vertices, <span class=\"hljs-number\">0</span>):\r\n        <span class=\"hljs-keyword\">return</span> colored_vertices\r\n\r\n    <span class=\"hljs-keyword\">return</span> []\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "DukicDev",
+      "email": "dukic.dev@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Dhruv Manilawala",
+      "email": "dhruvmanila@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Saba Pochkhua",
+      "email": "saba.pochkhua@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

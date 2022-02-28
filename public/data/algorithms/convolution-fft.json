@@ -1,0 +1,33 @@
+{
+  "slug": "convolution-fft",
+  "name": "Convolution FFT",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\maths\\ConvolutionFFT.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\maths\\ConvolutionFFT.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.maths;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.ArrayList;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Class for linear convolution of two discrete signals using the convolution\r\n * theorem.\r\n *\r\n * <span class=\"hljs-doctag\">@author</span> Ioannis Karavitsis\r\n * <span class=\"hljs-doctag\">@version</span> 1.0\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">ConvolutionFFT</span> {\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * This method pads the signal with zeros until it reaches the new size.\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> x The signal to be padded.\r\n     * <span class=\"hljs-doctag\">@param</span> newSize The new size of the signal.\r\n     */</span>\r\n    <span class=\"hljs-keyword\">private</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">padding</span><span class=\"hljs-params\">(ArrayList&lt;FFT.Complex&gt; x, <span class=\"hljs-type\">int</span> newSize)</span> {\r\n        <span class=\"hljs-keyword\">if</span> (x.size() &lt; newSize) {\r\n            <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">diff</span> <span class=\"hljs-operator\">=</span> newSize - x.size();\r\n            <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>; i &lt; diff; i++) {\r\n                x.add(<span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">FFT</span>.Complex());\r\n            }\r\n        }\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Discrete linear convolution function. It uses the convolution theorem for\r\n     * discrete signals convolved: = IDFT(DFT(a)*DFT(b)). This is true for\r\n     * circular convolution. In order to get the linear convolution of the two\r\n     * signals we first pad the two signals to have the same size equal to the\r\n     * convolved signal (a.size() + b.size() - 1). Then we use the FFT algorithm\r\n     * for faster calculations of the two DFTs and the final IDFT.\r\n     *\r\n     * &lt;p&gt;\r\n     * More info: https://en.wikipedia.org/wiki/Convolution_theorem\r\n     * https://ccrma.stanford.edu/~jos/ReviewFourier/FFT_Convolution.html\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> a The first signal.\r\n     * <span class=\"hljs-doctag\">@param</span> b The other signal.\r\n     * <span class=\"hljs-doctag\">@return</span> The convolved signal.\r\n     */</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> ArrayList&lt;FFT.Complex&gt; convolutionFFT(\r\n            ArrayList&lt;FFT.Complex&gt; a, ArrayList&lt;FFT.Complex&gt; b) {\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">convolvedSize</span> <span class=\"hljs-operator\">=</span> a.size() + b.size() - <span class=\"hljs-number\">1</span>; <span class=\"hljs-comment\">// The size of the convolved signal</span>\r\n        padding(a, convolvedSize); <span class=\"hljs-comment\">// Zero padding both signals</span>\r\n        padding(b, convolvedSize);\r\n\r\n        <span class=\"hljs-comment\">/* Find the FFTs of both signals (Note that the size of the FFTs will be bigger than the convolvedSize because of the extra zero padding in FFT algorithm) */</span>\r\n        FFT.fft(a, <span class=\"hljs-literal\">false</span>);\r\n        FFT.fft(b, <span class=\"hljs-literal\">false</span>);\r\n        ArrayList&lt;FFT.Complex&gt; convolved = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">ArrayList</span>&lt;&gt;();\r\n\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>; i &lt; a.size(); i++) {\r\n            convolved.add(a.get(i).multiply(b.get(i))); <span class=\"hljs-comment\">// FFT(a)*FFT(b)</span>\r\n        }\r\n        FFT.fft(convolved, <span class=\"hljs-literal\">true</span>); <span class=\"hljs-comment\">// IFFT</span>\r\n        convolved\r\n                .subList(convolvedSize, convolved.size())\r\n                .clear(); <span class=\"hljs-comment\">// Remove the remaining zeros after the convolvedSize. These extra zeros came from</span>\r\n        <span class=\"hljs-comment\">// paddingPowerOfTwo() method inside the fft() method.</span>\r\n\r\n        <span class=\"hljs-keyword\">return</span> convolved;\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Seth",
+      "email": "seth@elypia.org",
+      "commits": 1
+    },
+    {
+      "name": "JohnKara",
+      "email": "kcioannis@csd.auth.gr",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

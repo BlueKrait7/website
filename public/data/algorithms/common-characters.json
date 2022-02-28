@@ -1,0 +1,29 @@
+{
+  "slug": "common-characters",
+  "name": "Common Characters",
+  "categories": [
+    "datastructures",
+    "hashtable"
+  ],
+  "body": {},
+  "implementations": {
+    "ruby": {
+      "dir": "data_structures\\hash_table\\common_characters.rb",
+      "url": "https://github.com/TheAlgorithms/ruby/tree/master/data_structures\\hash_table\\common_characters.rb",
+      "code": "<span class=\"hljs-comment\"># Challenge name: Find Common Characters</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Given an array A of strings made only from lowercase letters, return a list</span>\r\n<span class=\"hljs-comment\"># of all characters that show up in all strings within the list</span>\r\n<span class=\"hljs-comment\"># (including duplicates).  For example, if a character occurs 3 times in all</span>\r\n<span class=\"hljs-comment\"># strings but not 4 times, you need to include that character three times in</span>\r\n<span class=\"hljs-comment\"># the final answer.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># You may return the answer in any order.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Example 1:</span>\r\n<span class=\"hljs-comment\"># Input: [&quot;bella&quot;,&quot;label&quot;,&quot;roller&quot;]</span>\r\n<span class=\"hljs-comment\"># Output: [&quot;e&quot;,&quot;l&quot;,&quot;l&quot;]</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Example 2:</span>\r\n<span class=\"hljs-comment\"># Input: [&quot;cool&quot;,&quot;lock&quot;,&quot;cook&quot;]</span>\r\n<span class=\"hljs-comment\"># Output: [&quot;c&quot;,&quot;o&quot;]</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Approach 1: Hash</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Time Complexity: O(n)</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">common_characters</span><span class=\"hljs-params\">(arr)</span></span>\r\n  target_count = arr.count\r\n\r\n  hash = Hash.new(<span class=\"hljs-number\">0</span>)\r\n  (<span class=\"hljs-number\">0</span>...target_count).each <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|i|</span>\r\n    arr[i].split(<span class=\"hljs-string\">&#x27;&#x27;</span>).each <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|letter|</span>\r\n      hash[letter] += <span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">end</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n\r\n  result = []\r\n  hash.each <span class=\"hljs-keyword\">do</span> <span class=\"hljs-params\">|k, v|</span>\r\n    <span class=\"hljs-keyword\">while</span> v &gt;= target_count\r\n      <span class=\"hljs-keyword\">if</span> v &gt;= target_count\r\n        result &lt;&lt; k\r\n        v -= target_count\r\n      <span class=\"hljs-keyword\">end</span>\r\n    <span class=\"hljs-keyword\">end</span>\r\n  <span class=\"hljs-keyword\">end</span>\r\n\r\n  result\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\nputs common_characters(<span class=\"hljs-string\">%w[bella label roller]</span>)\r\n<span class=\"hljs-comment\"># =&gt; [&quot;e&quot;,&quot;l&quot;,&quot;l&quot;]</span>\r\n\r\nputs common_characters(<span class=\"hljs-string\">%w[cool lock cook]</span>)\r\n<span class=\"hljs-comment\"># =&gt; [&quot;c&quot;,&quot;o&quot;]</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Jessica Kwok",
+      "email": "jessicatckwok@gmail.com",
+      "commits": 2
+    }
+  ],
+  "explanationUrl": {}
+}

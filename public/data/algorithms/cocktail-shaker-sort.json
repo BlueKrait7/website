@@ -1,0 +1,128 @@
+{
+  "slug": "cocktail-shaker-sort",
+  "name": "Cocktail Shaker Sort",
+  "categories": [
+    "sorts"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "sorts\\cocktail_shaker_sort.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/sorts\\cocktail_shaker_sort.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot; https://en.wikipedia.org/wiki/Cocktail_shaker_sort &quot;&quot;&quot;</span>\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">cocktail_shaker_sort</span>(<span class=\"hljs-params\">unsorted: <span class=\"hljs-built_in\">list</span></span>) -&gt; <span class=\"hljs-built_in\">list</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Pure implementation of the cocktail shaker sort algorithm in Python.\r\n    &gt;&gt;&gt; cocktail_shaker_sort([4, 5, 2, 1, 2])\r\n    [1, 2, 2, 4, 5]\r\n\r\n    &gt;&gt;&gt; cocktail_shaker_sort([-4, 5, 0, 1, 2, 11])\r\n    [-4, 0, 1, 2, 5, 11]\r\n\r\n    &gt;&gt;&gt; cocktail_shaker_sort([0.1, -2.4, 4.4, 2.2])\r\n    [-2.4, 0.1, 2.2, 4.4]\r\n\r\n    &gt;&gt;&gt; cocktail_shaker_sort([1, 2, 3, 4, 5])\r\n    [1, 2, 3, 4, 5]\r\n\r\n    &gt;&gt;&gt; cocktail_shaker_sort([-4, -5, -24, -7, -11])\r\n    [-24, -11, -7, -5, -4]\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(<span class=\"hljs-built_in\">len</span>(unsorted) - <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">0</span>, -<span class=\"hljs-number\">1</span>):\r\n        swapped = <span class=\"hljs-literal\">False</span>\r\n\r\n        <span class=\"hljs-keyword\">for</span> j <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(i, <span class=\"hljs-number\">0</span>, -<span class=\"hljs-number\">1</span>):\r\n            <span class=\"hljs-keyword\">if</span> unsorted[j] &lt; unsorted[j - <span class=\"hljs-number\">1</span>]:\r\n                unsorted[j], unsorted[j - <span class=\"hljs-number\">1</span>] = unsorted[j - <span class=\"hljs-number\">1</span>], unsorted[j]\r\n                swapped = <span class=\"hljs-literal\">True</span>\r\n\r\n        <span class=\"hljs-keyword\">for</span> j <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(i):\r\n            <span class=\"hljs-keyword\">if</span> unsorted[j] &gt; unsorted[j + <span class=\"hljs-number\">1</span>]:\r\n                unsorted[j], unsorted[j + <span class=\"hljs-number\">1</span>] = unsorted[j + <span class=\"hljs-number\">1</span>], unsorted[j]\r\n                swapped = <span class=\"hljs-literal\">True</span>\r\n\r\n        <span class=\"hljs-keyword\">if</span> <span class=\"hljs-keyword\">not</span> swapped:\r\n            <span class=\"hljs-keyword\">break</span>\r\n    <span class=\"hljs-keyword\">return</span> unsorted\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n    user_input = <span class=\"hljs-built_in\">input</span>(<span class=\"hljs-string\">&quot;Enter numbers separated by a comma:\\n&quot;</span>).strip()\r\n    unsorted = [<span class=\"hljs-built_in\">int</span>(item) <span class=\"hljs-keyword\">for</span> item <span class=\"hljs-keyword\">in</span> user_input.split(<span class=\"hljs-string\">&quot;,&quot;</span>)]\r\n    <span class=\"hljs-built_in\">print</span>(<span class=\"hljs-string\">f&quot;<span class=\"hljs-subst\">{cocktail_shaker_sort(unsorted) = }</span>&quot;</span>)\r\n"
+    },
+    "javascript": {
+      "dir": "Sorts\\test\\CocktailShakerSort.test.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Sorts\\test\\CocktailShakerSort.test.js",
+      "code": "<span class=\"hljs-keyword\">import</span> { cocktailShakerSort } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;../CocktailShakerSort&#x27;</span>\r\n\r\n<span class=\"hljs-title function_\">describe</span>(<span class=\"hljs-string\">&#x27;CocktailShakerSort&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should sort arrays correctly&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">cocktailShakerSort</span>([<span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>])).<span class=\"hljs-title function_\">toEqual</span>([<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>])\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">cocktailShakerSort</span>([<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>])).<span class=\"hljs-title function_\">toEqual</span>([<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>])\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">cocktailShakerSort</span>([<span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">6</span>, <span class=\"hljs-number\">7</span>, <span class=\"hljs-number\">8</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">12</span>, <span class=\"hljs-number\">14</span>])).<span class=\"hljs-title function_\">toEqual</span>([<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">6</span>, <span class=\"hljs-number\">7</span>, <span class=\"hljs-number\">8</span>, <span class=\"hljs-number\">12</span>, <span class=\"hljs-number\">14</span>])\r\n  })\r\n\r\n  <span class=\"hljs-title function_\">it</span>(<span class=\"hljs-string\">&#x27;should work for empty arrays, too&#x27;</span>, <span class=\"hljs-function\">() =&gt;</span> {\r\n    <span class=\"hljs-title function_\">expect</span>(<span class=\"hljs-title function_\">cocktailShakerSort</span>([])).<span class=\"hljs-title function_\">toEqual</span>([])\r\n  })\r\n})\r\n"
+    },
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\sorts\\CocktailShakerSort.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\sorts\\CocktailShakerSort.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.sorts;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * <span class=\"hljs-doctag\">@author</span> Mateus Bizzo (https://github.com/MattBizzo)\r\n * <span class=\"hljs-doctag\">@author</span> Podshivalov Nikita (https://github.com/nikitap492)\r\n */</span>\r\n<span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">CocktailShakerSort</span> <span class=\"hljs-keyword\">implements</span> <span class=\"hljs-title class_\">SortAlgorithm</span> {\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * This method implements the Generic Cocktail Shaker Sort\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> array The array to be sorted Sorts the array in increasing order\r\n     */</span>\r\n    <span class=\"hljs-meta\">@Override</span>\r\n    <span class=\"hljs-keyword\">public</span> &lt;T <span class=\"hljs-keyword\">extends</span> <span class=\"hljs-title class_\">Comparable</span>&lt;T&gt;&gt; T[] sort(T[] array) {\r\n\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">length</span> <span class=\"hljs-operator\">=</span> array.length;\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">left</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-number\">0</span>;\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">right</span> <span class=\"hljs-operator\">=</span> length - <span class=\"hljs-number\">1</span>;\r\n        <span class=\"hljs-type\">int</span> swappedLeft, swappedRight;\r\n        <span class=\"hljs-keyword\">while</span> (left &lt; right) {\r\n            <span class=\"hljs-comment\">// front</span>\r\n            swappedRight = <span class=\"hljs-number\">0</span>;\r\n            <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-operator\">=</span> left; i &lt; right; i++) {\r\n                <span class=\"hljs-keyword\">if</span> (SortUtils.less(array[i + <span class=\"hljs-number\">1</span>], array[i])) {\r\n                    SortUtils.swap(array, i, i + <span class=\"hljs-number\">1</span>);\r\n                    swappedRight = i;\r\n                }\r\n            }\r\n            <span class=\"hljs-comment\">// back</span>\r\n            right = swappedRight;\r\n            swappedLeft = length - <span class=\"hljs-number\">1</span>;\r\n            <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">j</span> <span class=\"hljs-operator\">=</span> right; j &gt; left; j--) {\r\n                <span class=\"hljs-keyword\">if</span> (SortUtils.less(array[j], array[j - <span class=\"hljs-number\">1</span>])) {\r\n                    SortUtils.swap(array, j - <span class=\"hljs-number\">1</span>, j);\r\n                    swappedLeft = j;\r\n                }\r\n            }\r\n            left = swappedLeft;\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> array;\r\n    }\r\n\r\n    <span class=\"hljs-comment\">// Driver Program</span>\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-comment\">// Integer Input</span>\r\n        Integer[] integers = {<span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">23</span>, <span class=\"hljs-number\">6</span>, <span class=\"hljs-number\">78</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">54</span>, <span class=\"hljs-number\">231</span>, <span class=\"hljs-number\">9</span>, <span class=\"hljs-number\">12</span>};\r\n        <span class=\"hljs-type\">CocktailShakerSort</span> <span class=\"hljs-variable\">shakerSort</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">CocktailShakerSort</span>();\r\n\r\n        <span class=\"hljs-comment\">// Output =&gt; 1 4 6 9 12 23 54 78 231</span>\r\n        SortUtils.print(shakerSort.sort(integers));\r\n\r\n        <span class=\"hljs-comment\">// String Input</span>\r\n        String[] strings = {<span class=\"hljs-string\">&quot;c&quot;</span>, <span class=\"hljs-string\">&quot;a&quot;</span>, <span class=\"hljs-string\">&quot;e&quot;</span>, <span class=\"hljs-string\">&quot;b&quot;</span>, <span class=\"hljs-string\">&quot;d&quot;</span>};\r\n        SortUtils.print(shakerSort.sort(strings));\r\n    }\r\n}\r\n"
+    },
+    "rust": {
+      "dir": "src\\sorting\\cocktail_shaker_sort.rs",
+      "url": "https://github.com/TheAlgorithms/rust/tree/master/src\\sorting\\cocktail_shaker_sort.rs",
+      "code": "<span class=\"hljs-keyword\">pub</span> <span class=\"hljs-keyword\">fn</span> <span class=\"hljs-title function_\">cocktail_shaker_sort</span>&lt;T: <span class=\"hljs-built_in\">Ord</span>&gt;(arr: &amp;<span class=\"hljs-keyword\">mut</span> [T]) {\r\n    <span class=\"hljs-keyword\">let</span> <span class=\"hljs-variable\">len</span> = arr.<span class=\"hljs-title function_ invoke__\">len</span>();\r\n\r\n    <span class=\"hljs-keyword\">if</span> len == <span class=\"hljs-number\">0</span> {\r\n        <span class=\"hljs-keyword\">return</span>;\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">loop</span> {\r\n        <span class=\"hljs-keyword\">let</span> <span class=\"hljs-keyword\">mut </span><span class=\"hljs-variable\">swapped</span> = <span class=\"hljs-literal\">false</span>;\r\n\r\n        <span class=\"hljs-keyword\">for</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-keyword\">in</span> <span class=\"hljs-number\">0</span>..(len - <span class=\"hljs-number\">1</span>).<span class=\"hljs-title function_ invoke__\">clamp</span>(<span class=\"hljs-number\">0</span>, len) {\r\n            <span class=\"hljs-keyword\">if</span> arr[i] &gt; arr[i + <span class=\"hljs-number\">1</span>] {\r\n                arr.<span class=\"hljs-title function_ invoke__\">swap</span>(i, i + <span class=\"hljs-number\">1</span>);\r\n                swapped = <span class=\"hljs-literal\">true</span>;\r\n            }\r\n        }\r\n\r\n        <span class=\"hljs-keyword\">if</span> !swapped {\r\n            <span class=\"hljs-keyword\">break</span>;\r\n        }\r\n\r\n        swapped = <span class=\"hljs-literal\">false</span>;\r\n\r\n        <span class=\"hljs-keyword\">for</span> <span class=\"hljs-variable\">i</span> <span class=\"hljs-keyword\">in</span> (<span class=\"hljs-number\">0</span>..(len - <span class=\"hljs-number\">1</span>).<span class=\"hljs-title function_ invoke__\">clamp</span>(<span class=\"hljs-number\">0</span>, len)).<span class=\"hljs-title function_ invoke__\">rev</span>() {\r\n            <span class=\"hljs-keyword\">if</span> arr[i] &gt; arr[i + <span class=\"hljs-number\">1</span>] {\r\n                arr.<span class=\"hljs-title function_ invoke__\">swap</span>(i, i + <span class=\"hljs-number\">1</span>);\r\n                swapped = <span class=\"hljs-literal\">true</span>;\r\n            }\r\n        }\r\n\r\n        <span class=\"hljs-keyword\">if</span> !swapped {\r\n            <span class=\"hljs-keyword\">break</span>;\r\n        }\r\n    }\r\n}\r\n\r\n<span class=\"hljs-meta\">#[cfg(test)]</span>\r\n<span class=\"hljs-keyword\">mod</span> tests {\r\n    <span class=\"hljs-keyword\">use</span> super::*;\r\n\r\n    <span class=\"hljs-meta\">#[test]</span>\r\n    <span class=\"hljs-keyword\">fn</span> <span class=\"hljs-title function_\">basic</span>() {\r\n        <span class=\"hljs-keyword\">let</span> <span class=\"hljs-keyword\">mut </span><span class=\"hljs-variable\">arr</span> = <span class=\"hljs-built_in\">vec!</span>[<span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">6</span>];\r\n        <span class=\"hljs-title function_ invoke__\">cocktail_shaker_sort</span>(&amp;<span class=\"hljs-keyword\">mut</span> arr);\r\n        <span class=\"hljs-built_in\">assert_eq!</span>(arr, <span class=\"hljs-built_in\">vec!</span>[<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">6</span>]);\r\n    }\r\n\r\n    <span class=\"hljs-meta\">#[test]</span>\r\n    <span class=\"hljs-keyword\">fn</span> <span class=\"hljs-title function_\">empty</span>() {\r\n        <span class=\"hljs-keyword\">let</span> <span class=\"hljs-keyword\">mut </span><span class=\"hljs-variable\">arr</span> = Vec::&lt;<span class=\"hljs-type\">i32</span>&gt;::<span class=\"hljs-title function_ invoke__\">new</span>();\r\n        <span class=\"hljs-title function_ invoke__\">cocktail_shaker_sort</span>(&amp;<span class=\"hljs-keyword\">mut</span> arr);\r\n        <span class=\"hljs-built_in\">assert_eq!</span>(arr, <span class=\"hljs-built_in\">vec!</span>[]);\r\n    }\r\n\r\n    <span class=\"hljs-meta\">#[test]</span>\r\n    <span class=\"hljs-keyword\">fn</span> <span class=\"hljs-title function_\">one_element</span>() {\r\n        <span class=\"hljs-keyword\">let</span> <span class=\"hljs-keyword\">mut </span><span class=\"hljs-variable\">arr</span> = <span class=\"hljs-built_in\">vec!</span>[<span class=\"hljs-number\">1</span>];\r\n        <span class=\"hljs-title function_ invoke__\">cocktail_shaker_sort</span>(&amp;<span class=\"hljs-keyword\">mut</span> arr);\r\n        <span class=\"hljs-built_in\">assert_eq!</span>(arr, <span class=\"hljs-built_in\">vec!</span>[<span class=\"hljs-number\">1</span>]);\r\n    }\r\n\r\n    <span class=\"hljs-meta\">#[test]</span>\r\n    <span class=\"hljs-keyword\">fn</span> <span class=\"hljs-title function_\">pre_sorted</span>() {\r\n        <span class=\"hljs-keyword\">let</span> <span class=\"hljs-keyword\">mut </span><span class=\"hljs-variable\">arr</span> = <span class=\"hljs-built_in\">vec!</span>[<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">6</span>];\r\n        <span class=\"hljs-title function_ invoke__\">cocktail_shaker_sort</span>(&amp;<span class=\"hljs-keyword\">mut</span> arr);\r\n        <span class=\"hljs-built_in\">assert_eq!</span>(arr, <span class=\"hljs-built_in\">vec!</span>[<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">6</span>]);\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Jerrit Gläsker",
+      "email": "50867655+cherrysrc@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Bender",
+      "email": "christianbender89@web.de",
+      "commits": 1
+    },
+    {
+      "name": "zoomdong",
+      "email": "1344492820@qq.com",
+      "commits": 1
+    },
+    {
+      "name": "KuLi",
+      "email": "KuLi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "赵坤",
+      "email": "zhaokun@ziipin.com",
+      "commits": 1
+    },
+    {
+      "name": "nik",
+      "email": "nikitap4.92@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "KyleScharnhorst",
+      "email": "scharkr1@uw.edu",
+      "commits": 1
+    },
+    {
+      "name": "Matthew",
+      "email": "MatthewG25@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "mateuszz0000",
+      "email": "mtszzwdzk@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "William Zhang",
+      "email": "39932068+WilliamHYZhang@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "cclauss",
+      "email": "cclauss@bluewin.ch",
+      "commits": 1
+    },
+    {
+      "name": "97arushisharma",
+      "email": "97arushisharma@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Tommi Laivamaa",
+      "email": "tmlaivamaa@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 2
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 2
+    },
+    {
+      "name": "Roland Hummel",
+      "email": "roland.hummel@qaware.de",
+      "commits": 2
+    },
+    {
+      "name": "MattBizzo",
+      "email": "mat.bizzo@hotmail.com",
+      "commits": 2
+    },
+    {
+      "name": "marsonya",
+      "email": "akhil.marsonya27@gmail.com",
+      "commits": 7
+    }
+  ],
+  "explanationUrl": {}
+}

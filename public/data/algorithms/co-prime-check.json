@@ -1,0 +1,28 @@
+{
+  "slug": "co-prime-check",
+  "name": "Co Prime Check",
+  "categories": [
+    "math"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Maths\\CoPrimeCheck.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Maths\\CoPrimeCheck.js",
+      "code": "<span class=\"hljs-comment\">/*\r\n    Problem statement and Explanation : https://en.wikipedia.org/wiki/Coprime_integers\r\n\r\n    In number theory, two integers a and b are coprime, relatively prime or\r\n    mutually prime if the only positive integer that is a divisor of both\r\n    of them is Consequently, any prime number that divides one of a\r\n    or b does not divide the other. This is equivalent to their greatest\r\n    common divisor (gcd) being. One says also a is prime to b or a\r\n    is coprime with b.\r\n*/</span>\r\n\r\n<span class=\"hljs-comment\">// Here we use a GetEuclidGCD method as a utility.</span>\r\n<span class=\"hljs-keyword\">const</span> <span class=\"hljs-title function_\">GetEuclidGCD</span> = (<span class=\"hljs-params\">arg1, arg2</span>) =&gt; {\r\n  <span class=\"hljs-keyword\">let</span> less = arg1 &gt; arg2 ? arg2 : arg1\r\n  <span class=\"hljs-keyword\">for</span> (less; less &gt;= <span class=\"hljs-number\">2</span>; less--) {\r\n    <span class=\"hljs-keyword\">if</span> ((arg1 % less === <span class=\"hljs-number\">0</span>) &amp;&amp; (arg2 % less === <span class=\"hljs-number\">0</span>)) <span class=\"hljs-keyword\">return</span> (less)\r\n  }\r\n  <span class=\"hljs-keyword\">return</span> (less)\r\n}\r\n\r\n<span class=\"hljs-comment\">// CoPrimeCheck function return the boolean in respect of the given number is co-prime or not.</span>\r\n<span class=\"hljs-comment\">/**\r\n * CoPrimeCheck function return the boolean in respect of the given number is co-prime or not.\r\n * <span class=\"hljs-doctag\">@param</span> {<span class=\"hljs-type\">Number</span>} firstNumber first number for checking is prime or not.\r\n * <span class=\"hljs-doctag\">@param</span> {<span class=\"hljs-type\">Number</span>} secondNumber second number for checking is prime or not.\r\n * <span class=\"hljs-doctag\">@returns</span> return correspond boolean value, if both number are co-prime return `true`, else return `false`.\r\n */</span>\r\n<span class=\"hljs-keyword\">const</span> <span class=\"hljs-title function_\">CoPrimeCheck</span> = (<span class=\"hljs-params\">firstNumber, secondNumber</span>) =&gt; {\r\n  <span class=\"hljs-comment\">// firstly, check that input is a number or not.</span>\r\n  <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-keyword\">typeof</span> firstNumber !== <span class=\"hljs-string\">&#x27;number&#x27;</span> || <span class=\"hljs-keyword\">typeof</span> secondNumber !== <span class=\"hljs-string\">&#x27;number&#x27;</span>) {\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">TypeError</span>(<span class=\"hljs-string\">&#x27;Argument is not a number.&#x27;</span>)\r\n  }\r\n  <span class=\"hljs-comment\">/*\r\n    This is the most efficient algorithm for checking co-primes\r\n    if the GCD of both the numbers is 1 that means they are co-primes.\r\n    */</span>\r\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-title class_\">GetEuclidGCD</span>(firstNumber, secondNumber) === <span class=\"hljs-number\">1</span>\r\n}\r\n\r\n<span class=\"hljs-keyword\">export</span> { <span class=\"hljs-title class_\">CoPrimeCheck</span> }\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Suryapratap Singh",
+      "email": "suryprtaps@gmail.com",
+      "commits": 4
+    }
+  ],
+  "explanationUrl": {}
+}

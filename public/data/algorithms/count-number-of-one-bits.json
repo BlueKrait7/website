@@ -1,0 +1,23 @@
+{
+  "slug": "count-number-of-one-bits",
+  "name": "Count Number of One Bits",
+  "categories": [
+    "bitmanipulation"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "bit_manipulation\\count_number_of_one_bits.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/bit_manipulation\\count_number_of_one_bits.py",
+      "code": "<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">get_set_bits_count</span>(<span class=\"hljs-params\">number: <span class=\"hljs-built_in\">int</span></span>) -&gt; <span class=\"hljs-built_in\">int</span>:\r\n    <span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Count the number of set bits in a 32 bit integer\r\n    &gt;&gt;&gt; get_set_bits_count(25)\r\n    3\r\n    &gt;&gt;&gt; get_set_bits_count(37)\r\n    3\r\n    &gt;&gt;&gt; get_set_bits_count(21)\r\n    3\r\n    &gt;&gt;&gt; get_set_bits_count(58)\r\n    4\r\n    &gt;&gt;&gt; get_set_bits_count(0)\r\n    0\r\n    &gt;&gt;&gt; get_set_bits_count(256)\r\n    1\r\n    &gt;&gt;&gt; get_set_bits_count(-1)\r\n    Traceback (most recent call last):\r\n        ...\r\n    ValueError: the value of input must be positive\r\n    &quot;&quot;&quot;</span>\r\n    <span class=\"hljs-keyword\">if</span> number &lt; <span class=\"hljs-number\">0</span>:\r\n        <span class=\"hljs-keyword\">raise</span> ValueError(<span class=\"hljs-string\">&quot;the value of input must be positive&quot;</span>)\r\n    result = <span class=\"hljs-number\">0</span>\r\n    <span class=\"hljs-keyword\">while</span> number:\r\n        <span class=\"hljs-keyword\">if</span> number % <span class=\"hljs-number\">2</span> == <span class=\"hljs-number\">1</span>:\r\n            result += <span class=\"hljs-number\">1</span>\r\n        number = number &gt;&gt; <span class=\"hljs-number\">1</span>\r\n    <span class=\"hljs-keyword\">return</span> result\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-keyword\">import</span> doctest\r\n\r\n    doctest.testmod()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Ayush Bisht",
+      "email": "61404154+ayushbisht2001@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

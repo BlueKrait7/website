@@ -1,0 +1,48 @@
+{
+  "slug": "count-words",
+  "name": "Count Words",
+  "categories": [
+    "others"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\others\\CountWords.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\others\\CountWords.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.others;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.Scanner;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * You enter a string into this program, and it will return how many words were\r\n * in that particular string\r\n *\r\n * <span class=\"hljs-doctag\">@author</span> Marcus\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">CountWords</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-type\">Scanner</span> <span class=\"hljs-variable\">input</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Scanner</span>(System.in);\r\n        System.out.println(<span class=\"hljs-string\">&quot;Enter your text: &quot;</span>);\r\n        <span class=\"hljs-type\">String</span> <span class=\"hljs-variable\">str</span> <span class=\"hljs-operator\">=</span> input.nextLine();\r\n\r\n        System.out.println(<span class=\"hljs-string\">&quot;Your text has &quot;</span> + wordCount(str) + <span class=\"hljs-string\">&quot; word(s)&quot;</span>);\r\n        System.out.println(<span class=\"hljs-string\">&quot;Your text has &quot;</span> + secondaryWordCount(str) + <span class=\"hljs-string\">&quot; word(s)&quot;</span>);\r\n        input.close();\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">private</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">wordCount</span><span class=\"hljs-params\">(String s)</span> {\r\n        <span class=\"hljs-keyword\">if</span> (s == <span class=\"hljs-literal\">null</span> || s.isEmpty()) {\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> s.trim().split(<span class=\"hljs-string\">&quot;[\\\\s]+&quot;</span>).length;\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * counts the number of words in a sentence but ignores all potential\r\n     * non-alphanumeric characters that do not represent a word. runs in O(n)\r\n     * where n is the length of s\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> s String: sentence with word(s)\r\n     * <span class=\"hljs-doctag\">@return</span> int: number of words\r\n     */</span>\r\n    <span class=\"hljs-keyword\">private</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-type\">int</span> <span class=\"hljs-title function_\">secondaryWordCount</span><span class=\"hljs-params\">(String s)</span> {\r\n        <span class=\"hljs-keyword\">if</span> (s == <span class=\"hljs-literal\">null</span> || s.isEmpty()) {\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-number\">0</span>;\r\n        }\r\n        <span class=\"hljs-type\">StringBuilder</span> <span class=\"hljs-variable\">sb</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">StringBuilder</span>();\r\n        <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-type\">char</span> c : s.toCharArray()) {\r\n            <span class=\"hljs-keyword\">if</span> (Character.isLetter(c) || Character.isDigit(c)) {\r\n                sb.append(c);\r\n            }\r\n        }\r\n        s = sb.toString();\r\n        <span class=\"hljs-keyword\">return</span> s.trim().split(<span class=\"hljs-string\">&quot;[\\\\s]+&quot;</span>).length;\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "UntouchedOdin0",
+      "email": "UntouchedOdin0@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Furaha Damién",
+      "email": "furaha.damien@mail.mcgill.ca",
+      "commits": 1
+    },
+    {
+      "name": "JeonSeongBae",
+      "email": "tjdqo6042@naver.com",
+      "commits": 1
+    },
+    {
+      "name": "Prasoon",
+      "email": "prasoonpandey06@gmail.com",
+      "commits": 2
+    },
+    {
+      "name": "Libin Yang",
+      "email": "szuyanglb@outlook.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

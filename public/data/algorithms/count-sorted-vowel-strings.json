@@ -1,0 +1,23 @@
+{
+  "slug": "count-sorted-vowel-strings",
+  "name": "Count Sorted Vowel Strings",
+  "categories": [
+    "dynamicprogramming"
+  ],
+  "body": {},
+  "implementations": {
+    "ruby": {
+      "dir": "maths\\count_sorted_vowel_strings.rb",
+      "url": "https://github.com/TheAlgorithms/ruby/tree/master/maths\\count_sorted_vowel_strings.rb",
+      "code": "<span class=\"hljs-comment\"># Challenge name: Count Sorted Vowel Strings</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Given an integer n, return the number of strings of length n that consist only</span>\r\n<span class=\"hljs-comment\"># of vowels (a, e, i, o, u) and are lexicographically sorted.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># A string s is lexicographically sorted if for all valid i, s[i] is the same as</span>\r\n<span class=\"hljs-comment\"># or comes before s[i+1] in the alphabet.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Example 1:</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Input: n = 1</span>\r\n<span class=\"hljs-comment\"># Output: 5</span>\r\n<span class=\"hljs-comment\"># Explanation: The 5 sorted strings that consist of vowels only are [&quot;a&quot;,&quot;e&quot;,&quot;i&quot;,&quot;o&quot;,&quot;u&quot;].</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Example 2:</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Input: n = 2</span>\r\n<span class=\"hljs-comment\"># Output: 15</span>\r\n<span class=\"hljs-comment\"># Explanation: The 15 sorted strings that consist of vowels only are</span>\r\n<span class=\"hljs-comment\"># [&quot;aa&quot;,&quot;ae&quot;,&quot;ai&quot;,&quot;ao&quot;,&quot;au&quot;,&quot;ee&quot;,&quot;ei&quot;,&quot;eo&quot;,&quot;eu&quot;,&quot;ii&quot;,&quot;io&quot;,&quot;iu&quot;,&quot;oo&quot;,&quot;ou&quot;,&quot;uu&quot;].</span>\r\n<span class=\"hljs-comment\"># Note that &quot;ea&quot; is not a valid string since &#x27;e&#x27; comes after &#x27;a&#x27; in the alphabet.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Example 3:</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Input: n = 33</span>\r\n<span class=\"hljs-comment\"># Output: 66045</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Approach: Math</span>\r\n<span class=\"hljs-comment\">#</span>\r\n\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Intuition and Algorithm</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># The problem is a variant of finding Combinations.</span>\r\n<span class=\"hljs-comment\"># Mathematically, the problem can be described as,</span>\r\n<span class=\"hljs-comment\"># given 5 vowels (let k = 5), we want to find the</span>\r\n<span class=\"hljs-comment\"># number of combinations using only n vowels. Also,</span>\r\n<span class=\"hljs-comment\"># we can repeat each of those vowels multiple times.</span>\r\n<span class=\"hljs-comment\">#</span>\r\n\r\n<span class=\"hljs-comment\"># Complexity Analysis</span>\r\n<span class=\"hljs-comment\">#</span>\r\n<span class=\"hljs-comment\"># Time Complexity: O(1), as the approach runs in constant time.</span>\r\n<span class=\"hljs-comment\"># Space Complexity: O(1), as the approach uses constant extra space.</span>\r\n\r\n<span class=\"hljs-comment\"># <span class=\"hljs-doctag\">@param</span> {Integer} n</span>\r\n<span class=\"hljs-comment\"># <span class=\"hljs-doctag\">@return</span> {Integer}</span>\r\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title\">count_vowel_strings</span><span class=\"hljs-params\">(n)</span></span>\r\n  (n + <span class=\"hljs-number\">4</span>) * (n + <span class=\"hljs-number\">3</span>) * (n + <span class=\"hljs-number\">2</span>) * (n + <span class=\"hljs-number\">1</span>) / <span class=\"hljs-number\">24</span>\r\n<span class=\"hljs-keyword\">end</span>\r\n\r\nn = <span class=\"hljs-number\">33</span>\r\nputs count_vowel_strings(n)\r\n<span class=\"hljs-comment\"># Output: 66045</span>\r\n\r\nn = <span class=\"hljs-number\">2</span>\r\nputs count_vowel_strings(n)\r\n<span class=\"hljs-comment\"># Output: 15</span>\r\n\r\nn = <span class=\"hljs-number\">1</span>\r\nputs count_vowel_strings(n)\r\n<span class=\"hljs-comment\"># Output: 5</span>\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Vitor Oliveira",
+      "email": "vbrazo@gmail.com",
+      "commits": 6
+    }
+  ],
+  "explanationUrl": {}
+}

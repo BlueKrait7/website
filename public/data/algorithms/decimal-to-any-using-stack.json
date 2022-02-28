@@ -1,0 +1,29 @@
+{
+  "slug": "decimal-to-any-using-stack",
+  "name": "Decimal To Any Using Stack",
+  "categories": [
+    "datastructures",
+    "stacks"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\datastructures\\stacks\\DecimalToAnyUsingStack.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\datastructures\\stacks\\DecimalToAnyUsingStack.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.datastructures.stacks;\r\n\r\n<span class=\"hljs-keyword\">import</span> java.util.Stack;\r\n\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">DecimalToAnyUsingStack</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">convert</span><span class=\"hljs-params\">(<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">2</span>)</span>.equals(<span class=\"hljs-string\">&quot;0&quot;</span>);\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">convert</span><span class=\"hljs-params\">(<span class=\"hljs-number\">30</span>, <span class=\"hljs-number\">2</span>)</span>.equals(<span class=\"hljs-string\">&quot;11110&quot;</span>);\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">convert</span><span class=\"hljs-params\">(<span class=\"hljs-number\">30</span>, <span class=\"hljs-number\">8</span>)</span>.equals(<span class=\"hljs-string\">&quot;36&quot;</span>);\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">convert</span><span class=\"hljs-params\">(<span class=\"hljs-number\">30</span>, <span class=\"hljs-number\">10</span>)</span>.equals(<span class=\"hljs-string\">&quot;30&quot;</span>);\r\n        <span class=\"hljs-keyword\">assert</span> <span class=\"hljs-title function_\">convert</span><span class=\"hljs-params\">(<span class=\"hljs-number\">30</span>, <span class=\"hljs-number\">16</span>)</span>.equals(<span class=\"hljs-string\">&quot;1E&quot;</span>);\r\n    }\r\n\r\n    <span class=\"hljs-comment\">/**\r\n     * Convert decimal number to another radix\r\n     *\r\n     * <span class=\"hljs-doctag\">@param</span> number the number to be converted\r\n     * <span class=\"hljs-doctag\">@param</span> radix the radix\r\n     * <span class=\"hljs-doctag\">@return</span> another radix\r\n     * <span class=\"hljs-doctag\">@throws</span> ArithmeticException if &lt;tt&gt;number&lt;/tt&gt; or &lt;tt&gt;radius&lt;/tt&gt; is\r\n     * invalid\r\n     */</span>\r\n    <span class=\"hljs-keyword\">private</span> <span class=\"hljs-keyword\">static</span> String <span class=\"hljs-title function_\">convert</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span> number, <span class=\"hljs-type\">int</span> radix)</span> {\r\n        <span class=\"hljs-keyword\">if</span> (radix &lt; <span class=\"hljs-number\">2</span> || radix &gt; <span class=\"hljs-number\">16</span>) {\r\n            <span class=\"hljs-keyword\">throw</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">ArithmeticException</span>(\r\n                    String.format(<span class=\"hljs-string\">&quot;Invalid input -&gt; number:%d,radius:%d&quot;</span>, number, radix));\r\n        }\r\n        <span class=\"hljs-type\">char</span>[] tables = {\r\n            <span class=\"hljs-string\">&#x27;0&#x27;</span>, <span class=\"hljs-string\">&#x27;1&#x27;</span>, <span class=\"hljs-string\">&#x27;2&#x27;</span>, <span class=\"hljs-string\">&#x27;3&#x27;</span>, <span class=\"hljs-string\">&#x27;4&#x27;</span>, <span class=\"hljs-string\">&#x27;5&#x27;</span>, <span class=\"hljs-string\">&#x27;6&#x27;</span>, <span class=\"hljs-string\">&#x27;7&#x27;</span>, <span class=\"hljs-string\">&#x27;8&#x27;</span>, <span class=\"hljs-string\">&#x27;9&#x27;</span>, <span class=\"hljs-string\">&#x27;A&#x27;</span>, <span class=\"hljs-string\">&#x27;B&#x27;</span>, <span class=\"hljs-string\">&#x27;C&#x27;</span>, <span class=\"hljs-string\">&#x27;D&#x27;</span>, <span class=\"hljs-string\">&#x27;E&#x27;</span>, <span class=\"hljs-string\">&#x27;F&#x27;</span>\r\n        };\r\n        Stack&lt;Character&gt; bits = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Stack</span>&lt;&gt;();\r\n        <span class=\"hljs-keyword\">do</span> {\r\n            bits.push(tables[number % radix]);\r\n            number = number / radix;\r\n        } <span class=\"hljs-keyword\">while</span> (number != <span class=\"hljs-number\">0</span>);\r\n\r\n        <span class=\"hljs-type\">StringBuilder</span> <span class=\"hljs-variable\">result</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">StringBuilder</span>();\r\n        <span class=\"hljs-keyword\">while</span> (!bits.isEmpty()) {\r\n            result.append(bits.pop());\r\n        }\r\n        <span class=\"hljs-keyword\">return</span> result.toString();\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "shellhub",
+      "email": "shellhub.me@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

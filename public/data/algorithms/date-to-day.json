@@ -1,0 +1,33 @@
+{
+  "slug": "date-to-day",
+  "name": "Date To Day",
+  "categories": [
+    "conversions"
+  ],
+  "body": {},
+  "implementations": {
+    "javascript": {
+      "dir": "Conversions\\DateToDay.js",
+      "url": "https://github.com/TheAlgorithms/javascript/tree/master/Conversions\\DateToDay.js",
+      "code": "<span class=\"hljs-comment\">/*\r\n                    DateToDay Method\r\n                    ----------------\r\n    The DateToDay method takes a date in string format and\r\n    returns the name of a day. The approach behind this method\r\n    is very simple, we first take a string date and check\r\n    whether their date is valid or not, if the date is valid\r\n    then we do this But apply the algorithm shown below. The\r\n    algorithm shown below gives us the number of the day and\r\n    finally converts it to the name of the day.\r\n\r\n    Algorithm &amp; Explanation : https://cs.uwaterloo.ca/~alopez-o/math-faq/node73.html\r\n*/</span>\r\n\r\n<span class=\"hljs-comment\">// March is taken as the first month of the year.</span>\r\n<span class=\"hljs-keyword\">const</span> calcMonthList = {\r\n  <span class=\"hljs-number\">1</span>: <span class=\"hljs-number\">11</span>,\r\n  <span class=\"hljs-number\">2</span>: <span class=\"hljs-number\">12</span>,\r\n  <span class=\"hljs-number\">3</span>: <span class=\"hljs-number\">1</span>,\r\n  <span class=\"hljs-number\">4</span>: <span class=\"hljs-number\">2</span>,\r\n  <span class=\"hljs-number\">5</span>: <span class=\"hljs-number\">3</span>,\r\n  <span class=\"hljs-number\">6</span>: <span class=\"hljs-number\">4</span>,\r\n  <span class=\"hljs-number\">7</span>: <span class=\"hljs-number\">5</span>,\r\n  <span class=\"hljs-number\">8</span>: <span class=\"hljs-number\">6</span>,\r\n  <span class=\"hljs-number\">9</span>: <span class=\"hljs-number\">7</span>,\r\n  <span class=\"hljs-number\">10</span>: <span class=\"hljs-number\">8</span>,\r\n  <span class=\"hljs-number\">11</span>: <span class=\"hljs-number\">9</span>,\r\n  <span class=\"hljs-number\">12</span>: <span class=\"hljs-number\">10</span>\r\n}\r\n\r\n<span class=\"hljs-comment\">// show the week day in a number : Sunday - Saturday =&gt; 0 - 6</span>\r\n<span class=\"hljs-keyword\">const</span> daysNameList = { <span class=\"hljs-comment\">// weeks-day</span>\r\n  <span class=\"hljs-number\">0</span>: <span class=\"hljs-string\">&#x27;Sunday&#x27;</span>,\r\n  <span class=\"hljs-number\">1</span>: <span class=\"hljs-string\">&#x27;Monday&#x27;</span>,\r\n  <span class=\"hljs-number\">2</span>: <span class=\"hljs-string\">&#x27;Tuesday&#x27;</span>,\r\n  <span class=\"hljs-number\">3</span>: <span class=\"hljs-string\">&#x27;Wednesday&#x27;</span>,\r\n  <span class=\"hljs-number\">4</span>: <span class=\"hljs-string\">&#x27;Thursday&#x27;</span>,\r\n  <span class=\"hljs-number\">5</span>: <span class=\"hljs-string\">&#x27;Friday&#x27;</span>,\r\n  <span class=\"hljs-number\">6</span>: <span class=\"hljs-string\">&#x27;Saturday&#x27;</span>\r\n}\r\n\r\n<span class=\"hljs-keyword\">const</span> <span class=\"hljs-title function_\">DateToDay</span> = (<span class=\"hljs-params\">date</span>) =&gt; {\r\n  <span class=\"hljs-comment\">// firstly, check that input is a string or not.</span>\r\n  <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-keyword\">typeof</span> date !== <span class=\"hljs-string\">&#x27;string&#x27;</span>) {\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">TypeError</span>(<span class=\"hljs-string\">&#x27;Argument is not a string.&#x27;</span>)\r\n  }\r\n  <span class=\"hljs-comment\">// extract the date</span>\r\n  <span class=\"hljs-keyword\">const</span> [day, month, year] = date.<span class=\"hljs-title function_\">split</span>(<span class=\"hljs-string\">&#x27;/&#x27;</span>).<span class=\"hljs-title function_\">map</span>(<span class=\"hljs-function\">(<span class=\"hljs-params\">x</span>) =&gt;</span> <span class=\"hljs-title class_\">Number</span>(x))\r\n  <span class=\"hljs-comment\">// check the data are valid or not.</span>\r\n  <span class=\"hljs-keyword\">if</span> (day &lt; <span class=\"hljs-number\">0</span> || day &gt; <span class=\"hljs-number\">31</span> || month &gt; <span class=\"hljs-number\">12</span> || month &lt; <span class=\"hljs-number\">0</span>) {\r\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">TypeError</span>(<span class=\"hljs-string\">&#x27;Date is not valid.&#x27;</span>)\r\n  }\r\n  <span class=\"hljs-comment\">// divide year to century and yearDigit value.</span>\r\n  <span class=\"hljs-keyword\">const</span> yearDigit = (year % <span class=\"hljs-number\">100</span>)\r\n  <span class=\"hljs-keyword\">const</span> century = <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">floor</span>(year / <span class=\"hljs-number\">100</span>)\r\n  <span class=\"hljs-comment\">// Apply the algorithm shown above</span>\r\n  <span class=\"hljs-keyword\">const</span> weekDay = <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">abs</span>((day + <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">floor</span>((<span class=\"hljs-number\">2.6</span> * calcMonthList[month]) - <span class=\"hljs-number\">0.2</span>) - (<span class=\"hljs-number\">2</span> * century) + yearDigit + <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">floor</span>(yearDigit / <span class=\"hljs-number\">4</span>) + <span class=\"hljs-title class_\">Math</span>.<span class=\"hljs-title function_\">floor</span>(century / <span class=\"hljs-number\">4</span>)) % <span class=\"hljs-number\">7</span>)\r\n  <span class=\"hljs-comment\">// return the weekDay name.</span>\r\n  <span class=\"hljs-keyword\">return</span> daysNameList[weekDay]\r\n}\r\n\r\n<span class=\"hljs-comment\">// Example : DateToDay(&quot;18/12/2020&quot;) =&gt; Friday</span>\r\n\r\n<span class=\"hljs-keyword\">export</span> { <span class=\"hljs-title class_\">DateToDay</span> }\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Eric Lavault",
+      "email": "39483232+lvlte@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Keshav Bohra",
+      "email": "keshav2016@gmail.com",
+      "commits": 1
+    },
+    {
+      "name": "Suryapratap Singh",
+      "email": "suryprtaps@gmail.com",
+      "commits": 3
+    }
+  ],
+  "explanationUrl": {}
+}

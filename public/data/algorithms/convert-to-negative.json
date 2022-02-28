@@ -1,0 +1,28 @@
+{
+  "slug": "convert-to-negative",
+  "name": "Convert to Negative",
+  "categories": [
+    "digitalimageprocessing"
+  ],
+  "body": {},
+  "implementations": {
+    "python": {
+      "dir": "digital_image_processing\\convert_to_negative.py",
+      "url": "https://github.com/TheAlgorithms/python/tree/master/digital_image_processing\\convert_to_negative.py",
+      "code": "<span class=\"hljs-string\">&quot;&quot;&quot;\r\n    Implemented an algorithm using opencv to convert a colored image into its negative\r\n&quot;&quot;&quot;</span>\r\n<span class=\"hljs-keyword\">from</span> cv2 <span class=\"hljs-keyword\">import</span> destroyAllWindows, imread, imshow, waitKey\r\n\r\n\r\n<span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">convert_to_negative</span>(<span class=\"hljs-params\">img</span>):\r\n    <span class=\"hljs-comment\"># getting number of pixels in the image</span>\r\n    pixel_h, pixel_v = img.shape[<span class=\"hljs-number\">0</span>], img.shape[<span class=\"hljs-number\">1</span>]\r\n\r\n    <span class=\"hljs-comment\"># converting each pixel&#x27;s color to its negative</span>\r\n    <span class=\"hljs-keyword\">for</span> i <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(pixel_h):\r\n        <span class=\"hljs-keyword\">for</span> j <span class=\"hljs-keyword\">in</span> <span class=\"hljs-built_in\">range</span>(pixel_v):\r\n            img[i][j] = [<span class=\"hljs-number\">255</span>, <span class=\"hljs-number\">255</span>, <span class=\"hljs-number\">255</span>] - img[i][j]\r\n\r\n    <span class=\"hljs-keyword\">return</span> img\r\n\r\n\r\n<span class=\"hljs-keyword\">if</span> __name__ == <span class=\"hljs-string\">&quot;__main__&quot;</span>:\r\n    <span class=\"hljs-comment\"># read original image</span>\r\n    img = imread(<span class=\"hljs-string\">&quot;image_data/lena.jpg&quot;</span>, <span class=\"hljs-number\">1</span>)\r\n\r\n    <span class=\"hljs-comment\"># convert to its negative</span>\r\n    neg = convert_to_negative(img)\r\n\r\n    <span class=\"hljs-comment\"># show result image</span>\r\n    imshow(<span class=\"hljs-string\">&quot;negative of original image&quot;</span>, img)\r\n    waitKey(<span class=\"hljs-number\">0</span>)\r\n    destroyAllWindows()\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Christian Clauss",
+      "email": "cclauss@me.com",
+      "commits": 1
+    },
+    {
+      "name": "Shoaib Asgar",
+      "email": "shoaib.mca19.du@gmail.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "create-bst-from-sorted-array",
+  "name": "Create BST From Sorted Array",
+  "categories": [
+    "datastructures",
+    "tree"
+  ],
+  "body": {},
+  "implementations": {
+    "java": {
+      "dir": "src\\main\\java\\com\\thealgorithms\\datastructures\\trees\\CreateBSTFromSortedArray.java",
+      "url": "https://github.com/TheAlgorithms/java/tree/master/src\\main\\java\\com\\thealgorithms\\datastructures\\trees\\CreateBSTFromSortedArray.java",
+      "code": "<span class=\"hljs-keyword\">package</span> com.thealgorithms.datastructures.trees;\r\n\r\n<span class=\"hljs-keyword\">import</span> com.thealgorithms.datastructures.trees.BinaryTree.Node;\r\n\r\n<span class=\"hljs-comment\">/**\r\n * Given a sorted array. Create a balanced binary search tree from it.\r\n *\r\n * Steps: 1. Find the middle element of array. This will act as root 2. Use the\r\n * left half recursively to create left subtree 3. Use the right half\r\n * recursively to create right subtree\r\n */</span>\r\n<span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">CreateBSTFromSortedArray</span> {\r\n\r\n    <span class=\"hljs-keyword\">public</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">main</span><span class=\"hljs-params\">(String[] args)</span> {\r\n        test(<span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">int</span>[]{});\r\n        test(<span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">int</span>[]{<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>});\r\n        test(<span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">int</span>[]{<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>});\r\n        test(<span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">int</span>[]{<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>, <span class=\"hljs-number\">6</span>, <span class=\"hljs-number\">7</span>});\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">private</span> <span class=\"hljs-keyword\">static</span> <span class=\"hljs-keyword\">void</span> <span class=\"hljs-title function_\">test</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span>[] array)</span> {\r\n        <span class=\"hljs-type\">BinaryTree</span> <span class=\"hljs-variable\">root</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">BinaryTree</span>(createBst(array, <span class=\"hljs-number\">0</span>, array.length - <span class=\"hljs-number\">1</span>));\r\n        System.out.println(<span class=\"hljs-string\">&quot;\\n\\nPreorder Traversal: &quot;</span>);\r\n        root.preOrder(root.getRoot());\r\n        System.out.println(<span class=\"hljs-string\">&quot;\\nInorder Traversal: &quot;</span>);\r\n        root.inOrder(root.getRoot());\r\n        System.out.println(<span class=\"hljs-string\">&quot;\\nPostOrder Traversal: &quot;</span>);\r\n        root.postOrder(root.getRoot());\r\n    }\r\n\r\n    <span class=\"hljs-keyword\">private</span> <span class=\"hljs-keyword\">static</span> Node <span class=\"hljs-title function_\">createBst</span><span class=\"hljs-params\">(<span class=\"hljs-type\">int</span>[] array, <span class=\"hljs-type\">int</span> start, <span class=\"hljs-type\">int</span> end)</span> {\r\n        <span class=\"hljs-comment\">// No element left.</span>\r\n        <span class=\"hljs-keyword\">if</span> (start &gt; end) {\r\n            <span class=\"hljs-keyword\">return</span> <span class=\"hljs-literal\">null</span>;\r\n        }\r\n        <span class=\"hljs-type\">int</span> <span class=\"hljs-variable\">mid</span> <span class=\"hljs-operator\">=</span> start + (end - start) / <span class=\"hljs-number\">2</span>;\r\n\r\n        <span class=\"hljs-comment\">// middle element will be the root</span>\r\n        <span class=\"hljs-type\">Node</span> <span class=\"hljs-variable\">root</span> <span class=\"hljs-operator\">=</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-title class_\">Node</span>(array[mid]);\r\n        root.left = createBst(array, start, mid - <span class=\"hljs-number\">1</span>);\r\n        root.right = createBst(array, mid + <span class=\"hljs-number\">1</span>, end);\r\n        <span class=\"hljs-keyword\">return</span> root;\r\n    }\r\n}\r\n"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Aitor Fidalgo Sánchez",
+      "email": "64830228+aitorfi@users.noreply.github.com",
+      "commits": 1
+    },
+    {
+      "name": "Amit Kumar",
+      "email": "kumanoit@users.noreply.github.com",
+      "commits": 1
+    }
+  ],
+  "explanationUrl": {}
+}
